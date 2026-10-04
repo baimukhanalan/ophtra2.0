@@ -1,0 +1,2736 @@
+/* ==========================================================================
+   Page styles: platform (see DESIGN.md) — admin workspace, patient account,
+   FAQ, reviews, legal, 404 and the cookie card. Tokens only.
+   ========================================================================== */
+
+/* Hero text action rendered as a <button> (sign-out). */
+button.oph-herolink {
+  border: 0;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button.oph-herolink:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 4px;
+}
+
+/* ============================================================ AUTH CARD */
+
+.oph-authcard {
+  display: grid;
+  gap: var(--oph-space-5);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+}
+
+.oph-authcard__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-authcard__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-2xl);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.oph-authcard__text {
+  margin-top: calc(var(--oph-space-3) * -1);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-authcard__form {
+  display: grid;
+  gap: var(--oph-space-4);
+}
+
+.oph-authcard__code {
+  font-size: var(--oph-text-md);
+  letter-spacing: 0.3em;
+}
+
+.oph-authcard__secure {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-authcard__secure svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.oph-authsteps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--oph-space-2);
+  counter-reset: none;
+}
+
+.oph-authsteps li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 2px solid var(--oph-line);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-authsteps li span {
+  color: var(--oph-gold);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+}
+
+.oph-authsteps li[aria-current='step'],
+.oph-authsteps li[data-done] {
+  border-top-color: var(--oph-forest);
+  color: var(--oph-ink);
+}
+
+/* ============================================================== ADMIN SHELL */
+/* The public header / footer / assistant are not rendered on /admin, so the
+   workspace brings its own chrome: a forest top bar (brand, language,
+   accessibility, back to the site, who is signed in, sign-out), a forest
+   sidebar on desktop and one grouped section picker on phones/tablets. */
+
+.oph-admin-shell {
+  --oph-adminbar-h: 64px;
+  min-height: 100svh;
+  background: var(--oph-cream);
+}
+
+/* The floating accessibility toggle would sit on the sidebar; the top bar
+   offers the same entry. */
+:root:has(.oph-admin-shell) .oph-a11y-toggle {
+  display: none;
+}
+
+.oph-adminbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--oph-z-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  min-height: var(--oph-adminbar-h);
+  padding: 8px clamp(1rem, 0.5rem + 2vw, 2rem);
+  border-bottom: 1px solid var(--oph-forest-line);
+  background: var(--oph-forest-deep);
+  color: var(--oph-cream);
+}
+
+.oph-adminbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 44px;
+  min-height: 44px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.oph-adminbar__brand:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 4px;
+  border-radius: var(--oph-radius-xs);
+}
+
+.oph-adminbar__brandtext {
+  display: grid;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.oph-adminbar__name {
+  overflow: hidden;
+  color: rgba(244, 242, 237, 0.78);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oph-adminbar__role {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.oph-adminbar__tools {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--oph-space-2);
+}
+
+/* The language switcher reuses the public nav button; recolour for forest. */
+.oph-adminbar .oph-nav__link {
+  min-height: 44px;
+  color: var(--oph-cream);
+}
+
+.oph-adminbar__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--oph-space-3);
+  justify-content: center;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: var(--oph-cream);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--oph-duration-fast), border-color var(--oph-duration-fast);
+}
+
+.oph-adminbar__btn svg {
+  flex-shrink: 0;
+  color: var(--oph-gold-soft);
+}
+
+.oph-adminbar__btn:hover {
+  border-color: var(--oph-gold-soft);
+  background: var(--oph-forest-soft);
+}
+
+.oph-adminbar__btn:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 2px;
+}
+
+.oph-adminbar__btn--out {
+  border-color: rgba(244, 242, 237, 0.4);
+}
+
+.oph-adminbar__who {
+  padding-inline: var(--oph-space-2);
+  color: rgba(244, 242, 237, 0.78);
+  font-size: var(--oph-text-sm);
+  white-space: nowrap;
+}
+
+.oph-adminbar__who strong {
+  color: #ffffff;
+}
+
+@media (max-width: 1279px) {
+  .oph-adminbar__who {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .oph-adminbar__name {
+    display: none;
+  }
+  .oph-adminbar__role {
+    font-size: var(--oph-text-md);
+  }
+  /* Icon buttons keep an accessible name: the label is only visually hidden. */
+  .oph-adminbar__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .oph-adminbar__btn {
+    padding: 0;
+  }
+}
+
+/* Phones: the mark alone is the brand; its name stays for screen readers. */
+@media (max-width: 479px) {
+  .oph-adminbar {
+    gap: var(--oph-space-2);
+  }
+  .oph-adminbar__brandtext {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .oph-adminbar__tools {
+    gap: 6px;
+  }
+}
+
+/* Sign-in: centred card on cream under the bar. */
+.oph-adminauth {
+  display: grid;
+  place-items: start center;
+  min-height: calc(100svh - var(--oph-adminbar-h));
+  padding: clamp(2rem, 1rem + 6vh, 6rem) var(--oph-gutter) var(--oph-space-16);
+}
+
+.oph-adminauth .oph-authcard {
+  width: min(440px, 100%);
+}
+
+.oph-admin {
+  display: grid;
+  grid-template-columns: 272px minmax(0, 1fr);
+  min-height: calc(100svh - var(--oph-adminbar-h));
+}
+
+.oph-admin__side {
+  position: sticky;
+  top: var(--oph-adminbar-h);
+  display: flex;
+  flex-direction: column;
+  gap: var(--oph-space-6);
+  height: calc(100svh - var(--oph-adminbar-h));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--oph-space-6) var(--oph-space-4);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  scrollbar-width: thin;
+  scrollbar-color: var(--oph-forest-soft) transparent;
+}
+
+.oph-admin__nav {
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-admin__group ul {
+  display: grid;
+  gap: 2px;
+}
+
+.oph-admin__grouplabel {
+  margin-bottom: 6px;
+  padding-inline: var(--oph-space-3);
+  color: rgba(244, 242, 237, 0.7);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.oph-admin__link {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  width: 100%;
+  min-height: 44px;
+  padding: 8px var(--oph-space-3);
+  border: 0;
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: rgba(244, 242, 237, 0.82);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  text-align: left;
+  white-space: nowrap;
+  transition: background-color var(--oph-duration-fast), color var(--oph-duration-fast);
+}
+
+.oph-admin__link svg {
+  flex: 0 0 auto;
+  color: var(--oph-gold-soft);
+}
+
+.oph-admin__link span:first-of-type {
+  flex: 1;
+}
+
+.oph-admin__link:hover {
+  background: var(--oph-forest-soft);
+  color: #ffffff;
+}
+
+.oph-admin__link:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: -2px;
+}
+
+.oph-admin__link[aria-current='page'] {
+  background: var(--oph-paper);
+  color: var(--oph-forest);
+}
+
+.oph-admin__link[aria-current='page'] svg {
+  color: var(--oph-gold);
+}
+
+.oph-admin__badge {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-gold-soft);
+  color: var(--oph-forest-deep);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  text-align: center;
+}
+
+.oph-admin__foot {
+  display: grid;
+  gap: var(--oph-space-3);
+  margin-top: auto;
+  padding: var(--oph-space-4) var(--oph-space-3) 0;
+  border-top: 1px solid var(--oph-forest-line);
+}
+
+.oph-admin__main {
+  min-width: 0;
+  padding: clamp(1.25rem, 0.8rem + 2vw, 3rem) clamp(1rem, 0.5rem + 2.4vw, 3rem) var(--oph-space-16);
+}
+
+/* Mobile/tablet section picker (hidden while the sidebar is shown). */
+.oph-admin__picker {
+  display: none;
+}
+
+.oph-admin__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  margin-bottom: var(--oph-space-8);
+  padding-bottom: var(--oph-space-6);
+  border-bottom: 1px solid var(--oph-line);
+}
+
+.oph-admin__title {
+  margin-top: 6px;
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-display-sm);
+  font-weight: 400;
+  letter-spacing: var(--oph-tracking-tight);
+  line-height: 1.08;
+}
+
+.oph-admin__notice {
+  margin-bottom: var(--oph-space-6);
+}
+
+.oph-admin__content {
+  display: grid;
+  gap: var(--oph-space-6);
+  animation: oph-admin-in calc(var(--oph-duration-slow) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-admin-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .oph-admin {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-admin__side {
+    display: none;
+  }
+  .oph-admin__picker {
+    position: sticky;
+    top: var(--oph-adminbar-h);
+    z-index: var(--oph-z-sticky);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--oph-space-3);
+    margin: calc(-1 * clamp(1.25rem, 0.8rem + 2vw, 3rem)) calc(-1 * clamp(1rem, 0.5rem + 2.4vw, 3rem)) var(--oph-space-6);
+    padding: var(--oph-space-3) clamp(1rem, 0.5rem + 2.4vw, 3rem);
+    border-bottom: 1px solid var(--oph-line);
+    background: var(--oph-cream);
+    box-shadow: var(--oph-shadow-xs);
+  }
+  .oph-admin__picker .oph-field {
+    min-width: 0;
+  }
+  .oph-admin__picker .oph-pill {
+    margin-bottom: 12px;
+  }
+  .oph-admin__top {
+    margin-bottom: var(--oph-space-6);
+    padding-bottom: var(--oph-space-4);
+  }
+  .oph-admin__title {
+    font-size: var(--oph-text-3xl);
+  }
+}
+
+/* Landscape phones: bar + sticky picker would eat 40 % of a 390px-high
+   screen, so the picker scrolls away with the page. */
+@media (max-width: 1023px) and (max-height: 500px) {
+  .oph-admin__picker {
+    position: static;
+    box-shadow: none;
+  }
+}
+
+/* Phones: the demo/online state is already in the notice under the title, so
+   the sticky picker stays one row high. */
+@media (max-width: 599px) {
+  .oph-admin__picker {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-admin__picker .oph-pill {
+    display: none;
+  }
+}
+
+/* Touch targets inside the workspace on phones, tablets and any touch screen. */
+@media (max-width: 1023px), (pointer: coarse) {
+  .oph-admin-shell .oph-segmented button,
+  .oph-admin-shell .oph-btn--sm,
+  .oph-admin-shell .oph-select--compact,
+  .oph-admin-shell .oph-input--compact {
+    min-height: 44px;
+  }
+  .oph-admin-shell .oph-btn--icon.oph-btn--sm {
+    width: 44px;
+  }
+  .oph-admin-shell .oph-switch {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .oph-admin-shell .oph-chart__data summary {
+    min-height: 44px;
+    padding-block: 13px;
+  }
+  .oph-admin-shell .oph-atable__icon {
+    width: 44px;
+    height: 44px;
+  }
+  .oph-admin-shell .oph-apanel .oph-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .oph-authcard .oph-btn {
+    min-height: 44px;
+  }
+}
+
+/* Phones: table rows become cards (see .oph-rtable). */
+@media (max-width: 767px) {
+  /* Table rows become cards: actions start at the left edge, inputs fill. */
+  .oph-admin-shell .oph-rtable .oph-atable__actions {
+    justify-content: flex-start;
+  }
+  .oph-admin-shell .oph-rtable .oph-input--compact {
+    max-width: none;
+    margin-left: 0;
+    text-align: left;
+  }
+  .oph-admin-shell .oph-rtable .oph-select--compact {
+    width: 100%;
+  }
+  /* A single icon action sits in the card's top-right corner, not on a row
+     of its own. */
+  .oph-admin-shell .oph-rtable--corner.oph-table tbody tr,
+  .oph-admin-shell .oph-rtable--corner.oph-table tbody tr:hover {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .oph-admin-shell .oph-rtable--corner.oph-table tbody td {
+    grid-column: 1 / -1;
+  }
+  .oph-admin-shell .oph-rtable--corner.oph-table tbody td:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .oph-admin-shell .oph-rtable--corner.oph-table tbody td[data-cell='actions'] {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    min-width: 44px;
+    margin: -8px -8px 0 0;
+    padding: 0;
+    border: 0;
+  }
+  /* Price card: name on top, the input and the formatted price side by side. */
+  .oph-admin-shell .oph-rtable--prices.oph-table tbody tr,
+  .oph-admin-shell .oph-rtable--prices.oph-table tbody tr:hover {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .oph-admin-shell .oph-rtable--prices td[data-cell='name'] {
+    grid-column: 1 / -1;
+  }
+  .oph-admin-shell .oph-rtable--prices td[data-cell='current'] {
+    width: auto;
+    padding-bottom: 12px !important;
+    font-size: var(--oph-text-md);
+  }
+}
+
+/* ============================================================== ADMIN PANEL */
+
+.oph-apanel {
+  display: grid;
+  gap: var(--oph-space-5);
+  padding: clamp(1.1rem, 0.8rem + 1.2vw, 2rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+  min-width: 0;
+}
+
+.oph-apanel__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+}
+
+.oph-apanel__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.oph-apanel__lead {
+  max-width: 68ch;
+  margin-top: 6px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+.oph-apanel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oph-space-3);
+}
+
+.oph-apanel__sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--oph-space-2);
+  font-family: var(--oph-font-sans);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+}
+
+.oph-agrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: var(--oph-space-6);
+}
+
+/* Tables inside panels */
+.oph-atable__sub {
+  display: block;
+  margin-top: 3px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-regular);
+}
+
+.oph-atable__muted {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-atable__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.oph-atable__icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--oph-radius-sm);
+  color: var(--oph-brand-600);
+}
+
+.oph-atable__icon:hover {
+  background: var(--oph-sand);
+}
+
+.oph-select--compact,
+.oph-input--compact {
+  min-height: 38px;
+  padding-block: 6px;
+  font-size: var(--oph-text-xs);
+}
+
+.oph-input--compact {
+  max-width: 150px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.oph-select--compact {
+  padding-left: 10px;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+/* Filters */
+.oph-afilters {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-4);
+  align-items: end;
+}
+
+.oph-afilters--wide {
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .oph-afilters {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  }
+}
+
+/* Lead filters (search + four selects): one row only on wide screens; below
+   that the search takes its own row above a 4-up, then 2×2, then stacked set —
+   never a half-empty row, never truncated select values. */
+@media (max-width: 1439px) {
+  .oph-afilters--wide {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .oph-afilters--wide > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 859px), (min-width: 1024px) and (max-width: 1279px) {
+  .oph-afilters--wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 479px) {
+  .oph-afilters--wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.oph-acount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-acount strong {
+  color: var(--oph-ink);
+}
+
+.oph-atag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--oph-gold-line);
+  border-radius: var(--oph-radius-pill);
+  color: var(--oph-warning);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.oph-atag--muted {
+  border-color: var(--oph-line-strong);
+  color: var(--oph-muted);
+}
+
+/* Status pill: dot + text, never colour alone. */
+.oph-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 11px 4px 9px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-paper);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  white-space: nowrap;
+}
+
+.oph-pill__dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--oph-muted-soft);
+}
+
+.oph-pill--ok {
+  border-color: var(--oph-brand-200);
+  background: var(--oph-success-soft);
+  color: var(--oph-success);
+}
+.oph-pill--ok .oph-pill__dot {
+  background: var(--oph-success);
+}
+
+.oph-pill--warn {
+  border-color: var(--oph-gold-soft);
+  background: var(--oph-warning-soft);
+  color: var(--oph-warning);
+}
+.oph-pill--warn .oph-pill__dot {
+  background: var(--oph-gold);
+}
+
+.oph-pill--bad {
+  border-color: var(--oph-danger-soft);
+  background: var(--oph-danger-soft);
+  color: var(--oph-danger);
+}
+.oph-pill--bad .oph-pill__dot {
+  background: var(--oph-danger);
+}
+
+.oph-on-dark .oph-pill--ok,
+.oph-on-dark .oph-pill--warn {
+  border-color: var(--oph-forest-line);
+  background: var(--oph-forest-soft);
+  color: var(--oph-cream);
+}
+
+/* Switch */
+.oph-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--oph-ink);
+  font-size: var(--oph-text-sm);
+  text-align: left;
+  cursor: pointer;
+}
+
+.oph-switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.oph-switch__track {
+  position: relative;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 22px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-stone);
+  transition: background-color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-xs);
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-switch[aria-checked='true'] .oph-switch__track {
+  background: var(--oph-forest);
+}
+
+.oph-switch[aria-checked='true'] .oph-switch__thumb {
+  transform: translateX(18px);
+}
+
+.oph-switch:focus-visible .oph-switch__track {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+.oph-switch__state {
+  min-width: 7ch;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+}
+
+/* Lists */
+.oph-alist {
+  display: grid;
+}
+
+.oph-alist > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-3) 0;
+  border-bottom: 1px solid var(--oph-line);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-alist > li:last-child {
+  border-bottom: 0;
+}
+
+.oph-alist--cards > li {
+  padding: var(--oph-space-4) 0;
+}
+
+.oph-alist__title {
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-alist--toggles > li {
+  padding: var(--oph-space-2) 0;
+}
+
+.oph-atags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ========================================================= CONTENT EDITORS */
+
+.oph-aeditor {
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-aeditor__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-4);
+}
+
+@media (max-width: 720px) {
+  .oph-aeditor__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.oph-aeditor__sections {
+  display: grid;
+  gap: var(--oph-space-4);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.oph-aeditor__sections > ol {
+  display: grid;
+  gap: var(--oph-space-4);
+}
+
+.oph-aeditor__section {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--oph-space-4);
+  padding: var(--oph-space-4);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-cream);
+}
+
+.oph-aeditor__n {
+  padding-top: 30px;
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+}
+
+.oph-aeditor__fields {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-aeditor__tools {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 26px;
+}
+
+@media (max-width: 640px) {
+  .oph-aeditor__section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-aeditor__n,
+  .oph-aeditor__tools {
+    padding-top: 0;
+  }
+  .oph-aeditor__tools {
+    flex-direction: row;
+  }
+}
+
+.oph-aeditor__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--oph-space-3);
+  padding-top: var(--oph-space-5);
+  border-top: 1px solid var(--oph-line);
+}
+
+/* ================================================================= LEADS */
+
+.oph-board {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(236px, 1fr);
+  gap: var(--oph-space-3);
+  overflow-x: auto;
+  padding-bottom: var(--oph-space-3);
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--oph-line-strong) transparent;
+}
+
+.oph-board[data-more] {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 72px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 72px), transparent);
+}
+
+.oph-board__col {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--oph-space-3);
+  min-height: 320px;
+  padding: var(--oph-space-3);
+  border: 1px dashed transparent;
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-sand);
+  scroll-snap-align: start;
+  transition: border-color var(--oph-duration-fast), background-color var(--oph-duration-fast);
+}
+
+.oph-board__col[data-over] {
+  border-color: var(--oph-forest);
+  background: var(--oph-surface-2);
+}
+
+.oph-board__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 4px 0;
+}
+
+.oph-board__head h3 {
+  font-family: var(--oph-font-sans);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oph-board__count {
+  min-width: 26px;
+  padding: 1px 8px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-paper);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  text-align: center;
+}
+
+.oph-board__list {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+}
+
+.oph-board__empty {
+  display: grid;
+  place-items: center;
+  min-height: 88px;
+  border: 1px dashed var(--oph-line-strong);
+  border-radius: var(--oph-radius-sm);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-lcard {
+  display: grid;
+  gap: 8px;
+  padding: var(--oph-space-4);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-xs);
+  cursor: grab;
+  transition: box-shadow var(--oph-duration-fast), transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)), opacity var(--oph-duration-fast);
+}
+
+.oph-lcard:hover {
+  box-shadow: var(--oph-shadow-md);
+}
+
+.oph-lcard[data-dragging] {
+  opacity: 0.5;
+  transform: rotate(calc(1.5deg * var(--oph-motion-scale)));
+}
+
+.oph-lcard__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.oph-lcard__name {
+  font-size: var(--oph-text-sm);
+}
+
+.oph-lcard__meta {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-lcard__dx {
+  padding-left: 10px;
+  border-left: 2px solid var(--oph-gold-line);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-lcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-table--leads td {
+  vertical-align: top;
+}
+
+/* Lead cards on phones: short facts pair up (country | source,
+   stage | conversion) so a card stays about half as tall. */
+@media (min-width: 360px) and (max-width: 767px) {
+  .oph-admin-shell .oph-table--leads.oph-rtable.oph-table tbody tr,
+  .oph-admin-shell .oph-table--leads.oph-rtable.oph-table tbody tr:hover {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .oph-table--leads.oph-rtable td:nth-child(1),
+  .oph-table--leads.oph-rtable td:nth-child(4),
+  .oph-table--leads.oph-rtable td:nth-child(7) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Phones / touch: the pipeline is a native swipe row — one column (plus a peek
+   of the next) per screen, snapping column by column, never chaining into the
+   page scroll. */
+@media (max-width: 767px) {
+  .oph-board {
+    grid-auto-columns: min(84%, 320px);
+    margin-inline: calc(-1 * clamp(1.1rem, 0.8rem + 1.2vw, 2rem));
+    padding-inline: clamp(1.1rem, 0.8rem + 1.2vw, 2rem);
+    scroll-padding-inline: clamp(1.1rem, 0.8rem + 1.2vw, 2rem);
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+  }
+  .oph-board__col {
+    min-height: 200px;
+  }
+  .oph-lcard {
+    cursor: default;
+  }
+}
+
+/* ================================================================ CHARTS */
+
+.oph-chart {
+  display: grid;
+  gap: var(--oph-space-3);
+  margin: 0;
+  min-width: 0;
+}
+
+.oph-chart__readout {
+  min-height: 1.6em;
+  font-size: var(--oph-text-sm);
+  color: var(--oph-muted);
+}
+
+.oph-chart__readout strong {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-weight: 400;
+  color: var(--oph-ink);
+}
+
+.oph-chart__svg {
+  display: block;
+  width: 100%;
+  height: clamp(160px, 22vw, 220px);
+  touch-action: pan-y;
+}
+
+.oph-chart__grid {
+  stroke: var(--oph-line);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.oph-chart__axis {
+  stroke: var(--oph-line-strong);
+  stroke-width: 1;
+}
+
+.oph-chart__line {
+  fill: none;
+  stroke: var(--oph-forest);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.oph-chart__cross {
+  stroke: var(--oph-gold-line);
+  stroke-width: 1;
+}
+
+.oph-chart__dot,
+.oph-chart__dot-core {
+  stroke-linecap: round;
+}
+
+.oph-chart__dot {
+  stroke: var(--oph-paper);
+  stroke-width: 12;
+}
+
+.oph-chart__dot-core {
+  stroke: var(--oph-forest);
+  stroke-width: 8;
+}
+
+.oph-chart__xlabels {
+  display: flex;
+  justify-content: space-between;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-chart__data summary {
+  width: fit-content;
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  cursor: pointer;
+}
+
+.oph-chart__data table {
+  width: 100%;
+  margin-top: var(--oph-space-2);
+  font-size: var(--oph-text-xs);
+  border-collapse: collapse;
+}
+
+.oph-chart__data th,
+.oph-chart__data td {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--oph-line);
+  font-weight: var(--oph-weight-regular);
+  text-align: left;
+}
+
+.oph-chart__data td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-chart__empty {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-barlist {
+  display: grid;
+  gap: 10px;
+}
+
+.oph-barlist li {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.9fr) minmax(0, 2fr) auto;
+  align-items: center;
+  gap: var(--oph-space-3);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-barlist__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.3;
+}
+
+/* Phones: the label gets its own line above the bar, so long names
+   («United Arab Emirates», Kazakh sources) are read in full. */
+@media (max-width: 599px) {
+  .oph-barlist li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: 6px;
+  }
+  .oph-barlist__label {
+    grid-column: 1 / -1;
+  }
+}
+
+.oph-barlist__track {
+  height: 10px;
+  border-radius: 4px;
+  background: var(--oph-sand);
+  overflow: hidden;
+}
+
+.oph-barlist__track span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--oph-forest);
+  transform-origin: left;
+  transition: transform calc(var(--oph-duration-slow) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-barlist li:hover .oph-barlist__track span {
+  background: var(--oph-brand-600);
+}
+
+.oph-barlist__value {
+  min-width: 3ch;
+  color: var(--oph-ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--oph-weight-semibold);
+  text-align: right;
+}
+
+.oph-funnel {
+  display: grid;
+  gap: var(--oph-space-4);
+}
+
+.oph-funnel li {
+  display: grid;
+  gap: 6px;
+}
+
+.oph-funnel__head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-funnel__head strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-funnel__bar {
+  display: block;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--oph-sand);
+  overflow: hidden;
+}
+
+.oph-funnel__bar span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: var(--oph-forest);
+  transform-origin: left;
+}
+
+.oph-funnel__rate {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+}
+
+.oph-spark {
+  width: 100%;
+  height: 32px;
+}
+
+.oph-spark path {
+  fill: none;
+  stroke: var(--oph-forest);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.oph-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: var(--oph-space-4);
+}
+
+.oph-kpi {
+  display: grid;
+  gap: 6px;
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-cream);
+}
+
+.oph-kpi__label {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.oph-kpi__value {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.9rem, 1.4rem + 1.4vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.oph-kpi__delta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+}
+
+.oph-kpi__delta span {
+  color: var(--oph-muted);
+  font-weight: var(--oph-weight-regular);
+}
+
+.oph-kpi__delta.is-up {
+  color: var(--oph-success);
+}
+
+.oph-kpi__delta.is-down {
+  color: var(--oph-danger);
+}
+
+/* ============================================================ FORMS ADMIN */
+
+.oph-forms {
+  display: grid;
+}
+
+.oph-formrow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--oph-space-5);
+  padding: var(--oph-space-4) 0;
+  border-bottom: 1px solid var(--oph-line);
+}
+
+.oph-formrow:last-child {
+  border-bottom: 0;
+}
+
+.oph-formrow[data-disabled] .oph-formrow__main {
+  opacity: 0.55;
+}
+
+.oph-formrow__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-weight: 400;
+}
+
+.oph-formrow__meta {
+  margin-top: 3px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-formrow__meta code {
+  color: var(--oph-brand-600);
+}
+
+@media (max-width: 860px) {
+  .oph-formrow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+}
+
+/* ============================================================ AUTOMATION */
+
+.oph-flows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--oph-space-5);
+}
+
+.oph-flow {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-4);
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-top: 2px solid var(--oph-forest);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-cream);
+}
+
+.oph-flow[data-off] {
+  border-top-color: var(--oph-line-strong);
+}
+
+.oph-flow__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+}
+
+.oph-flow__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-weight: 400;
+}
+
+.oph-flow__text {
+  margin-top: 4px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-flow__steps {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-flowstep {
+  display: grid;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-4);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+}
+
+.oph-flowstep__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--oph-text-sm);
+}
+
+.oph-flowstep__head strong {
+  flex: 1;
+}
+
+.oph-flowstep__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+}
+
+.oph-flowstep__body {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-flowstep__preview {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-left: 2px solid var(--oph-gold-line);
+  background: var(--oph-cream);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  line-height: 1.55;
+}
+
+/* ========================================================== INTEGRATIONS */
+
+.oph-integr {
+  display: grid;
+  gap: var(--oph-space-8);
+}
+
+.oph-choice {
+  display: grid;
+  gap: var(--oph-space-4);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.oph-choice legend {
+  display: grid;
+  gap: 4px;
+  margin-bottom: var(--oph-space-4);
+  padding: 0;
+}
+
+.oph-choice__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+}
+
+.oph-choice__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-choice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: var(--oph-space-3);
+}
+
+.oph-choice__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 12px 16px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-cream);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  cursor: pointer;
+  transition: border-color var(--oph-duration-fast), background-color var(--oph-duration-fast);
+}
+
+.oph-choice__card input {
+  accent-color: var(--oph-forest);
+}
+
+.oph-choice__card span {
+  flex: 1;
+}
+
+.oph-choice__check {
+  color: var(--oph-forest);
+  opacity: 0;
+}
+
+.oph-choice__card:has(input:checked) {
+  border-color: var(--oph-forest);
+  background: var(--oph-paper);
+  box-shadow: inset 0 0 0 1px var(--oph-forest);
+}
+
+.oph-choice__card:has(input:checked) .oph-choice__check {
+  opacity: 1;
+}
+
+.oph-choice__card:has(input:focus-visible) {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+.oph-trackfield {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+/* ============================================================== SECURITY */
+
+.oph-rbac th,
+.oph-rbac td {
+  text-align: center;
+}
+
+.oph-rbac th[scope='row'],
+.oph-rbac thead th:first-child {
+  text-align: left;
+}
+
+.oph-rbac__hit {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.oph-rbac__check {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--oph-forest);
+  cursor: pointer;
+}
+
+.oph-rbac-wrap:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+}
+
+/* Narrow screens: the role column stays pinned while the permissions scroll. */
+@media (max-width: 1023px) {
+  .oph-rbac th[scope='row'],
+  .oph-rbac thead th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background: var(--oph-paper);
+    box-shadow: 1px 0 0 var(--oph-line);
+  }
+  .oph-rbac thead th:first-child {
+    background: var(--oph-surface-2);
+  }
+  .oph-rbac.oph-table thead th,
+  .oph-rbac.oph-table tbody td,
+  .oph-rbac.oph-table tbody th {
+    padding: var(--oph-space-2) var(--oph-space-3);
+  }
+  .oph-rbac.oph-table {
+    min-width: 0;
+  }
+}
+
+.oph-rbac__check:disabled {
+  cursor: not-allowed;
+}
+
+/* ================================================================ PHOTOS */
+
+.oph-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--oph-space-3);
+}
+
+.oph-photos li {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  font-size: var(--oph-text-xs);
+}
+
+.oph-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-stone);
+}
+
+.oph-photos span {
+  overflow: hidden;
+  color: var(--oph-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oph-photos button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.oph-photos button:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+/* =============================================================== ACCOUNT */
+
+.oph-account__demo {
+  margin-bottom: var(--oph-space-6);
+}
+
+/* Download / new-request links in the account are real tap targets. */
+.oph-workspace .oph-card__footer .oph-link,
+.oph-opinions__head .oph-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+}
+
+.oph-opinions {
+  display: grid;
+  gap: var(--oph-space-6);
+}
+
+.oph-opinions__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+}
+
+.oph-opinions__list {
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-opinion {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-opinion__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+}
+
+.oph-opinion__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.oph-opinion__meta {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+/* Status tracker: Получено → На рассмотрении → Заключение готово. */
+.oph-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-3);
+  margin-top: var(--oph-space-3);
+}
+
+.oph-track li {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding-top: 22px;
+  font-size: var(--oph-text-xs);
+  color: var(--oph-muted);
+}
+
+.oph-track li::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 0;
+  right: calc(var(--oph-space-3) * -1);
+  height: 2px;
+  background: var(--oph-line);
+}
+
+.oph-track li:last-child::before {
+  right: 0;
+}
+
+.oph-track__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--oph-line-strong);
+  border-radius: 50%;
+  background: var(--oph-paper);
+}
+
+.oph-track strong {
+  color: var(--oph-ink);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-track li[data-state='done']::before,
+.oph-track li[data-state='current']::before {
+  background: var(--oph-forest);
+}
+
+.oph-track li[data-state='current']::before {
+  right: 50%;
+}
+
+.oph-track li[data-state='done'] .oph-track__dot {
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+}
+
+.oph-track li[data-state='current'] .oph-track__dot {
+  border-color: var(--oph-gold);
+  background: var(--oph-gold);
+  box-shadow: 0 0 0 4px var(--oph-warning-soft);
+}
+
+.oph-track li[data-state='todo'] strong {
+  color: var(--oph-muted);
+}
+
+@media (max-width: 640px) {
+  .oph-track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-track li::before {
+    display: none;
+  }
+}
+
+/* =================================================================== FAQ */
+
+.oph-faq__filters {
+  display: grid;
+  gap: var(--oph-space-5);
+  margin-bottom: var(--oph-space-6);
+}
+
+.oph-faq__count {
+  margin-bottom: var(--oph-space-4);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-faq__count strong {
+  color: var(--oph-ink);
+}
+
+.oph-faq__disclaimer {
+  margin-top: var(--oph-space-8);
+  padding-top: var(--oph-space-5);
+  border-top: 1px solid var(--oph-line);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-faq__ask {
+  display: grid;
+  gap: var(--oph-space-5);
+  padding: clamp(1.5rem, 1rem + 2.4vw, 3rem);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-sand);
+  transform: translateY(calc((1 - var(--enter, 1)) * 24px * var(--oph-motion-scale)));
+}
+
+.oph-faq__asktext {
+  max-width: 56ch;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.45;
+}
+
+.oph-faq__channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-3);
+}
+
+/* Touch: the «ask» box rises with a per-frame --enter value that lags the
+   native momentum scroll — on phones it stays put. */
+@media (hover: none), (pointer: coarse) {
+  .oph-faq__ask {
+    transform: none;
+  }
+  /* The whole question list is one reveal; sliding a screen-tall block while
+     the finger scrolls reads as a wobble, so on touch it only fades in. */
+  .oph-faq [data-oph-reveal] {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  /* 16px keeps iOS from zooming the page when the search field takes focus. */
+  .oph-faq__filters .oph-input {
+    font-size: max(16px, var(--oph-text-sm));
+  }
+  /* Accordion rows: less side padding so long Kazakh questions keep room. */
+  .oph-faq .oph-accordion__trigger {
+    gap: var(--oph-space-3);
+    min-height: 56px;
+    padding: var(--oph-space-4);
+    font-size: var(--oph-text-base);
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .oph-faq .oph-accordion__body {
+    padding: 0 var(--oph-space-4) var(--oph-space-5);
+    overflow-wrap: anywhere;
+  }
+  .oph-faq__channels .oph-btn {
+    flex: 1 1 200px;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+/* =============================================================== REVIEWS */
+
+.oph-stat__suffix {
+  margin-left: 2px;
+  color: var(--oph-muted);
+  font-size: 0.5em;
+}
+
+.oph-reviews__statement {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.6rem);
+  line-height: 1.3;
+  color: var(--oph-cream);
+}
+
+.oph-reviews__stack {
+  margin-top: var(--oph-space-4);
+}
+
+/* Desktop stack sits under the header, not at a hard-coded offset. */
+.oph-reviews__stack .oph-stack-cards__item {
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-4) + var(--i) * 18px);
+}
+
+/* Touch / narrow: a plain, static list — nothing pinned, nothing scaled. */
+.oph-reviews__list {
+  display: grid;
+  gap: var(--oph-space-4);
+  margin: var(--oph-space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oph-reviews__list > li {
+  min-width: 0;
+}
+
+.oph-reviews__list .oph-review {
+  box-shadow: var(--oph-shadow-sm);
+}
+
+/* Belt and braces: if the stack is ever rendered on a touch screen (SSR /
+   stale media state), it must not pin or scale. */
+@media (hover: none), (pointer: coarse), (max-width: 1023px) {
+  .oph-reviews__stack .oph-stack-cards__item {
+    position: static;
+  }
+  .oph-reviews__stack .oph-stack-cards__card {
+    transform: none;
+    filter: none;
+  }
+  .oph-reviews__stack.oph-stack-cards {
+    gap: var(--oph-space-4);
+  }
+}
+
+.oph-review {
+  display: grid;
+  gap: var(--oph-space-5);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-md);
+}
+
+.oph-review__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--oph-line-strong);
+}
+
+.oph-stars svg[data-on] {
+  color: var(--oph-gold);
+  fill: var(--oph-gold);
+}
+
+.oph-review__quote p {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem);
+  line-height: 1.5;
+  color: var(--oph-ink);
+}
+
+.oph-review__quote p::before {
+  content: '«';
+  color: var(--oph-gold);
+}
+
+.oph-review__quote p::after {
+  content: '»';
+  color: var(--oph-gold);
+}
+
+.oph-review__foot {
+  display: grid;
+  gap: 2px;
+  padding-top: var(--oph-space-4);
+  border-top: 1px solid var(--oph-line);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-review__foot span {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+/* ================================================================= LEGAL */
+
+.oph-legal__cookiebtn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: var(--oph-weight-semibold);
+  cursor: pointer;
+}
+
+.oph-legal__status {
+  color: var(--oph-success);
+  font-size: var(--oph-text-sm);
+}
+
+/* ================================================================ COOKIE */
+/* Figma fix: the banner covered the hero. Compact, non-modal paper card with
+   both choices clearly active (outline + forest primary). Placement is owned
+   by the shell (shell.css): bottom-right on >=768px, a bottom sheet on phones.
+   Everything here works in both placements; buttons and the policy link are
+   44px targets. */
+
+.oph-consent {
+  position: fixed;
+  right: clamp(16px, 2.4vw, 28px);
+  bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--oph-z-toast);
+  display: grid;
+  gap: var(--oph-space-3);
+  width: min(400px, calc(100vw - 32px));
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-top: 2px solid var(--oph-gold-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-lg);
+  animation: oph-consent-in calc(var(--oph-duration-slow) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-consent-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.oph-consent__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.oph-consent__icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-consent__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  line-height: 1.2;
+}
+
+.oph-consent__text {
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  line-height: 1.6;
+}
+
+.oph-consent__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--oph-space-2);
+}
+
+.oph-consent__actions .oph-btn {
+  justify-content: center;
+  width: 100%;
+  min-height: 44px;
+  padding-inline: var(--oph-space-3);
+  font-size: var(--oph-text-sm);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.oph-consent__actions .oph-btn--outline {
+  border-color: var(--oph-forest);
+  color: var(--oph-forest);
+}
+
+.oph-consent__link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 44px;
+  margin-block: calc(var(--oph-space-2) * -1);
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.oph-consent__link:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+/* Phones: full-width bottom sheet (left/right/bottom come from shell.css).
+   The width must yield to left+right, and the sheet stays compact. */
+@media (max-width: 767px) {
+  .oph-consent {
+    width: auto;
+    gap: var(--oph-space-2);
+    padding: var(--oph-space-4) var(--oph-space-4) calc(var(--oph-space-3) + env(safe-area-inset-bottom, 0px));
+    border-radius: var(--oph-radius-md);
+    box-shadow: var(--oph-shadow-xl);
+  }
+  .oph-consent__title {
+    font-size: var(--oph-text-md);
+  }
+  .oph-consent__icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 359px) {
+  .oph-consent__actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Landscape phones: a short, wide card — copy on the left, choices on the
+   right — so it covers a strip of the screen instead of two thirds of it and
+   the lifted assistant launcher stays below the header. */
+@media (max-height: 500px) and (min-width: 600px) {
+  .oph-consent {
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 34%);
+    grid-template-areas:
+      'head actions'
+      'text actions'
+      'text link';
+    column-gap: var(--oph-space-5);
+    row-gap: var(--oph-space-2);
+    width: min(720px, calc(100vw - 32px));
+    padding: var(--oph-space-4) var(--oph-space-5);
+  }
+  .oph-consent__head {
+    grid-area: head;
+  }
+  .oph-consent__text {
+    grid-area: text;
+  }
+  .oph-consent__actions {
+    grid-area: actions;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+  }
+  .oph-consent__link {
+    grid-area: link;
+    margin-block: 0;
+  }
+  .oph-consent__title {
+    font-size: var(--oph-text-md);
+  }
+}
+
+/* ======================================================= PENDING NOTICES */
+/* «Configuration pending»: admin screens whose connection does not exist yet
+   say so up front instead of implying a live integration. */
+
+.oph-pending {
+  display: grid;
+  gap: var(--oph-space-2);
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border: 1px solid var(--oph-gold-soft);
+  border-left: 3px solid var(--oph-gold-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-warning-soft);
+}
+
+.oph-pending__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  line-height: 1.25;
+  color: var(--oph-ink);
+}
+
+.oph-pending__badge .oph-pill__dot {
+  background: var(--oph-gold-line);
+}
+
+.oph-pending__text {
+  max-width: 78ch;
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+.oph-apanel__note {
+  max-width: 78ch;
+  padding: 10px 14px;
+  border-left: 2px solid var(--oph-gold-line);
+  background: var(--oph-cream);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-choice__status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-flow__head .oph-pill {
+  margin-left: auto;
+}
+
+/* Flows never grow past their column: every grid track may shrink, the head
+   wraps (title first, then pill + switch), long step names wrap. */
+.oph-flow,
+.oph-flow__steps,
+.oph-flowstep,
+.oph-flowstep__body {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+
+.oph-flow__head {
+  flex-wrap: wrap;
+}
+
+.oph-flow__head > div:first-child {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+
+.oph-flowstep__head strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ============================================ ACCOUNT: COMPACT DASHBOARD HEAD */
+/* C2 — a signed-in patient lands on the dashboard, not a full-height hero. */
+
+.oph-acchead {
+  padding: var(--oph-space-8) 0;
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-acchead .oph-breadcrumbs {
+  margin-bottom: var(--oph-space-4);
+}
+
+/* Touch: the crumb link gets a 44px hit area without moving the layout. */
+@media (pointer: coarse), (max-width: 1023px) {
+  .oph-acchead .oph-breadcrumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin-block: -12px;
+  }
+}
+
+.oph-acchead__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oph-space-5);
+}
+
+.oph-acchead__title {
+  margin-top: 8px;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.9rem, 1.3rem + 2vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.oph-acchead__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oph-space-3);
+}
+
+.oph-acchead__signout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 var(--oph-space-3);
+  border: 0;
+  background: none;
+  color: rgba(244, 242, 237, 0.82);
+  font: inherit;
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  cursor: pointer;
+}
+
+.oph-acchead__signout:hover {
+  color: #ffffff;
+}
+
+.oph-acchead__signout:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 2px;
+}
+
+/* Account tabs strip on phones/tablets scrolls sideways: fade the edge so the
+   hidden tabs read as "more". */
+@media (max-width: 1023px) {
+  .oph-workspace__side {
+    scroll-padding-inline: var(--oph-space-3);
+  }
+  .oph-workspace__side[data-more-end] {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+  }
+  .oph-workspace__side[data-more-start] {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px);
+    mask-image: linear-gradient(90deg, transparent, #000 40px);
+  }
+  .oph-workspace__side[data-more-start][data-more-end] {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+  }
+}
+
+/* ================================================= ACCOUNT: RESPONSIVE TABLE */
+/* C1 — a table on wide screens, stacked cards on phones. */
+
+.oph-rtable-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+}
+
+.oph-rtable__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--oph-space-2) var(--oph-space-3);
+}
+
+.oph-rtable__actions .oph-link,
+.oph-rtable__actions .oph-btn {
+  min-height: 44px;
+}
+
+.oph-rtable__actions .oph-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 767px) {
+  .oph-rtable-wrap {
+    overflow: visible;
+    border: 0;
+    background: none;
+  }
+  .oph-rtable.oph-table,
+  .oph-rtable tbody,
+  .oph-rtable tr,
+  .oph-rtable td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+  .oph-rtable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .oph-rtable tbody {
+    display: grid;
+    gap: var(--oph-space-3);
+  }
+  .oph-rtable.oph-table tbody tr,
+  .oph-rtable.oph-table tbody tr:hover {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+    padding: var(--oph-space-4);
+    border: 1px solid var(--oph-line);
+    border-radius: var(--oph-radius-md);
+    background: var(--oph-paper);
+    box-shadow: var(--oph-shadow-xs);
+  }
+  .oph-rtable.oph-table tbody td {
+    padding: 0;
+    border: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: left !important;
+  }
+  .oph-rtable td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    color: var(--oph-muted);
+    font-size: var(--oph-text-xs);
+    font-weight: var(--oph-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  /* The first cell is the card title: no label above it. */
+  .oph-rtable td:first-child::before {
+    content: none;
+  }
+  .oph-rtable.oph-table tbody td[data-cell='actions'] {
+    padding-top: var(--oph-space-3);
+    border-top: 1px solid var(--oph-line);
+  }
+  .oph-rtable td[data-cell='actions']::before {
+    content: none;
+  }
+  .oph-rtable__actions {
+    justify-content: flex-start;
+  }
+  .oph-rtable__actions .oph-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+/* ============================================================ REVIEWS NOTE */
+
+.oph-reviews__note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 70ch;
+  margin: calc(var(--oph-space-2) * -1) 0 var(--oph-space-6);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.55;
+}
+
+.oph-reviews__note svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--oph-brand-600);
+}
+
+/* ============================================== PAGE-SPECIFIC HERO VISUALS */
+/* L1 — FAQ and 404 get their own motif instead of the shared ring. */
+
+.oph-heromark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.oph-heromark__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.oph-heromark__ring {
+  fill: none;
+  stroke: var(--oph-gold-soft);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+.oph-heromark__ring--soft {
+  stroke: rgba(244, 242, 237, 0.28);
+}
+
+.oph-heromark__glyph {
+  position: relative;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(6rem, 4rem + 6vw, 10rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--oph-cream);
+}
+
+.oph-heromark__glyph--sm {
+  font-size: clamp(3.5rem, 2.5rem + 3vw, 5.5rem);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 767px) {
+  .oph-pagehero__aside:has(> .oph-heromark) {
+    display: none;
+  }
+}
+
+/* 12px floor on these pages for the shared 11px labels (field label, card and
+   section numerals). */
+.oph-faq .oph-field__label,
+.oph-legal .oph-article__n,
+.oph-notfound .oph-ecard__n {
+  font-size: var(--oph-text-xs);
+}
+
+/* ================================================== TAP TARGETS & LEGAL TOC */
+
+@media (max-width: 767px) {
+  .oph-faq__filters .oph-chip,
+  .oph-reviews__filter .oph-chip {
+    min-height: 44px;
+  }
+}
+
+.oph-legal__cookiebtn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Legal contents: sticky under the header (not a hard-coded 110px), scrolls
+   on its own when the list is taller than the window; anchors land clear of
+   the header. On one-column layouts the list is static, so its reading
+   progress bar (scaled per frame) is dropped. */
+.oph-legal .oph-article__toc {
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-5));
+  max-height: calc(100dvh - var(--oph-sticky-top, 76px) - var(--oph-space-8));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.oph-legal .oph-article__section {
+  scroll-margin-top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-5));
+}
+
+.oph-legal .oph-article__title,
+.oph-legal .oph-article__text {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .oph-legal .oph-article__toc {
+    max-height: none;
+    overflow: visible;
+  }
+  .oph-legal .oph-article__progress {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .oph-legal .oph-article__toc ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--oph-space-5);
+  }
+}
+
+/* L2 — contents entries at a readable size and a full-height target. */
+.oph-legal .oph-article__toc a {
+  font-size: var(--oph-text-sm);
+  color: var(--oph-ink-soft);
+}
+
+@media (max-width: 1023px) {
+  .oph-legal .oph-article__toc a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

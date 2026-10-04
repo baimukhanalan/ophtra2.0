@@ -1,0 +1,487 @@
+{
+  "organization": {
+    "legalName": {
+      "ru": "Офтальмологический центр доктора Кулмаганбетова",
+      "kk": "Доктор Кұлмағанбетов офтальмологиялық орталығы",
+      "en": "Ophthalmic Centre of Dr Kulmaganbetov"
+    },
+    "bin": "000000000000",
+    "license": "00-0000000",
+    "email": "info@drkulmaganbetov.kz",
+    "phone": "+7 717 000 00 00",
+    "phoneHref": "+77170000000",
+    "whatsapp": "77000000000",
+    "telegram": "drkulmaganbetov",
+    "url": "https://ophtra2.vercel.app"
+  },
+  "metrics": [
+    {
+      "id": "years",
+      "value": 17,
+      "suffix": "+"
+    },
+    {
+      "id": "operations",
+      "value": 9400,
+      "suffix": "+"
+    },
+    {
+      "id": "doctors",
+      "value": 28,
+      "suffix": "+"
+    },
+    {
+      "id": "satisfaction",
+      "value": 98,
+      "suffix": " %"
+    }
+  ],
+  "journey": [
+    {
+      "id": "stage-1",
+      "illustration": "calendar",
+      "title": {
+        "ru": "Запись",
+        "kk": "Жазылу",
+        "en": "Booking"
+      },
+      "text": {
+        "ru": "Онлайн-запись, звонок или WhatsApp. Подтверждение приходит сразу, напоминание — за сутки и за два часа.",
+        "kk": "Онлайн жазылу, қоңырау немесе WhatsApp. Растау бірден келеді, еске салу — бір тәулік және екі сағат бұрын.",
+        "en": "Book online, by phone or on WhatsApp. Confirmation arrives immediately, reminders 24 hours and 2 hours before."
+      }
+    },
+    {
+      "id": "stage-2",
+      "illustration": "diagnostics",
+      "title": {
+        "ru": "Диагностика",
+        "kk": "Диагностика",
+        "en": "Diagnostics"
+      },
+      "text": {
+        "ru": "До 12 исследований за одно посещение. Заключение врача пациент получает в день обращения.",
+        "kk": "Бір келуде 12-ге дейін зерттеу. Дәрігер қорытындысын пациент сол күні алады.",
+        "en": "Up to twelve tests in a single visit. The doctor's conclusion is issued the same day."
+      }
+    },
+    {
+      "id": "stage-3",
+      "illustration": "iris",
+      "title": {
+        "ru": "План лечения",
+        "kk": "Емдеу жоспары",
+        "en": "Treatment plan"
+      },
+      "text": {
+        "ru": "Врач объясняет варианты, сроки и стоимость. Пациент получает письменный план и рецепт.",
+        "kk": "Дәрігер нұсқаларды, мерзімдерді және құнын түсіндіреді. Пациент жазбаша жоспар мен рецепт алады.",
+        "en": "The doctor explains the options, timeline and cost. The patient receives a written plan and prescription."
+      }
+    },
+    {
+      "id": "stage-4",
+      "illustration": "laser",
+      "title": {
+        "ru": "Вмешательство",
+        "kk": "Араласу",
+        "en": "Procedure"
+      },
+      "text": {
+        "ru": "Операции выполняются амбулаторно. Госпитализация не требуется, домой — через 1,5–2 часа.",
+        "kk": "Операциялар амбулаториялық түрде орындалады. Ауруханаға жату қажет емес, үйге — 1,5–2 сағаттан кейін.",
+        "en": "Procedures are performed on an outpatient basis. No hospital stay: patients go home after 1.5–2 hours."
+      }
+    },
+    {
+      "id": "stage-5",
+      "illustration": "clinic",
+      "title": {
+        "ru": "Наблюдение",
+        "kk": "Бақылау",
+        "en": "Follow-up"
+      },
+      "text": {
+        "ru": "Контрольные осмотры по графику, результаты и назначения — в личном кабинете.",
+        "kk": "Кесте бойынша бақылау қараулары, нәтижелер мен тағайындаулар — жеке кабинетте.",
+        "en": "Scheduled follow-up visits, with results and prescriptions in the patient account."
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "id": "eq-oct",
+      "name": {
+        "ru": "ОКТ-томограф",
+        "kk": "ОКТ-томограф",
+        "en": "OCT scanner"
+      },
+      "text": {
+        "ru": "Сканирование сетчатки и зрительного нерва с разрешением до 5 микрон.",
+        "kk": "Тор қабық пен көру жүйкесін 5 микронға дейінгі ажыратымдылықпен сканерлеу.",
+        "en": "Retina and optic nerve scanning at up to 5-micron resolution."
+      }
+    },
+    {
+      "id": "eq-femto",
+      "name": {
+        "ru": "Фемтосекундный лазер",
+        "kk": "Фемтосекундтық лазер",
+        "en": "Femtosecond laser"
+      },
+      "text": {
+        "ru": "Бесконтактное формирование роговичного доступа с точностью до микрона.",
+        "kk": "Қасаң қабық кірісін микронға дейінгі дәлдікпен байланыссыз қалыптастыру.",
+        "en": "Contact-free corneal access shaped with micron precision."
+      }
+    },
+    {
+      "id": "eq-phaco",
+      "name": {
+        "ru": "Факоэмульсификатор",
+        "kk": "Факоэмульсификатор",
+        "en": "Phacoemulsifier"
+      },
+      "text": {
+        "ru": "Удаление хрусталика через микродоступ 2,2 мм без наложения швов.",
+        "kk": "Бұршақты 2,2 мм микрокіру арқылы тігіссіз алу.",
+        "en": "Lens removal through a 2.2 mm micro-incision with no sutures."
+      }
+    },
+    {
+      "id": "eq-perimeter",
+      "name": {
+        "ru": "Компьютерный периметр",
+        "kk": "Компьютерлік периметр",
+        "en": "Computer perimeter"
+      },
+      "text": {
+        "ru": "Пороговая периметрия для ранней диагностики глаукомы.",
+        "kk": "Глаукоманы ерте диагностикалауға арналған шекті периметрия.",
+        "en": "Threshold perimetry for early glaucoma detection."
+      }
+    },
+    {
+      "id": "eq-topograph",
+      "name": {
+        "ru": "Кератотопограф",
+        "kk": "Кератотопограф",
+        "en": "Corneal topographer"
+      },
+      "text": {
+        "ru": "Карта кривизны и толщины роговицы перед рефракционной операцией.",
+        "kk": "Рефракциялық операция алдындағы қасаң қабық қисықтығы мен қалыңдығының картасы.",
+        "en": "Corneal curvature and thickness mapping before refractive surgery."
+      }
+    },
+    {
+      "id": "eq-yag",
+      "name": {
+        "ru": "YAG-лазер",
+        "kk": "YAG-лазер",
+        "en": "YAG laser"
+      },
+      "text": {
+        "ru": "Амбулаторное устранение вторичной катаракты за один сеанс.",
+        "kk": "Екіншілік катарактаны бір сеанста амбулаториялық жою.",
+        "en": "Outpatient removal of secondary cataract in one session."
+      }
+    }
+  ],
+  "values": [
+    {
+      "id": "val-evidence",
+      "title": {
+        "ru": "Доказательная медицина",
+        "kk": "Дәлелді медицина",
+        "en": "Evidence-based medicine"
+      },
+      "text": {
+        "ru": "Каждый протокол лечения опирается на международные клинические рекомендации и пересматривается ежегодно.",
+        "kk": "Әрбір емдеу хаттамасы халықаралық клиникалық ұсыныстарға сүйенеді және жыл сайын қайта қаралады.",
+        "en": "Every treatment protocol follows international clinical guidelines and is reviewed annually."
+      }
+    },
+    {
+      "id": "val-transparency",
+      "title": {
+        "ru": "Прозрачность",
+        "kk": "Ашықтық",
+        "en": "Transparency"
+      },
+      "text": {
+        "ru": "Стоимость известна до начала лечения. Пациент получает письменный план с перечнем всех этапов.",
+        "kk": "Құны емдеу басталғанға дейін белгілі. Пациент барлық кезеңдер тізімі бар жазбаша жоспар алады.",
+        "en": "The cost is known before treatment starts. Patients receive a written plan listing every stage."
+      }
+    },
+    {
+      "id": "val-technology",
+      "title": {
+        "ru": "Технологичность",
+        "kk": "Технологиялық",
+        "en": "Technology"
+      },
+      "text": {
+        "ru": "Диагностическое и хирургическое оборудование обновляется по программе с горизонтом в пять лет.",
+        "kk": "Диагностикалық және хирургиялық жабдық бес жылдық көкжиегі бар бағдарлама бойынша жаңартылады.",
+        "en": "Diagnostic and surgical equipment is renewed under a five-year programme."
+      }
+    },
+    {
+      "id": "val-continuity",
+      "title": {
+        "ru": "Непрерывность наблюдения",
+        "kk": "Бақылаудың үздіксіздігі",
+        "en": "Continuity of care"
+      },
+      "text": {
+        "ru": "История визитов, результаты и назначения хранятся в личном кабинете и доступны лечащему врачу.",
+        "kk": "Келу тарихы, нәтижелер мен тағайындаулар жеке кабинетте сақталады және емдеуші дәрігерге қолжетімді.",
+        "en": "Visit history, results and prescriptions are kept in the patient account and available to the treating doctor."
+      }
+    }
+  ],
+  "timeline": [
+    {
+      "id": "tl-phd",
+      "year": "Cardiff",
+      "title": {
+        "ru": "PhD в науках о зрении",
+        "kk": "Көру ғылымдары бойынша PhD",
+        "en": "PhD in Vision Sciences"
+      },
+      "text": {
+        "ru": "Кардиффский университет (Великобритания); MD в офтальмологии, AFHEA.",
+        "kk": "Кардифф университеті (Ұлыбритания); офтальмология бойынша MD, AFHEA.",
+        "en": "Cardiff University (UK); MD in Ophthalmology, AFHEA."
+      }
+    },
+    {
+      "id": "tl-teach",
+      "year": "КазНИИ ГБ",
+      "title": {
+        "ru": "Преподавание и цифровая диагностика",
+        "kk": "Оқыту және цифрлық диагностика",
+        "en": "Teaching and digital diagnostics"
+      },
+      "text": {
+        "ru": "Отдел постдипломного образования Казахского НИИ глазных болезней: цифровые технологии в диагностике заболеваний глаз.",
+        "kk": "Қазақ көз аурулары ҒЗИ-нің жоғары оқу орнынан кейінгі білім беру бөлімі: көз ауруларын диагностикалаудағы цифрлық технологиялар.",
+        "en": "Department of Postgraduate Education, Kazakh Research Institute of Eye Diseases: digital technologies in eye-disease diagnosis."
+      }
+    },
+    {
+      "id": "tl-trials",
+      "year": "HK · CA",
+      "title": {
+        "ru": "Испытания технологии",
+        "kk": "Технологияны сынау",
+        "en": "Technology testing"
+      },
+      "text": {
+        "ru": "Прибор на основе квантовой оптики для ранней диагностики макулодистрофии испытан в клиниках Гонконга и Канады: 200 пациентов, получен патент.",
+        "kk": "Макулодистрофияны ерте анықтауға арналған кванттық оптикаға негізделген құрылғы Гонконг пен Канада клиникаларында сыналды: 200 пациент, патент алынды.",
+        "en": "A quantum-optics device for early detection of macular degeneration was tested in clinics in Hong Kong and Canada: 200 patients, patent granted."
+      }
+    },
+    {
+      "id": "tl-2026",
+      "year": "2026",
+      "title": {
+        "ru": "Научные публикации",
+        "kk": "Ғылыми жарияланымдар",
+        "en": "Research papers"
+      },
+      "text": {
+        "ru": "Scientific Reports, Diagnostics и Healthcare — три статьи в соавторстве.",
+        "kk": "Scientific Reports, Diagnostics және Healthcare — бірлескен үш мақала.",
+        "en": "Scientific Reports, Diagnostics and Healthcare — three co-authored papers."
+      }
+    },
+    {
+      "id": "tl-centre",
+      "year": "Астана",
+      "title": {
+        "ru": "Офтальмологический центр",
+        "kk": "Офтальмологиялық орталық",
+        "en": "The ophthalmic centre"
+      },
+      "text": {
+        "ru": "Центр в Астане для клинической работы и инновационных проектов.",
+        "kk": "Клиникалық жұмыс пен инновациялық жобаларға арналған Астанадағы орталық.",
+        "en": "A centre in Astana for clinical work and innovation projects."
+      }
+    }
+  ],
+  "channels": [
+    {
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "href": "https://wa.me/77000000000"
+    },
+    {
+      "id": "phone",
+      "label": "+7 717 000 00 00",
+      "href": "tel:+77170000000"
+    },
+    {
+      "id": "email",
+      "label": "info@drkulmaganbetov.kz",
+      "href": "mailto:info@drkulmaganbetov.kz"
+    },
+    {
+      "id": "threads",
+      "label": "Threads",
+      "href": "https://www.threads.com/@mukhit_kulmaganbetov"
+    }
+  ],
+  "records": [
+    {
+      "id": "r1",
+      "title": {
+        "ru": "ОКТ сетчатки",
+        "kk": "Тор қабық ОКТ",
+        "en": "Retinal OCT"
+      },
+      "meta": {
+        "ru": "2019",
+        "kk": "2019",
+        "en": "2019"
+      }
+    },
+    {
+      "id": "r2",
+      "title": {
+        "ru": "Поля зрения",
+        "kk": "Көру өрістері",
+        "en": "Visual fields"
+      },
+      "meta": {
+        "ru": "2020",
+        "kk": "2020",
+        "en": "2020"
+      }
+    },
+    {
+      "id": "r3",
+      "title": {
+        "ru": "Внутриглазное давление",
+        "kk": "Көзішілік қысым",
+        "en": "Eye pressure"
+      },
+      "meta": {
+        "ru": "2021",
+        "kk": "2021",
+        "en": "2021"
+      }
+    },
+    {
+      "id": "r4",
+      "title": {
+        "ru": "Рецепт на очки",
+        "kk": "Көзілдірік рецепті",
+        "en": "Spectacle Rx"
+      },
+      "meta": {
+        "ru": "2022",
+        "kk": "2022",
+        "en": "2022"
+      }
+    },
+    {
+      "id": "r5",
+      "title": {
+        "ru": "Кератотопография",
+        "kk": "Кератотопография",
+        "en": "Corneal map"
+      },
+      "meta": {
+        "ru": "2023",
+        "kk": "2023",
+        "en": "2023"
+      }
+    },
+    {
+      "id": "r6",
+      "title": {
+        "ru": "Расчёт линзы",
+        "kk": "Линза есебі",
+        "en": "Lens calculation"
+      },
+      "meta": {
+        "ru": "2024",
+        "kk": "2024",
+        "en": "2024"
+      }
+    },
+    {
+      "id": "r7",
+      "title": {
+        "ru": "Выписка после операции",
+        "kk": "Операциядан кейінгі үзінді",
+        "en": "Operative report"
+      },
+      "meta": {
+        "ru": "2025",
+        "kk": "2025",
+        "en": "2025"
+      }
+    },
+    {
+      "id": "r8",
+      "title": {
+        "ru": "Контрольный осмотр",
+        "kk": "Бақылау қарауы",
+        "en": "Follow-up"
+      },
+      "meta": {
+        "ru": "2026",
+        "kk": "2026",
+        "en": "2026"
+      }
+    }
+  ],
+  "complaints": [
+    {
+      "ru": "расплывается",
+      "kk": "бұлдырайды",
+      "en": "blurry"
+    },
+    {
+      "ru": "радуга вокруг фонарей",
+      "kk": "шамдар айналасында кемпірқосақ",
+      "en": "halos at night"
+    },
+    {
+      "ru": "тяжело читать",
+      "kk": "оқу қиын",
+      "en": "hard to read"
+    },
+    {
+      "ru": "слепят фары",
+      "kk": "фаралар соқыр қылады",
+      "en": "headlight glare"
+    },
+    {
+      "ru": "вечером хуже",
+      "kk": "кешке нашар",
+      "en": "worse at dusk"
+    },
+    {
+      "ru": "меняю очки каждый год",
+      "kk": "жыл сайын көзілдірік ауыстырамын",
+      "en": "new glasses yearly"
+    },
+    {
+      "ru": "цвета поблёкли",
+      "kk": "түстер өңсізденді",
+      "en": "colours faded"
+    },
+    {
+      "ru": "как через плёнку",
+      "kk": "қабықша арқылы сияқты",
+      "en": "like through film"
+    }
+  ]
+}

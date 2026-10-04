@@ -1,0 +1,839 @@
+/* ==========================================================================
+   OPHTRA — LAYOUT LAYER
+   Header · Navigation · Footer · Hero · Assistant · Account & Admin shells
+   ========================================================================== */
+
+/* =============================================================== ASSISTANT */
+/* Figma fix: the floating «Помощник» overlapped cards and CTAs. Forest pill
+   with a gold icon tile on desktop, icon-only circle on phones. It rises above
+   the cookie card while that is visible (--oph-consent-offset is published by
+   ConsentBanner) using `translate`, not `bottom`: a transform is compositor-only
+   and never counts as a layout shift (perf report P2). The shell fades it out
+   over the footer and while the drawer / a11y panel is open. */
+
+.oph-assistant-launcher {
+  --oph-float-gap: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+  position: fixed;
+  right: clamp(16px, 2.4vw, 28px);
+  bottom: var(--oph-float-gap);
+  z-index: var(--oph-z-assistant);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 6px 18px 6px 6px;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  box-shadow: var(--oph-shadow-brand);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  letter-spacing: 0.01em;
+  transition:
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    background-color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-assistant-launcher:hover {
+  background: var(--oph-brand-700);
+  transform: translateY(calc(-2px * var(--oph-motion-scale)));
+}
+
+.oph-assistant-launcher:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 3px;
+}
+
+.oph-assistant-launcher__icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--oph-forest-soft);
+  color: var(--oph-gold-soft);
+}
+
+.oph-assistant-launcher__label {
+  position: relative;
+}
+
+.oph-assistant-launcher__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid var(--oph-gold-soft);
+  opacity: 0;
+  /* Three beats, not forever: the launcher is always on screen, and an
+     infinite animation would keep the compositor busy for the whole visit. */
+  animation: oph-launcher-pulse 2.6s var(--oph-ease-out) 1.2s 3;
+  pointer-events: none;
+}
+
+@keyframes oph-launcher-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-assistant-launcher__pulse {
+  animation: none;
+}
+
+@media (max-width: 767px) {
+  .oph-assistant-launcher {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+  .oph-assistant-launcher__icon {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+  .oph-assistant-launcher__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+
+/* Lift above the cookie card with a transform. The `html:root` selector keeps
+   `bottom` fixed even where an older rule animates it, so the offset is never
+   applied twice. */
+html:root[data-consent-open] .oph-assistant-launcher {
+  bottom: var(--oph-float-gap);
+  translate: 0 calc(-1 * var(--oph-consent-offset, 0px));
+}
+
+:root .oph-assistant-launcher {
+  transition:
+    opacity 300ms var(--oph-ease-out),
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    translate calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    background-color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-assistant {
+  position: fixed;
+  right: clamp(16px, 2.4vw, 28px);
+  bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--oph-z-assistant);
+  display: flex;
+  flex-direction: column;
+  width: min(420px, calc(100vw - 32px));
+  height: min(640px, calc(100svh - 112px));
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-xl);
+  overflow: hidden;
+  transform-origin: bottom right;
+  animation: oph-assistant-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+/* Phones: a full-height sheet. Height follows the dynamic viewport (dvh) and,
+   once the keyboard opens, the visual viewport published by AssistantWidget
+   (--oph-assistant-vh / --oph-assistant-top), so the header and the input
+   never jump out of view. The panel itself does not move with the page.
+   Landscape phones (short, touch) get the same sheet. */
+@media (max-width: 767px), (max-height: 500px) and (pointer: coarse) {
+  .oph-assistant {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    height: 100vh;
+    height: var(--oph-assistant-vh, 100dvh);
+    border: 0;
+    border-radius: 0;
+    translate: 0 var(--oph-assistant-top, 0px);
+    transform-origin: bottom center;
+  }
+}
+
+/* Short sheet (landscape phone, or the keyboard is up — AssistantWidget sets
+   data-compact while the visual viewport is squeezed): the status line,
+   the suggestion row and the operator link give their height to the chat.
+   The operator stays reachable as soon as the keyboard closes. */
+@media (max-height: 500px) and (pointer: coarse) {
+  .oph-assistant .oph-assistant__sub {
+    display: none;
+  }
+}
+
+.oph-assistant[data-compact] .oph-assistant__sub,
+.oph-assistant[data-compact] .oph-assistant__chips,
+.oph-assistant[data-compact] .oph-assistant__operator {
+  display: none;
+}
+
+.oph-assistant[data-compact] .oph-assistant__header {
+  padding-top: calc(var(--oph-space-2) + env(safe-area-inset-top, 0px));
+  padding-bottom: var(--oph-space-2);
+}
+
+.oph-assistant:focus {
+  outline: none;
+}
+
+.oph-assistant:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: -2px;
+}
+
+@keyframes oph-assistant-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+.oph-assistant[data-closing='true'] {
+  animation: oph-assistant-out 220ms var(--oph-ease-in-out) forwards;
+}
+
+@keyframes oph-assistant-out {
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+.oph-assistant__header {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-4) var(--oph-space-4) var(--oph-space-4) var(--oph-space-5);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-assistant__avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: 50%;
+  background: var(--oph-forest-soft);
+  color: var(--oph-gold-soft);
+}
+
+.oph-assistant__who {
+  flex: 1;
+  min-width: 0;
+}
+
+.oph-assistant__name {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.oph-assistant__sub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 6px;
+  margin-top: 2px;
+  color: rgba(244, 242, 237, 0.78);
+  font-size: var(--oph-text-xs);
+  line-height: 1.35;
+}
+
+.oph-assistant__online {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--oph-brand-300);
+  box-shadow: 0 0 0 3px rgba(143, 171, 156, 0.2);
+}
+
+.oph-assistant__icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: var(--oph-cream);
+  transition: background-color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-assistant__icon:hover {
+  background: var(--oph-forest-soft);
+}
+
+.oph-assistant__icon:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 2px;
+}
+
+.oph-assistant__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--oph-space-5);
+  background: var(--oph-cream);
+  scroll-behavior: smooth;
+}
+
+.oph-assistant__disclaimer {
+  margin-top: var(--oph-space-4);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.oph-assistant__footer {
+  padding: var(--oph-space-4);
+  border-top: 1px solid var(--oph-line);
+  background: var(--oph-paper);
+}
+
+.oph-assistant__form {
+  display: flex;
+  gap: var(--oph-space-2);
+}
+
+.oph-assistant__form .oph-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The send button is the primary action: forest fill, always legible. When the
+   field is empty it is aria-disabled (still forest, not a grey "dead" square)
+   and submitting does nothing. */
+.oph-assistant__send.oph-btn {
+  flex: 0 0 auto;
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  justify-content: center;
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-assistant__send.oph-btn svg {
+  flex-shrink: 0;
+}
+
+.oph-assistant__send.oph-btn:hover {
+  background: var(--oph-brand-700);
+}
+
+.oph-assistant__send.oph-btn[aria-disabled='true'] {
+  opacity: 1;
+  cursor: default;
+}
+
+/* In-message call to action («Открыть запись →»). */
+.oph-msg__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: var(--oph-space-3);
+  padding: 0 var(--oph-space-4);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: none;
+  white-space: normal;
+}
+
+.oph-msg__action:hover {
+  background: var(--oph-brand-700);
+}
+
+.oph-msg__action:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+.oph-msg {
+  display: flex;
+  margin-bottom: var(--oph-space-3);
+  animation: oph-msg-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.oph-msg__bubble {
+  max-width: 86%;
+  padding: 12px 16px;
+  border-radius: var(--oph-radius-md);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-normal);
+  white-space: pre-wrap;
+}
+
+.oph-msg--bot .oph-msg__bubble {
+  border: 1px solid var(--oph-line);
+  border-bottom-left-radius: var(--oph-radius-xs);
+  background: var(--oph-paper);
+  color: var(--oph-ink-soft);
+  box-shadow: var(--oph-shadow-xs);
+}
+
+.oph-msg--user {
+  justify-content: flex-end;
+}
+
+.oph-msg--user .oph-msg__bubble {
+  border-bottom-right-radius: var(--oph-radius-xs);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-msg--system .oph-msg__bubble {
+  border: 1px dashed var(--oph-gold-line);
+  background: transparent;
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-typing {
+  display: inline-flex;
+  gap: 5px;
+  padding: 4px 0;
+}
+
+.oph-typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--oph-gold-line);
+  animation: oph-typing 1.2s var(--oph-ease-in-out) infinite;
+}
+
+.oph-typing span:nth-child(2) {
+  animation-delay: 160ms;
+}
+.oph-typing span:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+@keyframes oph-typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(calc(-4px * var(--oph-motion-scale)));
+  }
+}
+
+.oph-assistant__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--oph-space-3);
+}
+
+.oph-assistant__chip {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  text-align: left;
+  transition:
+    border-color var(--oph-duration-fast) var(--oph-ease-out),
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-assistant__chip:hover {
+  border-color: var(--oph-forest);
+  background: var(--oph-sand);
+}
+
+.oph-assistant__operator {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: var(--oph-space-3);
+  border-color: transparent;
+  background: transparent;
+  color: var(--oph-brand-600);
+  text-align: center;
+}
+
+@media (max-width: 767px), (pointer: coarse) {
+  .oph-assistant__chip {
+    min-height: 44px;
+  }
+}
+
+/* Phone sheet internals (after the base rules so they win the cascade). */
+@media (max-width: 767px), (max-height: 500px) and (pointer: coarse) {
+  .oph-assistant__header {
+    padding-top: calc(var(--oph-space-3) + env(safe-area-inset-top, 0px));
+    padding-bottom: var(--oph-space-3);
+    padding-left: max(var(--oph-space-4), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--oph-space-3), env(safe-area-inset-right, 0px));
+  }
+  .oph-assistant__body {
+    padding: var(--oph-space-4);
+  }
+  .oph-assistant__footer {
+    padding: var(--oph-space-3) var(--oph-space-4) calc(var(--oph-space-3) + env(safe-area-inset-bottom, 0px));
+  }
+  /* 16px keeps iOS from zooming the page when the field takes focus. */
+  .oph-assistant__form .oph-input {
+    font-size: max(16px, var(--oph-text-sm));
+  }
+  /* Suggestion chips scroll sideways instead of eating the conversation. */
+  .oph-assistant__chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    margin-inline: calc(var(--oph-space-4) * -1);
+    padding-inline: var(--oph-space-4);
+    scroll-padding-inline: var(--oph-space-4);
+  }
+  .oph-assistant__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .oph-assistant__chip {
+    flex: 0 0 auto;
+    max-width: 80vw;
+  }
+  .oph-assistant__operator {
+    margin-top: var(--oph-space-2);
+  }
+}
+
+/* ================================================ ACCOUNT & ADMIN WORKSPACE */
+/* Figma language: forest sidebar, paper panels. */
+
+.oph-workspace {
+  display: grid;
+  gap: var(--oph-grid-gap);
+  grid-template-columns: 264px minmax(0, 1fr);
+  align-items: start;
+}
+
+@media (max-width: 1023px) {
+  .oph-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.oph-workspace__side {
+  position: sticky;
+  top: calc(var(--oph-sticky-top) + var(--oph-space-6));
+  display: grid;
+  gap: 2px;
+  padding: var(--oph-space-3);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-forest);
+  box-shadow: var(--oph-shadow-md);
+}
+
+@media (max-width: 1023px) {
+  .oph-workspace__side {
+    position: static;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .oph-workspace__side::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.oph-workspace__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: rgba(244, 242, 237, 0.74);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  white-space: nowrap;
+  text-align: left;
+  transition:
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-workspace__link svg {
+  flex: 0 0 auto;
+  color: var(--oph-gold-soft);
+}
+
+.oph-workspace__link:hover {
+  background: var(--oph-forest-soft);
+  color: #ffffff;
+}
+
+.oph-workspace__link:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: -2px;
+}
+
+.oph-workspace__link[aria-current='page'],
+.oph-workspace__link[aria-current='true'] {
+  background: var(--oph-paper);
+  color: var(--oph-forest);
+}
+
+.oph-workspace__link[aria-current='page'] svg,
+.oph-workspace__link[aria-current='true'] svg {
+  color: var(--oph-gold);
+}
+
+.oph-stat-grid {
+  display: grid;
+  gap: var(--oph-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+}
+
+/* ============================================================ ACCESSIBILITY */
+/* Desktop: a floating paper toggle bottom-left (the cookie card lives
+   bottom-right, so it no longer needs to lift). Phones: the toggle is hidden by
+   the shell and the panel opens from the drawer / admin bar via the
+   `oph:open-a11y` event, as a sheet above the bottom edge. */
+
+.oph-a11y-toggle {
+  position: fixed;
+  left: clamp(16px, 2.4vw, 28px);
+  bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--oph-z-assistant);
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: 50%;
+  background: var(--oph-paper);
+  color: var(--oph-forest);
+  box-shadow: var(--oph-shadow-md);
+  transition:
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    border-color var(--oph-duration-fast);
+}
+
+.oph-a11y-toggle:hover {
+  border-color: var(--oph-gold-line);
+  transform: translateY(calc(-2px * var(--oph-motion-scale)));
+}
+
+.oph-a11y-toggle[aria-expanded='true'] {
+  background: var(--oph-forest);
+  border-color: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-a11y-toggle:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 3px;
+}
+
+.oph-a11y-panel {
+  position: fixed;
+  left: clamp(16px, 2.4vw, 28px);
+  bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px) + 60px);
+  z-index: var(--oph-z-toast);
+  display: grid;
+  width: min(340px, calc(100vw - 32px));
+  max-height: calc(100svh - 120px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-top: 2px solid var(--oph-gold-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-xl);
+  transform-origin: bottom left;
+  animation: oph-dropdown-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+/* Opened without the floating toggle (drawer on phones, admin top bar). */
+.oph-a11y-panel[data-docked='true'] {
+  bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+}
+
+@media (max-width: 767px) {
+  .oph-a11y-panel,
+  .oph-a11y-panel[data-docked='true'] {
+    left: 8px;
+    right: 8px;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    width: auto;
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    transform-origin: bottom center;
+  }
+  /* Sit above the cookie sheet rather than under it. */
+  :root[data-consent-open] .oph-a11y-panel {
+    translate: 0 calc(-1 * var(--oph-consent-offset, 0px));
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px) - var(--oph-consent-offset, 0px));
+  }
+}
+
+.oph-a11y-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  margin-bottom: var(--oph-space-5);
+}
+
+.oph-a11y-panel__title {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.oph-a11y-panel__close {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: var(--oph-ink);
+}
+
+.oph-a11y-panel__close:hover {
+  background: var(--oph-sand);
+}
+
+.oph-a11y-panel__close:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 2px;
+}
+
+.oph-a11y-panel__body {
+  display: grid;
+  gap: var(--oph-space-5);
+  min-width: 0;
+}
+
+.oph-a11y-panel__group {
+  display: grid;
+  gap: var(--oph-space-2);
+  min-width: 0;
+}
+
+/* G10 — the three font sizes share the panel width instead of overflowing it. */
+.oph-a11y-panel .oph-segmented {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  border-radius: var(--oph-radius-sm);
+}
+
+.oph-a11y-panel .oph-segmented button {
+  min-width: 0;
+  min-height: 44px;
+  padding: 6px 4px;
+  border-radius: calc(var(--oph-radius-sm) - 2px);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.oph-a11y-panel .oph-segmented button[aria-pressed='true'] {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-a11y-panel .oph-segmented button:focus-visible {
+  outline: 2px solid var(--oph-gold);
+  outline-offset: 1px;
+}
+
+/* Checkbox rows and the reset button are full 44px targets. */
+.oph-a11y-panel .oph-check {
+  min-height: 44px;
+  align-items: center;
+}
+
+.oph-a11y-panel__reset.oph-btn {
+  justify-self: start;
+  min-height: 44px;
+}
+
+/* Hero photograph of the centre. */
+.oph-hero__photo {
+  margin: 0;
+  border-radius: var(--oph-radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--oph-shadow-xl);
+  aspect-ratio: 4 / 3;
+}
+
+.oph-hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Launcher label never spills out of its pill (desktop). */
+@media (min-width: 1081px) {
+  .oph-assistant-launcher {
+    width: auto;
+    max-width: none;
+  }
+  .oph-assistant-launcher__label {
+    white-space: nowrap;
+    padding-right: 2px;
+  }
+}

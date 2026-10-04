@@ -1,0 +1,21 @@
+{
+  "name": "Ophthalmic Centre of Dr Kulmaganbetov",
+  "short_name": "Dr Kulmaganbetov",
+  "description": "Офтальмологический центр в Астане: диагностика, лазерная коррекция, хирургия катаракты, детская офтальмология и оптический салон.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#167F5B",
+  "lang": "ru",
+  "categories": ["medical", "health"],
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "Онлайн-запись", "url": "/appointment" },
+    { "name": "Цены", "url": "/pricing" },
+    { "name": "Контакты", "url": "/contacts" }
+  ]
+}

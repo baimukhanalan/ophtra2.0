@@ -1,0 +1,38 @@
+[
+  {
+    "id": "astana",
+    "slug": "astana",
+    "name": {
+      "ru": "Центр в Астане",
+      "kk": "Астанадағы орталық",
+      "en": "Astana centre"
+    },
+    "city": {
+      "ru": "Астана",
+      "kk": "Астана",
+      "en": "Astana"
+    },
+    "address": {
+      "ru": "пр. Мәңгілік Ел, 72, Астана",
+      "kk": "Мәңгілік Ел даңғ., 72, Астана",
+      "en": "72 Mangilik El Ave, Astana"
+    },
+    "schedule": {
+      "ru": "Пн–Сб: 08:00–20:00, Вс: 09:00–15:00",
+      "kk": "Дс–Сб: 08:00–20:00, Жк: 09:00–15:00",
+      "en": "Mon–Sat: 08:00–20:00, Sun: 09:00–15:00"
+    },
+    "phone": "+7 717 000 00 00",
+    "email": "astana@drkulmaganbetov.kz",
+    "geo": {
+      "lat": 51.1284,
+      "lng": 71.4306
+    },
+    "transport": {
+      "ru": "Остановка «Дворец школьников», подземный паркинг на 120 мест, вход без ступеней.",
+      "kk": "«Оқушылар сарайы» аялдамасы, 120 орындық жерасты тұрағы, баспалдақсыз кіру.",
+      "en": "Schoolchildren's Palace stop, 120-space underground parking, step-free entrance."
+    },
+    "isSurgical": true
+  }
+]

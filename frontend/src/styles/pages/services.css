@@ -1,0 +1,2563 @@
+/* Page styles: medical services, departments, programmes, prices,
+   promotions, online booking and contacts (see DESIGN.md).
+   Tokens only — no new colours, radii or shadows. Tints are derived from
+   tokens with color-mix. Motion scales with --oph-motion-scale and uses
+   compositor-only properties. */
+
+/* ================================================================ COMMON */
+
+.svc-block {
+  margin-top: clamp(2rem, 1.4rem + 2vw, 3.5rem);
+}
+
+.svc-count {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.svc-count strong {
+  color: var(--oph-ink);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  font-weight: 400;
+}
+
+.svc-filter {
+  margin-top: var(--oph-space-8);
+}
+
+.svc-filter .oph-chips,
+.svc-pricefilter .oph-chips {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+
+@media (min-width: 900px) {
+  .svc-filter .oph-chips,
+  .svc-pricefilter .oph-chips {
+    flex-wrap: wrap;
+  }
+}
+
+.svc-after-grid {
+  margin-top: var(--oph-space-8);
+}
+
+.svc-textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  text-decoration: none;
+}
+
+.svc-textlink svg {
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.svc-textlink:hover svg {
+  transform: translateX(calc(4px * var(--oph-motion-scale)));
+}
+
+.svc-textlink:focus-visible,
+.svc-maplink:focus-visible,
+.svc-channel:focus-visible,
+.svc-sheet__services a:focus-visible,
+.svc-pricetable a:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.svc-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.svc-meta__price {
+  color: var(--oph-ink);
+  font-weight: var(--oph-weight-bold);
+}
+
+.svc-meta__time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--oph-muted);
+}
+
+.svc-disclaimer {
+  max-width: 760px;
+  margin-top: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  padding-top: var(--oph-space-5);
+  border-top: 1px solid var(--oph-line);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.6;
+}
+
+.oph-section--deep .svc-disclaimer {
+  border-color: var(--oph-forest-line);
+  color: color-mix(in srgb, var(--oph-cream) 60%, transparent);
+}
+
+.svc-empty {
+  color: var(--oph-muted);
+}
+
+/* ============================================================= STATEMENT */
+
+.svc-statement {
+  margin-top: var(--oph-space-8);
+}
+
+.svc-statement__text {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.1rem + 1.8vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+}
+
+.svc-statement__text--wide {
+  max-width: 1040px;
+  margin-top: var(--oph-space-8);
+  font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3.25rem);
+}
+
+.svc-statement__media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--oph-radius-sm);
+}
+
+/* ======================================================= HERO PRICE CARD */
+
+.svc-pricecard {
+  display: grid;
+  gap: var(--oph-space-4);
+  width: 100%;
+  max-width: 380px;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-forest-soft);
+  color: var(--oph-cream);
+}
+
+.svc-pricecard .oph-eyebrow {
+  color: var(--oph-gold-soft);
+}
+
+.svc-pricecard__value {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.svc-pricecard__facts {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.svc-pricecard__facts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  padding: 10px 0;
+  border-top: 1px solid var(--oph-forest-line);
+  font-size: var(--oph-text-sm);
+}
+
+.svc-pricecard__facts dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: color-mix(in srgb, var(--oph-cream) 66%, transparent);
+}
+
+.svc-pricecard__facts dd {
+  margin: 0;
+  color: #ffffff;
+  font-weight: var(--oph-weight-bold);
+}
+
+.svc-pricecard__note {
+  color: color-mix(in srgb, var(--oph-cream) 60%, transparent);
+  font-size: var(--oph-text-xs);
+  line-height: 1.55;
+}
+
+/* ============================================================ DETAIL PAGE */
+
+.svc-article-after {
+  display: grid;
+  gap: var(--oph-space-8);
+  margin-top: var(--oph-space-10);
+}
+
+.svc-article-after .svc-disclaimer {
+  margin-top: 0;
+}
+
+.oph-article__text p + p {
+  margin-top: var(--oph-space-4);
+}
+
+.oph-article__text .oph-accordion,
+.oph-article__text > div {
+  margin-top: var(--oph-space-2);
+}
+
+.svc-doctors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--oph-space-5);
+  margin-top: clamp(2rem, 1.4rem + 2vw, 3.5rem);
+}
+
+.svc-formduo {
+  align-items: start;
+  margin-top: var(--oph-space-8);
+}
+
+.svc-formduo__intro {
+  display: grid;
+  gap: var(--oph-space-6);
+}
+
+.svc-formduo__media {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--oph-radius-sm);
+}
+
+@media (max-width: 900px) {
+  .svc-formduo__media {
+    display: none;
+  }
+}
+
+/* ============================================================ DEPARTMENT */
+
+.svc-dept-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+  margin-top: var(--oph-space-8);
+}
+
+.svc-dept-about__text {
+  display: grid;
+  gap: var(--oph-space-8);
+}
+
+.svc-dept-about__fill {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.35rem, 1.05rem + 1.1vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.svc-dept-about__panel {
+  display: grid;
+  gap: var(--oph-space-4);
+}
+
+@media (min-width: 901px) {
+  .svc-dept-about__panel {
+    position: sticky;
+    top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-6));
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-dept-about {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Pinned story visual: photo window + step counter card. */
+.svc-storyvis {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+}
+
+.svc-storyvis__media {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--oph-radius-sm);
+}
+
+.svc-storyvis__card {
+  position: absolute;
+  left: clamp(12px, 4%, 28px);
+  right: clamp(12px, 4%, 28px);
+  bottom: clamp(12px, 4%, 28px);
+  display: grid;
+  gap: var(--oph-space-2);
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-sm);
+  background: color-mix(in srgb, var(--oph-forest) 88%, transparent);
+  backdrop-filter: blur(10px);
+  color: var(--oph-cream);
+}
+
+.svc-storyvis__n {
+  color: var(--oph-gold-soft);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2.25rem, 1.8rem + 1.6vw, 3.25rem);
+  line-height: 1;
+}
+
+.svc-storyvis__n small {
+  margin-left: 4px;
+  color: color-mix(in srgb, var(--oph-cream) 45%, transparent);
+  font-size: 0.4em;
+  letter-spacing: 0.08em;
+}
+
+.svc-storyvis__title {
+  color: #ffffff;
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  line-height: 1.2;
+}
+
+.svc-storyvis__bar {
+  display: block;
+  height: 2px;
+  margin-top: var(--oph-space-2);
+  overflow: hidden;
+  background: var(--oph-forest-line);
+}
+
+.svc-storyvis__bar > span {
+  display: block;
+  height: 100%;
+  background: var(--oph-gold-soft);
+  transform-origin: left;
+  transition: transform calc(600ms * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.svc-chapter {
+  display: grid;
+  gap: var(--oph-space-3);
+  max-width: 520px;
+}
+
+.svc-chapter__n {
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.svc-chapter__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.svc-chapter__text {
+  color: color-mix(in srgb, var(--oph-cream) 72%, transparent);
+  font-size: var(--oph-text-md);
+  line-height: 1.65;
+}
+
+.svc-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+  margin-top: var(--oph-space-8);
+}
+
+@media (max-width: 900px) {
+  .svc-faq {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ======================================================= DEPARTMENTS LIST */
+
+.svc-sheet,
+.svc-program {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  overflow: hidden;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-md);
+}
+
+.svc-sheet__media {
+  min-height: 280px;
+  background: var(--oph-stone);
+}
+
+.svc-sheet__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svc-sheet__body,
+.svc-program__head,
+.svc-program__includes {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-4);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.75rem);
+}
+
+.svc-sheet__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+}
+
+.svc-sheet__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.2rem + 1.3vw, 2.35rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.svc-sheet__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.65;
+}
+
+.svc-sheet__services {
+  display: grid;
+  margin: var(--oph-space-2) 0;
+}
+
+.svc-sheet__services a {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--oph-line);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: none;
+  transition: color var(--oph-duration-fast);
+}
+
+.svc-sheet__services a:hover {
+  color: var(--oph-brand-600);
+}
+
+.svc-sheet__services .svc-meta {
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-regular);
+}
+
+@media (max-width: 900px) {
+  .svc-sheet,
+  .svc-program {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .svc-sheet__media {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  /* Sticky stacking on phones would hide most of a tall sheet. */
+  .oph-stack-cards__item:has(.svc-sheet),
+  .oph-stack-cards__item:has(.svc-program) {
+    position: relative;
+    top: auto;
+  }
+}
+
+/* ============================================================== PROGRAMS */
+
+.svc-program__includes {
+  border-left: 1px solid var(--oph-line);
+  background: var(--oph-sand);
+}
+
+.svc-program__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-4);
+  margin: var(--oph-space-2) 0;
+}
+
+.svc-program__facts dt {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.svc-program__facts dd {
+  margin: 6px 0 0;
+  font-size: var(--oph-text-sm);
+}
+
+.svc-program__price {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem) !important;
+  line-height: 1.1;
+}
+
+.svc-program__head .oph-btn {
+  justify-self: start;
+}
+
+@media (max-width: 900px) {
+  .svc-program__includes {
+    border-left: 0;
+    border-top: 1px solid var(--oph-line);
+  }
+}
+
+/* =============================================================== PRICING */
+
+.svc-pricefilter {
+  display: grid;
+  gap: var(--oph-space-5);
+  margin-top: var(--oph-space-8);
+}
+
+.svc-pricefilter > * {
+  /* Grid items default to min-width: auto (their min-content), which let the
+     nowrap chip row push the panel wider than a phone screen. */
+  min-width: 0;
+}
+
+.svc-pricefilter__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  min-width: 0;
+}
+
+/* The chip scroller may shrink below its content so overflow-x can scroll. */
+.svc-pricefilter__row .oph-chips {
+  min-width: 0;
+  max-width: 100%;
+  overscroll-behavior-x: contain;
+}
+
+.svc-pricefilter__row .oph-chips::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  /* Phones: one swipeable row with a fade on the trailing edge hinting that
+     more departments follow; the end padding lets the last chip clear it. */
+  .svc-filter .oph-chips {
+    overscroll-behavior-x: contain;
+    padding-inline-end: var(--oph-space-6);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--oph-space-6)), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - var(--oph-space-6)), transparent);
+  }
+  .svc-filter .oph-chips::-webkit-scrollbar {
+    display: none;
+  }
+  .svc-pricefilter__row .oph-chips {
+    flex: 1 1 100%;
+    padding-inline-end: var(--oph-space-6);
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--oph-space-6)), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - var(--oph-space-6)), transparent);
+  }
+}
+
+.svc-pricegroups {
+  display: grid;
+  gap: clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.svc-pricegroup__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  padding-bottom: var(--oph-space-4);
+  border-bottom: 1px solid var(--oph-ink);
+}
+
+.svc-pricegroup__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.svc-pricetable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--oph-text-sm);
+}
+
+.svc-pricetable thead th {
+  padding: 12px 16px 12px 0;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.svc-pricetable tbody tr {
+  border-top: 1px solid var(--oph-line);
+  transition: background-color var(--oph-duration-fast);
+}
+
+.svc-pricetable tbody tr:hover {
+  background: var(--oph-paper);
+}
+
+.svc-pricetable th[scope='row'],
+.svc-pricetable td {
+  padding: 18px 16px 18px 0;
+  vertical-align: top;
+  text-align: left;
+}
+
+.svc-pricetable__name {
+  display: grid;
+  gap: 4px;
+  font-weight: var(--oph-weight-regular);
+}
+
+.svc-pricetable__name a {
+  color: var(--oph-ink);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  text-decoration: none;
+}
+
+.svc-pricetable__name a:hover {
+  color: var(--oph-brand-600);
+}
+
+.svc-pricetable__name span {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.5;
+}
+
+.svc-pricetable__time {
+  width: 120px;
+  color: var(--oph-muted);
+  white-space: nowrap;
+}
+
+.svc-pricetable__price {
+  width: 170px;
+  color: var(--oph-ink);
+  font-weight: var(--oph-weight-bold);
+  white-space: nowrap;
+}
+
+.svc-pricetable__action {
+  width: 140px;
+  text-align: right !important;
+  padding-right: 0 !important;
+}
+
+@media (max-width: 720px) {
+  .svc-pricetable thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .svc-pricetable,
+  .svc-pricetable tbody,
+  .svc-pricetable tr {
+    display: block;
+  }
+  .svc-pricetable tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 16px;
+    padding: 16px 0;
+  }
+  .svc-pricetable th[scope='row'],
+  .svc-pricetable td {
+    padding: 0;
+    width: auto;
+  }
+  .svc-pricetable__name {
+    grid-column: 1 / -1;
+  }
+  .svc-pricetable__time::before,
+  .svc-pricetable__price::before {
+    content: attr(data-label) ' · ';
+    color: var(--oph-muted);
+    font-weight: var(--oph-weight-regular);
+  }
+  .svc-pricetable__price {
+    grid-column: 1;
+  }
+  .svc-pricetable__action {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: center;
+  }
+}
+
+/* ============================================================ PROMOTIONS */
+
+.svc-promo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oph-space-4);
+  height: 100%;
+  min-height: 280px;
+  padding: clamp(1.5rem, 1rem + 1.4vw, 2.25rem);
+}
+
+.svc-promo__off {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--oph-gold);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2.75rem, 2rem + 2.4vw, 4rem);
+  line-height: 1;
+}
+
+.svc-promo__off--free {
+  flex-wrap: wrap;
+  font-size: clamp(2.25rem, 1.8rem + 1.6vw, 3.25rem);
+}
+
+.svc-promo__off small {
+  font-family: var(--oph-font-sans);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.svc-promo__valid {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.svc-promo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oph-space-3) var(--oph-space-5);
+  margin-top: auto;
+  padding-top: var(--oph-space-3);
+}
+
+/* =============================================================== BOOKING */
+
+.bk {
+  display: grid;
+  /* B1 (mobile blocker): an implicit grid column sizes to the min-content of
+     its widest child — the non-wrapping stepper row — which made the track
+     846 px inside a 352 px card and pushed «Далее» off-screen. The explicit
+     minmax(0, 1fr) track plus min-width: 0 down the chain keeps every step
+     inside the card; the pill row scrolls on its own. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--oph-space-8);
+  padding: clamp(1.25rem, 0.8rem + 2vw, 2.75rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-md);
+}
+
+.bk > *,
+.bk-stage > *,
+.bk-steps,
+.bk-date,
+.bk-confirm,
+.bk-form {
+  min-width: 0;
+}
+
+.bk--done {
+  max-width: 720px;
+  margin-inline: auto;
+  gap: var(--oph-space-6);
+}
+
+.bk--done:focus,
+.bk-stage:focus {
+  outline: none;
+}
+
+/* Stepper pills: Тип записи → Клиника → … The row scrolls sideways on
+   narrow screens; a fade at the right edge says there is more. */
+.bk-steps ol {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 4px;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+@media (max-width: 1100px) {
+  .bk-steps ol {
+    padding-right: 32px;
+    mask-image: linear-gradient(90deg, #000 calc(100% - 40px), transparent);
+  }
+}
+
+.bk-steps ol:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+  border-radius: var(--oph-radius-sm);
+}
+
+.bk-steps ol::-webkit-scrollbar {
+  display: none;
+}
+
+.bk-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 14px 8px 8px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-cream);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  white-space: nowrap;
+  cursor: default;
+  transition:
+    background-color calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    color calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    border-color calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.bk-pill:disabled {
+  opacity: 1;
+}
+
+.bk-pill__n {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--oph-paper);
+  border: 1px solid var(--oph-line);
+  font-size: var(--oph-text-xs);
+}
+
+.bk-pill[data-state='active'] {
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.bk-pill[data-state='active'] .bk-pill__n {
+  border-color: transparent;
+  background: var(--oph-gold-soft);
+  color: var(--oph-forest);
+}
+
+.bk-pill[data-state='done'] {
+  border-color: var(--oph-line-strong);
+  color: var(--oph-ink);
+  cursor: pointer;
+}
+
+.bk-pill[data-state='done'] .bk-pill__n {
+  border-color: transparent;
+  background: var(--oph-sand);
+  color: var(--oph-forest);
+}
+
+.bk-pill[data-state='done']:hover {
+  border-color: var(--oph-forest);
+}
+
+.bk-pill:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: -2px;
+}
+
+@media (max-width: 767px) {
+  .bk-pill {
+    min-height: 44px;
+  }
+}
+
+.bk-steps__count {
+  margin-top: var(--oph-space-3);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.bk-stage {
+  /* Size-aware option grid (see .bk-group__grid). No fixed min-height: short
+     steps no longer leave an empty band above the navigation. */
+  container-type: inline-size;
+}
+
+.bk-group {
+  display: grid;
+  gap: var(--oph-space-4);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.bk-group__legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--oph-space-4);
+  padding: 0;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.bk-group__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--oph-space-3);
+}
+
+.bk-group__cell {
+  min-width: 0;
+}
+
+/* Wide enough for two or three cards: a six-column track where each card
+   spans 6 / cards-in-its-row (set per card by BookingWizard), so every row
+   is full whether a step offers two options or seven. */
+@container (min-width: 620px) {
+  .bk-group__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .bk-group__cell {
+    grid-column: span var(--span, 6);
+  }
+}
+
+/* Option card with icon tile. */
+.bk-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-4);
+  width: 100%;
+  height: 100%;
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    box-shadow calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bk-choice:hover {
+    border-color: var(--oph-line-strong);
+    box-shadow: var(--oph-shadow-sm);
+    transform: translateY(calc(-2px * var(--oph-motion-scale)));
+  }
+}
+
+.bk-choice:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+}
+
+.bk-choice[aria-pressed='true'] {
+  border-color: var(--oph-forest);
+  box-shadow: inset 0 0 0 1px var(--oph-forest);
+  background: #ffffff;
+}
+
+.bk-choice__icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-sand);
+  color: var(--oph-forest);
+  transition: background-color var(--oph-duration-fast), color var(--oph-duration-fast);
+}
+
+.bk-choice[aria-pressed='true'] .bk-choice__icon {
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.bk-choice__body {
+  display: grid;
+  flex: 1;
+  gap: 5px;
+  min-width: 0;
+}
+
+.bk-choice__title {
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  line-height: 1.35;
+}
+
+.bk-choice__sub {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.5;
+}
+
+.bk-choice__title,
+.bk-choice__sub,
+.bk-choice__meta {
+  overflow-wrap: anywhere;
+}
+
+.bk-choice__meta {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+}
+
+.bk-choice__check {
+  flex: 0 0 20px;
+  color: var(--oph-forest);
+}
+
+/* Dates and slots. */
+.bk-date {
+  display: grid;
+  gap: var(--oph-space-8);
+}
+
+.bk-days {
+  display: flex;
+  gap: var(--oph-space-2);
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.bk-days > .bk-day {
+  scroll-snap-align: start;
+}
+
+.bk-day,
+.bk-slot {
+  border: 1px solid var(--oph-line);
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  cursor: pointer;
+  transition:
+    background-color calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out),
+    border-color calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out),
+    color calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.bk-day {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 4px;
+  min-width: 76px;
+  padding: 12px 10px;
+  border-radius: var(--oph-radius-md);
+  text-align: center;
+}
+
+.bk-day__wd,
+.bk-day__m {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bk-day__d {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-2xl);
+  line-height: 1;
+}
+
+.bk-slots {
+  display: grid;
+  /* 72 px keeps three columns on a 320 px phone (fewer, shorter rows). */
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: var(--oph-space-2);
+}
+
+.bk-slot {
+  min-height: 48px;
+  padding: 13px 6px;
+  border-radius: var(--oph-radius-sm);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+}
+
+.bk-day:hover,
+.bk-slot:hover {
+  border-color: var(--oph-forest);
+}
+
+.bk-day[aria-pressed='true'],
+.bk-slot[aria-pressed='true'] {
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.bk-day[aria-pressed='true'] .bk-day__wd,
+.bk-day[aria-pressed='true'] .bk-day__m {
+  color: var(--oph-gold-soft);
+}
+
+.bk-day:focus-visible,
+.bk-slot:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+}
+
+/* Confirmation. */
+.bk-confirm {
+  display: grid;
+  gap: var(--oph-space-6);
+}
+
+.bk-summary {
+  padding: var(--oph-space-6);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-sand);
+}
+
+.bk-summary__list {
+  display: grid;
+  /* 1 → 2 → 4 columns by the stage's width: four facts never leave a lone
+     cell on a second row (3 + 1). */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--oph-space-4);
+  margin: var(--oph-space-4) 0 0;
+}
+
+@container (min-width: 420px) {
+  .bk-summary__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 820px) {
+  .bk-summary__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.bk-summary__list dd {
+  overflow-wrap: anywhere;
+}
+
+.bk-summary__list dt {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bk-summary__list dd {
+  margin: 6px 0 0;
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.bk-summary__price {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl) !important;
+  font-weight: 400 !important;
+}
+
+.bk-consents {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+/* The whole label is the hit area (≥ 44 px), not the 22 px box. */
+.bk-consents .oph-check {
+  min-height: 44px;
+  align-items: center;
+}
+
+.bk-consents__error {
+  margin-top: calc(-1 * var(--oph-space-2));
+}
+
+.bk-consents__error svg {
+  flex: 0 0 auto;
+}
+
+.bk-note {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  text-align: center;
+}
+
+.bk-note--left {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+
+.bk-note--left svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.bk-alert-title {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bk-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+}
+
+/* Phones: «Назад» and «Далее» share the row, each half the card, so the
+   primary action is always on screen and thumb-sized. */
+@media (max-width: 520px) {
+  .bk-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  }
+  .bk-nav .oph-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+    padding-inline: var(--oph-space-4);
+  }
+}
+
+/* Long labels (kk «Жазылуды растау», ru «Подтвердить запись») never clip:
+   the buttons may wrap to two lines instead of hiding text. */
+.bk-nav .oph-btn {
+  height: auto;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* Narrow phones, confirm step: the submit button gets the full row on top,
+   «Назад» sits under it — both full width. */
+@media (max-width: 440px) {
+  .bk-form .bk-nav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bk-form .bk-nav .oph-btn[type='submit'] {
+    order: -1;
+  }
+}
+
+.bk-nav--footer {
+  padding-top: var(--oph-space-6);
+  border-top: 1px solid var(--oph-line);
+}
+
+/* Figma fix #8: «Далее» never looks disabled — it stays forest; the missing
+   choice is announced (aria-disabled + toast) instead of greying it out. */
+.bk-nav .oph-btn--primary[aria-disabled='true'] {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.bk-ticket {
+  display: grid;
+  gap: var(--oph-space-2);
+  padding: var(--oph-space-6);
+  border: 1px dashed var(--oph-line-strong);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-cream);
+  text-align: center;
+}
+
+.bk-ticket__ref {
+  font-family: var(--oph-font-serif);
+  /* Scales down on phones so «OPH-7F3K2Q» stays on one line. */
+  font-size: clamp(1.5rem, 1rem + 3vw, var(--oph-text-3xl));
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.bk-ticket__meta {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+/* Hero calendar illustration. */
+.bk-cal {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  overflow: visible;
+}
+
+.bk-cal__back {
+  fill: var(--oph-forest-soft);
+  transform-origin: 190px 180px;
+  transform: rotate(calc(4deg + (var(--p, 0) * var(--oph-scroll-drift, 1)) * 6deg * var(--oph-motion-scale)));
+}
+
+.bk-cal__sheet {
+  transform-origin: 175px 170px;
+  transform: rotate(calc(-2deg - (var(--p, 0) * var(--oph-scroll-drift, 1)) * 4deg * var(--oph-motion-scale)));
+}
+
+.bk-cal__paper {
+  fill: var(--oph-paper);
+}
+
+.bk-cal__head {
+  fill: var(--oph-forest-soft);
+}
+
+.bk-cal__label {
+  fill: var(--oph-gold-soft);
+}
+
+.bk-cal__label--soft {
+  fill: var(--oph-forest-line);
+  opacity: 0.8;
+}
+
+.bk-cal__ring rect {
+  fill: none;
+  stroke: var(--oph-gold-line);
+  stroke-width: 3;
+}
+
+.bk-cal__ring circle {
+  fill: var(--oph-gold-soft);
+}
+
+.bk-cal__day {
+  fill: var(--oph-sand);
+}
+
+.bk-cal__day--muted {
+  fill: var(--oph-cream);
+}
+
+.bk-cal__day--picked {
+  fill: var(--oph-forest);
+}
+
+.bk-cal__halo {
+  fill: none;
+  stroke: var(--oph-gold-line);
+  stroke-width: 2;
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: bk-draw calc(900ms * var(--oph-motion-scale)) var(--oph-ease-out) calc(700ms * var(--oph-motion-scale)) forwards;
+}
+
+.bk-cal__badge circle {
+  fill: var(--oph-gold-line);
+}
+
+.bk-cal__badge {
+  transform-origin: 300px 286px;
+  animation: bk-pop calc(600ms * var(--oph-motion-scale)) var(--oph-ease-spring) calc(1200ms * var(--oph-motion-scale)) both;
+}
+
+.bk-cal__check {
+  fill: none;
+  stroke: var(--oph-forest);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: bk-draw calc(500ms * var(--oph-motion-scale)) var(--oph-ease-out) calc(1500ms * var(--oph-motion-scale)) forwards;
+}
+
+/* Phones: an emblem, not a second screen; touch: no scroll-linked tilt
+   (the sheet must not wobble against the native scroll). */
+@media (max-width: 767px) {
+  .bk-cal {
+    max-width: 220px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .bk-cal__back {
+    transform: rotate(4deg);
+  }
+  .bk-cal__sheet {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes bk-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes bk-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:root[data-reduced-motion='true'] .bk-cal__halo,
+:root[data-reduced-motion='true'] .bk-cal__check {
+  animation: none;
+  stroke-dashoffset: 0;
+}
+
+:root[data-reduced-motion='true'] .bk-cal__badge {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bk-cal__halo,
+  .bk-cal__check {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .bk-cal__badge {
+    animation: none;
+  }
+}
+
+/* ============================================================== CONTACTS */
+
+.svc-clinics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--oph-space-6);
+}
+
+.svc-clinic {
+  display: grid;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.svc-clinic__media {
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 900px) {
+  .svc-clinics--single .svc-clinic {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  }
+  .svc-clinics--single .svc-clinic__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+  .svc-clinics--single .svc-clinic__media img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.svc-map__pick--static {
+  cursor: default;
+  border-color: var(--oph-forest);
+}
+
+.svc-clinic__body {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-4);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.25rem);
+}
+
+.svc-clinic__body .oph-tag {
+  justify-self: start;
+}
+
+.svc-clinic__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.svc-clinic__rows {
+  display: grid;
+}
+
+.svc-clinic__rows li {
+  display: flex;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px solid var(--oph-line);
+  font-size: var(--oph-text-sm);
+  line-height: 1.5;
+}
+
+.svc-clinic__rows svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--oph-gold);
+}
+
+.svc-clinic__rows a {
+  color: var(--oph-ink);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.svc-clinic__rows a:hover {
+  color: var(--oph-brand-600);
+}
+
+.svc-clinic__route {
+  display: grid;
+  gap: var(--oph-space-2);
+  padding: var(--oph-space-5);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-sand);
+  font-size: var(--oph-text-sm);
+  line-height: 1.55;
+}
+
+.svc-clinic__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-2);
+  margin-top: var(--oph-space-2);
+}
+
+.svc-maplink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: none;
+  transition: border-color var(--oph-duration-fast), background-color var(--oph-duration-fast);
+}
+
+.svc-maplink:hover {
+  border-color: var(--oph-forest);
+  background: #ffffff;
+}
+
+/* Stylised map. */
+.svc-map {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(1.5rem, 1rem + 2vw, 3rem);
+  align-items: stretch;
+}
+
+.svc-map__side {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-4);
+}
+
+.svc-map__picker {
+  display: grid;
+  gap: var(--oph-space-2);
+}
+
+.svc-map__pick {
+  display: grid;
+  gap: 4px;
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--oph-duration-fast), background-color var(--oph-duration-fast);
+}
+
+.svc-map__pick:hover {
+  border-color: var(--oph-line-strong);
+}
+
+.svc-map__pick:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+}
+
+.svc-map__pick[aria-pressed='true'] {
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.svc-map__pick-city {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+}
+
+.svc-map__pick-addr {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.svc-map__pick[aria-pressed='true'] .svc-map__pick-addr {
+  color: var(--oph-gold-soft);
+}
+
+.svc-map__coords {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.svc-map__canvas {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+}
+
+/* Direct child only: the label's small pin icon must not become map-sized. */
+.svc-map__canvas > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.svc-map__ground {
+  fill: var(--oph-paper);
+}
+
+.svc-map__layer {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: translate3d(0, calc(((var(--p, 0.5) * var(--oph-scroll-drift, 1) + 0.5 * (1 - var(--oph-scroll-drift, 1))) - 0.5) * -30px * var(--oph-motion-scale)), 0)
+    scale(calc(1.06 - var(--p, 0.5) * 0.06));
+}
+
+.svc-map__water {
+  fill: var(--oph-stone);
+  opacity: 0.8;
+}
+
+.svc-map__park {
+  fill: var(--oph-sand);
+  stroke: var(--oph-line);
+}
+
+.svc-map__street {
+  stroke: var(--oph-line);
+  stroke-width: 6;
+}
+
+.svc-map__avenue {
+  stroke: var(--oph-line-strong);
+  stroke-width: 14;
+}
+
+.svc-map__marker path {
+  fill: var(--oph-forest);
+}
+
+.svc-map__marker circle {
+  fill: var(--oph-gold-soft);
+}
+
+.svc-map__marker {
+  animation: svc-pin-drop calc(700ms * var(--oph-motion-scale)) var(--oph-ease-spring) both;
+}
+
+.svc-map__pulse {
+  fill: none;
+  stroke: var(--oph-gold-line);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: svc-pulse calc(2.4s * var(--oph-motion-scale)) var(--oph-ease-out) infinite;
+}
+
+.svc-map__pulse--2 {
+  animation-delay: calc(1.2s * var(--oph-motion-scale));
+}
+
+@keyframes svc-pin-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes svc-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-map__pulse,
+  .svc-map__marker {
+    animation: none;
+  }
+}
+
+:root[data-reduced-motion='true'] .svc-map__pulse,
+:root[data-reduced-motion='true'] .svc-map__marker {
+  animation: none;
+}
+
+.svc-map__label {
+  position: absolute;
+  left: var(--oph-space-4);
+  bottom: var(--oph-space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.svc-map__label svg {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  color: var(--oph-gold-soft);
+}
+
+/* Touch: the map layer stays still while the page scrolls natively. */
+@media (hover: none) and (pointer: coarse) {
+  .svc-map__layer {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-map {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .svc-map__canvas {
+    order: -1;
+  }
+}
+
+/* Channels. */
+.svc-channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: var(--oph-space-5);
+}
+
+.svc-channel {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-2);
+  height: 100%;
+  padding: var(--oph-space-6);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+  color: var(--oph-ink);
+  text-decoration: none;
+  transition:
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    box-shadow var(--oph-duration-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .svc-channel:hover {
+    transform: translateY(calc(-4px * var(--oph-motion-scale)));
+    box-shadow: var(--oph-shadow-md);
+  }
+}
+
+.svc-channel__label {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.svc-channel__value {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-xl);
+  overflow-wrap: anywhere;
+}
+
+.svc-channel__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.55;
+}
+
+/* ======================================================== DEPARTMENT ART */
+/* Drawn department illustrations replace the three clinic-facade photos that
+   illustrated a dozen unrelated blocks (UI/UX audit X7). Rings turn with the
+   block's scroll progress (--p), the glyph rises as it enters (--enter).
+   Defaults are the end state, so nothing is blank before scripts run. */
+
+.svc-art {
+  --art-line: var(--oph-forest);
+  --art-accent: var(--oph-gold-line);
+  --art-ring: var(--oph-line-strong);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  color: var(--art-line);
+}
+
+.svc-art--dark {
+  --art-line: var(--oph-cream);
+  --art-accent: var(--oph-gold-soft);
+  --art-ring: var(--oph-forest-line);
+}
+
+.svc-art--hero {
+  max-width: 400px;
+  margin-inline: auto;
+}
+
+.svc-art__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.svc-art__rings {
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  transform: rotate(calc(((var(--p, 0.5) * var(--oph-scroll-drift, 1) + 0.5 * (1 - var(--oph-scroll-drift, 1))) - 0.5) * 70deg * var(--oph-motion-scale)));
+}
+
+.svc-art__ring {
+  fill: none;
+  stroke: var(--art-ring);
+  stroke-width: 1;
+}
+
+.svc-art__ring--dash {
+  stroke: var(--art-accent);
+  stroke-dasharray: 2 7;
+}
+
+.svc-art__dot {
+  fill: var(--art-accent);
+}
+
+.svc-art__glyph {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  opacity: clamp(0.15, calc(var(--enter, 1) * 1.8 - 0.3), 1);
+  transform: translate3d(0, calc((1 - min(1, var(--enter, 1) * 1.4)) * 18px * var(--oph-motion-scale)), 0);
+}
+
+.svc-art__accent {
+  stroke: var(--art-accent);
+}
+
+.svc-art__thin {
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+
+.svc-art__fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.svc-art__fill--accent {
+  fill: var(--art-accent);
+}
+
+.svc-art__letter {
+  fill: currentColor;
+  stroke: none;
+  font-family: var(--oph-font-serif);
+  font-weight: 400;
+}
+
+.svc-art__letter--small {
+  opacity: 0.7;
+}
+
+/* Media slots that used to hold photos. */
+.svc-statement__media--art,
+.svc-formduo__media--art {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  border: 1px solid var(--oph-line);
+  background: var(--oph-sand);
+}
+
+.svc-statement__media--art {
+  border-color: var(--oph-forest-line);
+  background: var(--oph-forest-soft);
+}
+
+.svc-statement__media--art .svc-art,
+.svc-formduo__media--art .svc-art {
+  max-width: 340px;
+}
+
+/* The form comes first on phones; the illustration beside it is desktop-only. */
+@media (max-width: 900px) {
+  .svc-formduo__media--art {
+    display: none;
+  }
+}
+
+.svc-sheet__media--art {
+  display: grid;
+  place-items: center;
+  padding: clamp(1.5rem, 1rem + 3vw, 3rem);
+  background: var(--oph-sand);
+}
+
+.svc-sheet__media--art[data-tone='dark'] {
+  background: var(--oph-forest);
+}
+
+.svc-sheet__media--art .svc-art {
+  max-width: 280px;
+}
+
+.svc-storyvis__media--art {
+  display: grid;
+  place-items: center;
+  padding: 12% 12% 34%;
+  border: 1px solid var(--oph-forest-line);
+  background: var(--oph-forest-soft);
+}
+
+.svc-storyvis__media--art .svc-art {
+  max-width: 320px;
+}
+
+@media (max-width: 900px) {
+  .svc-sheet__media--art {
+    aspect-ratio: auto;
+    justify-items: start;
+    padding: var(--oph-space-5) clamp(1.5rem, 1rem + 2vw, 2.75rem) 0;
+    background: transparent;
+  }
+  .svc-sheet__media--art[data-tone='dark'] {
+    background: transparent;
+  }
+  .svc-sheet__media--art .svc-art {
+    --art-line: var(--oph-forest);
+    --art-accent: var(--oph-gold-line);
+    --art-ring: var(--oph-line-strong);
+    width: 88px;
+  }
+}
+
+/* Tablets (stacked hero): a 400 px drawing under the title pushed the page
+   content a whole screen down; it is a mid-size emblem there. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .svc-art--hero {
+    max-width: 240px;
+  }
+}
+
+/* Phones: the hero art is a small emblem, not a second screen of forest. */
+@media (max-width: 767px) {
+  .svc-art--hero {
+    width: 132px;
+    margin-inline: 0;
+  }
+}
+
+/* ============================================================== ORBIT */
+
+.svc-orbit {
+  container-type: inline-size;
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.svc-orbit__ring {
+  position: absolute;
+  inset: 11%;
+  width: 78%;
+  height: 78%;
+  overflow: visible;
+}
+
+.svc-orbit__ring circle {
+  fill: none;
+  stroke: var(--oph-line-strong);
+  stroke-width: 0.6;
+}
+
+.svc-orbit__ring .svc-orbit__ring-dash {
+  stroke: var(--oph-gold-line);
+  stroke-dasharray: 1.5 4;
+  transform-origin: 100px 100px;
+  transform: rotate(calc(((var(--p, 0.5) * var(--oph-scroll-drift, 1) + 0.5 * (1 - var(--oph-scroll-drift, 1))) - 0.5) * -90deg * var(--oph-motion-scale)));
+}
+
+.svc-orbit__center {
+  position: absolute;
+  inset: 34%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(0.95rem, 3.6cqi, 1.25rem);
+  line-height: 1.2;
+  text-align: center;
+  padding: 6%;
+}
+
+.svc-orbit__nodes {
+  --turn: calc((var(--p, 0.5) - 0.5) * 50deg * var(--oph-motion-scale));
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-orbit__node {
+  --a: calc(var(--i) / var(--n) * 360deg - 90deg + var(--turn));
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 30cqi;
+  transform: translate(-50%, -50%) rotate(var(--a)) translateX(39cqi) rotate(calc(-1 * var(--a)));
+  text-align: center;
+}
+
+.svc-orbit__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--oph-line);
+  border-radius: 50%;
+  background: var(--oph-paper);
+  color: var(--oph-forest);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.svc-orbit__label {
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-semibold);
+  line-height: 1.3;
+}
+
+@media (max-width: 420px) {
+  .svc-orbit__label {
+    display: none;
+  }
+}
+
+/* ======================================================= CATALOGUE INDEX */
+/* Six departments → full rows at 1, 2 or 3 columns. */
+
+.svc-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--oph-ink);
+}
+
+.svc-index__group {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-6) var(--oph-space-6) var(--oph-space-8) 0;
+  border-bottom: 1px solid var(--oph-line);
+}
+
+.svc-index__group:not(:nth-child(3n + 1)) {
+  padding-left: var(--oph-space-6);
+  border-left: 1px solid var(--oph-line);
+}
+
+.svc-index__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+}
+
+.svc-index__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.7rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.svc-index__title a {
+  color: var(--oph-ink);
+  text-decoration: none;
+}
+
+.svc-index__title a:hover {
+  color: var(--oph-brand-600);
+}
+
+.svc-index__list {
+  display: grid;
+  margin: var(--oph-space-2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-index__list a {
+  display: grid;
+  gap: 4px;
+  min-height: 44px;
+  padding: 12px 0;
+  border-top: 1px solid var(--oph-line);
+  color: var(--oph-ink);
+  text-decoration: none;
+  transition: color var(--oph-duration-fast);
+}
+
+.svc-index__list a:hover {
+  color: var(--oph-brand-600);
+}
+
+.svc-index__name {
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  line-height: 1.4;
+}
+
+.svc-index__list .svc-meta {
+  font-size: var(--oph-text-xs);
+}
+
+.svc-index__title a:focus-visible,
+.svc-index__list a:focus-visible {
+  outline: 2px solid var(--oph-forest);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 1023px) {
+  .svc-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .svc-index__group:not(:nth-child(3n + 1)) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .svc-index__group:nth-child(2n) {
+    padding-left: var(--oph-space-6);
+    border-left: 1px solid var(--oph-line);
+  }
+}
+
+@media (max-width: 640px) {
+  .svc-index {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .svc-index__group:nth-child(2n) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .svc-index__group {
+    padding-right: 0;
+  }
+}
+
+/* ================================================== SERVICE PAGE EXTRAS */
+
+.svc-fallback {
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: var(--oph-space-16);
+}
+
+.svc-fallback .oph-spinner {
+  --oph-spinner-size: 44px;
+}
+
+/* One or two doctors: heading above, cards in a row below (same as three
+   doctors at 1024–1439). Beside the heading, a 280 px card column left
+   400–490 px of blank under «Врачи отделения» and to the right of the card. */
+@media (min-width: 1024px) {
+  html .svc-team--duo.svc-team--n1,
+  html .svc-team--duo.svc-team--n2 {
+    display: block;
+  }
+  html .svc-team--duo.svc-team--n1 .svc-doctors,
+  html .svc-team--duo.svc-team--n2 .svc-doctors {
+    grid-template-columns: repeat(var(--count, 2), minmax(0, 280px));
+    max-width: none;
+    margin-top: clamp(2rem, 1.4rem + 2vw, 3.5rem);
+  }
+}
+
+/* Heading beside the cards: from 1440 px for three (at 1024–1439 three
+   cards beside the heading were ~170 px wide and clipped their titles;
+   they take the full row instead). */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .svc-team--duo.svc-team--n3 {
+    display: block;
+  }
+  .svc-team--duo.svc-team--n3 .svc-doctors {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: none;
+    margin-top: clamp(2rem, 1.4rem + 2vw, 3.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .svc-team--duo {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 1rem + 4vw, 5rem);
+    align-items: start;
+    margin-top: var(--oph-space-2);
+  }
+  .svc-team--duo .svc-doctors {
+    grid-template-columns: repeat(var(--count, 3), minmax(0, 1fr));
+    max-width: calc(var(--count, 3) * 280px);
+    margin-top: 0;
+  }
+}
+
+/* Phones: doctors as a swipeable rail instead of four 600 px cards. */
+@media (max-width: 767px) {
+  .svc-doctors--rail {
+    display: flex;
+    gap: var(--oph-space-4);
+    margin-inline: calc(-1 * var(--oph-gutter, 16px));
+    padding: 0 var(--oph-gutter, 16px) var(--oph-space-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--oph-gutter, 16px);
+    scrollbar-width: none;
+  }
+  .svc-doctors--rail::-webkit-scrollbar {
+    display: none;
+  }
+  .svc-doctors--rail > * {
+    flex: 0 0 min(78%, 300px);
+    scroll-snap-align: start;
+  }
+}
+
+/* Mobile booking bar (audit S3): from the page gutter to the assistant
+   launcher (the accessibility toggle lives in the drawer on phones), same
+   baseline and height as the launcher. */
+.svc-stickybook {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .svc-stickybook {
+    position: fixed;
+    left: 16px;
+    right: 80px;
+    bottom: calc(clamp(16px, 2.4vw, 28px) + env(safe-area-inset-bottom, 0px));
+    /* Under the header and the mobile drawer, never over them. */
+    z-index: var(--oph-z-sticky);
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+      transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+  }
+  .svc-stickybook[data-visible='true'] {
+    pointer-events: auto;
+    opacity: 1;
+    transform: none;
+  }
+  :root[data-consent-open] .svc-stickybook,
+  :root[data-drawer-open] .svc-stickybook {
+    display: none;
+  }
+}
+
+.svc-stickybook__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-forest);
+  box-shadow: var(--oph-shadow-brand);
+  color: var(--oph-cream);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.svc-stickybook__btn svg {
+  flex: 0 0 auto;
+  color: var(--oph-gold-soft);
+}
+
+.svc-stickybook__price {
+  overflow: hidden;
+  color: color-mix(in srgb, var(--oph-cream) 78%, transparent);
+  font-weight: var(--oph-weight-semibold);
+  text-overflow: ellipsis;
+}
+
+.svc-stickybook__btn:focus-visible {
+  outline: 2px solid var(--oph-gold-soft);
+  outline-offset: 3px;
+}
+
+/* ================================================= DEPARTMENT STORY, PHONES */
+/* The pinned photo + 56 vh cards made each department page ~4 screens
+   longer on phones, and on portrait tablets (768–900) the shell stacked the
+   cards over a pinned 44 vh visual. Up to 900 px — wherever the story is a
+   single column — the steps read as a compact numbered timeline with no pin;
+   the two-column pinned visual stays for landscape tablets and desktops. */
+@media (max-width: 900px) {
+  .svc-story .oph-story__visual {
+    display: none;
+  }
+  .svc-story .oph-story__chapters {
+    gap: 0;
+    border-left: 1px solid var(--oph-forest-line);
+  }
+  .svc-story .oph-story__chapter {
+    min-height: 0;
+    margin: 0;
+    padding: var(--oph-space-5) 0 var(--oph-space-5) var(--oph-space-5);
+    border: 0;
+    background: transparent;
+    opacity: 1;
+    transform: none;
+  }
+  .svc-story .svc-chapter__title {
+    font-size: var(--oph-text-xl);
+  }
+}
+
+/* ======================================================= TAP TARGETS ≤767 */
+@media (max-width: 767px) {
+  .svc-textlink,
+  .svc-maplink {
+    min-height: 44px;
+  }
+  .svc-clinic__rows li {
+    align-items: center;
+    min-height: 44px;
+    padding: 4px 0;
+  }
+  .svc-clinic__rows svg {
+    margin-top: 0;
+  }
+  .svc-clinic__rows a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .svc-filter .oph-chip,
+  .svc-pricefilter .oph-chip {
+    min-height: 44px;
+  }
+  .svc-sheet__services a {
+    min-height: 44px;
+  }
+  .svc-index__title a,
+  .svc-article-after .oph-sources a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* ============================================================ CONTRAST */
+/* Emergency note on /contacts: body text in ink (the warning token #8a6a36
+   on its soft tint is 4.0:1); the icon keeps the warning colour. Integrator
+   note: darkening --oph-warning to ≈ #6f5429 fixes this site-wide. */
+.svc-formduo__intro .oph-alert--warning > div {
+  color: var(--oph-ink-soft);
+}
+
+/* Department story: every chapter stays at full contrast (dimming to 28 %
+   failed WCAG). The active one is marked by position and a gold rule that
+   grows in (transform only). */
+.svc-story .oph-story__chapter {
+  opacity: 1;
+}
+
+.svc-story .svc-chapter__n::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin-top: var(--oph-space-3);
+  background: var(--oph-gold-soft);
+  transform-origin: left;
+  transform: scaleX(0.25);
+  transition: transform calc(600ms * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.svc-story .oph-story__chapter[data-active='true'] .svc-chapter__n::after {
+  transform: scaleX(1);
+}
+
+.svc-storyvis__n small {
+  color: color-mix(in srgb, var(--oph-cream) 72%, transparent);
+}
+
+/* ============================================ TOUCH: NOTHING FIGHTS SCROLL */
+/* Responsive sprint (services pages). On touch screens every scroll-linked
+   effect on these pages is still: the art rings and orbit do not turn (their
+   progress variables are not bound on touch, and an inherited --p from an
+   ancestor must not turn them either), the department and programme sheets
+   neither pin nor shrink/dim per frame, and story chapters do not slide. */
+@media (hover: none) and (pointer: coarse) {
+  .svc-art__rings,
+  .svc-orbit__ring .svc-orbit__ring-dash {
+    transform: none;
+  }
+  .svc-art__glyph {
+    opacity: 1;
+    transform: none;
+  }
+  .svc-orbit__nodes {
+    --turn: 0deg;
+  }
+  .oph-stack-cards__item:has(.svc-sheet),
+  .oph-stack-cards__item:has(.svc-program) {
+    position: relative;
+    top: auto;
+  }
+  .oph-stack-cards__item:has(.svc-sheet) > .oph-stack-cards__card,
+  .oph-stack-cards__item:has(.svc-program) > .oph-stack-cards__card {
+    transform: none;
+    filter: none;
+  }
+  .svc-story .oph-story__chapter {
+    transform: none;
+  }
+}
+
+/* Price list as cards on phones: the service name is a full-width tap
+   target (it was a 31 px line of serif text). */
+@media (max-width: 720px) {
+  .svc-pricetable__name a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* Service form heading at 1024: the intro column must not be clipped by the
+   form panel — stack earlier and let the title wrap. */
+@media (max-width: 1180px) {
+  .svc-formduo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.svc-formduo__intro .oph-display {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}

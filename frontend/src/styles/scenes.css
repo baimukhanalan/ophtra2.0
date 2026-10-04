@@ -1,0 +1,475 @@
+/* ==========================================================================
+   OPHTRA — SCROLL SCENES
+   Corridor · Gravity · Vision simulator · Eye canvas
+   Every layout here is mobile-first; desktop refinements are additive.
+   ========================================================================== */
+
+/* ================================================================== ORBIT */
+
+.oph-orbit {
+  position: relative;
+  background: var(--oph-gradient-deep);
+  color: #fff;
+  overflow: clip;
+}
+
+.oph-orbit__pin {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--oph-space-4);
+  height: 100svh;
+  min-height: 580px;
+  overflow: hidden;
+  padding: clamp(7rem, 14vh, 9rem) var(--oph-gutter) clamp(2rem, 6vh, 4rem);
+}
+
+.oph-orbit__heading {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  gap: var(--oph-space-3);
+  max-width: 620px;
+}
+
+.oph-orbit__heading h2 {
+  color: #fff;
+  font-size: var(--oph-display-sm);
+}
+
+.oph-orbit__heading p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-relaxed);
+}
+
+.oph-orbit__stage {
+  position: relative;
+  z-index: 1;
+  min-height: 0;
+  pointer-events: none;
+}
+
+/* Concentric guides — the same iris geometry as the logo and hero. */
+.oph-orbit__ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.oph-orbit__ring--outer {
+  width: min(84%, 620px);
+  aspect-ratio: 1 / 0.72;
+}
+
+.oph-orbit__ring--inner {
+  width: min(52%, 380px);
+  aspect-ratio: 1 / 0.72;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.oph-orbit__card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  gap: 4px;
+  width: clamp(108px, 26vw, 150px);
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--oph-radius-md);
+  /* Deliberately a flat translucent fill, not a backdrop-filter: thirteen of
+     these orbit and rescale together, and a backdrop blur has to re-sample and
+     re-blur what is behind each one on every frame. That, over moving text, is
+     what made the cards shimmer. */
+  background: rgba(255, 255, 255, 0.13);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.oph-orbit__card-meta {
+  color: var(--oph-brand-300);
+  font-size: var(--oph-text-2xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.oph-orbit__card-title {
+  color: #fff;
+  font-size: var(--oph-text-2xs);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* The single record everything collapses into. */
+.oph-orbit__core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  gap: 6px;
+  width: min(72%, 300px);
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-brand-400);
+  border-radius: var(--oph-radius-lg);
+  background: rgba(10, 61, 44, 0.92);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.oph-orbit__caption {
+  position: relative;
+  z-index: 3;
+  max-width: 560px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-relaxed);
+  opacity: 0;
+}
+
+:root[data-reduced-motion='true'] .oph-orbit {
+  height: auto !important;
+}
+:root[data-reduced-motion='true'] .oph-orbit__pin {
+  position: relative;
+  height: auto;
+  min-height: 0;
+}
+:root[data-reduced-motion='true'] .oph-orbit__stage {
+  display: grid;
+  gap: var(--oph-space-3);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-block: var(--oph-space-6);
+}
+:root[data-reduced-motion='true'] .oph-orbit__ring {
+  display: none;
+}
+:root[data-reduced-motion='true'] .oph-orbit__card {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: auto;
+  opacity: 1;
+}
+:root[data-reduced-motion='true'] .oph-orbit__core,
+:root[data-reduced-motion='true'] .oph-orbit__caption {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: auto;
+  opacity: 1;
+  transform: none;
+}
+
+/* ====================================================== VISION SIMULATOR */
+
+.oph-vision {
+  position: relative;
+  width: 100%;
+  border-radius: var(--oph-radius-xl);
+  overflow: hidden;
+  background: var(--oph-brand-900);
+  aspect-ratio: 16 / 10;
+  touch-action: pan-y;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.oph-vision__layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* The impaired view is clipped to the left of the handle. */
+.oph-vision__layer--before {
+  clip-path: inset(0 calc(100% - var(--oph-vision-split, 50%)) 0 0);
+}
+
+.oph-vision__handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--oph-vision-split, 50%);
+  z-index: 3;
+  width: 2px;
+  margin-left: -1px;
+  background: #fff;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
+}
+
+.oph-vision__grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--oph-brand-800);
+  box-shadow: var(--oph-shadow-lg);
+  transform: translate(-50%, -50%);
+}
+
+.oph-vision__label {
+  position: absolute;
+  bottom: 14px;
+  z-index: 4;
+  padding: 7px 14px;
+  border-radius: var(--oph-radius-pill);
+  /* Flat fill, not a blur: the label sits over the simulator, whose clip moves
+     with the handle, so a backdrop-filter here is re-computed for the whole
+     drag. */
+  background: rgba(6, 35, 26, 0.78);
+  color: #fff;
+  font-size: var(--oph-text-2xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.oph-vision__label--before {
+  left: 14px;
+}
+.oph-vision__label--after {
+  right: 14px;
+}
+
+/* ============================================================ EYE CANVAS */
+
+.oph-eye {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.oph-eye__iris {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: oph-iris 9s var(--oph-ease-in-out) infinite;
+}
+
+@keyframes oph-iris {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(0.88);
+  }
+  62% {
+    transform: scale(1.04);
+  }
+}
+
+.oph-eye__scan {
+  animation: oph-scan 5.5s var(--oph-ease-in-out) infinite;
+}
+
+@keyframes oph-scan {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-42px);
+  }
+  18%,
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(42px);
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-eye__iris,
+:root[data-reduced-motion='true'] .oph-eye__scan {
+  animation: none;
+}
+
+/* ================================================================ FIGURES */
+
+/* Numbered stat strip used under long-form sections. */
+.oph-figures {
+  display: grid;
+  gap: var(--oph-space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
+
+.oph-figure {
+  display: grid;
+  gap: 6px;
+  padding: var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-surface);
+}
+
+.oph-figure__value {
+  color: var(--oph-ink);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.oph-figure__label {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.45;
+}
+
+/* ================================================ SELF-PANNING RAIL (MOBILE) */
+
+/* Above the phone breakpoint this is an ordinary card grid; the host and pin
+   are inert wrappers. Below it the section becomes a tall track with a sticky
+   viewport, and useAutoRail pans the row while the page is held — so every
+   card gets read instead of the whole set sweeping past in half a screen. */
+.oph-autorail {
+  --oph-autorail-offset: 0px;
+  --oph-autorail-travel: 0px;
+}
+
+@media (max-width: 767px) {
+  .oph-autorail[data-panning='true'] {
+    position: relative;
+  }
+
+  /* The extra height IS the pan distance: one pixel down, one sideways. */
+  .oph-autorail[data-panning='true'] .oph-autorail__spacer {
+    height: var(--oph-autorail-travel);
+  }
+
+  .oph-autorail__pin {
+    position: sticky;
+    /* Clears the fixed header. */
+    top: var(--oph-sticky-top, 84px);
+    /* Bleeds to both screen edges so a card can sit half off-screen, which is
+       what tells the visitor the row continues. */
+    margin-inline: calc(var(--oph-gutter) * -1);
+    padding-inline: var(--oph-gutter);
+    overflow: hidden;
+  }
+
+  .oph-autorail__track {
+    display: grid;
+    /* The track also carries .oph-cards, whose explicit template would put the
+       first card in a differently sized column from the rest. */
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 76%;
+    gap: var(--oph-space-4);
+    transform: translate3d(var(--oph-autorail-offset), 0, 0);
+    /* Held permanently so the row is one composited layer: the offset can then
+       be fractional and the compositor resamples it, instead of the text being
+       repainted at a new subpixel position on every frame. */
+    will-change: transform;
+  }
+
+  /* Cards inside a panning rail do not also fade up on arrival — two
+     animations on the same element at once is what made the type shimmer. */
+  .oph-autorail[data-panning='true'] .oph-autorail__track [data-oph-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  /* Reduced motion: nothing pans, so the visitor swipes instead. */
+  .oph-autorail[data-static='true'] .oph-autorail__pin {
+    position: static;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--oph-gutter);
+    scrollbar-width: none;
+  }
+
+  .oph-autorail[data-static='true'] .oph-autorail__pin::-webkit-scrollbar {
+    display: none;
+  }
+
+  .oph-autorail[data-static='true'] .oph-autorail__track {
+    transform: none;
+    will-change: auto;
+  }
+
+  .oph-autorail[data-static='true'] .oph-autorail__track > * {
+    scroll-snap-align: start;
+  }
+
+  /* Static swipe rail (touch, reduced motion): cards past the edge would only
+     start their entrance while being swiped in. */
+  .oph-autorail[data-static='true'] .oph-autorail__track [data-oph-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* ============================================= PHOTOGRAPHIC SECTION BACKDROP */
+
+/* A media layer for sections that would otherwise be flat colour. The image or
+   video sits behind a brand-tinted scrim so text contrast never depends on the
+   asset. */
+.oph-media-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.oph-media-bg > img,
+.oph-media-bg > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+}
+
+/* Stacked frames for scenes that change photograph as they advance. Only
+   opacity animates, so swapping backdrops costs nothing on the compositor. */
+.oph-media-bg__frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 900ms var(--oph-ease-out), transform 2600ms var(--oph-ease-out);
+  transform: scale(1.12);
+  /* Hidden frames must not be promoted or painted. */
+  content-visibility: auto;
+}
+
+.oph-media-bg__frame[data-active='true'] {
+  will-change: opacity, transform;
+}
+
+.oph-media-bg__frame[data-active='true'] {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+:root[data-reduced-motion='true'] .oph-media-bg__frame {
+  transition: opacity 200ms linear;
+  transform: none;
+}
+
+.oph-media-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 35, 26, 0.82) 0%, rgba(6, 35, 26, 0.72) 55%, rgba(6, 35, 26, 0.9) 100%);
+}
+
+.oph-media-bg--light::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(241, 250, 245, 0.9) 100%);
+}

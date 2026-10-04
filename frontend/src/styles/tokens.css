@@ -1,0 +1,293 @@
+/* ==========================================================================
+   OPHTRA DESIGN SYSTEM — TOKENS
+   Single source of truth for colour, type, spacing, grid, radius, elevation
+   and motion. Nothing in the product hard-codes a raw value; every component
+   consumes a token from this file.
+   ========================================================================== */
+
+:root {
+  color-scheme: only light;
+
+  /* ---------------------------------------------------------------- BRAND */
+  /* Figma palette: deep forest green, warm cream paper, muted gold accents.
+     Every value below is sampled from the Figma file; nothing else is used. */
+  --oph-brand-50: #eef1ee;
+  --oph-brand-100: #dfe6e1;
+  --oph-brand-200: #c3d0c8;
+  --oph-brand-300: #8fab9c;
+  --oph-brand-400: #5b8a71;
+  --oph-brand-500: #3f6e57;
+  --oph-brand-600: #2d5b45;
+  --oph-brand-700: #24473a;
+  --oph-brand-800: #1f3b31;
+  --oph-brand-900: #1b2e28;
+  --oph-brand-950: #131f1b;
+
+  /* Forest — hero blocks, dark sections, primary buttons. */
+  --oph-forest: #1b2e28;
+  --oph-forest-deep: #131f1b;
+  --oph-forest-soft: #243a32;
+  --oph-forest-line: rgba(255, 255, 255, 0.1);
+
+  /* Paper — warm neutrals carrying the layout. */
+  --oph-cream: #f4f2ed;
+  --oph-paper: #f9f8f5;
+  --oph-sand: #e9e7e1;
+  --oph-stone: #d5d7d1;
+
+  /* Gold — eyebrows, index numbers, illustration accents. */
+  --oph-gold: #7a613c; /* Figma gold, deepened to 5.2:1 on cream for text (WCAG AA) */
+  --oph-gold-line: #a88b5e; /* original Figma gold for rules, dots and rails */
+  --oph-gold-soft: #c9b08a;
+
+  /* Semantic role mapping required by the design system specification. */
+  --oph-primary: var(--oph-forest);
+  --oph-primary-hover: var(--oph-brand-700);
+  --oph-primary-active: var(--oph-brand-950);
+  --oph-primary-contrast: #ffffff;
+  --oph-secondary: var(--oph-sand);
+  --oph-secondary-hover: var(--oph-stone);
+  --oph-secondary-contrast: var(--oph-forest);
+  --oph-accent: var(--oph-brand-600);
+  --oph-accent-soft: var(--oph-brand-200);
+  --oph-link: var(--oph-brand-600);
+
+  /* --------------------------------------------------------------- NEUTRAL */
+  --oph-ink: #1b2e28;
+  --oph-ink-soft: #3a4a43;
+  --oph-muted: #5f6762;
+  --oph-muted-soft: #9aa19c;
+  --oph-line: #dfdbd2;
+  --oph-line-strong: #cfcac0;
+  --oph-surface: #f4f2ed;
+  --oph-surface-2: #eeebe5;
+  --oph-surface-3: #e9e7e1;
+  --oph-field: #f9f8f5;
+  --oph-overlay: rgba(19, 31, 27, 0.5);
+
+  /* -------------------------------------------------------------- SEMANTIC */
+  --oph-success: #2d5b45;
+  --oph-success-soft: #dfe6e1;
+  --oph-warning: #6f5429;
+  --oph-warning-soft: #efe6d6;
+  --oph-danger: #9b3a2f;
+  --oph-danger-soft: #f1e1dc;
+  --oph-info: #2d5b45;
+  --oph-info-soft: #e9e7e1;
+
+  /* ------------------------------------------------------------- GRADIENTS */
+  --oph-gradient-brand: linear-gradient(135deg, var(--oph-forest) 0%, var(--oph-brand-700) 100%);
+  --oph-gradient-deep: linear-gradient(180deg, var(--oph-forest) 0%, var(--oph-forest) 100%);
+  --oph-gradient-mist: linear-gradient(180deg, var(--oph-cream) 0%, var(--oph-surface-2) 100%);
+  --oph-gradient-halo: radial-gradient(ellipse at center, rgba(143, 171, 156, 0.16), rgba(143, 171, 156, 0) 68%);
+
+  /* ------------------------------------------------------------------ GLASS */
+  --oph-glass-bg: rgba(249, 248, 245, 0.86);
+  --oph-glass-border: rgba(223, 219, 210, 0.9);
+  --oph-glass-blur: 16px;
+  --oph-glass-bg-dark: rgba(19, 31, 27, 0.5);
+  --oph-glass-border-dark: rgba(255, 255, 255, 0.12);
+
+  /* ------------------------------------------------------------- TYPOGRAPHY */
+  --oph-font-sans: 'Manrope', 'Manrope Fallback', 'Inter', 'Segoe UI', 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+  --oph-font-serif: 'Source Serif 4', 'Source Serif 4 Fallback', 'Georgia', 'Times New Roman', serif;
+  --oph-font-scale: 1;
+
+  --oph-text-2xs: calc(0.75rem * var(--oph-font-scale)); /* 12 — legibility floor for micro-labels */
+  --oph-text-xs: calc(0.75rem * var(--oph-font-scale)); /* 12 */
+  --oph-text-sm: calc(0.875rem * var(--oph-font-scale)); /* 14 */
+  --oph-text-base: calc(1rem * var(--oph-font-scale)); /* 16 */
+  --oph-text-md: calc(1.0625rem * var(--oph-font-scale)); /* 17 */
+  --oph-text-lg: calc(1.25rem * var(--oph-font-scale)); /* 20 */
+  --oph-text-xl: calc(1.5rem * var(--oph-font-scale)); /* 24 */
+  --oph-text-2xl: calc(1.875rem * var(--oph-font-scale)); /* 30 */
+  --oph-text-3xl: calc(2.375rem * var(--oph-font-scale)); /* 38 */
+  --oph-text-4xl: calc(3rem * var(--oph-font-scale)); /* 48 */
+  --oph-text-5xl: calc(3.75rem * var(--oph-font-scale)); /* 60 */
+
+  /* Fluid display sizes for hero and section headlines. */
+  /* Display sizes are capped so the hero headline stays two lines and the
+     primary call to action remains above the fold on a laptop viewport. */
+  --oph-display-sm: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  --oph-display-md: clamp(2.1rem, 1.3rem + 3vw, 3.75rem);
+  --oph-display-lg: clamp(2.5rem, 1.4rem + 4.2vw, 5rem);
+  --oph-display-xl: clamp(2.9rem, 1.4rem + 5.6vw, 6.5rem);
+
+  --oph-leading-tight: 1.06;
+  --oph-leading-snug: 1.22;
+  --oph-leading-normal: 1.55;
+  --oph-leading-relaxed: 1.7;
+
+  --oph-tracking-tight: -0.022em;
+  --oph-tracking-normal: 0;
+  --oph-tracking-wide: 0.06em;
+  --oph-tracking-caps: 0.11em;
+
+  --oph-weight-regular: 400;
+  --oph-weight-medium: 500;
+  --oph-weight-semibold: 600;
+  --oph-weight-bold: 700;
+  --oph-weight-black: 800;
+
+  /* ---------------------------------------------------------------- SPACING */
+  /* 4px base ramp. */
+  --oph-space-1: 0.25rem;
+  --oph-space-2: 0.5rem;
+  --oph-space-3: 0.75rem;
+  --oph-space-4: 1rem;
+  --oph-space-5: 1.25rem;
+  --oph-space-6: 1.5rem;
+  --oph-space-8: 2rem;
+  --oph-space-10: 2.5rem;
+  --oph-space-12: 3rem;
+  --oph-space-16: 4rem;
+  --oph-space-20: 5rem;
+  --oph-space-24: 6rem;
+  --oph-space-32: 8rem;
+  --oph-space-40: 10rem;
+
+  /* Vertical rhythm between full-bleed sections (56 / 71 / 101 px at
+     390 / 768 / 1440). Same proportions as the Figma rhythm, tighter: the
+     old 9rem cap left ~270 px of dead air at every desktop boundary. */
+  --oph-section-y: clamp(3.5rem, 2.25rem + 4.5vw, 7rem);
+  --oph-section-y-tight: clamp(2.5rem, 1.75rem + 3vw, 4.5rem);
+  /* Sticky-story chapter height: content-driven, but still enough scroll per
+     chapter for the pinned visual to switch steps (405 px at 900 px tall). */
+  --oph-story-chapter-min: clamp(320px, 45vh, 440px);
+
+  /* ------------------------------------------------------------------- GRID */
+  --oph-container: 1280px;
+  --oph-container-narrow: 960px;
+  --oph-container-prose: 720px;
+  --oph-gutter: clamp(1.125rem, 0.6rem + 2.4vw, 3rem);
+  --oph-grid-columns: 12;
+  --oph-grid-gap: clamp(1rem, 0.5rem + 1.4vw, 2rem);
+
+  /* ----------------------------------------------------------------- RADIUS */
+  --oph-radius-xs: 6px;
+  --oph-radius-sm: 8px;
+  --oph-radius-md: 10px;
+  --oph-radius-lg: 12px;
+  --oph-radius-xl: 14px;
+  --oph-radius-2xl: 18px;
+  --oph-radius-3xl: 24px;
+  --oph-radius-pill: 999px;
+
+  /* -------------------------------------------------------------- ELEVATION */
+  --oph-shadow-xs: 0 1px 2px rgba(27, 46, 40, 0.05);
+  --oph-shadow-sm: 0 2px 8px rgba(27, 46, 40, 0.05);
+  --oph-shadow-md: 0 10px 28px rgba(27, 46, 40, 0.07);
+  --oph-shadow-lg: 0 22px 50px rgba(27, 46, 40, 0.1);
+  --oph-shadow-xl: 0 36px 80px rgba(27, 46, 40, 0.14);
+  --oph-shadow-brand: 0 10px 24px rgba(27, 46, 40, 0.18);
+  --oph-shadow-brand-lg: 0 18px 40px rgba(27, 46, 40, 0.24);
+  --oph-ring: 0 0 0 4px rgba(45, 91, 69, 0.16);
+
+  /* ----------------------------------------------------------------- MOTION */
+  /* Snappy curve for things the pointer touches: hover, press, focus. */
+  --oph-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --oph-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --oph-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Curve for entrance animations. --oph-ease-out covers ~80% of its distance
+     in the first fifth of its duration, which reads as a flick rather than a
+     movement; this one decelerates evenly so a long travel stays legible. */
+  --oph-ease-glide: cubic-bezier(0.24, 0.42, 0.2, 1);
+  --oph-duration-instant: 120ms;
+  --oph-duration-fast: 200ms;
+  --oph-duration-base: 320ms;
+  --oph-duration-slow: 620ms;
+  --oph-duration-slower: 900ms;
+  /* Entrance animations, kept separate so they can be slowed for touch. */
+  --oph-duration-reveal: 1100ms;
+  /* How far a revealed block travels. */
+  --oph-reveal-distance: 34px;
+  --oph-motion-scale: 1; /* set to 0 by the reduced-motion preference */
+
+  /* ---------------------------------------------------------------- LAYERS */
+  --oph-z-base: 0;
+  --oph-z-raised: 10;
+  --oph-z-sticky: 100;
+  --oph-z-header: 200;
+  --oph-z-drawer: 300;
+  --oph-z-modal: 400;
+  --oph-z-assistant: 450;
+  --oph-z-toast: 500;
+  --oph-z-cursor: 900;
+}
+
+/* Touch: entrances are an opacity-only fade (motion.css) that starts a full
+   screen below the fold (useReveal), so it must be short — a 1.4s fade left
+   blocks near-invisible on screen after a fling (blank page filling in). */
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --oph-duration-reveal: 450ms;
+    --oph-duration-slower: 1150ms;
+    --oph-duration-slow: 780ms;
+    --oph-reveal-distance: 24px;
+  }
+}
+
+/* ------------------------------------------------------- ACCESSIBILITY MODES */
+
+/* Large-font mode (WCAG 2.1 AA — resize text up to 200%). */
+:root[data-font-scale='lg'] {
+  --oph-font-scale: 1.125;
+}
+:root[data-font-scale='xl'] {
+  --oph-font-scale: 1.28;
+}
+
+/* High-contrast mode. Keeps the green identity but pushes every pair
+   past a 7:1 contrast ratio and removes translucency. */
+:root[data-contrast='high'] {
+  --oph-primary: #0f1c18;
+  --oph-primary-hover: #000000;
+  --oph-primary-active: #000000;
+  --oph-secondary: #ffffff;
+  --oph-secondary-contrast: #0f1c18;
+  --oph-accent: #0f1c18;
+  --oph-link: #0f1c18;
+  --oph-gold: #5c4520;
+  --oph-ink: #000000;
+  --oph-ink-soft: #000000;
+  --oph-muted: #1b2e28;
+  --oph-muted-soft: #1b2e28;
+  --oph-line: #1b2e28;
+  --oph-line-strong: #1b2e28;
+  --oph-surface-2: #ffffff;
+  --oph-surface-3: #ffffff;
+  --oph-paper: #ffffff;
+  --oph-sand: #ffffff;
+  --oph-field: #ffffff;
+  --oph-glass-bg: #ffffff;
+  --oph-glass-border: #1b2e28;
+  --oph-glass-blur: 0px;
+  --oph-shadow-xs: 0 0 0 1px #1b2e28;
+  --oph-shadow-sm: 0 0 0 1px #1b2e28;
+  --oph-shadow-md: 0 0 0 2px #1b2e28;
+  --oph-shadow-lg: 0 0 0 2px #1b2e28;
+  --oph-shadow-xl: 0 0 0 2px #1b2e28;
+  --oph-shadow-brand: 0 0 0 2px #1b2e28;
+  --oph-shadow-brand-lg: 0 0 0 3px #1b2e28;
+  --oph-gradient-brand: linear-gradient(135deg, #0f1c18 0%, #0f1c18 100%);
+  --oph-gradient-mist: #ffffff;
+  --oph-gradient-halo: none;
+}
+
+/* Explicit user request for reduced motion, and the OS-level signal. */
+:root[data-reduced-motion='true'] {
+  --oph-motion-scale: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --oph-motion-scale: 0;
+  }
+}
+
+/* The site is a light-only product; a dark OS theme must not invert it. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: only light;
+  }
+}

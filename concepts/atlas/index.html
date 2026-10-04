@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru" class="js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a1411" />
+    <meta name="description" content="ATLAS — дизайн-концепт офтальмологического центра доктора Кулмаганбетова: путь от Астаны к миру и обратно." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>ATLAS · Офтальмологический центр доктора Кулмаганбетова</title>
+    <style>
+      html,body{background:#0a1411;margin:0}
+      #boot{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 60%,#16302a 0%,#0a1411 62%);color:#f4f2ed;font-family:ui-monospace,Menlo,monospace}
+      #boot .b{display:grid;justify-items:center;gap:22px;text-align:center}
+      #boot svg{width:120px;height:120px;overflow:visible}
+      #boot .ring{fill:none;stroke:#c9b08a;stroke-width:1;stroke-dasharray:4 6;transform-origin:60px 60px;animation:br 6s linear infinite}
+      #boot .orb{fill:none;stroke:rgba(201,176,138,.35);stroke-width:1}
+      #boot .dot{fill:#e8c27c;filter:drop-shadow(0 0 6px #e8c27c);animation:bp 1.6s ease-in-out infinite}
+      #boot .trail{fill:none;stroke:#e8c27c;stroke-width:1.4;stroke-linecap:round;stroke-dasharray:180;stroke-dashoffset:180;animation:bt 1.8s cubic-bezier(.16,1,.3,1) forwards}
+      #boot p{margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#c9b08a}
+      #boot small{font-size:10px;letter-spacing:.2em;color:rgba(244,242,237,.55)}
+      @keyframes br{to{transform:rotate(360deg)}}
+      @keyframes bp{50%{opacity:.4}}
+      @keyframes bt{to{stroke-dashoffset:0}}
+      @media (prefers-reduced-motion: reduce){#boot *{animation:none!important;stroke-dashoffset:0!important}}
+    </style>
+  </head>
+  <body>
+    <div id="boot" role="status" aria-live="polite">
+      <div class="b">
+        <svg viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="orb" cx="60" cy="60" r="38" />
+          <ellipse class="orb" cx="60" cy="60" rx="38" ry="14" />
+          <ellipse class="orb" cx="60" cy="60" rx="14" ry="38" />
+          <circle class="ring" cx="60" cy="60" r="52" />
+          <path class="trail" d="M28 70 C 40 20, 90 20, 96 52" />
+          <circle class="dot" cx="78" cy="44" r="3" />
+        </svg>
+        <p>Выход на орбиту</p>
+        <small>51.1284° N · 71.4306° E</small>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+scripts/all.json
+node_modules
+dist
+.vercel
+_deploy

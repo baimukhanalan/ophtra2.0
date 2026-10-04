@@ -1,0 +1,141 @@
+{
+  "privacy": {
+    "updated": "2026-06-01",
+    "title": {
+      "ru": "Политика конфиденциальности",
+      "kk": "Құпиялылық саясаты",
+      "en": "Privacy policy"
+    },
+    "intro": {
+      "ru": "Настоящая политика описывает, какие персональные данные обрабатывает Офтальмологический центр доктора Кулмаганбетова, с какой целью и на каком основании.",
+      "kk": "Осы саясат Доктор Кұлмағанбетов офтальмологиялық орталығы қандай дербес деректерді, қандай мақсатпен және қандай негізде өңдейтінін сипаттайды.",
+      "en": "This policy describes which personal data the Ophthalmic Centre of Dr Kulmaganbetov processes, for what purpose and on what legal basis."
+    },
+    "sections": [
+      {
+        "id": "data",
+        "title": { "ru": "Какие данные мы собираем", "kk": "Қандай деректерді жинаймыз", "en": "What data we collect" },
+        "body": {
+          "ru": "Мы обрабатываем данные, которые вы сообщаете при записи на приём: фамилию, имя и отчество, номер телефона, адрес электронной почты, выбранную услугу и комментарий к записи. Дополнительно фиксируются технические данные: источник перехода, UTM-метки, тип устройства и браузера.",
+          "kk": "Біз қабылдауға жазылу кезінде хабарлайтын деректерді өңдейміз: тегі, аты, әкесінің аты, телефон нөмірі, электрондық пошта мекенжайы, таңдалған қызмет және жазбаға пікір. Қосымша техникалық деректер тіркеледі: көшу көзі, UTM-белгілер, құрылғы мен браузер түрі.",
+          "en": "We process the data you provide when booking: full name, phone number, email address, the selected service and any comment. We also record technical data: referral source, UTM tags, device and browser type."
+        }
+      },
+      {
+        "id": "purpose",
+        "title": { "ru": "Цели обработки", "kk": "Өңдеу мақсаттары", "en": "Purposes of processing" },
+        "body": {
+          "ru": "Данные используются для подтверждения и напоминания о записи, оказания медицинских услуг, ведения истории обращений, выставления счетов и выпуска электронных чеков, а также для улучшения качества сервиса. Маркетинговые сообщения отправляются только при отдельном явном согласии.",
+          "kk": "Деректер жазбаны растау және еске салу, медициналық қызмет көрсету, өтініштер тарихын жүргізу, шот қою және электрондық түбіртек шығару, сондай-ақ сервис сапасын жақсарту үшін пайдаланылады. Маркетингтік хабарламалар тек жеке нақты келісім болғанда жіберіледі.",
+          "en": "The data is used to confirm and remind you about appointments, deliver medical services, maintain a record of visits, issue invoices and electronic receipts, and improve service quality. Marketing messages are sent only with separate explicit consent."
+        }
+      },
+      {
+        "id": "sharing",
+        "title": { "ru": "Передача третьим лицам", "kk": "Үшінші тұлғаларға беру", "en": "Sharing with third parties" },
+        "body": {
+          "ru": "Данные передаются только тем поставщикам, без которых услуга невозможна: медицинской информационной системе, оператору WhatsApp Business, платёжному провайдеру и системам аналитики в обезличенном виде. Мы не продаём персональные данные.",
+          "kk": "Деректер қызмет көрсету мүмкін болмайтын жеткізушілерге ғана беріледі: медициналық ақпараттық жүйеге, WhatsApp Business операторына, төлем провайдеріне және дербестендірілмеген түрде аналитика жүйелеріне. Біз дербес деректерді сатпаймыз.",
+          "en": "Data is shared only with providers without whom the service is impossible: the medical information system, the WhatsApp Business operator, the payment provider, and analytics systems in anonymised form. We do not sell personal data."
+        }
+      },
+      {
+        "id": "rights",
+        "title": { "ru": "Ваши права", "kk": "Сіздің құқықтарыңыз", "en": "Your rights" },
+        "body": {
+          "ru": "Вы вправе запросить копию своих данных, потребовать их исправления или удаления, а также отозвать согласие на обработку. Запрос направляется на info@drkulmaganbetov.kz и рассматривается в течение 10 рабочих дней.",
+          "kk": "Сіз өз деректеріңіздің көшірмесін сұрауға, оларды түзетуді немесе жоюды талап етуге, сондай-ақ өңдеуге келісімді кері қайтаруға құқылысыз. Сұраныс info@drkulmaganbetov.kz мекенжайына жіберіледі және 10 жұмыс күні ішінде қаралады.",
+          "en": "You may request a copy of your data, ask for it to be corrected or deleted, and withdraw your consent to processing. Send requests to info@drkulmaganbetov.kz; they are handled within 10 business days."
+        }
+      },
+      {
+        "id": "storage",
+        "title": { "ru": "Сроки хранения", "kk": "Сақтау мерзімдері", "en": "Retention periods" },
+        "body": {
+          "ru": "Медицинская документация хранится в сроки, установленные законодательством Республики Казахстан. Данные заявок, не приведших к обращению, удаляются через 12 месяцев.",
+          "kk": "Медициналық құжаттама Қазақстан Республикасының заңнамасында белгіленген мерзімдерде сақталады. Өтініштерге әкелмеген өтінім деректері 12 айдан кейін жойылады.",
+          "en": "Medical records are kept for the periods established by the legislation of the Republic of Kazakhstan. Enquiry data that does not lead to a visit is deleted after 12 months."
+        }
+      },
+      {
+        "id": "cookies",
+        "title": { "ru": "Файлы cookie", "kk": "Cookie файлдары", "en": "Cookies" },
+        "body": {
+          "ru": "Сайт использует технические cookie для работы интерфейса и аналитические cookie для оценки эффективности рекламных кампаний. Аналитические cookie устанавливаются только после вашего согласия и могут быть отключены в настройках браузера.",
+          "kk": "Сайт интерфейс жұмысы үшін техникалық cookie және жарнамалық науқандардың тиімділігін бағалау үшін аналитикалық cookie пайдаланады. Аналитикалық cookie тек сіздің келісіміңізден кейін орнатылады және браузер баптауларында өшірілуі мүмкін.",
+          "en": "The site uses technical cookies for the interface and analytics cookies to measure campaign performance. Analytics cookies are set only after your consent and can be disabled in your browser settings."
+        }
+      }
+    ]
+  },
+
+  "terms": {
+    "updated": "2026-06-01",
+    "title": {
+      "ru": "Пользовательское соглашение",
+      "kk": "Пайдаланушы келісімі",
+      "en": "Terms of use"
+    },
+    "intro": {
+      "ru": "Соглашение регулирует использование сайта центра и сервисов онлайн-записи, личного кабинета и онлайн-оплаты.",
+      "kk": "Келісім орталық сайтын және онлайн жазылу, жеке кабинет пен онлайн төлем сервистерін пайдалануды реттейді.",
+      "en": "These terms govern use of the centre's website and its online booking, patient account and online payment services."
+    },
+    "sections": [
+      {
+        "id": "scope",
+        "title": { "ru": "Предмет соглашения", "kk": "Келісім мәні", "en": "Scope" },
+        "body": {
+          "ru": "Используя сайт, вы принимаете условия настоящего соглашения. Если вы не согласны с каким-либо пунктом, воспользуйтесь записью по телефону контакт-центра.",
+          "kk": "Сайтты пайдалана отырып, сіз осы келісім шарттарын қабылдайсыз. Егер қандай да бір тармақпен келіспесеңіз, байланыс орталығының телефоны арқылы жазылуды пайдаланыңыз.",
+          "en": "By using the site you accept these terms. If you disagree with any clause, please book by calling the contact centre instead."
+        }
+      },
+      {
+        "id": "medical",
+        "title": { "ru": "Медицинская информация", "kk": "Медициналық ақпарат", "en": "Medical information" },
+        "body": {
+          "ru": "Материалы сайта, включая статьи и ответы ассистента, носят справочный характер и не являются медицинским заключением. Диагноз ставит врач на очном приёме после обследования.",
+          "kk": "Сайт материалдары, оның ішінде мақалалар мен ассистент жауаптары анықтамалық сипатта және медициналық қорытынды болып табылмайды. Диагнозды дәрігер тексеруден кейін очно қабылдауда қояды.",
+          "en": "Site materials, including articles and assistant replies, are for reference only and are not a medical opinion. A diagnosis is made by a doctor at an in-person visit after examination."
+        }
+      },
+      {
+        "id": "booking",
+        "title": { "ru": "Онлайн-запись", "kk": "Онлайн жазылу", "en": "Online booking" },
+        "body": {
+          "ru": "Запись считается подтверждённой после получения уведомления. Центр вправе перенести приём, предупредив пациента заранее по указанным контактам. Просим сообщать об отмене не позднее чем за 3 часа.",
+          "kk": "Жазылу хабарлама алынғаннан кейін расталған болып саналады. Орталық көрсетілген байланыстар бойынша пациентті алдын ала ескертіп, қабылдауды ауыстыруға құқылы. Болдырмау туралы 3 сағаттан кешіктірмей хабарлауыңызды сұраймыз.",
+          "en": "A booking is confirmed once you receive a notification. The centre may reschedule an appointment, giving prior notice through the contacts you provided. Please report cancellations at least 3 hours in advance."
+        }
+      },
+      {
+        "id": "payments",
+        "title": { "ru": "Оплата и возврат", "kk": "Төлем және қайтару", "en": "Payments and refunds" },
+        "body": {
+          "ru": "Оплата услуг и операций доступна онлайн и в кассе клиники. Электронный чек направляется на указанный e-mail. Возврат предоплаты оформляется по заявлению и выполняется на карту платежа в течение 3–5 рабочих дней.",
+          "kk": "Қызметтер мен операцияларды төлеу онлайн және клиника кассасында қолжетімді. Электрондық түбіртек көрсетілген e-mail-ға жіберіледі. Алдын ала төлемді қайтару өтініш бойынша ресімделеді және төлем картасына 3–5 жұмыс күні ішінде орындалады.",
+          "en": "Services and operations can be paid online or at the clinic's cash desk. An electronic receipt is sent to the email you provide. Prepayment refunds are processed on request and returned to the payment card within 3–5 business days."
+        }
+      },
+      {
+        "id": "account",
+        "title": { "ru": "Личный кабинет", "kk": "Жеке кабинет", "en": "Patient account" },
+        "body": {
+          "ru": "Доступ в кабинет осуществляется по номеру телефона с подтверждением кодом. Пользователь отвечает за сохранность доступа к своему номеру и не должен передавать код третьим лицам.",
+          "kk": "Кабинетке кіру телефон нөмірі бойынша кодпен растау арқылы жүзеге асырылады. Пайдаланушы өз нөміріне қолжетімділікті сақтауға жауапты және кодты үшінші тұлғаларға бермеуі тиіс.",
+          "en": "Account access uses your phone number with code confirmation. The user is responsible for keeping access to that number secure and must not share the code with third parties."
+        }
+      },
+      {
+        "id": "content",
+        "title": { "ru": "Интеллектуальная собственность", "kk": "Зияткерлік меншік", "en": "Intellectual property" },
+        "body": {
+          "ru": "Тексты, изображения, иллюстрации и элементы дизайна сайта принадлежат центру Офтальмологическому центру доктора Кулмаганбетова. Копирование материалов допускается со ссылкой на источник.",
+          "kk": "Сайттың мәтіндері, суреттері, иллюстрациялары мен дизайн элементтері Офтальмологическому центру доктора Кулмаганбетова орталығына тиесілі. Материалдарды көшіру дереккөзге сілтеме жасай отырып рұқсат етіледі.",
+          "en": "The texts, images, illustrations and design elements of the site belong to the Офтальмологическому центру доктора Кулмаганбетова centre. Materials may be copied with attribution to the source."
+        }
+      }
+    ]
+  }
+}

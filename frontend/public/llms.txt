@@ -1,0 +1,80 @@
+# Ophthalmic Centre of Dr Kulmaganbetov
+
+> Ophthalmic Centre of Dr Kulmaganbetov (Офтальмологический центр доктора Кулмаганбетова) is a new ophthalmology centre in Astana, Kazakhstan, founded by the scientist and ophthalmologist Dr Mukhit Kulmaganbetov for clinical work and innovation projects. Planned services: eye diagnostics, medical and laser treatment, cataract and refractive surgery, paediatric ophthalmology and optics; international patients, second-opinion requests and online consultations. Languages: Russian, Kazakh, English.
+
+Knowledge-base materials are prepared by the centre's editorial team with cited sources; named medical review is shown on each article once completed. Information is educational and does not replace an in-person examination. Prices are indicative and confirmed after diagnostics.
+
+## Founder
+
+- [Dr Mukhit Kulmaganbetov](https://ophtra2.vercel.app/dr-kulmaganbetov): founder and face of the centre. MD in Ophthalmology, PhD in Vision Sciences (Cardiff University), AFHEA. Lecturer and methodologist, Department of Postgraduate Education, Kazakh Research Institute of Eye Diseases. Developed a patented quantum-optics device for early detection of age-related macular degeneration, tested in clinics in Hong Kong and Canada on 200 patients (24.kz, https://24.kz/ru/news/in-the-world/788733-razrabotka-kazakhstantsa-dlya-vyyavleniya-boleznej-glaz-prokhodit-ispytaniya-v-gonkonge); developing a quantum-optics technology for myopia (animal-study stage).
+- Selected publications (2026): "Evaluating the reliability of structured light entoptic tasks", Scientific Reports (https://www.nature.com/articles/s41598-026-63276-7); "The Machine Learning Classification of Retinal Ganglion Cell Dendritic Texture in a 3xTg-Alzheimer's Disease Mouse Model", Diagnostics (https://www.mdpi.com/2075-4418/16/16/2672); "Impact of Chronic Kidney Disease Severity on COVID-19 Outcomes: A Retrospective Cohort Study", Healthcare (https://www.mdpi.com/2227-9032/14/16/2575).
+
+## Key pages
+
+- [About the centre](https://ophtra2.vercel.app/about): mission, values, equipment, the Astana centre
+- [Doctors](https://ophtra2.vercel.app/doctors): the medical team (profiles currently demo placeholders)
+- [Services](https://ophtra2.vercel.app/services): every diagnostic, treatment and surgical service with prices
+- [Pricing](https://ophtra2.vercel.app/pricing): full price list in tenge (KZT)
+- [International patients](https://ophtra2.vercel.app/international-patients): travel, cost, duration and follow-up for patients from abroad
+- [Second opinion](https://ophtra2.vercel.app/second-opinion): remote review of existing diagnoses and imaging (OCT, fields, reports)
+- [Online consultation](https://ophtra2.vercel.app/online-consultation): video consultation with an ophthalmologist
+- [Online booking](https://ophtra2.vercel.app/appointment): book an appointment by clinic, department, service, doctor and time
+- [Knowledge base](https://ophtra2.vercel.app/knowledge-base): editorial articles on eye health with sources
+- [Science](https://ophtra2.vercel.app/science): research, publications and collaborations
+- [Academy](https://ophtra2.vercel.app/academy): education for ophthalmologists
+- [Global experts](https://ophtra2.vercel.app/global-experts): how the international expert network is being built
+- [FAQ](https://ophtra2.vercel.app/faq): common patient questions
+- [Contacts](https://ophtra2.vercel.app/contacts): addresses, opening hours, phone and WhatsApp
+
+## Services
+
+- [Ophthalmologist consultation](https://ophtra2.vercel.app/services/consultation-ophthalmologist): from 12,000 KZT, about 40 min
+- [Complete vision diagnostics](https://ophtra2.vercel.app/services/complex-diagnostics): from 35,000 KZT, about 90 min
+- [Optical coherence tomography (OCT)](https://ophtra2.vercel.app/services/oct): from 14,000 KZT, about 25 min
+- [Computer perimetry](https://ophtra2.vercel.app/services/perimetry): from 9,000 KZT, about 30 min
+- [Corneal topography](https://ophtra2.vercel.app/services/corneal-topography): from 11,000 KZT, about 20 min
+- [Glaucoma treatment](https://ophtra2.vercel.app/services/glaucoma-treatment): from 18,000 KZT, about 45 min
+- [Retinal disease treatment](https://ophtra2.vercel.app/services/retina-treatment): from 22,000 KZT, about 50 min
+- [Dry eye syndrome treatment](https://ophtra2.vercel.app/services/dry-eye): from 16,000 KZT, about 40 min
+- [Intravitreal injection](https://ophtra2.vercel.app/services/intravitreal-injection): from 95,000 KZT, about 30 min
+- [Femto-LASIK](https://ophtra2.vercel.app/services/femto-lasik): from 290,000 KZT, about 30 min
+- [SMILE](https://ophtra2.vercel.app/services/smile): from 340,000 KZT, about 25 min
+- [PRK](https://ophtra2.vercel.app/services/prk): from 210,000 KZT, about 25 min
+- [Cataract phacoemulsification](https://ophtra2.vercel.app/services/phacoemulsification): from 380,000 KZT, about 40 min
+- [Phacoemulsification with a multifocal lens](https://ophtra2.vercel.app/services/phacoemulsification-multifocal): from 620,000 KZT, about 45 min
+- [YAG laser capsulotomy](https://ophtra2.vercel.app/services/yag-capsulotomy): from 55,000 KZT, about 20 min
+- [Pediatric ophthalmologist visit](https://ophtra2.vercel.app/services/pediatric-consultation): from 13,000 KZT, about 40 min
+- [Hardware therapy (10-session course)](https://ophtra2.vercel.app/services/hardware-therapy): from 68,000 KZT, about 45 min
+- [Myopia control program](https://ophtra2.vercel.app/services/myopia-control): from 140,000 KZT, about 40 min
+- [Glasses fitting](https://ophtra2.vercel.app/services/glasses-fitting): from 8,000 KZT, about 30 min
+- [Contact lens fitting](https://ophtra2.vercel.app/services/contact-lens-fitting): from 15,000 KZT, about 45 min
+
+## Knowledge base articles
+
+- [Eye checks after 40: what is involved and how often](https://ophtra2.vercel.app/knowledge-base/eye-check-after-40)
+- [Treating glaucoma: drops, laser and surgery](https://ophtra2.vercel.app/knowledge-base/glaucoma-treatment-options)
+- [Lazy eye and squint in children: why timing matters](https://ophtra2.vercel.app/knowledge-base/lazy-eye-and-squint-in-children)
+- [Seeing your own eye: structured-light entoptic tests](https://ophtra2.vercel.app/knowledge-base/structured-light-entoptic-tests)
+- [Why myopia progresses in children and how to slow it down](https://ophtra2.vercel.app/knowledge-base/child-myopia-progression)
+- [When it is time to operate on a cataract](https://ophtra2.vercel.app/knowledge-base/when-to-operate-cataract)
+- [Retinal detachment: warning signs that should never wait](https://ophtra2.vercel.app/knowledge-base/retinal-detachment-warning-signs)
+- [Dry eyes at the screen: what actually helps](https://ophtra2.vercel.app/knowledge-base/screen-dry-eye)
+- [Diabetic retinopathy: why your eyes need a check every year](https://ophtra2.vercel.app/knowledge-base/diabetic-retinopathy-screening)
+- [The retina as a window to the brain](https://ophtra2.vercel.app/knowledge-base/retina-window-to-the-brain)
+- [How to prepare for laser vision correction](https://ophtra2.vercel.app/knowledge-base/laser-correction-preparation)
+- [Age-related macular degeneration: protecting your central vision](https://ophtra2.vercel.app/knowledge-base/age-related-macular-degeneration)
+- [Artificial intelligence in retinal imaging: what it can and cannot do](https://ophtra2.vercel.app/knowledge-base/ai-in-retinal-imaging)
+- [Glaucoma: why it is noticed too late](https://ophtra2.vercel.app/knowledge-base/glaucoma-early-signs)
+- [Contact lens care rules](https://ophtra2.vercel.app/knowledge-base/contact-lens-care)
+- [Reading glasses after 40: what presbyopia is and how to live with it](https://ophtra2.vercel.app/knowledge-base/presbyopia-after-40)
+- [Keratoconus: when the cornea changes shape](https://ophtra2.vercel.app/knowledge-base/keratoconus-explained)
+
+## Contact
+
+- Address, opening hours and phone: see https://ophtra2.vercel.app/contacts (the centre in Astana is opening; contact details on the site are being finalised).
+
+## Optional
+
+- [Sitemap](https://ophtra2.vercel.app/sitemap.xml)
+- [Privacy policy](https://ophtra2.vercel.app/privacy-policy): GDPR-aligned processing of personal and health data
+- [Terms of use](https://ophtra2.vercel.app/terms-of-use)

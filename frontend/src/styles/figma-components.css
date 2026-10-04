@@ -1,0 +1,299 @@
+/* ==========================================================================
+   OPHTRA — FIGMA COMPONENT SKIN
+   Buttons, cards, badges, fields, accordion, overlays re-skinned to the Figma
+   file: flat forest buttons with 8px radius, paper cards with hairline borders,
+   uppercase micro-labels, serif titles.
+   ========================================================================== */
+
+/* ================================================================= BUTTONS */
+
+.oph-btn {
+  --oph-btn-shadow: none;
+  --oph-btn-shadow-hover: 0 10px 24px rgba(27, 46, 40, 0.16);
+  min-height: 46px;
+  padding: 0 var(--oph-space-5);
+  border-radius: var(--oph-radius-sm);
+  font-weight: var(--oph-weight-semibold);
+  letter-spacing: 0;
+}
+
+.oph-btn--primary:hover:not(:disabled) {
+  --oph-btn-bg: var(--oph-brand-700);
+}
+
+.oph-btn--outline {
+  --oph-btn-bg: var(--oph-paper);
+  --oph-btn-fg: var(--oph-ink);
+  --oph-btn-border: var(--oph-line-strong);
+}
+
+.oph-btn--outline:hover:not(:disabled) {
+  --oph-btn-bg: #ffffff;
+  --oph-btn-border: var(--oph-forest);
+}
+
+.oph-btn--secondary {
+  --oph-btn-bg: var(--oph-sand);
+  --oph-btn-fg: var(--oph-ink);
+}
+
+.oph-btn--ghost:hover:not(:disabled) {
+  --oph-btn-bg: var(--oph-sand);
+  --oph-btn-fg: var(--oph-ink);
+}
+
+.oph-btn--on-dark {
+  --oph-btn-bg: var(--oph-cream);
+  --oph-btn-fg: var(--oph-forest);
+  --oph-btn-shadow: none;
+  --oph-btn-shadow-hover: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.oph-btn--on-dark:hover:not(:disabled) {
+  --oph-btn-bg: #ffffff;
+}
+
+.oph-btn--sm {
+  min-height: 40px;
+  padding-inline: var(--oph-space-4);
+  border-radius: var(--oph-radius-sm);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-btn--lg {
+  min-height: 54px;
+  padding-inline: var(--oph-space-8);
+  border-radius: var(--oph-radius-sm);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-btn--icon {
+  width: 46px;
+  border-radius: var(--oph-radius-sm);
+}
+
+.oph-btn--icon.oph-btn--sm {
+  width: 40px;
+  min-height: 40px;
+}
+
+/* Slide-fill hover: a forest sheet rises under the label. */
+.oph-btn--outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--oph-sand);
+  transform: translateY(101%);
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-btn--outline:hover:not(:disabled)::before {
+  transform: translateY(0);
+}
+
+.oph-link {
+  color: var(--oph-brand-600);
+}
+
+/* =================================================================== CARDS */
+
+.oph-card {
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+  --oph-card-padding: var(--oph-space-6);
+}
+
+.oph-card--interactive:hover,
+.oph-card--interactive:focus-within {
+  border-color: var(--oph-line-strong);
+  box-shadow: var(--oph-shadow-lg);
+  transform: translateY(calc(-5px * var(--oph-motion-scale)));
+}
+
+.oph-card--interactive::before {
+  background: linear-gradient(160deg, rgba(168, 139, 94, 0.07), rgba(168, 139, 94, 0) 58%);
+}
+
+.oph-card--tint {
+  background: var(--oph-sand);
+}
+
+.oph-card--flat {
+  box-shadow: none;
+}
+
+.oph-card--deep {
+  border-color: var(--oph-forest-line);
+  background: var(--oph-forest);
+  color: rgba(244, 242, 237, 0.74);
+}
+
+.oph-card--glass {
+  background: var(--oph-glass-bg);
+}
+
+.oph-card__title {
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.18;
+}
+
+.oph-card__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-card__media {
+  background: var(--oph-stone);
+}
+
+/* ================================================================== BADGES */
+
+.oph-badge {
+  padding: 5px 11px;
+  border-color: transparent;
+  background: var(--oph-sand);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.1em;
+}
+
+.oph-badge--outline {
+  border-color: var(--oph-line-strong);
+  background: transparent;
+  color: var(--oph-ink);
+}
+
+.oph-badge--solid {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-icon-tile {
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-sand);
+  color: var(--oph-forest);
+}
+
+.oph-icon-tile--solid {
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+  box-shadow: none;
+}
+
+/* ================================================================== FIELDS */
+
+.oph-field__label {
+  color: var(--oph-ink);
+  font-size: var(--oph-text-2xs);
+  letter-spacing: 0.12em;
+}
+
+.oph-input,
+.oph-select,
+.oph-textarea {
+  min-height: 48px;
+  border-color: var(--oph-line-strong);
+  border-radius: var(--oph-radius-sm);
+  background-color: var(--oph-paper);
+}
+
+.oph-input:focus,
+.oph-select:focus,
+.oph-textarea:focus {
+  border-color: var(--oph-forest);
+  background-color: #ffffff;
+}
+
+.oph-select {
+  background-repeat: no-repeat;
+  background-position: right var(--oph-space-4) center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231b2e28' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+
+/* =============================================================== ACCORDION */
+
+.oph-accordion__trigger {
+  font-family: var(--oph-font-serif);
+  font-weight: 400;
+}
+
+/* ================================================================ OVERLAYS */
+
+.oph-drawer,
+.oph-modal,
+.oph-dropdown {
+  background: var(--oph-paper);
+}
+
+/* ============================================================= PROGRESS UI */
+
+.oph-scroll-progress {
+  background: var(--oph-gold) !important;
+}
+
+.oph-cursor::before,
+.oph-cursor::after {
+  border-color: var(--oph-gold) !important;
+}
+
+.oph-spinner {
+  border-top-color: var(--oph-forest) !important;
+}
+
+/* Figma error #8: an action waiting for input must still read as the primary
+   action. aria-disabled keeps the forest fill; only real :disabled dims. */
+.oph-btn[aria-disabled='true'] {
+  opacity: 1;
+}
+
+/* Header height for sticky sub-bars (tab bars, A–Z rails). */
+:root {
+  --oph-header-h: 76px;
+  --oph-sticky-top: var(--oph-header-h);
+}
+:root[data-header-hidden='true'] {
+  --oph-sticky-top: 0px;
+}
+
+/*
+ * Everything pinned at --oph-sticky-top follows the header instead of jumping.
+ * The variable flips 76px <-> 0 in one frame while the header slides over
+ * 520ms, so a pinned heading used to leap 76px down on the first upward tick
+ * and, on hide, leap up under a header that was still sliding out. Easing
+ * `top` with exactly the header's transform timing keeps the element glued to
+ * the header's bottom edge both ways: never a gap, never overlapped. The
+ * header only hides on hover-capable pointers, so on touch the variable never
+ * changes and this transition never runs.
+ */
+:root {
+  --oph-sticky-top-transition: top calc(520ms * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-autorail__pin,
+.oph-workspace__side,
+.oph-article__toc,
+.svc-dept-about__panel,
+.oph-kb-stickyhead,
+.oph-kb-newsbody__rail,
+.oph-reviews__stack .oph-stack-cards__item,
+.oph-pt-stack .oph-stack-cards__item,
+.oph-pt-journey__head,
+.oph-pt-est__panel,
+.oph-pt-formgrid__aside,
+.oph-pt-faq__head,
+.oph-pt-needs__intro,
+.ppl-history__aside {
+  transition: var(--oph-sticky-top-transition);
+}
+@media (max-width: 560px) {
+  :root {
+    --oph-header-h: 64px;
+  }
+}

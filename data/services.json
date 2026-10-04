@@ -1,0 +1,286 @@
+[
+  {
+    "id": "svc-consult",
+    "slug": "consultation-ophthalmologist",
+    "departmentId": "diagnostics",
+    "name": { "ru": "Консультация офтальмолога", "kk": "Офтальмолог кеңесі", "en": "Ophthalmologist consultation" },
+    "short": {
+      "ru": "Первичный приём с проверкой остроты зрения и осмотром глазного дна.",
+      "kk": "Көру өткірлігін тексеру және көз түбін қараумен бастапқы қабылдау.",
+      "en": "Initial visit with visual acuity testing and fundus examination."
+    },
+    "price": 12000,
+    "duration": 40,
+    "priceGroup": "diagnostics"
+  },
+  {
+    "id": "svc-complex",
+    "slug": "complex-diagnostics",
+    "departmentId": "diagnostics",
+    "name": { "ru": "Комплексная диагностика зрения", "kk": "Көрудің кешенді диагностикасы", "en": "Complete vision diagnostics" },
+    "short": {
+      "ru": "12 исследований и заключение врача за одно посещение.",
+      "kk": "Бір келуде 12 зерттеу және дәрігер қорытындысы.",
+      "en": "Twelve tests and a doctor's conclusion in one visit."
+    },
+    "price": 35000,
+    "duration": 90,
+    "priceGroup": "diagnostics"
+  },
+  {
+    "id": "svc-oct",
+    "slug": "oct",
+    "departmentId": "diagnostics",
+    "name": { "ru": "Оптическая когерентная томография (ОКТ)", "kk": "Оптикалық когерентті томография (ОКТ)", "en": "Optical coherence tomography (OCT)" },
+    "short": {
+      "ru": "Послойное сканирование сетчатки и зрительного нерва.",
+      "kk": "Тор қабық пен көру жүйкесін қабат-қабат сканерлеу.",
+      "en": "Layer-by-layer scan of the retina and optic nerve."
+    },
+    "price": 14000,
+    "duration": 25,
+    "priceGroup": "diagnostics"
+  },
+  {
+    "id": "svc-perimetry",
+    "slug": "perimetry",
+    "departmentId": "diagnostics",
+    "name": { "ru": "Компьютерная периметрия", "kk": "Компьютерлік периметрия", "en": "Computer perimetry" },
+    "short": {
+      "ru": "Исследование полей зрения для диагностики глаукомы.",
+      "kk": "Глаукоманы диагностикалауға арналған көру өрістерін зерттеу.",
+      "en": "Visual field testing for glaucoma diagnosis."
+    },
+    "price": 9000,
+    "duration": 30,
+    "priceGroup": "diagnostics"
+  },
+  {
+    "id": "svc-topography",
+    "slug": "corneal-topography",
+    "departmentId": "diagnostics",
+    "name": { "ru": "Кератотопография роговицы", "kk": "Қасаң қабық кератотопографиясы", "en": "Corneal topography" },
+    "short": {
+      "ru": "Карта кривизны роговицы перед лазерной коррекцией.",
+      "kk": "Лазерлік түзетуге дейінгі қасаң қабық қисықтығының картасы.",
+      "en": "Corneal curvature map taken before laser correction."
+    },
+    "price": 11000,
+    "duration": 20,
+    "priceGroup": "diagnostics"
+  },
+  {
+    "id": "svc-glaucoma",
+    "slug": "glaucoma-treatment",
+    "departmentId": "treatment",
+    "name": { "ru": "Лечение глаукомы", "kk": "Глаукоманы емдеу", "en": "Glaucoma treatment" },
+    "short": {
+      "ru": "Подбор терапии и контроль внутриглазного давления.",
+      "kk": "Терапияны таңдау және көзішілік қысымды бақылау.",
+      "en": "Therapy selection and intraocular pressure control."
+    },
+    "price": 18000,
+    "duration": 45,
+    "priceGroup": "treatment"
+  },
+  {
+    "id": "svc-retina",
+    "slug": "retina-treatment",
+    "departmentId": "treatment",
+    "name": { "ru": "Лечение заболеваний сетчатки", "kk": "Тор қабық ауруларын емдеу", "en": "Retinal disease treatment" },
+    "short": {
+      "ru": "Ведение диабетической ретинопатии и макулодистрофии.",
+      "kk": "Диабеттік ретинопатия мен макулодистрофияны жүргізу.",
+      "en": "Management of diabetic retinopathy and macular degeneration."
+    },
+    "price": 22000,
+    "duration": 50,
+    "priceGroup": "treatment"
+  },
+  {
+    "id": "svc-dryeye",
+    "slug": "dry-eye",
+    "departmentId": "treatment",
+    "name": { "ru": "Лечение синдрома сухого глаза", "kk": "Құрғақ көз синдромын емдеу", "en": "Dry eye syndrome treatment" },
+    "short": {
+      "ru": "Диагностика слёзной плёнки и курс восстановления.",
+      "kk": "Жас қабықшасын диагностикалау және қалпына келтіру курсы.",
+      "en": "Tear film assessment and a restorative course."
+    },
+    "price": 16000,
+    "duration": 40,
+    "priceGroup": "treatment"
+  },
+  {
+    "id": "svc-laser-injection",
+    "slug": "intravitreal-injection",
+    "departmentId": "treatment",
+    "name": { "ru": "Интравитреальная инъекция", "kk": "Интравитреальді инъекция", "en": "Intravitreal injection" },
+    "short": {
+      "ru": "Введение препарата в полость стекловидного тела.",
+      "kk": "Препаратты шыны тәрізді дене қуысына енгізу.",
+      "en": "Delivery of medication into the vitreous cavity."
+    },
+    "price": 95000,
+    "duration": 30,
+    "priceGroup": "treatment"
+  },
+  {
+    "id": "svc-femto",
+    "slug": "femto-lasik",
+    "departmentId": "laser",
+    "name": { "ru": "Femto-LASIK", "kk": "Femto-LASIK", "en": "Femto-LASIK" },
+    "short": {
+      "ru": "Полностью лазерная коррекция зрения без микрокератома.",
+      "kk": "Микрокератомсыз толықтай лазерлік көру түзетуі.",
+      "en": "Fully laser-based vision correction without a microkeratome."
+    },
+    "price": 290000,
+    "duration": 30,
+    "priceGroup": "laser"
+  },
+  {
+    "id": "svc-smile",
+    "slug": "smile",
+    "departmentId": "laser",
+    "name": { "ru": "SMILE", "kk": "SMILE", "en": "SMILE" },
+    "short": {
+      "ru": "Коррекция через микроразрез 2 мм без формирования лоскута.",
+      "kk": "Жапырақша қалыптастырмай 2 мм микрокесік арқылы түзету.",
+      "en": "Correction through a 2 mm micro-incision with no flap."
+    },
+    "price": 340000,
+    "duration": 25,
+    "priceGroup": "laser"
+  },
+  {
+    "id": "svc-prk",
+    "slug": "prk",
+    "departmentId": "laser",
+    "name": { "ru": "ФРК (PRK)", "kk": "ФРК (PRK)", "en": "PRK" },
+    "short": {
+      "ru": "Поверхностная методика для тонкой роговицы.",
+      "kk": "Жұқа қасаң қабыққа арналған беткі әдістеме.",
+      "en": "Surface technique for thin corneas."
+    },
+    "price": 210000,
+    "duration": 25,
+    "priceGroup": "laser"
+  },
+  {
+    "id": "svc-phaco",
+    "slug": "phacoemulsification",
+    "departmentId": "cataract",
+    "name": { "ru": "Факоэмульсификация катаракты", "kk": "Катаракта факоэмульсификациясы", "en": "Cataract phacoemulsification" },
+    "short": {
+      "ru": "Удаление катаракты с имплантацией монофокальной линзы.",
+      "kk": "Монофокалды линза имплантациясымен катарактаны алу.",
+      "en": "Cataract removal with monofocal lens implantation."
+    },
+    "price": 380000,
+    "duration": 40,
+    "priceGroup": "cataract"
+  },
+  {
+    "id": "svc-phaco-multi",
+    "slug": "phacoemulsification-multifocal",
+    "departmentId": "cataract",
+    "name": {
+      "ru": "Факоэмульсификация с мультифокальной линзой",
+      "kk": "Мультифокалды линзамен факоэмульсификация",
+      "en": "Phacoemulsification with a multifocal lens"
+    },
+    "short": {
+      "ru": "Зрение вдаль и вблизи без очков после операции.",
+      "kk": "Операциядан кейін көзілдіріксіз алыс және жақын көру.",
+      "en": "Distance and near vision without glasses after surgery."
+    },
+    "price": 620000,
+    "duration": 45,
+    "priceGroup": "cataract"
+  },
+  {
+    "id": "svc-yag",
+    "slug": "yag-capsulotomy",
+    "departmentId": "cataract",
+    "name": { "ru": "YAG-лазерная капсулотомия", "kk": "YAG-лазерлік капсулотомия", "en": "YAG laser capsulotomy" },
+    "short": {
+      "ru": "Устранение вторичной катаракты за один сеанс.",
+      "kk": "Екіншілік катарактаны бір сеанста жою.",
+      "en": "Secondary cataract removed in a single session."
+    },
+    "price": 55000,
+    "duration": 20,
+    "priceGroup": "cataract"
+  },
+  {
+    "id": "svc-child-consult",
+    "slug": "pediatric-consultation",
+    "departmentId": "pediatric",
+    "name": { "ru": "Приём детского офтальмолога", "kk": "Балалар офтальмологының қабылдауы", "en": "Pediatric ophthalmologist visit" },
+    "short": {
+      "ru": "Осмотр ребёнка с подбором очковой коррекции.",
+      "kk": "Баланы қарау және көзілдірік түзетуін таңдау.",
+      "en": "Child examination with spectacle correction fitting."
+    },
+    "price": 13000,
+    "duration": 40,
+    "priceGroup": "pediatric"
+  },
+  {
+    "id": "svc-child-hardware",
+    "slug": "hardware-therapy",
+    "departmentId": "pediatric",
+    "name": { "ru": "Аппаратное лечение (курс 10 сеансов)", "kk": "Аппараттық емдеу (10 сеанстық курс)", "en": "Hardware therapy (10-session course)" },
+    "short": {
+      "ru": "Тренировка зрения при амблиопии и спазме аккомодации.",
+      "kk": "Амблиопия мен аккомодация спазмында көруді жаттықтыру.",
+      "en": "Vision training for amblyopia and accommodation spasm."
+    },
+    "price": 68000,
+    "duration": 45,
+    "priceGroup": "pediatric"
+  },
+  {
+    "id": "svc-child-myopia",
+    "slug": "myopia-control",
+    "departmentId": "pediatric",
+    "name": { "ru": "Программа контроля близорукости", "kk": "Миопияны бақылау бағдарламасы", "en": "Myopia control program" },
+    "short": {
+      "ru": "Годовое наблюдение с контролем прогрессирования.",
+      "kk": "Үдеуін бақылаумен бір жылдық қадағалау.",
+      "en": "A year of follow-up with progression monitoring."
+    },
+    "price": 140000,
+    "duration": 40,
+    "priceGroup": "pediatric"
+  },
+  {
+    "id": "svc-glasses",
+    "slug": "glasses-fitting",
+    "departmentId": "optical",
+    "name": { "ru": "Подбор очков", "kk": "Көзілдірік таңдау", "en": "Glasses fitting" },
+    "short": {
+      "ru": "Рефрактометрия и изготовление очков по рецепту.",
+      "kk": "Рефрактометрия және рецепт бойынша көзілдірік дайындау.",
+      "en": "Refractometry and prescription glasses production."
+    },
+    "price": 8000,
+    "duration": 30,
+    "priceGroup": "optical"
+  },
+  {
+    "id": "svc-lenses",
+    "slug": "contact-lens-fitting",
+    "departmentId": "optical",
+    "name": { "ru": "Подбор контактных линз", "kk": "Контакт линзаларын таңдау", "en": "Contact lens fitting" },
+    "short": {
+      "ru": "Подбор линз и обучение уходу за ними.",
+      "kk": "Линзаларды таңдау және оларды күтуге үйрету.",
+      "en": "Lens selection and care training."
+    },
+    "price": 15000,
+    "duration": 45,
+    "priceGroup": "optical"
+  }
+]

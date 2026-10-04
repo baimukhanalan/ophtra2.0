@@ -1,0 +1,511 @@
+openapi: 3.1.0
+info:
+  title: OPHTRA API
+  version: 1.0.0
+  description: >
+    Booking, CRM, MIS, payments, assistant and administration services for the
+    OPHTRA ophthalmology centre. Read-only catalogue endpoints are public and
+    cacheable; everything else requires a bearer token.
+servers:
+  - url: http://localhost:4000
+    description: Local development
+  - url: https://api.ophtra.kz
+    description: Production
+
+tags:
+  - name: Catalogue
+  - name: Booking
+  - name: CRM
+  - name: Account
+  - name: Payments
+  - name: Assistant
+  - name: Admin
+  - name: Analytics
+  - name: SEO
+
+components:
+  securitySchemes:
+    patientToken:
+      type: http
+      scheme: bearer
+      description: Issued by POST /api/account/verify-code.
+    adminToken:
+      type: http
+      scheme: bearer
+      description: Issued by POST /api/admin/login.
+
+  schemas:
+    Localized:
+      type: object
+      required: [ru, kk, en]
+      properties:
+        ru: { type: string }
+        kk: { type: string }
+        en: { type: string }
+
+    Error:
+      type: object
+      required: [message, code]
+      properties:
+        message: { type: string }
+        code:
+          type: string
+          description: >
+            Stable machine-readable code, e.g. duplicate_booking, slot_taken,
+            consent_required, code_expired, payment_failed.
+
+    Slot:
+      type: object
+      properties:
+        date: { type: string, format: date }
+        time: { type: string, example: "10:30" }
+        doctorId: { type: string }
+        available: { type: boolean }
+
+    BookingRequest:
+      type: object
+      required: [fullName, phone, clinicId, departmentId, serviceId, date, time, consent]
+      properties:
+        fullName: { type: string }
+        phone: { type: string }
+        email: { type: string, format: email }
+        clinicId: { type: string }
+        departmentId: { type: string }
+        serviceId: { type: string }
+        doctorId:
+          type: string
+          description: Omit to let the API pick any available doctor.
+        date: { type: string, format: date }
+        time: { type: string }
+        comment: { type: string }
+        language: { type: string, enum: [ru, kk, en] }
+        consent:
+          type: boolean
+          description: Personal data consent. Must be true.
+        marketingConsent:
+          type: boolean
+          description: Gates marketing messages. Service messages are sent regardless.
+        source: { type: string }
+        utm:
+          type: object
+          additionalProperties: { type: string }
+
+    Appointment:
+      type: object
+      properties:
+        id: { type: string }
+        reference: { type: string, example: OPH-4KD7QM }
+        clinicId: { type: string }
+        departmentId: { type: string }
+        serviceId: { type: string }
+        doctorId: { type: string }
+        date: { type: string, format: date }
+        time: { type: string }
+        status: { type: string, enum: [confirmed, completed, cancelled, rescheduled] }
+        patientId: { type: string }
+        price: { type: integer }
+        createdAt: { type: string, format: date-time }
+
+    Invoice:
+      type: object
+      properties:
+        id: { type: string }
+        number: { type: string }
+        amount: { type: integer }
+        status: { type: string, enum: [paid, unpaid, refunded] }
+        kind: { type: string, enum: [service, operation, prepayment] }
+        issuedAt: { type: string, format: date-time }
+        receiptUrl: { type: string }
+
+    Lead:
+      type: object
+      required: [fullName, phone]
+      properties:
+        fullName: { type: string }
+        phone: { type: string }
+        email: { type: string }
+        serviceId: { type: string }
+        source: { type: string }
+        comment: { type: string }
+        utm:
+          type: object
+          additionalProperties: { type: string }
+
+    AssistantReply:
+      type: object
+      properties:
+        reply: { type: string }
+        intent:
+          type: string
+          enum:
+            [greeting, faq, service_consultation, service_recommendation,
+             doctor_recommendation, symptom_collection, appointment_booking,
+             appointment_cancellation, appointment_rescheduling, notifications,
+             operator_handoff, fallback]
+        suggestions:
+          type: array
+          items: { type: string }
+        handoff:
+          type: boolean
+          description: True when a human operator should take over.
+        entities:
+          type: object
+          additionalProperties: { type: string }
+        action:
+          type: object
+          properties:
+            type: { type: string, enum: [navigate, book, cancel, reschedule, call] }
+            target: { type: string }
+
+  responses:
+    BadRequest:
+      description: Validation failed
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Unauthorized:
+      description: Missing or invalid token
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+    Conflict:
+      description: Duplicate booking or slot already taken
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+
+paths:
+  /api/health:
+    get:
+      tags: [Catalogue]
+      summary: Service status and the live/simulated mode of each integration
+      responses:
+        '200': { description: OK }
+
+  /api/clinics:
+    get: { tags: [Catalogue], summary: Clinics, responses: { '200': { description: OK } } }
+  /api/departments:
+    get: { tags: [Catalogue], summary: Departments, responses: { '200': { description: OK } } }
+  /api/services:
+    get: { tags: [Catalogue], summary: Services and prices, responses: { '200': { description: OK } } }
+  /api/doctors:
+    get: { tags: [Catalogue], summary: Doctors, responses: { '200': { description: OK } } }
+  /api/programs:
+    get: { tags: [Catalogue], summary: Medical programs, responses: { '200': { description: OK } } }
+  /api/promotions:
+    get: { tags: [Catalogue], summary: Active promotions, responses: { '200': { description: OK } } }
+  /api/news:
+    get: { tags: [Catalogue], summary: News, responses: { '200': { description: OK } } }
+  /api/articles:
+    get: { tags: [Catalogue], summary: Articles, responses: { '200': { description: OK } } }
+  /api/faq:
+    get: { tags: [Catalogue], summary: FAQ, responses: { '200': { description: OK } } }
+  /api/reviews:
+    get: { tags: [Catalogue], summary: Patient reviews, responses: { '200': { description: OK } } }
+  /api/vacancies:
+    get: { tags: [Catalogue], summary: Vacancies, responses: { '200': { description: OK } } }
+
+  /api/booking/slots:
+    get:
+      tags: [Booking]
+      summary: Available slots
+      description: >
+        Served by the MIS when configured, otherwise generated from the clinic's
+        own scheduling rules. Slots already booked in our database are removed
+        even when the MIS has not caught up.
+      parameters:
+        - { name: date, in: query, required: true, schema: { type: string, format: date } }
+        - { name: clinicId, in: query, required: true, schema: { type: string } }
+        - { name: doctorId, in: query, schema: { type: string } }
+        - { name: departmentId, in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { type: array, items: { $ref: '#/components/schemas/Slot' } }
+        '400': { $ref: '#/components/responses/BadRequest' }
+
+  /api/booking/appointments:
+    post:
+      tags: [Booking]
+      summary: Create an appointment
+      description: >
+        Transactional. Creates or matches the patient, rejects duplicates and
+        taken slots, raises an invoice, then synchronises the MIS and CRM and
+        dispatches the confirmation notification.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/BookingRequest' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Appointment' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /api/booking/appointments/{id}/cancel:
+    post:
+      tags: [Booking]
+      summary: Cancel an appointment
+      security: [{ patientToken: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Cancelled }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/booking/appointments/{id}/reschedule:
+    post:
+      tags: [Booking]
+      summary: Reschedule an appointment
+      security: [{ patientToken: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [date, time]
+              properties:
+                date: { type: string, format: date }
+                time: { type: string }
+      responses:
+        '200': { description: Rescheduled }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /api/crm/leads:
+    post:
+      tags: [CRM]
+      summary: Submit a lead
+      description: Stored locally first, pushed to the CRM second.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Lead' }
+      responses:
+        '201': { description: Created }
+
+  /api/account/request-code:
+    post:
+      tags: [Account]
+      summary: Request a sign-in code
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone]
+              properties: { phone: { type: string } }
+      responses:
+        '200': { description: Code dispatched }
+
+  /api/account/verify-code:
+    post:
+      tags: [Account]
+      summary: Verify the code and receive a patient token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone, code]
+              properties:
+                phone: { type: string }
+                code: { type: string }
+      responses:
+        '200': { description: Token issued }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '403': { description: Too many attempts }
+
+  /api/account:
+    get:
+      tags: [Account]
+      summary: Appointments, history, recommendations, prescriptions, results, invoices
+      security: [{ patientToken: [] }]
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/account/communications:
+    get:
+      tags: [Account]
+      summary: Omnichannel communication history
+      security: [{ patientToken: [] }]
+      responses:
+        '200': { description: OK }
+
+  /api/payments/{id}/pay:
+    post:
+      tags: [Payments]
+      summary: Pay an invoice
+      description: Accepts a provider card token only. Card data never reaches this API.
+      security: [{ patientToken: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200':
+          description: Paid
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Invoice' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /api/payments/{id}/refund:
+    post:
+      tags: [Payments]
+      summary: Refund a paid invoice
+      security: [{ patientToken: [] }]
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: Refunded }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /api/assistant/message:
+    post:
+      tags: [Assistant]
+      summary: Send a message to the assistant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message: { type: string }
+                sessionId: { type: string }
+                language: { type: string, enum: [ru, kk, en] }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AssistantReply' }
+
+  /api/assistant/sessions/{id}/analysis:
+    post:
+      tags: [Assistant]
+      summary: Store the dialogue analysis for a finished session
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses:
+        '200': { description: OK }
+
+  /api/admin/login:
+    post:
+      tags: [Admin]
+      summary: Administrator sign-in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [login, password]
+              properties:
+                login: { type: string }
+                password: { type: string }
+      responses:
+        '200': { description: Token issued }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/admin/leads:
+    get:
+      tags: [Admin]
+      summary: Patient requests
+      security: [{ adminToken: [] }]
+      responses:
+        '200': { description: OK }
+
+  /api/admin/insights:
+    get:
+      tags: [Admin]
+      summary: Funnel counts, assistant knowledge gaps and handoff rate
+      security: [{ adminToken: [] }]
+      responses:
+        '200': { description: OK }
+
+  /api/admin/{collection}:
+    get:
+      tags: [Admin]
+      summary: List a content collection, including drafts
+      security: [{ adminToken: [] }]
+      parameters:
+        - name: collection
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [pages, doctors, news, articles, promotions, services, clinics,
+                   departments, programs, faq, reviews, vacancies, photos, seo]
+      responses:
+        '200': { description: OK }
+    post:
+      tags: [Admin]
+      summary: Create an entry
+      security: [{ adminToken: [] }]
+      parameters: [{ name: collection, in: path, required: true, schema: { type: string } }]
+      responses:
+        '201': { description: Created }
+
+  /api/admin/{collection}/{id}:
+    patch:
+      tags: [Admin]
+      summary: Update an entry
+      security: [{ adminToken: [] }]
+      parameters:
+        - { name: collection, in: path, required: true, schema: { type: string } }
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200': { description: Updated }
+    delete:
+      tags: [Admin]
+      summary: Delete an entry
+      security: [{ adminToken: [] }]
+      parameters:
+        - { name: collection, in: path, required: true, schema: { type: string } }
+        - { name: id, in: path, required: true, schema: { type: string } }
+      responses:
+        '204': { description: Deleted }
+
+  /api/analytics/events:
+    post:
+      tags: [Analytics]
+      summary: Record a first-party event
+      description: >
+        Pseudonymous. Payload keys that look like personal data are stripped
+        before storage. Joined to appointments by session id for end-to-end
+        analytics.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string }
+                sessionId: { type: string }
+                payload: { type: object }
+      responses:
+        '204': { description: Recorded }
+
+  /sitemap.xml:
+    get:
+      tags: [SEO]
+      summary: Sitemap generated from live content, with hreflang alternates
+      responses:
+        '200': { description: OK }
+
+  /robots.txt:
+    get:
+      tags: [SEO]
+      summary: robots.txt
+      responses:
+        '200': { description: OK }

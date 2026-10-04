@@ -1,0 +1,140 @@
+[
+  {
+    "id": "diagnostics",
+    "slug": "diagnostics",
+    "illustration": "diagnostics",
+    "name": {
+      "ru": "Отделение диагностики",
+      "kk": "Диагностика бөлімшесі",
+      "en": "Diagnostics department"
+    },
+    "short": {
+      "ru": "Комплексное обследование зрения за одно посещение.",
+      "kk": "Бір келуде көрудің кешенді тексерілуі.",
+      "en": "A complete eye examination in a single visit."
+    },
+    "description": {
+      "ru": "Отделение выполняет полный цикл офтальмологического обследования: от проверки остроты зрения до оптической когерентной томографии и компьютерной периметрии. Заключение врача пациент получает в день обращения.",
+      "kk": "Бөлімше офтальмологиялық тексерудің толық циклін орындайды: көру өткірлігін тексеруден оптикалық когерентті томография мен компьютерлік периметрияға дейін. Дәрігер қорытындысын пациент сол күні алады.",
+      "en": "The department performs the full cycle of ophthalmic examination, from visual acuity testing to optical coherence tomography and computer perimetry. The patient receives the doctor's conclusion the same day."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  },
+  {
+    "id": "treatment",
+    "slug": "treatment",
+    "illustration": "iris",
+    "name": {
+      "ru": "Отделение лечения заболеваний глаз",
+      "kk": "Көз ауруларын емдеу бөлімшесі",
+      "en": "Eye disease treatment department"
+    },
+    "short": {
+      "ru": "Терапия глаукомы, сетчатки, роговицы и воспалительных заболеваний.",
+      "kk": "Глаукома, тор қабық, қасаң қабық және қабыну ауруларын емдеу.",
+      "en": "Therapy for glaucoma, retinal, corneal and inflammatory conditions."
+    },
+    "description": {
+      "ru": "Ведение пациентов с хроническими и острыми заболеваниями глаз: глаукома, диабетическая ретинопатия, макулодистрофия, кератиты и синдром сухого глаза. Лечение подбирается по протоколам доказательной медицины.",
+      "kk": "Созылмалы және жедел көз ауруларымен пациенттерді жүргізу: глаукома, диабеттік ретинопатия, макулодистрофия, кератиттер және құрғақ көз синдромы. Емдеу дәлелді медицина хаттамалары бойынша таңдалады.",
+      "en": "Management of chronic and acute eye conditions: glaucoma, diabetic retinopathy, macular degeneration, keratitis and dry eye syndrome. Treatment follows evidence-based protocols."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  },
+  {
+    "id": "laser",
+    "slug": "laser",
+    "illustration": "laser",
+    "name": {
+      "ru": "Отделение лазерной коррекции",
+      "kk": "Лазерлік түзету бөлімшесі",
+      "en": "Laser correction department"
+    },
+    "short": {
+      "ru": "Femto-LASIK, SMILE и ФРК для коррекции близорукости и астигматизма.",
+      "kk": "Миопия мен астигматизмді түзетуге арналған Femto-LASIK, SMILE және ФРК.",
+      "en": "Femto-LASIK, SMILE and PRK for myopia and astigmatism."
+    },
+    "description": {
+      "ru": "Рефракционная хирургия на фемтосекундных и эксимерных платформах. Операция занимает около 15 минут, восстановление зрения — в течение суток.",
+      "kk": "Фемтосекундтық және эксимерлік платформалардағы рефракциялық хирургия. Операция шамамен 15 минут алады, көру бір тәулік ішінде қалпына келеді.",
+      "en": "Refractive surgery on femtosecond and excimer platforms. The procedure takes about 15 minutes and vision recovers within a day."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  },
+  {
+    "id": "cataract",
+    "slug": "cataract",
+    "illustration": "cataract",
+    "name": {
+      "ru": "Отделение хирургии катаракты",
+      "kk": "Катаракта хирургиясы бөлімшесі",
+      "en": "Cataract surgery department"
+    },
+    "short": {
+      "ru": "Факоэмульсификация с имплантацией интраокулярной линзы.",
+      "kk": "Интраокулярлық линза имплантациясымен факоэмульсификация.",
+      "en": "Phacoemulsification with intraocular lens implantation."
+    },
+    "description": {
+      "ru": "Бесшовное удаление помутневшего хрусталика через микродоступ 2,2 мм с имплантацией моно- или мультифокальной линзы. Госпитализация не требуется.",
+      "kk": "Моно- немесе мультифокалды линза имплантациясымен 2,2 мм микрокіру арқылы бұлдыраған бұршақты тігіссіз алу. Ауруханаға жатқызу қажет емес.",
+      "en": "Suture-free removal of the clouded lens through a 2.2 mm micro-incision with mono- or multifocal lens implantation. No hospital stay required."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  },
+  {
+    "id": "pediatric",
+    "slug": "pediatric",
+    "illustration": "pediatric",
+    "name": {
+      "ru": "Детская офтальмология",
+      "kk": "Балалар офтальмологиясы",
+      "en": "Pediatric ophthalmology"
+    },
+    "short": {
+      "ru": "Наблюдение и аппаратное лечение детей с рождения до 18 лет.",
+      "kk": "Туғаннан 18 жасқа дейінгі балаларды бақылау және аппараттық емдеу.",
+      "en": "Follow-up and hardware therapy for children from birth to 18."
+    },
+    "description": {
+      "ru": "Диагностика и лечение близорукости, амблиопии, косоглазия и нарушений бинокулярного зрения. Приём проходит в игровом формате, кабинет оборудован детской зоной ожидания.",
+      "kk": "Миопия, амблиопия, қылилық және бинокулярлық көру бұзылыстарын диагностикалау мен емдеу. Қабылдау ойын форматында өтеді, кабинет балалар күту аймағымен жабдықталған.",
+      "en": "Diagnosis and treatment of myopia, amblyopia, strabismus and binocular vision disorders. Appointments run in a play-based format with a dedicated children's waiting area."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  },
+  {
+    "id": "optical",
+    "slug": "optical",
+    "illustration": "optics",
+    "name": {
+      "ru": "Оптический салон",
+      "kk": "Оптикалық салон",
+      "en": "Optical store"
+    },
+    "short": {
+      "ru": "Подбор очков и контактных линз по рецепту врача.",
+      "kk": "Дәрігер рецепті бойынша көзілдірік пен контакт линзаларын таңдау.",
+      "en": "Glasses and contact lenses selected against a doctor's prescription."
+    },
+    "description": {
+      "ru": "Салон оптики при центре: изготовление очков по рецепту в собственной мастерской, подбор мягких и жёстких контактных линз, обучение уходу за линзами.",
+      "kk": "Орталық жанындағы оптика салоны: өз шеберханасында рецепт бойынша көзілдірік дайындау, жұмсақ және қатты контакт линзаларын таңдау, линзаларды күтуге үйрету.",
+      "en": "An in-house optical studio: prescription glasses made on site, soft and rigid contact lens fitting, and lens care training."
+    },
+    "clinicIds": [
+      "astana"
+    ]
+  }
+]

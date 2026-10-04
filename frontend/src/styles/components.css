@@ -1,0 +1,1380 @@
+/* ==========================================================================
+   OPHTRA — COMPONENT LAYER
+   Buttons · Inputs · Forms · Cards · Badges · Tables · Icons · Illustrations
+   Empty / Loading / Skeleton / Success / Error states · Overlays · Navigation
+   ========================================================================== */
+
+/* =================================================================== BUTTON */
+
+.oph-btn {
+  --oph-btn-bg: var(--oph-primary);
+  --oph-btn-fg: var(--oph-primary-contrast);
+  --oph-btn-border: transparent;
+  --oph-btn-shadow: var(--oph-shadow-brand);
+  --oph-btn-shadow-hover: var(--oph-shadow-brand-lg);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--oph-space-2);
+  min-height: 48px;
+  padding: 0 var(--oph-space-6);
+  border: 1px solid var(--oph-btn-border);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-btn-bg);
+  color: var(--oph-btn-fg);
+  box-shadow: var(--oph-btn-shadow);
+  font-family: inherit;
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out),
+    box-shadow calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out),
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    border-color var(--oph-duration-fast) var(--oph-ease-out),
+    color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-btn:hover:not(:disabled) {
+  transform: translateY(calc(-2px * var(--oph-motion-scale)));
+  box-shadow: var(--oph-btn-shadow-hover);
+}
+
+.oph-btn:active:not(:disabled) {
+  transform: translateY(0) scale(calc(1 - 0.012 * var(--oph-motion-scale)));
+}
+
+.oph-btn:disabled,
+.oph-btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+/* Ripple — a span injected by the Button component on pointer-down. */
+.oph-btn__ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.28;
+  pointer-events: none;
+  transform: scale(0);
+  animation: oph-ripple 620ms var(--oph-ease-out) forwards;
+}
+
+@keyframes oph-ripple {
+  to {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* Variants -------------------------------------------------------------- */
+.oph-btn--primary {
+  --oph-btn-bg: var(--oph-primary);
+}
+.oph-btn--primary:hover:not(:disabled) {
+  --oph-btn-bg: var(--oph-primary-hover);
+}
+
+.oph-btn--secondary {
+  --oph-btn-bg: var(--oph-secondary);
+  --oph-btn-fg: var(--oph-secondary-contrast);
+  --oph-btn-shadow: none;
+  --oph-btn-shadow-hover: var(--oph-shadow-sm);
+}
+.oph-btn--secondary:hover:not(:disabled) {
+  --oph-btn-bg: var(--oph-secondary-hover);
+}
+
+.oph-btn--outline {
+  --oph-btn-bg: transparent;
+  --oph-btn-fg: var(--oph-primary);
+  --oph-btn-border: var(--oph-line-strong);
+  --oph-btn-shadow: none;
+  --oph-btn-shadow-hover: var(--oph-shadow-sm);
+}
+.oph-btn--outline:hover:not(:disabled) {
+  --oph-btn-border: var(--oph-primary);
+  --oph-btn-bg: var(--oph-brand-50);
+}
+
+.oph-btn--ghost {
+  --oph-btn-bg: transparent;
+  --oph-btn-fg: var(--oph-ink-soft);
+  --oph-btn-shadow: none;
+  --oph-btn-shadow-hover: none;
+}
+.oph-btn--ghost:hover:not(:disabled) {
+  --oph-btn-bg: var(--oph-surface-3);
+  --oph-btn-fg: var(--oph-primary);
+}
+
+.oph-btn--danger {
+  --oph-btn-bg: var(--oph-danger);
+  --oph-btn-shadow: 0 14px 32px rgba(179, 38, 30, 0.24);
+  --oph-btn-shadow-hover: 0 20px 42px rgba(179, 38, 30, 0.3);
+}
+
+.oph-btn--on-dark {
+  --oph-btn-bg: #ffffff;
+  --oph-btn-fg: var(--oph-brand-800);
+  --oph-btn-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  --oph-btn-shadow-hover: 0 24px 52px rgba(0, 0, 0, 0.3);
+}
+
+/* Sizes ----------------------------------------------------------------- */
+.oph-btn--sm {
+  min-height: 38px;
+  padding-inline: var(--oph-space-4);
+  border-radius: var(--oph-radius-sm);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-btn--lg {
+  min-height: 58px;
+  padding-inline: var(--oph-space-8);
+  border-radius: var(--oph-radius-lg);
+  font-size: var(--oph-text-base);
+}
+
+.oph-btn--block {
+  width: 100%;
+}
+
+.oph-btn--icon {
+  min-height: 46px;
+  width: 46px;
+  padding: 0;
+  border-radius: var(--oph-radius-pill);
+}
+
+.oph-btn__spinner {
+  width: 1.1em;
+  height: 1.1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: oph-spin 720ms linear infinite;
+}
+
+@keyframes oph-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animated underline link. */
+.oph-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oph-space-2);
+  color: var(--oph-primary);
+  font-weight: var(--oph-weight-bold);
+}
+
+.oph-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-link:hover::after,
+.oph-link:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.oph-link svg {
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-link:hover svg {
+  transform: translateX(calc(4px * var(--oph-motion-scale)));
+}
+
+/* ==================================================================== CARD */
+
+.oph-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--oph-card-padding, var(--oph-space-8));
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-xl);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-shadow-sm);
+  overflow: hidden;
+  transition:
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    box-shadow calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out),
+    border-color var(--oph-duration-base) var(--oph-ease-out);
+}
+
+.oph-card--interactive:hover,
+.oph-card--interactive:focus-within {
+  transform: translateY(calc(-6px * var(--oph-motion-scale)));
+  border-color: var(--oph-brand-200);
+  box-shadow: var(--oph-shadow-lg);
+}
+
+/* Soft brand glow that fades in on hover. */
+.oph-card--interactive::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(46, 156, 114, 0.08), rgba(46, 156, 114, 0) 58%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-card--interactive:hover::before,
+.oph-card--interactive:focus-within::before {
+  opacity: 1;
+}
+
+.oph-card--glass {
+  border-color: var(--oph-glass-border);
+  background: var(--oph-glass-bg);
+  backdrop-filter: blur(var(--oph-glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--oph-glass-blur)) saturate(160%);
+}
+
+.oph-card--flat {
+  box-shadow: none;
+}
+
+.oph-card--tint {
+  background: var(--oph-surface-2);
+}
+
+.oph-card--deep {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: var(--oph-gradient-deep);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.oph-card--deep h3,
+.oph-card--deep h4 {
+  color: #ffffff;
+}
+
+.oph-card__media {
+  position: relative;
+  margin: calc(var(--oph-card-padding, var(--oph-space-8)) * -1);
+  margin-bottom: var(--oph-space-6);
+  overflow: hidden;
+  background: var(--oph-surface-3);
+  aspect-ratio: var(--oph-card-media-ratio, 4 / 3);
+}
+
+.oph-card__media > * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform calc(var(--oph-duration-slow) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-card--interactive:hover .oph-card__media > * {
+  transform: scale(calc(1 + 0.04 * var(--oph-motion-scale)));
+}
+
+.oph-card__title {
+  font-size: var(--oph-text-lg);
+  font-weight: var(--oph-weight-black);
+  letter-spacing: -0.012em;
+  line-height: var(--oph-leading-snug);
+}
+
+.oph-card__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-normal);
+}
+
+/* Clamp for text whose length varies per record (a doctor's speciality line),
+   so one long entry cannot push its card out of step with the row. */
+.oph-card__text--clamp {
+  display: -webkit-box;
+  /* 'pretty' re-balances the last lines and can drop the clamp's ellipsis. */
+  text-wrap: wrap;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(var(--oph-text-sm) * var(--oph-leading-normal) * 2);
+}
+
+.oph-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  margin-top: auto;
+  padding-top: var(--oph-space-6);
+}
+
+/* =================================================================== BADGE */
+
+.oph-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oph-space-2);
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-secondary);
+  color: var(--oph-secondary-contrast);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-black);
+  letter-spacing: var(--oph-tracking-wide);
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.oph-badge--outline {
+  border-color: var(--oph-line-strong);
+  background: transparent;
+  color: var(--oph-ink-soft);
+}
+
+.oph-badge--solid {
+  background: var(--oph-primary);
+  color: var(--oph-primary-contrast);
+}
+
+.oph-badge--success {
+  background: var(--oph-success-soft);
+  color: var(--oph-success);
+}
+.oph-badge--warning {
+  background: var(--oph-warning-soft);
+  color: var(--oph-warning);
+}
+.oph-badge--danger {
+  background: var(--oph-danger-soft);
+  color: var(--oph-danger);
+}
+.oph-badge--info {
+  background: var(--oph-info-soft);
+  color: var(--oph-info);
+}
+
+.oph-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.oph-badge--pulse .oph-badge__dot {
+  animation: oph-pulse-dot 2.2s var(--oph-ease-in-out) infinite;
+}
+
+@keyframes oph-pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 currentColor;
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 5px transparent;
+    opacity: 0.65;
+  }
+}
+
+/* ==================================================================== ICON */
+
+.oph-icon-tile {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: var(--oph-icon-tile-size, 54px);
+  height: var(--oph-icon-tile-size, 54px);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-secondary);
+  color: var(--oph-primary);
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-spring);
+}
+
+.oph-icon-tile--solid {
+  background: var(--oph-gradient-brand);
+  color: #ffffff;
+  box-shadow: var(--oph-shadow-brand);
+}
+
+.oph-icon-tile--lg {
+  --oph-icon-tile-size: 68px;
+  border-radius: var(--oph-radius-lg);
+}
+
+.oph-card--interactive:hover .oph-icon-tile {
+  transform: scale(calc(1 + 0.08 * var(--oph-motion-scale))) rotate(calc(-4deg * var(--oph-motion-scale)));
+}
+
+/* =========================================================== FORM & INPUT */
+
+.oph-form {
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-form__row {
+  display: grid;
+  gap: var(--oph-space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+
+.oph-field {
+  display: grid;
+  gap: var(--oph-space-2);
+}
+
+.oph-field__label {
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: var(--oph-tracking-wide);
+  text-transform: uppercase;
+}
+
+.oph-field__required {
+  color: var(--oph-danger);
+}
+
+.oph-field__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.oph-field__control > svg:first-child {
+  position: absolute;
+  left: var(--oph-space-4);
+  width: 18px;
+  height: 18px;
+  color: var(--oph-muted-soft);
+  pointer-events: none;
+  transition: color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-field__control:focus-within > svg:first-child {
+  color: var(--oph-primary);
+}
+
+.oph-input,
+.oph-select,
+.oph-textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: var(--oph-space-3) var(--oph-space-4);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-field);
+  color: var(--oph-ink);
+  font-family: inherit;
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-medium);
+  transition:
+    border-color var(--oph-duration-fast) var(--oph-ease-out),
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    box-shadow var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-field__control > svg:first-child ~ .oph-input,
+.oph-field__control > svg:first-child ~ .oph-select {
+  padding-left: calc(var(--oph-space-4) * 2 + 18px);
+}
+
+.oph-textarea {
+  min-height: 132px;
+  padding-top: var(--oph-space-4);
+  resize: vertical;
+}
+
+.oph-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f7d71' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--oph-space-4) center;
+  padding-right: calc(var(--oph-space-4) * 2 + 16px);
+}
+
+.oph-input::placeholder,
+.oph-textarea::placeholder {
+  color: var(--oph-muted-soft);
+}
+
+.oph-input:hover,
+.oph-select:hover,
+.oph-textarea:hover {
+  border-color: var(--oph-line-strong);
+}
+
+.oph-input:focus,
+.oph-select:focus,
+.oph-textarea:focus {
+  outline: none;
+  border-color: var(--oph-primary);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-ring);
+}
+
+.oph-input[aria-invalid='true'],
+.oph-select[aria-invalid='true'],
+.oph-textarea[aria-invalid='true'] {
+  border-color: var(--oph-danger);
+  background: var(--oph-danger-soft);
+}
+
+.oph-input:disabled,
+.oph-select:disabled,
+.oph-textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.oph-field__hint {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-2);
+  color: var(--oph-danger);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  animation: oph-shake 420ms var(--oph-ease-out);
+}
+
+@keyframes oph-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(calc(-5px * var(--oph-motion-scale)));
+  }
+  40% {
+    transform: translateX(calc(5px * var(--oph-motion-scale)));
+  }
+  60% {
+    transform: translateX(calc(-3px * var(--oph-motion-scale)));
+  }
+  80% {
+    transform: translateX(calc(3px * var(--oph-motion-scale)));
+  }
+}
+
+/* Checkbox / radio ------------------------------------------------------ */
+.oph-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-normal);
+  cursor: pointer;
+}
+
+.oph-check input {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin: 1px 0 0;
+  border: 1.5px solid var(--oph-line-strong);
+  border-radius: 7px;
+  background: var(--oph-surface);
+  appearance: none;
+  cursor: pointer;
+  transition:
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    border-color var(--oph-duration-fast) var(--oph-ease-out),
+    transform var(--oph-duration-fast) var(--oph-ease-spring);
+}
+
+.oph-check input[type='radio'] {
+  border-radius: 50%;
+}
+
+.oph-check input:checked {
+  border-color: var(--oph-primary);
+  background: var(--oph-primary)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+  transform: scale(calc(1 + 0.06 * var(--oph-motion-scale)));
+}
+
+.oph-check input[type='radio']:checked {
+  background-image: none;
+  box-shadow: inset 0 0 0 4px var(--oph-surface);
+}
+
+/* Segmented control (used by booking filters and the pricing switcher). */
+.oph-segmented {
+  display: inline-flex;
+  padding: 5px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-surface-2);
+  gap: 4px;
+}
+
+.oph-segmented button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: var(--oph-radius-pill);
+  background: transparent;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  white-space: nowrap;
+  transition:
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-segmented button[aria-pressed='true'],
+.oph-segmented button[aria-selected='true'] {
+  background: var(--oph-surface);
+  color: var(--oph-primary);
+  box-shadow: var(--oph-shadow-xs);
+}
+
+/* =================================================================== TABLE */
+
+.oph-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-surface);
+}
+
+.oph-table {
+  min-width: 640px;
+  font-size: var(--oph-text-sm);
+}
+
+.oph-table thead th {
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border-bottom: 1px solid var(--oph-line);
+  background: var(--oph-surface-2);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-black);
+  letter-spacing: var(--oph-tracking-wide);
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.oph-table tbody td {
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border-bottom: 1px solid var(--oph-line);
+  color: var(--oph-ink-soft);
+  vertical-align: middle;
+}
+
+.oph-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.oph-table tbody tr {
+  transition: background-color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-table tbody tr:hover {
+  background: var(--oph-brand-50);
+}
+
+.oph-table__price {
+  color: var(--oph-ink);
+  font-weight: var(--oph-weight-black);
+  white-space: nowrap;
+}
+
+.oph-table__name {
+  color: var(--oph-ink);
+  font-weight: var(--oph-weight-bold);
+}
+
+/* ================================================================== STATES */
+
+/* Loading — full-block spinner used during route and data transitions. */
+.oph-state {
+  display: grid;
+  gap: var(--oph-space-4);
+  justify-items: center;
+  padding: var(--oph-space-16) var(--oph-space-6);
+  border: 1px dashed var(--oph-line-strong);
+  border-radius: var(--oph-radius-xl);
+  background: var(--oph-surface-2);
+  text-align: center;
+}
+
+.oph-state__icon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: var(--oph-radius-2xl);
+  background: var(--oph-secondary);
+  color: var(--oph-primary);
+}
+
+.oph-state__title {
+  font-size: var(--oph-text-lg);
+  font-weight: var(--oph-weight-black);
+}
+
+.oph-state__text {
+  max-width: 46ch;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-state--error {
+  border-color: rgba(179, 38, 30, 0.32);
+  background: var(--oph-danger-soft);
+}
+.oph-state--error .oph-state__icon {
+  background: rgba(179, 38, 30, 0.12);
+  color: var(--oph-danger);
+}
+
+.oph-state--success {
+  border-style: solid;
+  border-color: var(--oph-brand-200);
+  background: var(--oph-success-soft);
+}
+
+/* Completed, but not as the visitor intended — e.g. an enquiry held locally
+   because the API was unreachable. Deliberately not green. */
+.oph-state--warning {
+  border-style: solid;
+  border-color: rgba(178, 106, 0, 0.32);
+  background: var(--oph-warning-soft);
+}
+
+.oph-state--warning .oph-state__icon {
+  background: rgba(178, 106, 0, 0.14);
+  color: var(--oph-warning);
+}
+
+.oph-state--loading {
+  border-style: solid;
+  border-color: var(--oph-line);
+}
+
+.oph-spinner {
+  width: var(--oph-spinner-size, 34px);
+  height: var(--oph-spinner-size, 34px);
+  border: 3px solid var(--oph-brand-200);
+  border-top-color: var(--oph-primary);
+  border-radius: 50%;
+  animation: oph-spin 780ms linear infinite;
+}
+
+/* Success checkmark — draws itself in, then settles. */
+.oph-checkmark {
+  width: 84px;
+  height: 84px;
+}
+
+.oph-checkmark__circle {
+  fill: none;
+  stroke: var(--oph-primary);
+  stroke-width: 2.6;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: oph-draw 700ms var(--oph-ease-out) forwards;
+}
+
+.oph-checkmark__tick {
+  fill: none;
+  stroke: var(--oph-primary);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: oph-draw 420ms var(--oph-ease-out) 520ms forwards;
+}
+
+@keyframes oph-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Skeleton loaders ------------------------------------------------------ */
+.oph-skeleton {
+  position: relative;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-surface-3);
+  overflow: hidden;
+}
+
+.oph-skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.86), transparent);
+  transform: translateX(-100%);
+  animation: oph-shimmer 1.5s infinite;
+}
+
+@keyframes oph-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-skeleton::after {
+  animation: none;
+}
+
+.oph-skeleton--text {
+  height: 0.85em;
+  border-radius: var(--oph-radius-xs);
+}
+.oph-skeleton--title {
+  height: 1.6em;
+  border-radius: var(--oph-radius-xs);
+}
+.oph-skeleton--media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--oph-radius-lg);
+}
+.oph-skeleton--avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+/* Inline alert ---------------------------------------------------------- */
+.oph-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-surface-2);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-normal);
+}
+
+.oph-alert svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.oph-alert--success {
+  border-color: var(--oph-brand-200);
+  background: var(--oph-success-soft);
+  color: var(--oph-brand-800);
+}
+.oph-alert--warning {
+  border-color: rgba(178, 106, 0, 0.28);
+  background: var(--oph-warning-soft);
+  color: var(--oph-warning);
+}
+.oph-alert--error {
+  border-color: rgba(179, 38, 30, 0.28);
+  background: var(--oph-danger-soft);
+  color: var(--oph-danger);
+}
+.oph-alert--info {
+  border-color: rgba(13, 108, 114, 0.24);
+  background: var(--oph-info-soft);
+  color: var(--oph-info);
+}
+
+/* ================================================================ OVERLAYS */
+
+.oph-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--oph-z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--oph-space-4);
+  background: var(--oph-overlay);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: oph-overlay-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.oph-modal {
+  width: min(620px, 100%);
+  max-height: min(86vh, 860px);
+  overflow-y: auto;
+  padding: var(--oph-space-8);
+  border-radius: var(--oph-radius-2xl);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-shadow-xl);
+  animation: oph-modal-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-spring);
+}
+
+@keyframes oph-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.965);
+  }
+}
+
+.oph-modal--wide {
+  width: min(920px, 100%);
+}
+
+.oph-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  margin-bottom: var(--oph-space-6);
+}
+
+.oph-modal__title {
+  font-size: var(--oph-text-xl);
+}
+
+.oph-modal__close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--oph-surface-3);
+  color: var(--oph-ink-soft);
+  transition:
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    transform var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-modal__close:hover {
+  background: var(--oph-secondary);
+  transform: rotate(calc(90deg * var(--oph-motion-scale)));
+}
+
+/* Drawer (mobile navigation, filters, patient panels). */
+.oph-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  z-index: var(--oph-z-drawer);
+  display: flex;
+  flex-direction: column;
+  width: min(420px, 92vw);
+  padding: var(--oph-space-6);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-shadow-xl);
+  overflow-y: auto;
+  animation: oph-drawer-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+.oph-drawer--left {
+  inset: 0 auto 0 0;
+  animation-name: oph-drawer-in-left;
+}
+
+@keyframes oph-drawer-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+/* Dropdown menu. */
+.oph-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: var(--oph-z-header);
+  min-width: 200px;
+  padding: var(--oph-space-2);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-shadow-lg);
+  transform-origin: top right;
+  animation: oph-dropdown-in calc(var(--oph-duration-fast) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+}
+
+.oph-dropdown button,
+.oph-dropdown a {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-3);
+  padding: 11px 12px;
+  border: 0;
+  border-radius: var(--oph-radius-sm);
+  background: transparent;
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  text-align: left;
+  transition:
+    background-color var(--oph-duration-fast) var(--oph-ease-out),
+    color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-dropdown button:hover,
+.oph-dropdown a:hover,
+.oph-dropdown [aria-current='true'] {
+  background: var(--oph-secondary);
+  color: var(--oph-primary);
+}
+
+/* Toast / notification. */
+.oph-toasts {
+  position: fixed;
+  right: var(--oph-space-5);
+  bottom: var(--oph-space-5);
+  z-index: var(--oph-z-toast);
+  display: grid;
+  gap: var(--oph-space-3);
+  width: min(380px, calc(100vw - var(--oph-space-8)));
+  pointer-events: none;
+}
+
+.oph-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-surface);
+  box-shadow: var(--oph-shadow-lg);
+  pointer-events: auto;
+  animation: oph-toast-in calc(var(--oph-duration-base) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-spring);
+}
+
+@keyframes oph-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.94);
+  }
+}
+
+.oph-toast[data-leaving='true'] {
+  animation: oph-toast-out 260ms var(--oph-ease-in-out) forwards;
+}
+
+@keyframes oph-toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(40px) scale(0.94);
+  }
+}
+
+.oph-toast__title {
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-black);
+}
+
+.oph-toast__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+/* ================================================================ ACCORDION */
+
+.oph-accordion {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-accordion__item {
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-lg);
+  background: var(--oph-surface);
+  overflow: hidden;
+  transition:
+    border-color var(--oph-duration-base) var(--oph-ease-out),
+    box-shadow var(--oph-duration-base) var(--oph-ease-out);
+}
+
+.oph-accordion__item[data-open='true'] {
+  border-color: var(--oph-brand-200);
+  box-shadow: var(--oph-shadow-md);
+}
+
+.oph-accordion__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+  padding: var(--oph-space-5) var(--oph-space-6);
+  border: 0;
+  background: transparent;
+  color: var(--oph-ink);
+  font-size: var(--oph-text-md);
+  font-weight: var(--oph-weight-bold);
+  text-align: left;
+  transition: color var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-accordion__item[data-open='true'] .oph-accordion__trigger {
+  color: var(--oph-primary);
+}
+
+.oph-accordion__icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--oph-surface-3);
+  color: var(--oph-primary);
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-spring),
+    background-color var(--oph-duration-base) var(--oph-ease-out);
+}
+
+.oph-accordion__item[data-open='true'] .oph-accordion__icon {
+  background: var(--oph-secondary);
+  transform: rotate(calc(180deg * var(--oph-motion-scale)));
+}
+
+.oph-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-accordion__item[data-open='true'] .oph-accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+.oph-accordion__panel > div {
+  overflow: hidden;
+}
+
+.oph-accordion__body {
+  padding: 0 var(--oph-space-6) var(--oph-space-6);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: var(--oph-leading-relaxed);
+}
+
+/* ================================================================== STEPPER */
+
+.oph-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-2);
+  overflow-x: auto;
+  padding-bottom: var(--oph-space-2);
+  scrollbar-width: none;
+}
+
+.oph-stepper::-webkit-scrollbar {
+  display: none;
+}
+
+.oph-step {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  flex: 0 0 auto;
+  padding: 9px 16px 9px 9px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-surface);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  white-space: nowrap;
+  transition:
+    border-color var(--oph-duration-base) var(--oph-ease-out),
+    background-color var(--oph-duration-base) var(--oph-ease-out),
+    color var(--oph-duration-base) var(--oph-ease-out);
+}
+
+.oph-step__index {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--oph-surface-3);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-black);
+  transition:
+    background-color var(--oph-duration-base) var(--oph-ease-out),
+    color var(--oph-duration-base) var(--oph-ease-out);
+}
+
+.oph-step[data-state='active'] {
+  border-color: var(--oph-primary);
+  background: var(--oph-brand-50);
+  color: var(--oph-primary);
+}
+
+.oph-step[data-state='active'] .oph-step__index {
+  background: var(--oph-primary);
+  color: #ffffff;
+}
+
+.oph-step[data-state='done'] {
+  border-color: var(--oph-brand-200);
+  color: var(--oph-brand-700);
+}
+
+.oph-step[data-state='done'] .oph-step__index {
+  background: var(--oph-brand-200);
+  color: var(--oph-brand-800);
+}
+
+.oph-step__line {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--oph-line-strong);
+}
+
+/* Progress bar. */
+.oph-progress {
+  height: 6px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-surface-3);
+  overflow: hidden;
+}
+
+.oph-progress__value {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--oph-gradient-brand);
+  transition: width calc(var(--oph-duration-slow) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+/* ============================================================ ILLUSTRATION */
+
+/* Brand illustration frame — a soft, layered "iris" motif used as the
+   product's visual signature in empty states, heroes and feature blocks. */
+.oph-illustration {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  width: var(--oph-illustration-size, 220px);
+}
+
+.oph-illustration svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.oph-illustration__ring {
+  transform-origin: center;
+  animation: oph-orbit var(--oph-orbit-duration, 26s) linear infinite;
+}
+
+.oph-illustration__ring--reverse {
+  animation-direction: reverse;
+}
+
+@keyframes oph-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-illustration__ring {
+  animation: none;
+}
+
+/* ======================================================= RESPONSIVE SAFETY */
+
+/* Buttons never grow past their container. On phones a label that does not
+   fit (long Kazakh wording) wraps onto a second line instead of being cut by
+   the button's overflow mask. */
+.oph-btn {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .oph-btn:not(.oph-btn--icon) {
+    white-space: normal;
+    line-height: 1.2;
+    padding-block: 8px;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Horizontally scrolling tables keep the swipe inside the table. */
+.oph-table-wrap {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  .oph-table {
+    min-width: 520px;
+  }
+  .oph-table thead th,
+  .oph-table tbody td {
+    padding: var(--oph-space-3) var(--oph-space-4);
+  }
+}
+
+/* iOS zooms the page on focus when a field's text is under 16px: phones get
+   16px field text (still scaled by the accessibility font-size setting). */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .oph-input,
+  .oph-select,
+  .oph-textarea {
+    font-size: max(1rem, var(--oph-text-sm));
+  }
+}

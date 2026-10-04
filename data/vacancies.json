@@ -1,0 +1,277 @@
+[
+  {
+    "id": "vac-surgeon",
+    "slug": "ophthalmic-surgeon",
+    "title": {
+      "ru": "Офтальмохирург",
+      "kk": "Офтальмохирург",
+      "en": "Ophthalmic surgeon"
+    },
+    "clinicId": "astana",
+    "employment": {
+      "ru": "Полная занятость",
+      "kk": "Толық жұмыспен қамту",
+      "en": "Full time"
+    },
+    "salary": {
+      "ru": "от 1 200 000 ₸",
+      "kk": "1 200 000 ₸ бастап",
+      "en": "from 1,200,000 ₸"
+    },
+    "published": true,
+    "requirements": {
+      "ru": [
+        "Высшее медицинское образование и действующий сертификат по офтальмологии",
+        "Опыт самостоятельного выполнения факоэмульсификации от 3 лет",
+        "Владение казахским и русским языками"
+      ],
+      "kk": [
+        "Жоғары медициналық білім және офтальмология бойынша қолданыстағы сертификат",
+        "Факоэмульсификацияны дербес орындау тәжірибесі 3 жылдан",
+        "Қазақ және орыс тілдерін меңгеру"
+      ],
+      "en": [
+        "Higher medical education and a valid ophthalmology certificate",
+        "At least 3 years of independent phacoemulsification experience",
+        "Fluency in Kazakh and Russian"
+      ]
+    },
+    "offer": {
+      "ru": [
+        "Операционная с оборудованием экспертного класса",
+        "Оплачиваемое обучение и стажировки",
+        "Медицинская страховка для сотрудника и семьи"
+      ],
+      "kk": [
+        "Сарапшы деңгейіндегі жабдығы бар операциялық",
+        "Ақылы оқыту және тағылымдамалар",
+        "Қызметкер мен отбасына медициналық сақтандыру"
+      ],
+      "en": [
+        "An operating theatre with expert-class equipment",
+        "Paid training and fellowships",
+        "Medical insurance for the employee and family"
+      ]
+    }
+  },
+  {
+    "id": "vac-optometrist",
+    "slug": "optometrist",
+    "title": {
+      "ru": "Врач-оптометрист",
+      "kk": "Оптометрист дәрігер",
+      "en": "Optometrist"
+    },
+    "clinicId": "astana",
+    "employment": {
+      "ru": "Полная занятость",
+      "kk": "Толық жұмыспен қамту",
+      "en": "Full time"
+    },
+    "salary": {
+      "ru": "от 550 000 ₸",
+      "kk": "550 000 ₸ бастап",
+      "en": "from 550,000 ₸"
+    },
+    "published": true,
+    "requirements": {
+      "ru": [
+        "Сертификат по оптометрии или офтальмологии",
+        "Опыт подбора мягких и жёстких контактных линз",
+        "Внимательность к деталям и клиентоориентированность"
+      ],
+      "kk": [
+        "Оптометрия немесе офтальмология бойынша сертификат",
+        "Жұмсақ және қатты контакт линзаларын таңдау тәжірибесі",
+        "Егжей-тегжейге мұқияттылық және клиентке бағдарлану"
+      ],
+      "en": [
+        "A certificate in optometry or ophthalmology",
+        "Experience fitting soft and rigid contact lenses",
+        "Attention to detail and a client-focused approach"
+      ]
+    },
+    "offer": {
+      "ru": [
+        "График 5/2 без ночных смен",
+        "Обучение работе со склеральными линзами",
+        "Скидки на услуги центра для семьи"
+      ],
+      "kk": [
+        "Түнгі ауысымсыз 5/2 кестесі",
+        "Склеральды линзалармен жұмыс істеуге үйрету",
+        "Отбасына орталық қызметтеріне жеңілдіктер"
+      ],
+      "en": [
+        "A 5/2 schedule with no night shifts",
+        "Training in scleral lens work",
+        "Discounts on centre services for your family"
+      ]
+    }
+  },
+  {
+    "id": "vac-nurse",
+    "slug": "operating-nurse",
+    "title": {
+      "ru": "Операционная медсестра",
+      "kk": "Операциялық мейіргер",
+      "en": "Operating theatre nurse"
+    },
+    "clinicId": "astana",
+    "employment": {
+      "ru": "Полная занятость",
+      "kk": "Толық жұмыспен қамту",
+      "en": "Full time"
+    },
+    "salary": {
+      "ru": "от 420 000 ₸",
+      "kk": "420 000 ₸ бастап",
+      "en": "from 420,000 ₸"
+    },
+    "published": true,
+    "requirements": {
+      "ru": [
+        "Среднее медицинское образование, действующий сертификат",
+        "Опыт работы в операционной от 2 лет",
+        "Знание правил асептики и антисептики"
+      ],
+      "kk": [
+        "Орта медициналық білім, қолданыстағы сертификат",
+        "Операциялықта жұмыс тәжірибесі 2 жылдан",
+        "Асептика және антисептика ережелерін білу"
+      ],
+      "en": [
+        "Secondary medical education and a valid certificate",
+        "At least 2 years of operating theatre experience",
+        "Knowledge of aseptic and antiseptic protocols"
+      ]
+    },
+    "offer": {
+      "ru": [
+        "Стабильный график и оплачиваемые переработки",
+        "Наставничество в первые три месяца",
+        "Медицинская страховка"
+      ],
+      "kk": [
+        "Тұрақты кесте және ақылы қосымша жұмыс",
+        "Алғашқы үш айда тәлімгерлік",
+        "Медициналық сақтандыру"
+      ],
+      "en": [
+        "A stable schedule and paid overtime",
+        "Mentoring during the first three months",
+        "Medical insurance"
+      ]
+    }
+  },
+  {
+    "id": "vac-administrator",
+    "slug": "clinic-administrator",
+    "title": {
+      "ru": "Администратор клиники",
+      "kk": "Клиника әкімшісі",
+      "en": "Clinic administrator"
+    },
+    "clinicId": "astana",
+    "employment": {
+      "ru": "Сменный график 2/2",
+      "kk": "2/2 ауысымдық кесте",
+      "en": "2/2 shift schedule"
+    },
+    "salary": {
+      "ru": "от 320 000 ₸",
+      "kk": "320 000 ₸ бастап",
+      "en": "from 320,000 ₸"
+    },
+    "published": true,
+    "requirements": {
+      "ru": [
+        "Опыт работы с пациентами или клиентами от 1 года",
+        "Грамотная речь на казахском и русском языках",
+        "Уверенное владение компьютером"
+      ],
+      "kk": [
+        "Пациенттермен немесе клиенттермен жұмыс тәжірибесі 1 жылдан",
+        "Қазақ және орыс тілдерінде сауатты сөйлеу",
+        "Компьютерді сенімді меңгеру"
+      ],
+      "en": [
+        "At least 1 year of experience with patients or clients",
+        "Articulate Kazakh and Russian",
+        "Confident computer skills"
+      ]
+    },
+    "offer": {
+      "ru": [
+        "Обучение стандартам сервиса центра",
+        "Питание на территории клиники",
+        "Возможность роста до старшего администратора"
+      ],
+      "kk": [
+        "Орталық сервис стандарттарына оқыту",
+        "Клиника аумағында тамақтану",
+        "Аға әкімшіге дейін өсу мүмкіндігі"
+      ],
+      "en": [
+        "Training in the centre's service standards",
+        "Meals on the clinic premises",
+        "A path to senior administrator"
+      ]
+    }
+  },
+  {
+    "id": "vac-pediatric",
+    "slug": "pediatric-ophthalmologist",
+    "title": {
+      "ru": "Детский офтальмолог",
+      "kk": "Балалар офтальмологы",
+      "en": "Pediatric ophthalmologist"
+    },
+    "clinicId": "astana",
+    "employment": {
+      "ru": "Частичная занятость",
+      "kk": "Ішінара жұмыспен қамту",
+      "en": "Part time"
+    },
+    "salary": {
+      "ru": "от 700 000 ₸",
+      "kk": "700 000 ₸ бастап",
+      "en": "from 700,000 ₸"
+    },
+    "published": true,
+    "requirements": {
+      "ru": [
+        "Сертификат по офтальмологии, специализация по детскому приёму",
+        "Опыт работы с детьми дошкольного возраста",
+        "Готовность вести программу контроля близорукости"
+      ],
+      "kk": [
+        "Офтальмология бойынша сертификат, балалар қабылдауы бойынша мамандану",
+        "Мектепке дейінгі жастағы балалармен жұмыс тәжірибесі",
+        "Миопияны бақылау бағдарламасын жүргізуге дайындық"
+      ],
+      "en": [
+        "An ophthalmology certificate with a pediatric specialisation",
+        "Experience working with preschool-age children",
+        "Readiness to run the myopia control program"
+      ]
+    },
+    "offer": {
+      "ru": [
+        "Оборудованный детский кабинет",
+        "Гибкий график приёма",
+        "Участие в научных исследованиях центра"
+      ],
+      "kk": [
+        "Жабдықталған балалар кабинеті",
+        "Икемді қабылдау кестесі",
+        "Орталықтың ғылыми зерттеулеріне қатысу"
+      ],
+      "en": [
+        "A fully equipped pediatric room",
+        "A flexible appointment schedule",
+        "Participation in the centre's research"
+      ]
+    }
+  }
+]

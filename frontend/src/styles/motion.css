@@ -1,0 +1,742 @@
+/* ==========================================================================
+   OPHTRA — MOTION LAYER
+   Every animation is compositor-only (transform / opacity / filter) so the
+   site holds 60 FPS. Amplitude is driven by --oph-motion-scale, which the
+   accessibility panel and prefers-reduced-motion set to 0.
+   ========================================================================== */
+
+/* ============================================================ SCROLL REVEAL */
+
+[data-oph-reveal] {
+  opacity: 0;
+  transform: translate3d(
+      var(--oph-reveal-x, 0),
+      var(--oph-reveal-y, var(--oph-reveal-distance)),
+      0
+    )
+    scale(var(--oph-reveal-scale, 1));
+  transition:
+    opacity calc(var(--oph-duration-reveal) * var(--oph-motion-scale)) var(--oph-ease-glide),
+    transform calc(var(--oph-duration-reveal) * var(--oph-motion-scale)) var(--oph-ease-glide),
+    filter calc(var(--oph-duration-reveal) * var(--oph-motion-scale)) var(--oph-ease-glide);
+  transition-delay: var(--oph-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+/*
+ * The compositing hint is NOT released here.
+ *
+ * `data-visible` is set when the animation *starts*, so dropping will-change
+ * on that selector demoted the layer for the whole 1.4s transition: the text
+ * was then repainted at a new subpixel offset every frame and visibly
+ * trembled. useReveal clears the hint from JS once the animation has finished,
+ * which is the only moment it is safe — see the timeout there.
+ */
+
+[data-oph-reveal='blur'] {
+  filter: blur(10px);
+}
+
+[data-oph-reveal][data-visible='true'] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* When motion is off the content is simply present. */
+:root[data-reduced-motion='true'] [data-oph-reveal] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+
+/* Stagger: the container assigns --oph-reveal-delay per child. */
+[data-oph-stagger] {
+  --oph-stagger-step: 90ms;
+}
+
+/* Word-by-word headline reveal. */
+.oph-split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.oph-split-word > span {
+  display: inline-block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform calc(var(--oph-duration-reveal) * var(--oph-motion-scale))
+    var(--oph-ease-glide);
+  transition-delay: var(--oph-reveal-delay, 0ms);
+  will-change: transform;
+}
+
+[data-visible='true'] .oph-split-word > span,
+.oph-split-word[data-visible='true'] > span {
+  transform: translate3d(0, 0, 0);
+  /* The hint is released from JS after the word has finished rising, not here:
+     this selector matches the moment the rise *begins*, and demoting the layer
+     mid-transition makes the glyphs repaint at a new subpixel offset on every
+     frame. See the timeout in useReveal. */
+}
+
+:root[data-reduced-motion='true'] .oph-split-word > span {
+  transform: none;
+  transition: none;
+}
+
+/* ================================================================ PARALLAX */
+
+/* Layers translate against scroll; the shift is written by the scroll
+   controller into --oph-parallax-shift on the element itself. */
+[data-oph-parallax] {
+  will-change: transform;
+  transform: translate3d(0, calc(var(--oph-parallax-shift, 0px) * var(--oph-motion-scale)), 0);
+}
+
+/* Image reveal: a mask wipes away as the frame enters the viewport. */
+.oph-image-reveal {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--oph-radius-xl);
+  background: var(--oph-surface-3);
+}
+
+.oph-image-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--oph-surface);
+  transform-origin: right;
+  transition: transform calc(var(--oph-duration-reveal) * var(--oph-motion-scale))
+    var(--oph-ease-glide);
+  transition-delay: var(--oph-reveal-delay, 0ms);
+}
+
+.oph-image-reveal[data-visible='true']::after {
+  transform: scaleX(0);
+}
+
+.oph-image-reveal > img,
+.oph-image-reveal > svg,
+.oph-image-reveal > .oph-image-reveal__inner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  transition: transform 1400ms var(--oph-ease-out);
+}
+
+.oph-image-reveal[data-visible='true'] > img,
+.oph-image-reveal[data-visible='true'] > svg,
+.oph-image-reveal[data-visible='true'] > .oph-image-reveal__inner {
+  transform: scale(1);
+}
+
+:root[data-reduced-motion='true'] .oph-image-reveal::after {
+  display: none;
+}
+:root[data-reduced-motion='true'] .oph-image-reveal > * {
+  transform: none;
+  transition: none;
+}
+
+/* ===================================================== STICKY SCROLL SCENE */
+
+/* A tall track with a pinned viewport: the classic premium "scrollytelling"
+   section. Height is set per instance via --oph-scene-length. */
+.oph-scene {
+  position: relative;
+  height: calc(var(--oph-scene-length, 400) * 1vh);
+}
+
+.oph-scene__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 620px;
+  overflow: hidden;
+  display: grid;
+}
+
+.oph-scene__layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 32px, 0);
+  transition:
+    opacity calc(var(--oph-duration-slow) * var(--oph-motion-scale)) var(--oph-ease-out),
+    transform calc(var(--oph-duration-slow) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-scene__layer[data-active='true'] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+}
+
+/* The stage rail is a desktop affordance: inside a pinned 100vh viewport on a
+   phone there is no room for it beside the copy. */
+@media (max-width: 900px) {
+  .oph-scene__rail {
+    display: none !important;
+  }
+}
+
+/* Reduced motion collapses the scene into a plain stacked section. */
+:root[data-reduced-motion='true'] .oph-scene {
+  height: auto;
+}
+:root[data-reduced-motion='true'] .oph-scene__pin {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+:root[data-reduced-motion='true'] .oph-scene__layer {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition: none;
+}
+
+/* ============================================================ SCROLL BOUND */
+
+/* Horizontal panel track driven by vertical scroll. */
+.oph-hscroll {
+  position: relative;
+  height: calc(var(--oph-hscroll-length, 300) * 1vh);
+}
+
+/* The cards sit at the top of the pin, just under the header, rather than
+   centred in a 100svh stage: centring left ~300 px of blank between the
+   section heading and the cards before the pin engaged. The pin itself stays
+   one viewport tall so the pinned travel still ends exactly when the track's
+   bottom reaches the viewport bottom (useHorizontalScroll's progress). */
+.oph-hscroll__pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding-top: calc(var(--oph-header-h, 76px) + var(--oph-space-8));
+  overflow: hidden;
+}
+
+.oph-hscroll__track {
+  display: flex;
+  gap: var(--oph-space-8);
+  padding-inline: var(--oph-gutter);
+  will-change: transform;
+  transform: translate3d(calc(var(--oph-hscroll-offset, 0px) * var(--oph-motion-scale)), 0, 0);
+}
+
+/* Static swipe row for reduced motion — the accessibility panel AND the OS
+   setting. With only the panel covered, an OS-level preference zeroed
+   --oph-motion-scale (tokens.css) but kept the 170vh pin, leaving a ~1000 px
+   blank band under a track that never moved. */
+:root[data-reduced-motion='true'] .oph-hscroll {
+  height: auto;
+}
+:root[data-reduced-motion='true'] .oph-hscroll__pin {
+  position: relative;
+  height: auto;
+  padding-top: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+:root[data-reduced-motion='true'] .oph-hscroll__track {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oph-hscroll {
+    height: auto;
+  }
+  .oph-hscroll__pin {
+    position: relative;
+    height: auto;
+    padding-top: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .oph-hscroll__track {
+    transform: none;
+  }
+}
+
+/*
+ * Touch and narrow windows: a native swipe row, not a pinned stage.
+ *
+ * The pinned version maps vertical scroll to a sideways offset written from the
+ * main thread, one frame behind the page the compositor is scrolling — on a
+ * phone that reads as the row shaking. Here the finger moves the row directly
+ * and scroll snap settles it on a card. The query matches NATIVE_HSCROLL_QUERY
+ * in hooks.ts, which keeps the scroll driver detached under the same rule.
+ * `html:root` lifts these over page-level `.x .oph-hscroll__pin` rules.
+ */
+@media (hover: none) and (pointer: coarse), (max-width: 767px) {
+  html:root .oph-hscroll {
+    height: auto;
+  }
+
+  html:root .oph-hscroll__pin {
+    position: relative;
+    top: auto;
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding-block: 0 var(--oph-space-2);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--oph-gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html:root .oph-hscroll__pin::-webkit-scrollbar {
+    display: none;
+  }
+
+  html:root .oph-hscroll__pin:focus-visible {
+    outline: 2px solid var(--oph-primary);
+    outline-offset: -2px;
+  }
+
+  html:root .oph-hscroll__track {
+    width: max-content;
+    gap: var(--oph-space-4);
+    padding-inline: var(--oph-gutter);
+    transform: none;
+    will-change: auto;
+  }
+
+  /* Zero specificity so a page can still pick its own snap point or width. */
+  :where(.oph-hscroll__track) > * {
+    flex-shrink: 0;
+    max-width: calc(100vw - 2 * var(--oph-gutter) - var(--oph-space-6));
+    scroll-snap-align: start;
+  }
+
+  /* Cards further along the row would otherwise only start their entrance
+     while being swiped in — the row itself has already been revealed. */
+  html:root .oph-hscroll__track [data-oph-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* ============================================================ TOUCH GUARD */
+
+/*
+ * `(hover: none) and (pointer: coarse)` — the same test as isTouch() in
+ * scrollController.ts.
+ *
+ * On a phone the page is scrolled by the compositor on its own thread, while
+ * everything the scroll loop writes arrives from the main thread at least a
+ * frame later. Anything that moves at a different rate from the page therefore
+ * wobbles against it. Scroll-linked values are exact on touch (no damping), and
+ * the engine's own movement effects are neutralised here; desktop keeps them.
+ *
+ * `--oph-scroll-drift` is the switch for page stylesheets: multiply any
+ * scroll-linked TRANSLATION / ROTATION / SCALE driven by --p, --pin, --enter or
+ * --oph-parallax-shift by it (fills, clips and opacity can stay as they are).
+ */
+:root {
+  --oph-scroll-drift: 1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --oph-scroll-drift: 0;
+  }
+
+  /* useParallax never attaches on touch; this covers a stale attribute. */
+  html:root [data-oph-parallax] {
+    transform: none;
+    will-change: auto;
+  }
+
+  /* Stack cards: an ordinary list. A sticky sheet taller than a phone screen
+     also hid its own lower half under the next one. */
+  html:root .oph-stack-cards__item {
+    position: relative;
+    top: auto;
+  }
+
+  html:root .oph-stack-cards__card {
+    transform: none;
+    filter: none;
+  }
+
+  /* Sticky story: chapters stay put; only the emphasis fades. */
+  html:root .oph-story__chapter {
+    transform: none;
+    transition: opacity calc(600ms * var(--oph-motion-scale)) var(--oph-ease-out);
+  }
+
+  /* Clip reveal: the frame still opens with the scroll, but the photograph
+     inside no longer zooms and drifts against it. */
+  html:root .oph-clipreveal img {
+    transform: none;
+  }
+}
+
+/* Scroll progress bar pinned under the header. */
+.oph-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: calc(var(--oph-z-header) + 1);
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(var(--oph-scroll-progress, 0));
+  background: var(--oph-gradient-brand);
+  pointer-events: none;
+  /* Scaled on every frame, so it stays on its own layer permanently — three
+     pixels of gradient is a cheap layer and a repaint per frame is not. */
+  will-change: transform;
+}
+
+/* Marquee ribbon. */
+.oph-marquee {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.oph-marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--oph-space-10);
+  padding-right: var(--oph-space-10);
+  animation: oph-marquee var(--oph-marquee-duration, 34s) linear infinite;
+}
+
+.oph-marquee:hover .oph-marquee__group {
+  animation-play-state: paused;
+}
+
+@keyframes oph-marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-marquee__group {
+  animation: none;
+}
+
+/* ======================================================== MICRO-INTERACTION */
+
+/* Magnetic button — offsets written by the pointer controller. */
+[data-oph-magnetic] {
+  --oph-magnetic-x: 0px;
+  --oph-magnetic-y: 0px;
+  transform: translate3d(
+    calc(var(--oph-magnetic-x) * var(--oph-motion-scale)),
+    calc(var(--oph-magnetic-y) * var(--oph-motion-scale)),
+    0
+  );
+  transition: transform 260ms var(--oph-ease-out);
+  will-change: transform;
+}
+
+/* Floating ambience for decorative shapes. */
+.oph-float {
+  animation: oph-float var(--oph-float-duration, 7s) var(--oph-ease-in-out) infinite;
+  animation-delay: var(--oph-float-delay, 0s);
+}
+
+@keyframes oph-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, calc(-16px * var(--oph-motion-scale)), 0);
+  }
+}
+
+.oph-breathe {
+  animation: oph-breathe 8s var(--oph-ease-in-out) infinite;
+}
+
+@keyframes oph-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(calc(1 + 0.06 * var(--oph-motion-scale)));
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-float,
+:root[data-reduced-motion='true'] .oph-breathe {
+  animation: none;
+}
+
+/* Premium cursor — a soft ring that grows over interactive targets.
+   Only on precise pointers; touch devices keep the native behaviour.
+
+   Compositor-only: the outer box never changes size (the JS writes its
+   position as a transform). The resting ring (::before, 26px) and the hover
+   disc (::after, 54px) are two layers that swap by `transform: scale()` and
+   opacity, each drawn at its own native size so the 1.6px stroke stays crisp.
+   Animating width / height / margin was a layout pass on every hover change. */
+.oph-cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .oph-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--oph-z-cursor);
+    display: block;
+    width: 54px;
+    height: 54px;
+    margin: -27px 0 0 -27px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(-100px, -100px, 0);
+    transition: opacity 200ms linear;
+    will-change: transform;
+  }
+
+  .oph-cursor::before,
+  .oph-cursor::after {
+    content: '';
+    position: absolute;
+    border: 1.6px solid var(--oph-primary);
+    border-radius: 50%;
+    transition:
+      transform 240ms var(--oph-ease-out),
+      opacity 240ms var(--oph-ease-out);
+  }
+
+  /* Resting ring: 26px, scales up to the disc's size as it fades out. */
+  .oph-cursor::before {
+    inset: 14px;
+  }
+
+  /* Hover disc: 54px, starts at the ring's size and invisible. */
+  .oph-cursor::after {
+    inset: 0;
+    background: rgba(22, 127, 91, 0.12);
+    opacity: 0;
+    transform: scale(0.4815);
+  }
+
+  .oph-cursor[data-active='true'] {
+    opacity: 0.85;
+  }
+
+  .oph-cursor[data-hovering='true']::before {
+    opacity: 0;
+    transform: scale(2.077);
+  }
+
+  .oph-cursor[data-hovering='true']::after {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+:root[data-reduced-motion='true'] .oph-cursor {
+  display: none;
+}
+
+/* ========================================================== PAGE TRANSITION */
+
+.oph-page-enter {
+  animation: oph-page-in calc(var(--oph-duration-slow) * max(var(--oph-motion-scale), 0.001)) var(--oph-ease-out);
+}
+
+@keyframes oph-page-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+}
+
+/* Number counter — the value is written by the counter hook; this only
+   guarantees stable width so the layout never shifts while it ticks. */
+.oph-counter {
+  display: inline-grid;
+  justify-items: end;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.oph-counter > span {
+  grid-area: 1 / 1;
+}
+
+.oph-counter__final {
+  visibility: hidden;
+}
+
+/* Timeline animation. */
+.oph-timeline {
+  position: relative;
+  display: grid;
+  gap: var(--oph-space-10);
+  padding-left: var(--oph-space-10);
+}
+
+.oph-timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 13px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--oph-line-strong);
+}
+
+/* The filled part of the rail is a full-height bar scaled from the top, not a
+   calc()'d height: driving `height` from a value the scroll loop rewrites every
+   frame relaid out the whole timeline on each one, which is the same mistake
+   the header used to make. scaleY is compositor-only. */
+.oph-timeline::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 13px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--oph-gradient-brand);
+  transform: scaleY(var(--oph-timeline-progress, 0));
+  transform-origin: top;
+  will-change: transform;
+}
+
+.oph-timeline__item {
+  position: relative;
+}
+
+.oph-timeline__item::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: calc(var(--oph-space-10) * -1 + 7px);
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--oph-surface);
+  border-radius: 50%;
+  background: var(--oph-line-strong);
+  transition: background-color var(--oph-duration-base) var(--oph-ease-out),
+    transform var(--oph-duration-base) var(--oph-ease-spring);
+}
+
+.oph-timeline__item[data-visible='true']::before {
+  background: var(--oph-primary);
+  transform: scale(calc(1 + 0.15 * var(--oph-motion-scale)));
+}
+
+/* ========================================================== LOOPED MOTION */
+
+/*
+ * Decorative `infinite` animations run only while their root is on screen; see
+ * useLoopPause. Left running they produce frames for the whole session from
+ * wherever they happen to sit on the page.
+ */
+[data-oph-loop='paused'],
+[data-oph-loop='paused'] * {
+  animation-play-state: paused !important;
+}
+
+/* ========================================================== LOGO REVEAL HOLD */
+/* While the logo reveal covers the page, reveals that have already fired are
+   held in their start state; they play the moment the curtain lifts. */
+:root[data-loading='true'] [data-oph-reveal][data-visible='true'] {
+  opacity: 0;
+  transform: translate3d(var(--oph-reveal-x, 0), var(--oph-reveal-y, var(--oph-reveal-distance)), 0)
+    scale(var(--oph-reveal-scale, 1));
+}
+
+:root[data-loading='true'] [data-visible='true'] .oph-split-word > span,
+:root[data-loading='true'] .oph-split-word[data-visible='true'] > span {
+  transform: translate3d(0, 110%, 0);
+}
+
+:root[data-loading='true'] body {
+  overflow: hidden;
+}
+
+/* ===================================================== TOUCH: STILL ENTRANCES */
+
+/*
+ * On touch every entrance is a fade, never a move.
+ *
+ * A reveal starts while the block is entering the screen — on a phone that is
+ * mid-flick, so a 24px rise (or a word climbing out of its baseline, or an
+ * image settling from a zoom) is the block drifting against the finger for the
+ * next 1.4s. Opacity has no position, so nothing moves while the page is being
+ * scrolled; desktop keeps the full rise. Placed last so the loading-hold rules
+ * above cannot put a transform back.
+ */
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --oph-reveal-distance: 0px;
+  }
+
+  :root [data-oph-reveal],
+  :root [data-oph-reveal][data-visible='true'],
+  :root[data-loading='true'] [data-oph-reveal][data-visible='true'] {
+    transform: none;
+    filter: none;
+    transition-property: opacity;
+    will-change: opacity;
+  }
+
+  :root .oph-split-word > span,
+  :root[data-loading='true'] [data-visible='true'] .oph-split-word > span,
+  :root[data-loading='true'] .oph-split-word[data-visible='true'] > span {
+    opacity: 0;
+    transform: none;
+    transition-property: opacity;
+    will-change: opacity;
+  }
+
+  :root [data-visible='true'] .oph-split-word > span,
+  :root .oph-split-word[data-visible='true'] > span {
+    opacity: 1;
+  }
+
+  :root .oph-image-reveal > img,
+  :root .oph-image-reveal > svg,
+  :root .oph-image-reveal > .oph-image-reveal__inner {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Reduced motion wins over the touch fade: words are simply present. */
+:root[data-reduced-motion='true'] .oph-split-word > span {
+  opacity: 1;
+}

@@ -1,0 +1,2127 @@
+/* Page styles: patients (see DESIGN.md).
+   International patients · Second opinion · Online consultation.
+   Tokens only — no new colours, radii or shadows. Prefix: .oph-pt-
+   Gold: --oph-gold for text (AA on light surfaces), --oph-gold-line for
+   rules, dots and borders, --oph-gold-soft on forest. */
+
+/* ================================================================ COMMON */
+
+.oph-pt-anchor {
+  scroll-margin-top: var(--oph-header-h, 76px);
+}
+
+.oph-pt-muted {
+  margin-top: var(--oph-space-5);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+.oph-pt-disclaimer {
+  margin-top: var(--oph-space-6);
+  padding-left: var(--oph-space-4);
+  border-left: 2px solid var(--oph-gold-line);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  line-height: 1.6;
+}
+
+.oph-pt-arrowlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: var(--oph-space-4);
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-pt-arrowlink svg {
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-arrowlink:hover svg {
+  transform: translateX(calc(4px * var(--oph-motion-scale)));
+}
+
+/* Inline text link with a full 44px hit area (X8). */
+.oph-pt-textlink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+/* Statement set by TextFill: big serif line that lights up with scroll. */
+.oph-pt-statement {
+  max-width: 980px;
+  margin-bottom: clamp(2rem, 1.25rem + 2.5vw, 4rem);
+  color: var(--oph-ink);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.5rem, 1.1rem + 1.8vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+}
+
+.oph-pt-statement--lg {
+  font-size: clamp(1.75rem, 1.2rem + 2.6vw, 3.4rem);
+  line-height: 1.12;
+}
+
+/* Decorative ring drifting behind a dark section (parallax). */
+.oph-section:has(> .oph-pt-deco) {
+  overflow: clip;
+}
+
+.oph-pt-deco {
+  position: absolute;
+  top: 8%;
+  right: -120px;
+  width: min(520px, 70vw);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.oph-pt-deco + .oph-container {
+  position: relative;
+}
+
+/* Disclosure used for secondary lists («Что входит», «Что приложить»). */
+.oph-pt-more {
+  margin-top: var(--oph-space-4);
+  border-top: 1px solid var(--oph-line);
+}
+
+.oph-pt-more > summary {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  min-height: 48px;
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  list-style: none;
+  cursor: pointer;
+}
+
+.oph-pt-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.oph-pt-more > summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-more[open] > summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.oph-pt-more > summary:focus-visible {
+  outline: 2px solid var(--oph-brand-600);
+  outline-offset: 2px;
+  border-radius: var(--oph-radius-sm);
+}
+
+.oph-pt-more__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-sand);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-more .oph-ringlist {
+  margin-top: 0;
+}
+
+.oph-pt-more--flush {
+  margin-top: 0;
+  border-top: 0;
+}
+
+.oph-pt-more--flush > summary {
+  color: var(--oph-ink);
+}
+
+/* Figma travel guide: the TOC links get a 44px hit area on phones. */
+@media (max-width: 767px) {
+  .oph-pt-guide .oph-article__toc a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+/* ============================================================ WHY KAZAKHSTAN */
+
+.oph-pt-reasons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-reason {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  padding: var(--oph-space-6) 0 0;
+  border-top: 1px solid var(--oph-gold-line);
+}
+
+.oph-pt-reason__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--oph-space-4);
+}
+
+.oph-pt-reason__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+}
+
+.oph-pt-reason__icon {
+  color: var(--oph-forest);
+}
+
+.oph-pt-reason__title {
+  font-size: var(--oph-text-xl);
+  line-height: 1.2;
+}
+
+.oph-pt-reason__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-reasons {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-6);
+  }
+}
+
+/* ================================================================ WHY US */
+
+.oph-pt-tiles {
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-tiles > * {
+  min-width: 0;
+}
+
+.oph-pt-tiles--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.oph-pt-tiles--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .oph-pt-tiles--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .oph-pt-tiles--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .oph-pt-tiles--4,
+  .oph-pt-tiles--3 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+  .oph-pt-tiles .oph-ftile {
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: var(--oph-space-4);
+    padding: var(--oph-space-5);
+  }
+  .oph-pt-tiles .oph-ftile__icon {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+  /* Long ru/kk words («Предварительное») beside the icon at 320px. */
+  .oph-pt-tiles .oph-ftile__title {
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Verified proof points under «Почему наш центр» (dark band). */
+.oph-pt-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+  align-items: end;
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3rem);
+  border-top: 1px solid var(--oph-forest-line);
+}
+
+.oph-pt-proof__title {
+  font-size: clamp(1.4rem, 1.15rem + 0.9vw, 2rem);
+  line-height: 1.15;
+}
+
+.oph-pt-proof__text {
+  margin-top: var(--oph-space-3);
+  color: color-mix(in srgb, var(--oph-cream) 78%, transparent);
+  line-height: 1.6;
+}
+
+.oph-pt-proof__source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: var(--oph-space-2);
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.oph-pt-proof__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-5);
+  margin: 0;
+}
+
+.oph-pt-proof__fact {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-2);
+  padding-top: var(--oph-space-4);
+  border-top: 2px solid var(--oph-gold-soft);
+}
+
+.oph-pt-proof__value {
+  color: var(--oph-paper);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.oph-pt-proof__label {
+  margin: 0;
+  color: color-mix(in srgb, var(--oph-cream) 78%, transparent);
+  font-size: var(--oph-text-sm);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-proof {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+@media (max-width: 560px) {
+  .oph-pt-proof__facts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-4);
+  }
+}
+
+/* ======================================================== TREATMENT PATH */
+
+/* Heading pinned beside a scroll-drawn timeline: the rail fills as the
+   visitor reads, each step lights up on arrival — no pinned empty frames. */
+.oph-pt-journey {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-journey__head {
+  position: sticky;
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-8));
+  display: grid;
+  gap: var(--oph-space-6);
+}
+
+.oph-pt-journey__head .oph-shead {
+  margin-bottom: 0;
+}
+
+.oph-pt-journey__mark {
+  width: min(280px, 70%);
+  color: var(--oph-gold-line);
+  opacity: 0.7;
+}
+
+.oph-pt-journey__mark .oph-rings {
+  width: 100%;
+}
+
+.oph-pt-timeline {
+  gap: var(--oph-space-8);
+}
+
+.oph-pt-timeline::before {
+  background: var(--oph-line);
+}
+
+.oph-pt-timeline::after {
+  background: var(--oph-gold-line);
+}
+
+.oph-pt-timeline .oph-timeline__item::before {
+  border-color: var(--oph-cream);
+  background: var(--oph-line-strong);
+}
+
+.oph-pt-timeline .oph-timeline__item[data-visible='true']::before {
+  background: var(--oph-forest);
+}
+
+.oph-pt-step {
+  display: grid;
+  justify-items: start;
+  gap: var(--oph-space-2);
+}
+
+.oph-pt-step__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.oph-pt-step__title {
+  font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.oph-pt-step__text {
+  max-width: 560px;
+  color: var(--oph-muted);
+  line-height: 1.65;
+}
+
+.oph-pt-step {
+  min-width: 0;
+}
+
+/* Tags like «timeline set by your coordinator» are wider than a 320px column. */
+.oph-pt-step .oph-tag {
+  max-width: 100%;
+  margin-top: var(--oph-space-1);
+  white-space: normal;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-journey {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-8);
+  }
+  .oph-pt-journey__head {
+    position: static;
+  }
+  .oph-pt-journey__mark {
+    display: none;
+  }
+  .oph-pt-timeline {
+    gap: var(--oph-space-6);
+    padding-left: var(--oph-space-8);
+  }
+  .oph-pt-timeline .oph-timeline__item::before {
+    left: calc(var(--oph-space-8) * -1 + 7px);
+  }
+}
+
+/* ======================================================= STICKY STATUS (2nd opinion) */
+
+.oph-pt-chapter {
+  display: grid;
+  gap: var(--oph-space-3);
+  justify-items: start;
+  max-width: 520px;
+}
+
+.oph-pt-chapter__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+}
+
+.oph-pt-chapter__title {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.oph-pt-chapter__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-base);
+  line-height: 1.65;
+}
+
+/* A shorter pinned track: chapters are ~half a screen, the first one starts
+   at the top so the heading is never followed by an empty viewport (I3).
+   Inactive chapters stay fully legible (AA); the active one is marked by a
+   gold rule and a small shift instead of dimming the rest. */
+.oph-pt-statusstory .oph-story__chapter {
+  min-height: var(--oph-story-chapter-min);
+  padding-left: var(--oph-space-6);
+  border-left: 3px solid var(--oph-line);
+  opacity: 1;
+  transition:
+    border-color calc(var(--oph-duration-base) * var(--oph-motion-scale)),
+    transform calc(600ms * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-statusstory .oph-story__chapter[data-active='true'] {
+  border-left-color: var(--oph-gold-line);
+}
+
+.oph-pt-statusstory .oph-story__chapter:first-child {
+  align-content: start;
+  min-height: 40vh;
+  padding-top: 12vh;
+}
+
+.oph-pt-statusstory .oph-story__sticky {
+  height: 64vh;
+}
+
+.oph-pt-status {
+  display: grid;
+  gap: var(--oph-space-5);
+  width: 100%;
+  max-width: 440px;
+  padding: var(--oph-space-8);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-lg);
+}
+
+.oph-pt-status__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--oph-space-4);
+  padding-bottom: var(--oph-space-4);
+  border-bottom: 1px solid var(--oph-line);
+}
+
+.oph-pt-status__title {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.oph-pt-status__ref {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.oph-pt-status__list {
+  position: relative;
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-status__list::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 15px;
+  width: 1px;
+  background: var(--oph-line);
+}
+
+.oph-pt-status__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  column-gap: var(--oph-space-4);
+  align-items: center;
+}
+
+.oph-pt-status__dot {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: 50%;
+  background: var(--oph-paper);
+  color: var(--oph-muted);
+  transition:
+    background-color calc(var(--oph-duration-base) * var(--oph-motion-scale)),
+    color calc(var(--oph-duration-base) * var(--oph-motion-scale)),
+    transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-status__label {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  line-height: 1.2;
+  color: var(--oph-muted);
+  transition: color calc(var(--oph-duration-base) * var(--oph-motion-scale));
+}
+
+.oph-pt-status__meta {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-pt-status__item[data-state='done'] .oph-pt-status__dot {
+  border-color: var(--oph-gold-line);
+  background: var(--oph-gold-line);
+  color: var(--oph-paper);
+}
+
+.oph-pt-status__item[data-state='active'] .oph-pt-status__dot {
+  border-color: var(--oph-forest);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+  transform: scale(calc(1 + 0.12 * var(--oph-motion-scale)));
+}
+
+.oph-pt-status__item[data-state='done'] .oph-pt-status__label,
+.oph-pt-status__item[data-state='active'] .oph-pt-status__label {
+  color: var(--oph-ink);
+}
+
+.oph-pt-status__bar {
+  height: 3px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-sand);
+  overflow: hidden;
+}
+
+.oph-pt-status__bar span {
+  display: block;
+  height: 100%;
+  background: var(--oph-gold-line);
+  transform-origin: left;
+  transition: transform calc(700ms * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-status__now {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-pt-status__now strong {
+  color: var(--oph-ink);
+  font-weight: var(--oph-weight-semibold);
+}
+
+/* Timeline marker: only used by the phone / narrow-tablet timeline below. */
+.oph-pt-chapter__dot {
+  display: none;
+}
+
+/* Phones and narrow tablets (incl. landscape phones): no pin, no sticky strip
+   and no scroll-linked motion. The sample card is dropped and the three
+   chapters read as a plain vertical timeline — icon dot, rail, text. */
+@media (max-width: 900px) {
+  .oph-pt-statusstory.oph-story {
+    display: block;
+  }
+  .oph-pt-statusstory .oph-story__visual {
+    display: none;
+  }
+  .oph-pt-statusstory .oph-story__chapter,
+  .oph-pt-statusstory .oph-story__chapter:first-child,
+  .oph-pt-statusstory .oph-story__chapter[data-active='true'] {
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .oph-pt-statusstory .oph-story__chapter > * {
+    opacity: 1;
+  }
+  .oph-pt-chapter {
+    position: relative;
+    gap: var(--oph-space-2);
+    max-width: 640px;
+    padding: 0 0 var(--oph-space-8) calc(40px + var(--oph-space-4));
+  }
+  .oph-pt-statusstory .oph-story__chapter:last-child .oph-pt-chapter {
+    padding-bottom: 0;
+  }
+  .oph-pt-chapter::before {
+    content: '';
+    position: absolute;
+    top: 48px;
+    bottom: 8px;
+    left: 19.5px;
+    width: 1px;
+    background: var(--oph-gold-line);
+  }
+  .oph-pt-statusstory .oph-story__chapter:last-child .oph-pt-chapter::before {
+    display: none;
+  }
+  .oph-pt-chapter__dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--oph-forest);
+    color: var(--oph-gold-soft);
+  }
+  .oph-pt-chapter__n {
+    line-height: 40px;
+    margin-bottom: calc(var(--oph-space-2) * -1);
+  }
+  .oph-pt-chapter__title {
+    font-size: var(--oph-text-xl);
+  }
+  .oph-pt-chapter .oph-tag {
+    margin-top: var(--oph-space-1);
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Touch tablets that keep the pinned card: the active chapter is marked by
+   its gold rule only — no sideways shift that could wobble under a finger. */
+@media (hover: none) and (pointer: coarse) {
+  .oph-pt-statusstory .oph-story__chapter {
+    transform: none;
+    transition: border-color calc(var(--oph-duration-base) * var(--oph-motion-scale));
+  }
+}
+
+/* ============================================================ ESTIMATOR */
+
+.oph-pt-est {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 1rem + 3vw, 4rem);
+  align-items: start;
+}
+
+.oph-pt-est__controls {
+  display: grid;
+  gap: var(--oph-space-8);
+  min-width: 0;
+}
+
+.oph-pt-est__group {
+  display: grid;
+  gap: var(--oph-space-3);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.oph-pt-est__legend {
+  display: block;
+  margin-bottom: var(--oph-space-2);
+  padding: 0;
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.oph-pt-est__services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-4);
+  align-items: start;
+}
+
+.oph-pt-est__dept {
+  display: grid;
+  align-content: start;
+  padding: var(--oph-space-2) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+}
+
+.oph-pt-est__summary {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  min-height: 48px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.oph-pt-est__summary::-webkit-details-marker {
+  display: none;
+}
+
+.oph-pt-est__summary:focus-visible {
+  outline: 2px solid var(--oph-brand-600);
+  outline-offset: 2px;
+  border-radius: var(--oph-radius-sm);
+}
+
+.oph-pt-est__deptname {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.oph-pt-est__count {
+  padding: 2px 8px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-sand);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  white-space: nowrap;
+}
+
+.oph-pt-est__chev {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--oph-muted);
+  transition: transform calc(var(--oph-duration-fast) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-pt-est__dept[open] .oph-pt-est__chev {
+  transform: rotate(180deg);
+}
+
+.oph-pt-est__dept ul {
+  display: grid;
+  gap: var(--oph-space-1);
+  padding-bottom: var(--oph-space-3);
+}
+
+/* The whole label is the checkbox's hit area (≥ 44px). */
+.oph-pt-est .oph-check {
+  min-height: 44px;
+  align-items: center;
+}
+
+.oph-pt-est__svc {
+  display: grid;
+  gap: 2px;
+}
+
+.oph-pt-est__price {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-est__ranges {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-6);
+}
+
+.oph-pt-est__rangerow {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-4);
+}
+
+.oph-pt-est__rangerow input[type='range'] {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  accent-color: var(--oph-forest);
+  cursor: pointer;
+}
+
+.oph-pt-est__value {
+  display: grid;
+  place-items: center;
+  min-width: 48px;
+  height: 44px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-est .oph-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  max-width: 100%;
+  border-radius: var(--oph-radius-md);
+}
+
+.oph-pt-est .oph-segmented button {
+  min-height: 44px;
+}
+
+.oph-pt-est__hint {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-pt-est__result {
+  align-self: stretch;
+}
+
+.oph-pt-est__panel {
+  position: sticky;
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-6));
+  display: grid;
+  gap: var(--oph-space-4);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  box-shadow: var(--oph-shadow-lg);
+}
+
+.oph-pt-est__panel .oph-eyebrow {
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-est__total {
+  color: var(--oph-paper);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-est__usd {
+  margin-top: var(--oph-space-2);
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-base);
+  font-weight: var(--oph-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-est__breakdown {
+  display: grid;
+  margin-top: var(--oph-space-5);
+  border-top: 1px solid var(--oph-forest-line);
+}
+
+.oph-pt-est__breakdown div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px var(--oph-space-4);
+  padding: var(--oph-space-3) 0;
+  border-bottom: 1px solid var(--oph-forest-line);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-pt-est__breakdown dt {
+  color: color-mix(in srgb, var(--oph-cream) 72%, transparent);
+}
+
+.oph-pt-est__breakdown dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-est__empty {
+  color: color-mix(in srgb, var(--oph-cream) 78%, transparent);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-pt-est__note {
+  display: flex;
+  gap: 10px;
+  color: color-mix(in srgb, var(--oph-cream) 72%, transparent);
+  font-size: var(--oph-text-xs);
+  line-height: 1.6;
+}
+
+.oph-pt-est__note svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-est__cta {
+  justify-self: start;
+  min-height: 44px;
+}
+
+.oph-pt-est__cta[aria-disabled='true'] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Small laptops / tablet landscape: keep the result card beside the controls
+   (it is what the visitor watches while ticking), one department per row. */
+@media (max-width: 1180px) {
+  .oph-pt-est {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+  .oph-pt-est__services,
+  .oph-pt-est__ranges {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Tablet portrait and phones: one column, the card follows the controls and
+   is never sticky (it would cover the list on a short screen). */
+@media (max-width: 900px) {
+  .oph-pt-est {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-pt-est__panel {
+    position: static;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .oph-pt-est__services,
+  .oph-pt-est__ranges {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Short landscape phones: a sticky card taller than the screen can't be read. */
+@media (max-height: 560px) {
+  .oph-pt-est__panel {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .oph-pt-est__controls {
+    gap: var(--oph-space-6);
+  }
+  .oph-pt-est__services,
+  .oph-pt-est__ranges {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+  .oph-pt-est__dept {
+    padding: var(--oph-space-1) var(--oph-space-4);
+  }
+  /* Wrapped pills read as a broken bar: an even grid of full-width options. */
+  .oph-pt-est .oph-segmented {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+  .oph-pt-est .oph-segmented button:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .oph-pt-est .oph-segmented button {
+    padding: 8px 10px;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .oph-pt-est__total {
+    font-size: clamp(1.4rem, 1rem + 2.2vw, 1.8rem);
+  }
+}
+
+/* ======================================================= TRAVEL SUPPORT */
+
+/* Four service cards; on wide screens the second column drifts against the
+   first with scroll (--p from useProgressVars), a quiet parallax beat. */
+.oph-pt-travel {
+  --p: 0.5;
+}
+
+.oph-pt-travel__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-tcardwrap {
+  min-width: 0;
+}
+
+.oph-pt-tcardwrap:nth-child(even) {
+  translate: 0 calc((0.5 - (var(--p, 0.5) * var(--oph-scroll-drift, 1) + 0.5 * (1 - var(--oph-scroll-drift, 1)))) * 60px * var(--oph-motion-scale));
+}
+
+.oph-pt-tcard {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  height: 100%;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.oph-pt-tcard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--oph-space-2);
+}
+
+.oph-pt-tcard__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-tcard__n {
+  color: var(--oph-gold);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-2xl);
+  line-height: 1;
+}
+
+.oph-pt-tcard__title {
+  font-size: clamp(1.4rem, 1.15rem + 0.9vw, 2rem);
+  line-height: 1.12;
+}
+
+.oph-pt-tcard__text {
+  color: var(--oph-ink-soft);
+  line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+  .oph-pt-travel__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-4);
+  }
+  .oph-pt-tcard__icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Touch (and phones): no scroll-linked drift — on a flick the damped value lags
+   the native scroll and the cards visibly wobble. Same for the ring behind «03». */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  .oph-pt-tcardwrap:nth-child(even) {
+    translate: none;
+  }
+  .oph-pt-deco[data-oph-parallax] {
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* Touch tablets: the header hides/shows with scroll direction and
+   --oph-sticky-top flips 76px ↔ 0 — a pinned heading or result card would
+   snap by that much mid-flick. Pin them under the header height instead. */
+@media (hover: none) and (pointer: coarse) {
+  .oph-pt-journey__head {
+    top: calc(var(--oph-header-h, 76px) + var(--oph-space-8));
+  }
+  .oph-pt-est__panel,
+  .oph-pt-formgrid__aside,
+  .oph-pt-faq__head {
+    top: calc(var(--oph-header-h, 76px) + var(--oph-space-6));
+  }
+}
+
+/* =================================================== STACK CARDS (consultation) */
+
+.oph-pt-stack .oph-stack-cards__card {
+  border-radius: var(--oph-radius-md);
+}
+
+.oph-pt-scard {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-md);
+}
+
+.oph-pt-scard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--oph-space-2);
+}
+
+.oph-pt-scard__n {
+  color: var(--oph-gold);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-2xl);
+  line-height: 1;
+}
+
+.oph-pt-scard__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-scard__title {
+  font-size: var(--oph-text-2xl);
+  line-height: 1.15;
+}
+
+.oph-pt-scard__text {
+  color: var(--oph-ink-soft);
+  line-height: 1.65;
+}
+
+.oph-pt-stack .oph-stack-cards__item {
+  top: calc(var(--oph-sticky-top) + 24px + var(--i) * 18px);
+}
+
+/* Phones, narrow tablets and every touch screen: no pinned stack. The cards
+   sit in normal flow (a 2 × 2 grid on tablets) — nothing is sticky, scaled or
+   dimmed per frame, so nothing can shake under a finger. */
+@media (max-width: 900px), (hover: none) and (pointer: coarse) {
+  .oph-pt-stack.oph-stack-cards {
+    gap: var(--oph-space-4);
+  }
+  .oph-pt-stack .oph-stack-cards__item {
+    position: static;
+  }
+  .oph-pt-stack .oph-stack-cards__card {
+    transform: none;
+    filter: none;
+  }
+  .oph-pt-scard {
+    box-shadow: var(--oph-shadow-sm);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .oph-pt-stack.oph-stack-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .oph-pt-stack .oph-stack-cards__card,
+  .oph-pt-stack .oph-pt-scard {
+    height: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .oph-pt-scard__icon {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .oph-pt-scard {
+    padding: var(--oph-space-5);
+  }
+  .oph-pt-scard__title {
+    font-size: var(--oph-text-xl);
+  }
+}
+
+/* ===================================================== COORDINATOR + LANGS */
+
+.oph-pt-coordgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-coord {
+  display: grid;
+  gap: var(--oph-space-5);
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.oph-pt-coord__top {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-4);
+}
+
+.oph-pt-coord__avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-coord__role {
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-pt-coord__title {
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.oph-pt-coord__text {
+  color: var(--oph-muted);
+  line-height: 1.65;
+}
+
+.oph-pt-coord__hours {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+}
+
+.oph-pt-coord__hours svg {
+  flex: 0 0 auto;
+  color: var(--oph-gold);
+}
+
+.oph-pt-coord__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oph-space-3) var(--oph-space-5);
+  padding-top: var(--oph-space-5);
+  border-top: 1px solid var(--oph-line);
+}
+
+.oph-pt-coord__actions .oph-btn {
+  min-height: 44px;
+}
+
+.oph-pt-coord__channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  overflow-wrap: anywhere;
+}
+
+.oph-pt-langs__list {
+  display: grid;
+}
+
+.oph-pt-lang {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--oph-space-4);
+  padding: var(--oph-space-5) 0;
+  border-top: 1px solid var(--oph-line);
+}
+
+.oph-pt-lang:last-child {
+  border-bottom: 1px solid var(--oph-line);
+}
+
+.oph-pt-lang__code {
+  color: var(--oph-forest);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-3xl);
+  line-height: 1;
+}
+
+.oph-pt-lang__name {
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-pt-lang__status {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-xs);
+  text-align: right;
+}
+
+.oph-pt-lang--soon .oph-pt-lang__code {
+  color: var(--oph-gold);
+}
+
+.oph-pt-lang--soon .oph-pt-lang__status {
+  padding: 4px 10px;
+  border: 1px dashed var(--oph-gold-line);
+  border-radius: var(--oph-radius-pill);
+  color: var(--oph-ink);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-coordgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .oph-pt-lang {
+    grid-template-columns: 52px minmax(0, 1fr);
+    padding: var(--oph-space-4) 0;
+  }
+  .oph-pt-lang__status {
+    grid-column: 2;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+/* ================================================================ FORMS */
+
+.oph-pt-formgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-formgrid__aside {
+  position: sticky;
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-6));
+  display: grid;
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-formgrid__aside .oph-shead {
+  margin-bottom: var(--oph-space-3);
+}
+
+.oph-pt-next {
+  padding: var(--oph-space-6);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-sand);
+}
+
+.oph-pt-next__title {
+  margin-bottom: var(--oph-space-4);
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-text-lg);
+  font-weight: 400;
+}
+
+.oph-pt-more > summary .oph-pt-next__title {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin-bottom: 0;
+  padding-block: var(--oph-space-2);
+  line-height: 1.3;
+}
+
+.oph-pt-next ol {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-pt-next ol li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  line-height: 1.55;
+}
+
+.oph-pt-next ol li > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--oph-paper);
+  color: var(--oph-forest);
+}
+
+.oph-pt-attach {
+  padding-block: var(--oph-space-2);
+}
+
+.oph-pt-attach .oph-ringlist li {
+  border-color: color-mix(in srgb, var(--oph-line-strong) 70%, transparent);
+}
+
+.oph-pt-tip {
+  margin-top: var(--oph-space-3);
+  padding: var(--oph-space-4) var(--oph-space-5);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+.oph-pt-prefill {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+  line-height: 1.5;
+}
+
+.oph-pt-prefill:empty {
+  display: none;
+}
+
+.oph-pt-prefill svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.oph-pt-formpanel {
+  min-width: 0;
+}
+
+@media (max-width: 1024px) {
+  .oph-pt-formgrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-8);
+  }
+  .oph-pt-formgrid__aside {
+    position: static;
+  }
+}
+
+/* ======================================================= OTHER PORTALS */
+
+/* Tablet: an odd last card spans the row so the 2-column grid has no hole. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .oph-pt-portals .oph-egrid__cell:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Phones: compact cards so five routes don't take two screens. */
+@media (max-width: 600px) {
+  .oph-pt-portals .oph-ecard {
+    min-height: 0;
+    gap: var(--oph-space-2);
+    padding: var(--oph-space-5);
+  }
+}
+
+/* ================================================================== FAQ */
+
+.oph-pt-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-faq__head {
+  position: sticky;
+  top: calc(var(--oph-sticky-top, 76px) + var(--oph-space-6));
+}
+
+.oph-pt-faq__head .oph-shead {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-faq {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-6);
+  }
+  .oph-pt-faq__head {
+    position: static;
+  }
+}
+
+/* ======================================================= SECOND OPINION */
+
+.oph-pt-advgrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-minis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-4);
+}
+
+.oph-pt-mini {
+  padding: var(--oph-space-6) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+}
+
+.oph-pt-mini__value {
+  color: var(--oph-forest);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2.2rem, 1.6rem + 2vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.oph-pt-mini__label {
+  margin-top: var(--oph-space-3);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.5;
+}
+
+/* Three stat tiles need the full row below ~1180px, or «10 МБ» wraps. */
+@media (max-width: 1180px) {
+  .oph-pt-advgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .oph-pt-minis {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+  .oph-pt-mini {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: var(--oph-space-4);
+    padding: var(--oph-space-4) var(--oph-space-5);
+  }
+  .oph-pt-mini__value {
+    font-size: 2rem;
+  }
+  .oph-pt-mini__label {
+    margin-top: 0;
+  }
+}
+
+.oph-pt-notes {
+  display: grid;
+  gap: var(--oph-space-4);
+}
+
+.oph-pt-note {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: var(--oph-space-4);
+  padding: var(--oph-space-5) var(--oph-space-6);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+}
+
+.oph-pt-note > svg {
+  margin-top: 3px;
+  color: var(--oph-gold);
+}
+
+.oph-pt-note h3 {
+  font-size: var(--oph-text-lg);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Narrow phones: a little less padding so «Конфиденциальность» fits whole. */
+@media (max-width: 400px) {
+  .oph-pt-note {
+    gap: var(--oph-space-3);
+    padding: var(--oph-space-5) var(--oph-space-4);
+  }
+}
+
+.oph-pt-note p {
+  margin-top: var(--oph-space-2);
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+.oph-pt-note .oph-link {
+  margin-top: var(--oph-space-1);
+  font-size: var(--oph-text-sm);
+}
+
+/* Hero illustration: a fanned stack of records (report · OCT · fields). */
+.oph-pt-docs {
+  position: relative;
+  width: min(100%, 380px);
+  aspect-ratio: 1 / 1.05;
+}
+
+.oph-pt-docs__sheet {
+  position: absolute;
+  left: calc(8% + var(--i) * 9%);
+  top: calc(6% + var(--i) * 13%);
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-4);
+  width: 66%;
+  aspect-ratio: 1 / 1.2;
+  padding: var(--oph-space-6) var(--oph-space-5);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-lg);
+  transform: rotate(calc((var(--i) - 1) * 5deg));
+}
+
+.oph-pt-docs__label {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.oph-pt-docs__lines {
+  display: grid;
+  gap: 10px;
+}
+
+.oph-pt-docs__lines span {
+  height: 6px;
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-sand);
+}
+
+.oph-pt-docs__lines span:nth-child(2) {
+  width: 82%;
+}
+
+.oph-pt-docs__lines span:nth-child(4) {
+  width: 58%;
+}
+
+.oph-pt-docs__scan {
+  width: 100%;
+  height: 72px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  fill: none;
+  stroke: var(--oph-gold-soft);
+  stroke-width: 1.4;
+}
+
+.oph-pt-docs__scan path:nth-child(2) {
+  stroke: var(--oph-brand-300);
+}
+
+.oph-pt-docs__note {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 6px 12px;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-forest-soft);
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.14em;
+}
+
+/* ================================================== ONLINE CONSULTATION */
+
+.oph-pt-callout {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--oph-space-5);
+  max-width: 860px;
+  padding: clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+  border: 1px solid var(--oph-line);
+  border-left: 3px solid var(--oph-gold-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-sand);
+}
+
+.oph-pt-callout__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-callout__title {
+  margin-bottom: var(--oph-space-2);
+  font-size: var(--oph-text-xl);
+}
+
+.oph-pt-callout p {
+  color: var(--oph-ink-soft);
+  line-height: 1.65;
+}
+
+@media (max-width: 560px) {
+  .oph-pt-callout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Step numbers on the dark «От заявки до визита» band: the text-gold token is
+   tuned for light surfaces, so use the on-dark gold here (AA on forest). */
+.oph-pt-darksteps .oph-steps__n {
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-darksteps .oph-steps__rail span {
+  background: var(--oph-gold-soft);
+}
+
+/* Platform tiles: they rise at different speeds as the row scrolls through. */
+.oph-pt-platforms {
+  --p: 0.5;
+}
+
+.oph-pt-platforms__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-5);
+}
+
+.oph-pt-platform {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+  translate: 0 calc((0.5 - (var(--p, 0.5) * var(--oph-scroll-drift, 1) + 0.5 * (1 - var(--oph-scroll-drift, 1)))) * var(--i, 0) * 36px * var(--oph-motion-scale));
+  transition: box-shadow var(--oph-duration-base);
+}
+
+.oph-pt-platform:hover {
+  box-shadow: var(--oph-shadow-md);
+}
+
+.oph-pt-platform__mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--oph-space-3);
+  border-radius: 50%;
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-platform__name {
+  font-size: var(--oph-text-2xl);
+  line-height: 1.1;
+}
+
+.oph-pt-platform__text {
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-platforms__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+  .oph-pt-platform {
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: var(--oph-space-4);
+    padding: var(--oph-space-5);
+    translate: none;
+  }
+  .oph-pt-platform__mark {
+    grid-row: span 2;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+  }
+}
+
+.oph-pt-needs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: start;
+}
+
+.oph-pt-needs__intro {
+  position: sticky;
+  top: calc(var(--oph-sticky-top) + 24px);
+}
+
+.oph-pt-needs__intro .oph-shead {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .oph-pt-needs {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-6);
+  }
+  .oph-pt-needs__intro {
+    position: static;
+  }
+}
+
+.oph-pt-price {
+  align-items: center;
+}
+
+.oph-pt-checks {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-pt-checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--oph-space-3);
+  color: var(--oph-ink-soft);
+  line-height: 1.55;
+}
+
+.oph-pt-checks svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--oph-gold);
+}
+
+.oph-pt-pricecard {
+  display: grid;
+  gap: var(--oph-space-4);
+  padding: clamp(1.75rem, 1rem + 2.5vw, 3.25rem);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  box-shadow: var(--oph-shadow-lg);
+}
+
+.oph-pt-pricecard .oph-eyebrow {
+  color: var(--oph-gold-soft);
+}
+
+.oph-pt-pricecard__value {
+  color: var(--oph-paper);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2.6rem, 2rem + 2.6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.oph-pt-pricecard__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-pt-pricecard__text {
+  color: color-mix(in srgb, var(--oph-cream) 78%, transparent);
+  line-height: 1.6;
+}
+
+.oph-pt-pricecard__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-3) var(--oph-space-6);
+  padding-top: var(--oph-space-4);
+  border-top: 1px solid var(--oph-forest-line);
+}
+
+/* Hero illustration: a video-call window (doctor, you, a shared scan). */
+.oph-pt-call {
+  display: grid;
+  gap: var(--oph-space-3);
+  width: min(100%, 420px);
+  padding: var(--oph-space-4);
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-forest-soft);
+  box-shadow: var(--oph-shadow-lg);
+  color: var(--oph-cream);
+}
+
+.oph-pt-call__bar {
+  display: flex;
+  gap: 6px;
+}
+
+.oph-pt-call__bar span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--oph-forest-line);
+}
+
+.oph-pt-call__stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  overflow: hidden;
+}
+
+.oph-pt-call__main {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--oph-space-3);
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-pt-call__main span {
+  color: var(--oph-cream);
+}
+
+.oph-pt-call__self {
+  position: absolute;
+  right: var(--oph-space-3);
+  bottom: var(--oph-space-3);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 4px;
+  width: 30%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--oph-forest-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest-soft);
+  color: var(--oph-brand-300);
+  font-size: var(--oph-text-2xs);
+}
+
+.oph-pt-call__self span {
+  color: var(--oph-cream);
+}
+
+.oph-pt-call__shared {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-2);
+  padding: var(--oph-space-2) var(--oph-space-3);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-gold-soft);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-pt-call__shared span {
+  color: var(--oph-cream);
+}
+
+.oph-pt-call__controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--oph-space-3);
+}
+
+.oph-pt-call__controls span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+/* Phones, landscape phones and narrow tablets (the hero stacks to one column
+   at ≤900px): the illustrations are decorative — keep the first screen for
+   the title, lead and actions (X9) instead of a full screen of mock-up. */
+@media (max-width: 900px) {
+  .oph-pagehero__aside:has(> .oph-pt-docs),
+  .oph-pagehero__aside:has(> .oph-pt-call) {
+    display: none;
+  }
+}
+
+/* ======================================================= REDUCED MOTION */
+
+:root[data-reduced-motion='true'] .oph-pt-platform,
+:root[data-reduced-motion='true'] .oph-pt-tcardwrap {
+  translate: none;
+}
+
+/* Touch screens: platform tiles don't drift with the scroll (jitter rule). */
+@media (hover: none) and (pointer: coarse) {
+  .oph-pt-platform {
+    translate: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oph-pt-platform,
+  .oph-pt-tcardwrap {
+    translate: none !important;
+  }
+}

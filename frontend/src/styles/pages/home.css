@@ -1,0 +1,1081 @@
+/* ==========================================================================
+   HOME — Figma «Зрение, которому доверяют» + spec §6.3 blocks
+   ========================================================================== */
+
+/* ==================================================================== HERO */
+
+.oph-home-hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 5.5rem) clamp(4rem, 3rem + 5vw, 8rem);
+  background: var(--oph-cream);
+}
+
+.oph-home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+}
+
+.oph-home-hero__copy {
+  display: grid;
+  gap: var(--oph-space-6);
+  transform: translate3d(0, calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * -90px * var(--oph-motion-scale)), 0);
+}
+
+.oph-home-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--oph-muted);
+  font-size: max(12px, var(--oph-text-2xs));
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.oph-home-hero__eyebrow > span {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 1px;
+  background: var(--oph-gold);
+}
+
+/* Figma: grotesque headline with one italic serif word in green. */
+.oph-home-hero__title {
+  display: grid;
+  font-family: var(--oph-font-sans);
+  font-size: clamp(2.35rem, 1.1rem + 6.2vw, 6.4rem);
+  overflow-wrap: break-word;
+  hyphens: auto;
+  font-weight: var(--oph-weight-semibold);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.oph-home-hero__line {
+  display: block;
+  color: var(--oph-forest);
+}
+
+.oph-home-hero__accent {
+  display: block;
+  color: var(--oph-brand-600);
+  font-family: var(--oph-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  padding-bottom: 0.08em;
+}
+
+.oph-home-hero__title .oph-split-word {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.oph-home-hero__lead {
+  max-width: 560px;
+  color: var(--oph-ink-soft);
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+  line-height: 1.65;
+}
+
+.oph-home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-3);
+}
+
+.oph-home-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-5);
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+}
+
+.oph-home-hero__chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.oph-home-hero__chips svg {
+  color: var(--oph-gold);
+}
+
+.oph-home-hero__visual {
+  position: relative;
+  padding: 0 0 clamp(2rem, 1rem + 3vw, 3.5rem) clamp(2rem, 1rem + 3vw, 3.5rem);
+}
+
+.oph-home-hero__slab {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 78%;
+  height: 72%;
+  background: var(--oph-forest);
+  transform: translate3d(calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * -40px * var(--oph-motion-scale)), calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * 60px * var(--oph-motion-scale)), 0);
+}
+
+.oph-home-hero__frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3.3;
+  background: var(--oph-stone);
+  clip-path: inset(0 0 calc(var(--p, 0) * 16%) 0);
+}
+
+.oph-home-hero__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(calc(1.02 + (var(--p, 0) * var(--oph-scroll-drift, 1)) * 0.18)) translate3d(0, calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * 30px), 0);
+}
+
+.oph-home-hero__badge {
+  position: absolute;
+  right: clamp(-1rem, -2vw, 0rem);
+  bottom: clamp(0.5rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 260px;
+  padding: 14px 18px;
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-md);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  line-height: 1.4;
+}
+
+.oph-home-hero__badge .oph-swirl {
+  flex: 0 0 34px;
+  width: 34px;
+  color: var(--oph-forest);
+  animation: oph-slow-spin 24s linear infinite;
+}
+
+@keyframes oph-slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.oph-home-hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: var(--oph-space-6);
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--p, 0) * 4);
+}
+
+.oph-home-hero__scroll span {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(var(--oph-gold), transparent);
+  animation: oph-scroll-cue 2.2s var(--oph-ease-in-out) infinite;
+  transform-origin: top;
+}
+
+@keyframes oph-scroll-cue {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .oph-home-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .oph-home-hero__scroll {
+    display: none;
+  }
+  .oph-home-hero__actions .oph-btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* ============================================================ METRICS BAND */
+
+.oph-home-metrics {
+  background: var(--oph-forest);
+}
+
+.oph-home-metrics .oph-container {
+  padding-block: var(--oph-space-4);
+}
+
+/* ================================================================= WHY US */
+
+/* ================================================================ MISSION */
+
+.oph-home-mission {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(5rem, 3rem + 8vw, 11rem);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-home-mission__mark {
+  position: absolute;
+  right: -12vw;
+  top: 50%;
+  width: min(70vw, 820px);
+  color: rgba(244, 242, 237, 0.045);
+  transform: translateY(-50%) rotate(calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * 140deg)) scale(calc(0.85 + (var(--p, 0) * var(--oph-scroll-drift, 1)) * 0.3));
+  pointer-events: none;
+}
+
+.oph-home-mission__statement {
+  max-width: 1100px;
+  color: #ffffff;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(2.3rem, 1.2rem + 4.4vw, 5.6rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.oph-home-mission__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--oph-space-6);
+  margin-top: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+  padding-top: var(--oph-space-6);
+  border-top: 1px solid var(--oph-forest-line);
+}
+
+.oph-home-mission__foot p {
+  max-width: 520px;
+  color: rgba(244, 242, 237, 0.72);
+  line-height: 1.7;
+}
+
+/* ================================================================ FOUNDER */
+
+.oph-home-founder__photo {
+  aspect-ratio: 4 / 3.2;
+}
+
+.oph-home-founder__copy {
+  display: grid;
+  gap: var(--oph-space-5);
+  align-content: center;
+}
+
+.oph-home-founder__quote {
+  margin: var(--oph-space-2) 0 0;
+  padding-left: var(--oph-space-5);
+  border-left: 1px solid var(--oph-gold);
+  color: var(--oph-ink);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.2rem, 1rem + 0.7vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.4;
+  transform: translate3d(0, calc(var(--oph-parallax-shift, 0) * var(--oph-scroll-drift, 1)), 0);
+}
+
+.oph-textlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: var(--oph-brand-600);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.02em;
+}
+
+.oph-textlink svg {
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+
+.oph-textlink:hover svg {
+  transform: translateX(calc(6px * var(--oph-motion-scale)));
+}
+
+.oph-on-dark .oph-textlink,
+.oph-section--deep .oph-textlink {
+  color: var(--oph-gold-soft);
+}
+
+/* ================================================================ PORTALS */
+
+/* ================================================================ EXPERTS */
+
+.oph-home-experts .oph-shead {
+  margin-bottom: var(--oph-space-8);
+}
+
+.oph-globe {
+  position: relative;
+  width: min(100%, 520px);
+  aspect-ratio: 1;
+  justify-self: center;
+}
+
+.oph-globe__svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc((var(--p, 0) * var(--oph-scroll-drift, 1)) * -20deg));
+}
+
+.oph-globe__sphere {
+  fill: var(--oph-paper);
+  stroke: var(--oph-line-strong);
+}
+
+.oph-globe__line {
+  fill: none;
+  stroke: var(--oph-line-strong);
+  stroke-width: 0.5;
+}
+
+.oph-globe__meridian {
+  stroke-dasharray: 2 3;
+}
+
+.oph-globe__pin {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: scale(calc(clamp(0, var(--enter, 1) * 3 - 1 - var(--i) * 0.25, 1)));
+  transform-origin: 0 0;
+  transition: transform 200ms linear;
+}
+
+.oph-globe__pin i {
+  position: absolute;
+  left: -6px;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--oph-gold);
+  box-shadow: 0 0 0 4px rgba(168, 139, 94, 0.18);
+}
+
+.oph-globe__pin i::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid var(--oph-gold);
+  border-radius: 50%;
+  animation: oph-pin-ping 2.6s var(--oph-ease-out) infinite;
+  animation-delay: calc(var(--i) * 400ms);
+}
+
+@keyframes oph-pin-ping {
+  from {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.oph-globe__pin--home i {
+  background: var(--oph-forest);
+  box-shadow: 0 0 0 5px rgba(27, 46, 40, 0.14);
+}
+
+.oph-globe__pin b {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  transform: translateX(-50%);
+  padding: 3px 8px;
+  border-radius: var(--oph-radius-xs);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  white-space: nowrap;
+}
+
+/* ================================================================ STORIES */
+
+.oph-home-stories {
+  padding-top: var(--oph-section-y);
+  background: var(--oph-cream);
+}
+
+.oph-story-card {
+  position: relative;
+  display: grid;
+  align-content: space-between;
+  gap: var(--oph-space-8);
+  flex: 0 0 clamp(300px, 34vw, 480px);
+  min-height: 380px;
+  margin: 0;
+  padding: clamp(1.75rem, 1rem + 2vw, 2.75rem);
+  border: 1px solid var(--oph-line);
+  border-radius: var(--oph-radius-md);
+  background: var(--oph-paper);
+  box-shadow: var(--oph-shadow-sm);
+}
+
+.oph-story-card:nth-child(3n + 2) {
+  background: var(--oph-sand);
+}
+
+.oph-story-card:nth-child(3n) {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  border-color: var(--oph-forest);
+}
+
+.oph-story-card__mark {
+  position: absolute;
+  right: 24px;
+  top: -6px;
+  color: var(--oph-gold);
+  font-family: var(--oph-font-serif);
+  font-size: 7rem;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.oph-story-card blockquote {
+  margin: 0;
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.45rem);
+  line-height: 1.45;
+}
+
+.oph-story-card figcaption {
+  display: grid;
+  gap: 4px;
+  padding-top: var(--oph-space-4);
+  border-top: 1px solid var(--oph-line);
+  font-size: var(--oph-text-xs);
+}
+
+.oph-story-card:nth-child(3n) figcaption {
+  border-color: var(--oph-forest-line);
+}
+
+.oph-story-card figcaption strong {
+  font-size: var(--oph-text-sm);
+}
+
+.oph-story-card figcaption span,
+.oph-story-card figcaption time {
+  opacity: 0.66;
+}
+
+/* ================================================================ SCIENCE */
+
+/* ================================================================ AUDIT FIXES */
+
+/* H1 — hero CTAs in two columns on tablet. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .oph-home-hero__actions {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+/* H2 — the Venn arrives with its heading; labels sit on paper; phones get the
+   visual once and plain chapters. (The sticky offset under the header is
+   shared by every StickyStory and lives in shell.css.) */
+@media (max-width: 900px) {
+  .oph-home-hero__visual {
+    padding-left: var(--oph-space-6);
+  }
+}
+
+/* H3 — three stats in one row; readable globe captions. */
+.oph-home-experts .oph-statgrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.oph-globe__pin b {
+  font-size: var(--oph-text-xs);
+}
+@media (max-width: 600px) {
+  .oph-home-experts .oph-statgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* H4 — the story rail starts right under its heading. */
+.oph-home-stories .oph-shead {
+  margin-bottom: var(--oph-space-6);
+}
+
+/* H6 — founder panel: monogram and credentials instead of the building. */
+.oph-home-founder__panel {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: clamp(320px, 38vw, 480px);
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  overflow: hidden;
+  border-radius: var(--oph-radius-sm);
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+.oph-home-founder__swirl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  color: rgba(244, 242, 237, 0.06);
+  transform: translate(-50%, -58%) rotate(calc(var(--oph-scroll-progress, 0) * 90deg));
+  animation: oph-slow-spin 60s linear infinite;
+}
+.oph-home-founder__mono {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--oph-gold-soft);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(4rem, 2rem + 6vw, 7.5rem);
+  letter-spacing: 0.04em;
+  transform: translate(-50%, -62%);
+}
+.oph-home-founder__creds {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  padding-top: var(--oph-space-4);
+  border-top: 1px solid var(--oph-forest-line);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 237, 0.78);
+}
+
+/* Inactive «why» rings stay legible (contrast); the active one is outlined. */
+
+.oph-story-card__mark {
+  font-size: 4rem;
+  top: 12px;
+}
+.oph-story-card--cta {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  border-color: var(--oph-forest);
+}
+.oph-story-card--cta .oph-textlink {
+  color: var(--oph-gold-soft);
+}
+
+/* Three hero calls to action on one row on desktop. */
+@media (min-width: 1181px) {
+  .oph-home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .oph-home-hero__actions .oph-btn--lg {
+    padding-inline: var(--oph-space-5);
+    white-space: nowrap;
+  }
+  .oph-home-hero__grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+.oph-story-card__mark {
+  color: var(--oph-gold);
+  opacity: 1;
+}
+.oph-story-card:nth-child(3n) .oph-story-card__mark,
+.oph-story-card--cta .oph-story-card__mark {
+  color: var(--oph-gold-soft);
+}
+
+.oph-story-card.oph-story-card--cta {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+  border-color: var(--oph-forest);
+}
+.oph-story-card.oph-story-card--cta figcaption {
+  border-color: var(--oph-forest-line);
+}
+
+.oph-story-card__mark--quote {
+  font-size: 7rem;
+  top: -6px;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   RESPONSIVE + TOUCH PASS — every width 320 → 1920, ru / kk / en.
+   Scroll-linked transforms stay a desktop effect; touch gets a still page.
+   ========================================================================== */
+
+/* Spins run on the individual `rotate` property so they compose with the
+   centring translate instead of replacing it (the old keyframe interpolated
+   the whole transform and made the mark orbit off-centre). */
+@keyframes oph-home-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+.oph-home-founder__swirl {
+  transform: none;
+  translate: -50% -58%;
+  animation: oph-home-spin 60s linear infinite;
+}
+:root[data-reduced-motion='true'] .oph-home-founder__swirl {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .oph-home-founder__swirl {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------- HERO */
+
+@media (max-width: 900px) {
+  .oph-home-hero__badge {
+    right: var(--oph-space-3);
+    max-width: calc(100% - var(--oph-space-6));
+  }
+}
+@media (max-width: 600px) {
+  .oph-home-hero__visual {
+    padding: 0 0 var(--oph-space-6) var(--oph-space-4);
+  }
+  .oph-home-hero__badge {
+    bottom: 0;
+    padding: 10px 14px;
+  }
+  .oph-home-hero__badge .oph-swirl {
+    flex-basis: 28px;
+    width: 28px;
+  }
+  .oph-home-hero__chips {
+    gap: var(--oph-space-3) var(--oph-space-5);
+  }
+  .oph-home-hero__actions .oph-btn {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* Touch or phone width: the hero, mission mark, founder quote and globe no
+   longer move with the scroll — they sit still under the finger. */
+@media (hover: none) and (pointer: coarse), (max-width: 767px) {
+  .oph-home-hero__copy,
+  .oph-home-hero__slab,
+  .oph-home-hero__frame img,
+  .oph-home-founder__quote,
+  .oph-globe__svg {
+    transform: none;
+  }
+  .oph-home-hero__frame {
+    clip-path: none;
+  }
+  .oph-home-hero__scroll {
+    opacity: 1;
+  }
+  .oph-home-mission__mark {
+    transform: translateY(-50%);
+  }
+  .oph-globe__pin {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------ METRICS BAND */
+
+.oph-home-metrics .oph-statband {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.oph-home-metrics .oph-stat__value {
+  white-space: nowrap;
+}
+.oph-home-metrics .oph-stat__label {
+  font-size: max(12px, var(--oph-text-2xs));
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+@media (max-width: 1180px) {
+  .oph-home-metrics .oph-statband__item {
+    padding-inline: var(--oph-space-5);
+  }
+  .oph-home-metrics .oph-stat__label {
+    letter-spacing: 0.06em;
+  }
+}
+@media (max-width: 767px) {
+  .oph-home-metrics .oph-statband {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .oph-home-metrics .oph-statband__item {
+    padding: var(--oph-space-5) var(--oph-space-4);
+  }
+  .oph-home-metrics .oph-statband__item:nth-child(odd) {
+    border-left: 0;
+  }
+  .oph-home-metrics .oph-statband__item:nth-child(even) {
+    border-left: 1px solid var(--oph-forest-line);
+  }
+  .oph-home-metrics .oph-statband__item:nth-child(-n + 2) {
+    border-top: 0;
+  }
+  .oph-home-metrics .oph-statband__item:nth-child(n + 3) {
+    border-top: 1px solid var(--oph-forest-line);
+  }
+  .oph-home-metrics .oph-stat__value {
+    font-size: clamp(1.75rem, 1.1rem + 3.4vw, 2.4rem);
+  }
+}
+
+/* ------------------------------------------------------------ WHY US */
+
+/* The Venn's labels scale with the circle (container units), so the longest
+   Kazakh word always fits its ring. */
+
+/* Phones: visual once, chapters as a plain numbered list. */
+
+/* ----------------------------------------------------------- MISSION */
+
+.oph-home-mission__statement {
+  font-size: clamp(2rem, 1rem + 4.6vw, 5.6rem);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+@media (max-width: 600px) {
+  .oph-home-mission__mark {
+    right: -30vw;
+    width: 110vw;
+  }
+}
+
+/* ----------------------------------------------------------- FOUNDER */
+
+@media (max-width: 900px) {
+  .oph-home-founder__panel {
+    min-height: clamp(260px, 70vw, 380px);
+  }
+  .oph-home-founder__creds {
+    letter-spacing: 0.04em;
+  }
+}
+.oph-home-founder__creds li {
+  overflow-wrap: break-word;
+}
+
+/* ----------------------------------------------------------- PORTALS */
+/* Touch / narrow: a plain stack of cards — no pinning, no receding scale. */
+
+/* ------------------------------------------------------------ GLOBE */
+
+/* Captions hang off their pin (above / below / below, right-aligned) so none
+   leaves the sphere or covers a neighbour, down to a 288 px globe. */
+.oph-globe {
+  overflow: clip;
+}
+.oph-globe__pin[data-label='above'] b {
+  top: auto;
+  bottom: 14px;
+}
+.oph-globe__pin[data-label='below-end'] b {
+  left: auto;
+  right: -10px;
+  transform: none;
+}
+@media (max-width: 420px) {
+  .oph-globe__pin b {
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+}
+
+/* ------------------------------------------------------------ STORIES */
+
+.oph-home-stories[data-mode='swipe'] {
+  padding-bottom: var(--oph-section-y);
+}
+.oph-home-stories__row {
+  display: flex;
+  gap: var(--oph-space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  --oph-stories-inset: max(var(--oph-gutter), calc((100% - var(--oph-container)) / 2));
+  padding: var(--oph-space-4) var(--oph-stories-inset) var(--oph-space-5);
+  scroll-padding-inline: var(--oph-stories-inset);
+  scrollbar-width: none;
+}
+.oph-home-stories__row::-webkit-scrollbar {
+  display: none;
+}
+.oph-home-stories__row:focus-visible {
+  outline-offset: -3px;
+}
+.oph-home-stories__row .oph-story-card {
+  flex: 0 0 min(85vw, 440px);
+  min-height: 0;
+  gap: var(--oph-space-6);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.oph-home-stories__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--oph-space-4);
+  width: 100%;
+  max-width: calc(var(--oph-container) + var(--oph-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--oph-gutter);
+}
+.oph-home-stories__arrow {
+  display: grid;
+  flex: 0 0 44px;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--oph-line-strong);
+  border-radius: 50%;
+  background: var(--oph-paper);
+  color: var(--oph-ink);
+  cursor: pointer;
+  transition:
+    background-color var(--oph-duration-base),
+    opacity var(--oph-duration-base);
+}
+.oph-home-stories__arrow:hover:not(:disabled) {
+  background: var(--oph-sand);
+}
+.oph-home-stories__arrow:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.oph-home-stories__count {
+  margin: 0;
+  color: var(--oph-muted);
+  font-size: var(--oph-text-sm);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.oph-home-stories__count b {
+  color: var(--oph-ink);
+}
+.oph-home-stories__bar {
+  position: relative;
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--oph-line);
+}
+.oph-home-stories__bar > span {
+  position: absolute;
+  inset: 0;
+  background: var(--oph-forest);
+  transform: scaleX(var(--oph-stories-at, 0));
+  transform-origin: left;
+  transition: transform calc(var(--oph-duration-base) * var(--oph-motion-scale)) var(--oph-ease-out);
+}
+@media (max-width: 600px) {
+  .oph-home-stories__row .oph-story-card {
+    padding: var(--oph-space-6) var(--oph-space-5);
+  }
+  .oph-home-stories__row .oph-story-card__mark--quote {
+    font-size: 5rem;
+    right: 16px;
+  }
+}
+
+/* ------------------------------------------------------------ SCIENCE */
+
+/* ------------------------------------------------------------ EXPERTS */
+
+/* Beside the globe the text column is too narrow for three stat cards
+   between 901 and 1180 px: the cards stack there instead. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .oph-home-experts .oph-statgrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--oph-space-3);
+  }
+}
+.oph-home-experts .oph-stat__label {
+  font-size: max(12px, var(--oph-text-2xs));
+  hyphens: auto;
+}
+
+/* 601–900 px (tablets, landscape phones): the three hero calls to action
+   share rows instead of three full-width bars. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .oph-home-hero__actions .oph-btn {
+    flex: 1 1 auto;
+  }
+}
+
+/* Kazakh ring labels («Ғылыми сараптама») stay inside their circle. */
+
+/* Review card captions: full-strength muted text (contrast on sand cards). */
+.oph-story-card figcaption span,
+.oph-story-card figcaption time {
+  opacity: 1;
+  color: var(--oph-muted);
+}
+.oph-story-card:nth-child(3n) figcaption span,
+.oph-story-card:nth-child(3n) figcaption time {
+  color: var(--oph-brand-300);
+}
+
+/* ================================================= SHORTER LANDING (2026-09) */
+
+/* Mission: one statement band, not a full screen. */
+.oph-home-mission {
+  padding-block: clamp(3.5rem, 2rem + 5vw, 7rem);
+}
+.oph-home-mission__statement {
+  font-size: clamp(2rem, 1rem + 3.4vw, 4.4rem);
+}
+.oph-home-mission__foot {
+  margin-top: clamp(1.75rem, 1rem + 2vw, 3rem);
+}
+
+/* «Почему доктор»: three reasons in one row under the founder. */
+.oph-home-why {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--oph-space-8);
+  margin: clamp(3rem, 2rem + 3vw, 5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.oph-home-why > li {
+  display: grid;
+  align-content: start;
+  gap: var(--oph-space-3);
+  padding-top: var(--oph-space-6);
+  border-top: 1px solid var(--oph-line);
+}
+.oph-home-why__n {
+  color: var(--oph-gold);
+  font-size: var(--oph-text-xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.12em;
+}
+.oph-home-why__title {
+  margin: 0;
+  color: var(--oph-forest);
+  font-family: var(--oph-font-serif);
+  font-size: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+}
+.oph-home-why__text {
+  margin: 0;
+  color: var(--oph-muted);
+  line-height: 1.55;
+}
+.oph-home-why__fact {
+  margin: 0;
+  color: var(--oph-forest);
+  font-weight: var(--oph-weight-semibold, 600);
+  line-height: 1.35;
+}
+@media (max-width: 900px) {
+  .oph-home-why {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .oph-home-why > li {
+    padding-block: var(--oph-space-6);
+  }
+}
+
+.oph-home-experts__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--oph-space-4) var(--oph-space-8);
+  margin-top: var(--oph-space-8);
+}
+
+/* Phones: the landing is a summary — titles and links, details on the inner pages. */
+@media (max-width: 600px) {
+  .oph-home-founder__panel {
+    display: none;
+  }
+  .oph-home-compact .oph-ecard__text {
+    display: none;
+  }
+  .oph-home-compact .oph-egrid__inner,
+  .oph-home-compact .oph-ecard {
+    min-height: 0;
+  }
+  .oph-home-compact .oph-ecard {
+    gap: var(--oph-space-3);
+    padding-block: var(--oph-space-5);
+  }
+  .oph-home-why__text {
+    display: none;
+  }
+  .oph-home-experts .oph-globe {
+    width: min(100%, 300px);
+  }
+  .oph-home-mission__foot p {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  /* Centre / article rows: title and an arrow on one line. */
+  .oph-home-compact .oph-ecard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--oph-space-4);
+    row-gap: var(--oph-space-2);
+    padding: var(--oph-space-5);
+  }
+  .oph-home-compact .oph-ecard > * {
+    grid-column: 1;
+  }
+  .oph-home-compact .oph-ecard__link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+  }
+  .oph-home-compact .oph-ecard__link svg {
+    width: 18px;
+    height: 18px;
+  }
+  /* Expert figures: compact rows, number beside its label. */
+  .oph-home-experts .oph-statgrid {
+    gap: var(--oph-space-3);
+  }
+  .oph-home-experts .oph-statgrid__item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--oph-space-4);
+    padding: var(--oph-space-4) var(--oph-space-5);
+  }
+}

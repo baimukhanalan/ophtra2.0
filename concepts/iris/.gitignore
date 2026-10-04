@@ -1,0 +1,5 @@
+node_modules
+dist
+scripts/.extract.mjs
+scripts/content-ru.json
+.vercel

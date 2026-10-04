@@ -1,0 +1,118 @@
+.sci-spectrum,
+.sci-status,
+.sci-media {
+  padding-block: clamp(100px, 14vh, 160px);
+}
+.sci-spectrum {
+  display: flex;
+  align-items: center;
+}
+.sci-spectrum .statement {
+  max-width: 20ch;
+}
+.sci-vid__t {
+  color: var(--cream);
+  font-size: clamp(1.3rem, 1rem + 1.4vw, 2.2rem);
+  max-width: 24ch;
+}
+.sci-grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.sci-grid3 article {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  justify-items: start;
+  padding: clamp(20px, 2.4vw, 30px);
+}
+.sci-grid3 .chip {
+  white-space: normal;
+  min-height: 0;
+  padding: 6px 12px;
+  line-height: 1.3;
+}
+@media (max-width: 900px) {
+  .sci-grid3 {
+    grid-template-columns: 1fr;
+  }
+}
+.science .steps-line {
+  margin-bottom: 0;
+}
+.science .shead + .steps-line {
+  margin-top: 32px;
+}
+.science .tiles + .shead {
+  margin-top: clamp(64px, 8vw, 120px);
+}
+.sci-ac__st {
+  max-width: 26ch;
+}
+.sci-ac {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(20px, 3vw, 48px);
+  align-items: start;
+}
+.sci-progs {
+  display: grid;
+  gap: 12px;
+}
+.sci-events {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.sci-events li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.sci-events li > span:last-child {
+  display: grid;
+  gap: 4px;
+}
+.sci-events__d {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: var(--paper);
+  line-height: 1;
+}
+.sci-events__d strong {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+.sci-events__d span {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.sci-events__t {
+  font-weight: 600;
+}
+@media (max-width: 900px) {
+  .sci-ac {
+    grid-template-columns: 1fr;
+  }
+}
+.sci-press ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+.sci-press li {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 24px;
+}

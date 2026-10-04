@@ -1,0 +1,37 @@
+/* OPHTRA — stylesheet entry point.
+   Layers load in dependency order: tokens → base → components → motion → layout. */
+
+@import 'tailwindcss';
+
+@import './styles/fonts.css';
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/components.css';
+@import './styles/motion.css';
+@import './styles/layout.css';
+@import './styles/scenes.css';
+@import './styles/figma-components.css';
+@import './styles/shell.css';
+@import './styles/pages/home.css';
+@import './styles/pages/patients.css';
+@import './styles/pages/knowledge.css';
+@import './styles/pages/people.css';
+@import './styles/pages/services.css';
+@import './styles/pages/platform.css';
+
+/* Expose the design tokens to Tailwind utilities so one-off layout tweaks in
+   markup stay on-system instead of introducing new raw values. */
+@theme {
+  --font-sans: 'Manrope', 'Inter', 'Segoe UI', 'Noto Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+  --color-primary: var(--oph-primary);
+  --color-secondary: var(--oph-secondary);
+  --color-accent: var(--oph-accent);
+  --color-ink: var(--oph-ink);
+  --color-muted: var(--oph-muted);
+  --color-line: var(--oph-line);
+  --color-surface: var(--oph-surface);
+  --color-success: var(--oph-success);
+  --color-warning: var(--oph-warning);
+  --color-danger: var(--oph-danger);
+}

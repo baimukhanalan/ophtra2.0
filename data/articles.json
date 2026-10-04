@@ -1,0 +1,146 @@
+[
+  {
+    "id": "art-myopia",
+    "slug": "child-myopia-progression",
+    "date": "2026-07-05",
+    "readingMinutes": 7,
+    "authorId": "doc-nurgalieva",
+    "category": { "ru": "Детское зрение", "kk": "Балалар көруі", "en": "Children's vision" },
+    "title": {
+      "ru": "Почему близорукость у детей прогрессирует и как это замедлить",
+      "kk": "Балалардағы миопия неге үдейді және оны қалай баяулатуға болады",
+      "en": "Why myopia progresses in children and how to slow it down"
+    },
+    "excerpt": {
+      "ru": "Что влияет на рост глаза, какие методы контроля работают и когда начинать наблюдение.",
+      "kk": "Көздің өсуіне не әсер етеді, бақылаудың қандай әдістері жұмыс істейді және қашан бақылауды бастау керек.",
+      "en": "What drives eye growth, which control methods work, and when to start monitoring."
+    },
+    "body": {
+      "ru": "Близорукость развивается, когда глазное яблоко растёт быстрее нормы и изображение фокусируется перед сетчаткой. Основной рост приходится на возраст 7–14 лет.\n\nНа скорость прогрессирования влияют наследственность, длительная зрительная нагрузка вблизи и недостаток дневного света. Дети, проводящие на улице более двух часов в день, имеют статистически меньший темп ухудшения.\n\nМетоды контроля включают специальные очковые линзы с периферическим дефокусом, ортокератологические линзы ночного ношения и медикаментозные схемы. Выбор зависит от возраста, темпа прогрессирования и образа жизни ребёнка.\n\nНаблюдение стоит начинать с первого выявления близорукости и повторять осмотр каждые 6 месяцев с обязательным измерением длины глаза.",
+      "kk": "Миопия көз алмасы нормадан жылдам өсіп, кескін тор қабықтың алдында фокусталғанда дамиды. Негізгі өсу 7–14 жас аралығына келеді.\n\nҮдеу жылдамдығына тұқым қуалаушылық, жақыннан ұзақ көру жүктемесі және күндізгі жарықтың жетіспеуі әсер етеді. Күніне екі сағаттан артық далада болатын балаларда нашарлау қарқыны статистикалық түрде төмен.\n\nБақылау әдістеріне перифериялық дефокусы бар арнайы көзілдірік линзалары, түнде киілетін ортокератологиялық линзалар және дәрілік сызбалар кіреді. Таңдау баланың жасына, үдеу қарқынына және өмір салтына байланысты.\n\nБақылауды миопия алғаш анықталған сәттен бастау керек және көз ұзындығын міндетті түрде өлшей отырып, әр 6 ай сайын қайта қарау қажет.",
+      "en": "Myopia develops when the eyeball grows faster than normal and the image focuses in front of the retina. Most of this growth happens between the ages of 7 and 14.\n\nThe rate of progression is influenced by heredity, prolonged near work and a lack of daylight. Children who spend more than two hours a day outdoors show a statistically slower rate of deterioration.\n\nControl methods include spectacle lenses with peripheral defocus, overnight orthokeratology lenses and pharmacological regimens. The choice depends on the child's age, rate of progression and lifestyle.\n\nMonitoring should begin as soon as myopia is first detected, with repeat examinations every six months and mandatory axial length measurement."
+    },
+    "published": true
+  },
+  {
+    "id": "art-cataract",
+    "slug": "when-to-operate-cataract",
+    "date": "2026-06-19",
+    "readingMinutes": 6,
+    "authorId": "doc-akhmetova",
+    "category": { "ru": "Катаракта", "kk": "Катаракта", "en": "Cataract" },
+    "title": {
+      "ru": "Когда пора оперировать катаракту",
+      "kk": "Катарактаны қашан операциялау керек",
+      "en": "When it is time to operate on a cataract"
+    },
+    "excerpt": {
+      "ru": "Разбираем миф о «созревании» и объясняем, что определяет срок операции.",
+      "kk": "«Пісу» туралы мифті талдап, операция мерзімін не анықтайтынын түсіндіреміз.",
+      "en": "We unpack the myth of a cataract needing to \"ripen\" and explain what really sets the timing."
+    },
+    "body": {
+      "ru": "Представление о том, что катаракта должна «созреть», осталось в эпохе, когда хрусталик удаляли целиком через большой разрез. Современная факоэмульсификация не требует ждать.\n\nСрок операции определяет не плотность помутнения, а качество жизни: если зрение мешает водить машину, читать или работать — вмешательство обосновано.\n\nПерезрелая катаракта делает операцию сложнее: хрусталик становится плотнее, увеличивается нагрузка на ткани глаза и время восстановления.\n\nПеред операцией проводится расчёт интраокулярной линзы. Тип линзы — монофокальная, торическая или мультифокальная — подбирается по образу жизни пациента.",
+      "kk": "Катаракта «пісуі» керек деген түсінік бұршақты үлкен тілік арқылы толық алып тастайтын дәуірде қалды. Заманауи факоэмульсификация күтуді талап етпейді.\n\nОперация мерзімін бұлдырлықтың тығыздығы емес, өмір сапасы анықтайды: егер көру көлік жүргізуге, оқуға немесе жұмыс істеуге кедергі келтірсе — араласу негізді.\n\nАсқынған катаракта операцияны қиындатады: бұршақ тығыздалады, көз тіндеріне жүктеме мен қалпына келу уақыты артады.\n\nОперация алдында интраокулярлық линза есептеледі. Линза түрі — монофокалды, торлы немесе мультифокалды — пациенттің өмір салтына қарай таңдалады.",
+      "en": "The idea that a cataract must \"ripen\" belongs to the era when the lens was removed whole through a large incision. Modern phacoemulsification requires no waiting.\n\nThe timing is set not by the density of the opacity but by quality of life: if vision interferes with driving, reading or working, surgery is justified.\n\nAn overripe cataract makes surgery harder: the lens becomes denser, which increases stress on ocular tissue and lengthens recovery.\n\nBefore surgery the intraocular lens is calculated. The lens type — monofocal, toric or multifocal — is chosen according to the patient's lifestyle."
+    },
+    "published": true
+  },
+  {
+    "id": "art-dryeye",
+    "slug": "screen-dry-eye",
+    "date": "2026-05-28",
+    "readingMinutes": 5,
+    "authorId": "doc-baitursyn",
+    "category": { "ru": "Профилактика", "kk": "Алдын алу", "en": "Prevention" },
+    "title": {
+      "ru": "Сухость глаз при работе за экраном: что действительно помогает",
+      "kk": "Экран алдында жұмыс істегендегі көз құрғақтығы: шынымен не көмектеседі",
+      "en": "Dry eyes at the screen: what actually helps"
+    },
+    "excerpt": {
+      "ru": "Механизм появления симптомов и меры, эффективность которых подтверждена.",
+      "kk": "Симптомдардың пайда болу тетігі және тиімділігі расталған шаралар.",
+      "en": "How the symptoms arise and which measures have proven effective."
+    },
+    "body": {
+      "ru": "При работе за экраном частота моргания снижается примерно втрое. Слёзная плёнка не обновляется, её липидный слой истончается, и появляется ощущение песка и жжения.\n\nПодтверждённые меры: осознанные паузы каждые 20 минут с переводом взгляда вдаль, увлажнение воздуха до 40–60%, расположение монитора чуть ниже уровня глаз и корректно подобранная очковая коррекция.\n\nСлёзозаместительные препараты подбирает врач: при дефиците липидного слоя нужны одни составы, при водном — другие.\n\nЕсли симптомы держатся дольше двух недель, требуется исследование слёзной плёнки — за жалобами может стоять дисфункция мейбомиевых желёз.",
+      "kk": "Экран алдында жұмыс істегенде жыпылықтау жиілігі шамамен үш есе төмендейді. Жас қабықшасы жаңармайды, оның липидті қабаты жұқарады және құм мен ашу сезімі пайда болады.\n\nРасталған шаралар: әр 20 минут сайын алысқа қарап саналы үзіліс жасау, ауаны 40–60%-ға дейін ылғалдандыру, мониторды көз деңгейінен сәл төмен орналастыру және дұрыс таңдалған көзілдірік түзетуі.\n\nЖас алмастырғыш препараттарды дәрігер таңдайды: липидті қабат тапшылығында бір құрам, су қабатында басқасы қажет.\n\nЕгер симптомдар екі аптадан ұзақ сақталса, жас қабықшасын зерттеу қажет — шағымдардың артында мейбомий бездерінің дисфункциясы тұруы мүмкін.",
+      "en": "Blink rate drops roughly threefold during screen work. The tear film is not refreshed, its lipid layer thins, and a gritty, burning sensation appears.\n\nProven measures include deliberate breaks every 20 minutes looking into the distance, humidifying the air to 40–60%, positioning the monitor slightly below eye level and using correctly fitted spectacle correction.\n\nTear substitutes should be chosen by a doctor: a lipid-layer deficiency calls for different formulations than an aqueous one.\n\nIf symptoms persist beyond two weeks, tear film testing is needed — meibomian gland dysfunction may lie behind the complaints."
+    },
+    "published": true
+  },
+  {
+    "id": "art-laser-prep",
+    "slug": "laser-correction-preparation",
+    "date": "2026-04-30",
+    "readingMinutes": 6,
+    "authorId": "doc-serikov",
+    "category": { "ru": "Лазерная коррекция", "kk": "Лазерлік түзету", "en": "Laser correction" },
+    "title": {
+      "ru": "Как подготовиться к лазерной коррекции зрения",
+      "kk": "Көруді лазерлік түзетуге қалай дайындалу керек",
+      "en": "How to prepare for laser vision correction"
+    },
+    "excerpt": {
+      "ru": "Обследование, отказ от линз и что взять с собой в день операции.",
+      "kk": "Тексеру, линзалардан бас тарту және операция күні өзіңізбен не алу керек.",
+      "en": "The examination, giving up lenses and what to bring on the day."
+    },
+    "body": {
+      "ru": "Подготовка начинается с расширенной диагностики: кератотопография, пахиметрия, оценка слёзной плёнки и осмотр глазного дна с широким зрачком.\n\nМягкие контактные линзы снимают за 7 дней до обследования, жёсткие — за 14: они деформируют роговицу и искажают расчёты.\n\nВ день операции не используют косметику и парфюм. Понадобится сопровождающий: после вмешательства за руль садиться нельзя.\n\nЗрение восстанавливается в течение суток, к работе большинство пациентов возвращается на второй день. Контрольные осмотры проходят на следующий день, через неделю и через месяц.",
+      "kk": "Дайындық кеңейтілген диагностикадан басталады: кератотопография, пахиметрия, жас қабықшасын бағалау және қарашықты кеңейтіп көз түбін қарау.\n\nЖұмсақ контакт линзалары тексеруге дейін 7 күн бұрын, қаттылары 14 күн бұрын шешіледі: олар қасаң қабықты деформациялап, есептеулерді бұрмалайды.\n\nОперация күні косметика мен иіссу қолданылмайды. Сүйемелдеуші қажет: араласудан кейін көлік жүргізуге болмайды.\n\nКөру бір тәулік ішінде қалпына келеді, пациенттердің көбі жұмысқа екінші күні оралады. Бақылау қараулары келесі күні, бір аптадан және бір айдан кейін өтеді.",
+      "en": "Preparation starts with extended diagnostics: corneal topography, pachymetry, tear film assessment and a dilated fundus examination.\n\nSoft contact lenses are removed 7 days before the examination and rigid ones 14 days before, because they deform the cornea and distort the calculations.\n\nOn the day of surgery, no make-up or perfume should be worn. A companion is needed: driving after the procedure is not allowed.\n\nVision recovers within a day and most patients return to work on the second day. Follow-up examinations take place the next day, after a week and after a month."
+    },
+    "published": true
+  },
+  {
+    "id": "art-glaucoma",
+    "slug": "glaucoma-early-signs",
+    "date": "2026-03-12",
+    "readingMinutes": 6,
+    "authorId": "doc-baitursyn",
+    "category": { "ru": "Глаукома", "kk": "Глаукома", "en": "Glaucoma" },
+    "title": {
+      "ru": "Глаукома: почему её замечают поздно",
+      "kk": "Глаукома: оны неге кеш байқайды",
+      "en": "Glaucoma: why it is noticed too late"
+    },
+    "excerpt": {
+      "ru": "Поле зрения сужается незаметно — разбираем, что делать до появления жалоб.",
+      "kk": "Көру өрісі байқаусыз тарылады — шағым пайда болғанға дейін не істеу керегін талдаймыз.",
+      "en": "The visual field narrows imperceptibly — what to do before symptoms appear."
+    },
+    "body": {
+      "ru": "Глаукома повреждает зрительный нерв постепенно, начиная с периферии поля зрения. Мозг компенсирует выпадения за счёт второго глаза, поэтому человек долго ничего не замечает.\n\nК моменту появления жалоб утрачено, как правило, более 40% нервных волокон. Восстановить их невозможно — лечение направлено на остановку дальнейшей потери.\n\nПосле 40 лет измерение внутриглазного давления рекомендуется ежегодно, при отягощённой наследственности — с 35 лет. Одного измерения недостаточно: нужны периметрия и ОКТ зрительного нерва.\n\nПри подтверждённом диагнозе ключевую роль играет дисциплина закапывания капель: пропуски сводят эффект терапии к нулю.",
+      "kk": "Глаукома көру жүйкесін көру өрісінің шетінен бастап біртіндеп зақымдайды. Ми екінші көз есебінен түсіп қалуларды өтейді, сондықтан адам ұзақ уақыт ештеңе байқамайды.\n\nШағым пайда болған кезде әдетте жүйке талшықтарының 40%-дан астамы жоғалады. Оларды қалпына келтіру мүмкін емес — емдеу одан әрі жоғалтуды тоқтатуға бағытталған.\n\n40 жастан кейін көзішілік қысымды жыл сайын өлшеу ұсынылады, тұқым қуалаушылық ауыр болса — 35 жастан. Бір өлшеу жеткіліксіз: периметрия мен көру жүйкесінің ОКТ-сы қажет.\n\nДиагноз расталған кезде тамшыны тамызу тәртібі шешуші рөл атқарады: өткізіп алу терапия әсерін нөлге дейін төмендетеді.",
+      "en": "Glaucoma damages the optic nerve gradually, starting at the periphery of the visual field. The brain compensates for the gaps using the other eye, so a person notices nothing for a long time.\n\nBy the time complaints appear, more than 40% of nerve fibres have usually been lost. They cannot be restored — treatment aims to halt further loss.\n\nAfter the age of 40, annual intraocular pressure measurement is recommended, and from 35 where there is a family history. A single measurement is not enough: perimetry and optic nerve OCT are required.\n\nOnce the diagnosis is confirmed, discipline in instilling drops is decisive: missed doses reduce the effect of therapy to nothing."
+    },
+    "published": true
+  },
+  {
+    "id": "art-lenses",
+    "slug": "contact-lens-care",
+    "date": "2026-02-24",
+    "readingMinutes": 4,
+    "authorId": "doc-kim",
+    "category": { "ru": "Оптика", "kk": "Оптика", "en": "Optics" },
+    "title": {
+      "ru": "Правила ухода за контактными линзами",
+      "kk": "Контакт линзаларын күту ережелері",
+      "en": "Contact lens care rules"
+    },
+    "excerpt": {
+      "ru": "Пять ошибок, из-за которых чаще всего развивается воспаление роговицы.",
+      "kk": "Қасаң қабық қабынуы жиі дамитын бес қате.",
+      "en": "Five mistakes that most often lead to corneal inflammation."
+    },
+    "body": {
+      "ru": "Самая частая причина осложнений — продление срока ношения. Линза месячной замены на 45-й день теряет проницаемость для кислорода независимо от того, как она выглядит.\n\nВторая ошибка — контакт с водой. Водопроводная вода содержит акантамёбу, устойчивую к обычным растворам; в линзах нельзя плавать и принимать душ.\n\nТретья — доливание раствора вместо полной замены. Четвёртая — использование контейнера дольше трёх месяцев. Пятая — сон в линзах, не предназначенных для непрерывного ношения.\n\nПри покраснении, боли или снижении зрения линзу нужно снять и обратиться к врачу в тот же день.",
+      "kk": "Асқынудың ең жиі себебі — киіп жүру мерзімін ұзарту. Айлық ауыстырылатын линза 45-ші күні сыртқы түріне қарамастан оттегі өткізгіштігін жоғалтады.\n\nЕкінші қате — сумен байланыс. Құбыр суында кәдімгі ерітінділерге төзімді акантамёба бар; линзамен жүзуге және душ қабылдауға болмайды.\n\nҮшіншісі — толық ауыстырудың орнына ерітінді құю. Төртіншісі — контейнерді үш айдан ұзақ пайдалану. Бесіншісі — үздіксіз киюге арналмаған линзалармен ұйықтау.\n\nҚызару, ауырсыну немесе көрудің төмендеуі кезінде линзаны шешіп, сол күні дәрігерге жүгіну керек.",
+      "en": "The most common cause of complications is extending the wearing period. A monthly replacement lens loses oxygen permeability by day 45 regardless of how it looks.\n\nThe second mistake is contact with water. Tap water contains acanthamoeba, which resists ordinary solutions; you must not swim or shower in lenses.\n\nThe third is topping up solution instead of replacing it fully. The fourth is using a case for longer than three months. The fifth is sleeping in lenses not designed for continuous wear.\n\nIf redness, pain or reduced vision occurs, remove the lens and see a doctor the same day."
+    },
+    "published": true
+  }
+]

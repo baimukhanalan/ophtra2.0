@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07100d" />
+    <meta name="description" content="IRIS — концепт платформы Офтальмологического центра доктора Кулмаганбетова: путешествие камеры внутрь глаза — от роговицы до зрительного нерва." />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>IRIS · Офтальмологический центр доктора Кулмаганбетова</title>
+    <style>
+      html,body{background:#07100d;margin:0}
+      #boot{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 50%,#12211b 0%,#07100d 70%);color:#c9b08a;transition:opacity .7s ease,visibility .7s;animation:bootOut .7s ease 2.6s forwards}
+      #boot.is-done{opacity:0;visibility:hidden}
+      #boot .b-in{display:grid;justify-items:center;gap:22px;font:400 12px/1.4 system-ui,sans-serif;letter-spacing:.32em;text-transform:uppercase}
+      #boot svg{width:112px;height:112px;overflow:visible}
+      #boot .ring{fill:none;stroke:#c9b08a;stroke-width:12;stroke-dasharray:1.2 4.036;transform-origin:50px 50px;animation:bootSpin 2.4s cubic-bezier(.6,0,.2,1) infinite}
+      #boot .pupil{fill:#c9b08a;transform-origin:50px 50px;animation:bootPupil 1.6s ease-in-out infinite alternate}
+      #boot .lid{fill:none;stroke:#c9b08a;stroke-width:2}
+      #boot .bar{width:140px;height:1px;background:rgba(201,176,138,.2);overflow:hidden}
+      #boot .bar i{display:block;height:100%;width:100%;background:#c9b08a;transform-origin:0 50%;animation:bootBar 1.8s cubic-bezier(.4,0,.2,1) forwards}
+      @keyframes bootSpin{from{transform:rotate(0)}to{transform:rotate(180deg)}}
+      @keyframes bootPupil{from{transform:scale(.55)}to{transform:scale(1.15)}}
+      @keyframes bootBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+      @keyframes bootOut{to{opacity:0;visibility:hidden}}
+      @media (prefers-reduced-motion:reduce){#boot .ring,#boot .pupil,#boot .bar i{animation:none}}
+    </style>
+  </head>
+  <body>
+    <div id="boot" role="status" aria-live="polite">
+      <div class="b-in">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="ring" cx="50" cy="50" r="40" />
+          <path class="lid" d="M24 50 Q50 31 76 50 Q50 69 24 50Z" />
+          <circle class="pupil" cx="50" cy="50" r="7" />
+        </svg>
+        <span>Фокусировка</span>
+        <span class="bar"><i></i></span>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "rev-1",
+    "author": { "ru": "Гульмира С.", "kk": "Гүлмира С.", "en": "Gulmira S." },
+    "date": "2026-07-12",
+    "rating": 5,
+    "serviceId": "svc-femto",
+    "doctorId": "doc-serikov",
+    "text": {
+      "ru": "Делала Femto-LASIK — операция заняла 15 минут, к вечеру уже видела номера домов. На следующий день вышла на работу. Отдельное спасибо за подробный разбор обследования до операции.",
+      "kk": "Femto-LASIK жасаттым — операция 15 минут алды, кешке қарай үй нөмірлерін көрдім. Келесі күні жұмысқа шықтым. Операцияға дейінгі тексеруді егжей-тегжейлі талдағаны үшін бөлек рахмет.",
+      "en": "I had Femto-LASIK — the procedure took 15 minutes and by the evening I could read house numbers. I was back at work the next day. Special thanks for the detailed walk-through of the pre-op examination."
+    }
+  },
+  {
+    "id": "rev-2",
+    "author": { "ru": "Нурлан Б.", "kk": "Нұрлан Б.", "en": "Nurlan B." },
+    "date": "2026-06-28",
+    "rating": 5,
+    "serviceId": "svc-phaco-multi",
+    "doctorId": "doc-akhmetova",
+    "text": {
+      "ru": "Оперировали катаракту с мультифокальной линзой. Через месяц читаю без очков впервые за пятнадцать лет. Врач честно объяснила, чего ждать и чего не стоит.",
+      "kk": "Катарактаны мультифокалды линзамен операциялады. Бір айдан кейін он бес жылда алғаш рет көзілдіріксіз оқып отырмын. Дәрігер нені күту керегін және нені күтпеу керегін адал түсіндірді.",
+      "en": "I had cataract surgery with a multifocal lens. A month later I am reading without glasses for the first time in fifteen years. The doctor explained honestly what to expect and what not to."
+    }
+  },
+  {
+    "id": "rev-3",
+    "author": { "ru": "Алия К.", "kk": "Әлия Қ.", "en": "Aliya K." },
+    "date": "2026-06-05",
+    "rating": 5,
+    "serviceId": "svc-child-consult",
+    "doctorId": "doc-nurgalieva",
+    "text": {
+      "ru": "Привела дочь 6 лет — она обычно боится врачей, но здесь весь осмотр прошёл как игра. Получили понятный план наблюдения на год.",
+      "kk": "6 жасар қызымды алып келдім — ол әдетте дәрігерлерден қорқады, бірақ мұнда бүкіл қарау ойын сияқты өтті. Бір жылға түсінікті бақылау жоспарын алдық.",
+      "en": "I brought my 6-year-old daughter — she is usually afraid of doctors, but here the whole examination felt like a game. We left with a clear year-long monitoring plan."
+    }
+  },
+  {
+    "id": "rev-4",
+    "author": { "ru": "Виктор П.", "kk": "Виктор П.", "en": "Viktor P." },
+    "date": "2026-05-19",
+    "rating": 4,
+    "serviceId": "svc-complex",
+    "doctorId": "doc-baitursyn",
+    "text": {
+      "ru": "Комплексная диагностика заняла полтора часа, всё чётко по времени. Единственное — стоит закладывать дополнительный час, зрачок расширяют надолго.",
+      "kk": "Кешенді диагностика бір жарым сағат алды, бәрі уақыт бойынша нақты. Жалғызы — қосымша бір сағат қалдырған жөн, қарашық ұзаққа кеңейтіледі.",
+      "en": "The complete diagnostics took an hour and a half, all exactly on schedule. The only thing — allow an extra hour, the pupil stays dilated for a while."
+    }
+  },
+  {
+    "id": "rev-5",
+    "author": { "ru": "Сауле Т.", "kk": "Сәуле Т.", "en": "Saule T." },
+    "date": "2026-04-22",
+    "rating": 5,
+    "serviceId": "svc-glaucoma",
+    "doctorId": "doc-baitursyn",
+    "text": {
+      "ru": "Наблюдаюсь с глаукомой второй год. Давление стабильно, каждый визит объясняют динамику по графикам. Записываться удобно через WhatsApp.",
+      "kk": "Глаукомамен екінші жыл бақылаудамын. Қысым тұрақты, әр келгенде динамиканы графиктермен түсіндіреді. WhatsApp арқылы жазылу ыңғайлы.",
+      "en": "I have been monitored for glaucoma for two years. Pressure is stable and every visit they explain the trend with charts. Booking via WhatsApp is convenient."
+    }
+  },
+  {
+    "id": "rev-6",
+    "author": { "ru": "Ержан М.", "kk": "Ержан М.", "en": "Yerzhan M." },
+    "date": "2026-03-30",
+    "rating": 5,
+    "serviceId": "svc-lenses",
+    "doctorId": "doc-kim",
+    "text": {
+      "ru": "Подбирали склеральные линзы после кератоконуса — до этого в двух местах отказали. Здесь подобрали за два визита, комфорт весь день.",
+      "kk": "Кератоконустан кейін склеральды линзалар таңдалды — оған дейін екі жерде бас тартқан. Мұнда екі келуде таңдап берді, күні бойы жайлы.",
+      "en": "They fitted scleral lenses after keratoconus — two other places had turned me down. Here it took two visits and they are comfortable all day."
+    }
+  },
+  {
+    "id": "rev-7",
+    "author": { "ru": "Марина Д.", "kk": "Марина Д.", "en": "Marina D." },
+    "date": "2026-03-02",
+    "rating": 5,
+    "serviceId": "svc-retina",
+    "doctorId": "doc-ibragimov",
+    "text": {
+      "ru": "Диабетическая ретинопатия, наблюдаюсь третий год. Каждый визит — сравнение снимков ОКТ с прошлым разом, видно динамику. Это дисциплинирует.",
+      "kk": "Диабеттік ретинопатия, үшінші жыл бақылаудамын. Әр келу — ОКТ суреттерін өткен жолғымен салыстыру, динамика көрінеді. Бұл тәртіпке үйретеді.",
+      "en": "Diabetic retinopathy, third year of monitoring. Every visit compares OCT images with the previous ones so the trend is visible. It keeps me disciplined."
+    }
+  },
+  {
+    "id": "rev-8",
+    "author": { "ru": "Дана А.", "kk": "Дана А.", "en": "Dana A." },
+    "date": "2026-02-14",
+    "rating": 4,
+    "serviceId": "svc-glasses",
+    "doctorId": "doc-kim",
+    "text": {
+      "ru": "Очки изготовили за два дня, посадка идеальная. Хотелось бы больше оправ в среднем ценовом сегменте, выбор пока небольшой.",
+      "kk": "Көзілдірікті екі күнде дайындады, отыруы тамаша. Орта баға сегментінде жақтаулар көбірек болса екен, әзірге таңдау аз.",
+      "en": "The glasses were ready in two days and fit perfectly. I would like more frames in the mid-price range, the choice is still limited."
+    }
+  }
+]

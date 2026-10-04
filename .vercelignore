@@ -1,0 +1,15 @@
+node_modules
+**/node_modules
+**/dist
+# The API is deployed separately; excluding it also stops Vercel from
+# detecting this repo as a multi-service project.
+backend
+docs
+*.log
+.DS_Store
+*.zip
+.git
+e2e
+audit
+.claude
+DESIGN.md

@@ -1,0 +1,104 @@
+.formats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.format {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: clamp(20px, 2.4vw, 30px);
+  border-radius: var(--r);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.format__lens {
+  --k: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: radial-gradient(circle at calc(30% + var(--k) * 10%) 30%, #fff, rgba(201, 176, 138, 0.3));
+  box-shadow: calc(var(--k) * 6px) 0 0 -2px rgba(201, 176, 138, 0.35);
+}
+@media (max-width: 1100px) {
+  .formats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .formats {
+    grid-template-columns: 1fr;
+  }
+}
+.exp-profiles {
+  padding-block: clamp(100px, 14vh, 160px);
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.exp {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 24px;
+  overflow: hidden;
+}
+.exp__code {
+  position: absolute;
+  right: -6px;
+  top: -30px;
+  font-family: var(--f-display);
+  font-size: 7rem;
+  font-weight: 250;
+  color: rgba(168, 139, 94, 0.18);
+  filter: blur(3px);
+  transition: filter 0.8s var(--ease);
+  pointer-events: none;
+}
+.exp:hover .exp__code {
+  filter: none;
+}
+@media (max-width: 900px) {
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.exp-light {
+  color: var(--cream);
+  max-width: 24ch;
+}
+.exp-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+.exp-flow li {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 22px;
+  border-radius: var(--r);
+  border: 1px solid rgba(244, 242, 237, 0.16);
+}
+.exp-flow p {
+  color: rgba(244, 242, 237, 0.75);
+  font-size: 0.95rem;
+}
+.exp-flow__n {
+  font-family: var(--f-display);
+  color: var(--gold-2);
+}
+@media (max-width: 1100px) {
+  .exp-flow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .exp-flow {
+    grid-template-columns: 1fr;
+  }
+}

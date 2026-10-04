@@ -1,0 +1,454 @@
+/* ==========================================================================
+   OPHTRA — BASE LAYER
+   Reset, typography scale, layout primitives (container / grid / section).
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--oph-surface);
+  scroll-behavior: smooth;
+  /* Sticky headers must not cover anchored headings. */
+  scroll-padding-top: calc(var(--oph-header-h, 76px) + 24px);
+}
+
+:root[data-reduced-motion='true'] html,
+html:has(:root[data-reduced-motion='true']) {
+  scroll-behavior: auto;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+}
+
+html,
+body {
+  /* `clip` (not hidden) keeps position:sticky working inside the page. */
+  overflow-x: clip;
+}
+
+/* Overlay scroll lock (ui/scrollLock.ts). It must sit on the root: with
+   html/body `overflow-x: clip` a body lock is not propagated to the viewport,
+   so the page kept scrolling and the sticky header un-stuck. `none` also stops
+   the drag from chaining into the page or bouncing it on iOS. */
+:root[data-scroll-locked] {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  background: var(--oph-surface);
+  color: var(--oph-ink);
+  font-family: var(--oph-font-sans);
+  font-size: var(--oph-text-base);
+  font-weight: var(--oph-weight-medium);
+  line-height: var(--oph-leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Kazakh-specific letters (ә ғ қ ң ө ұ ү һ і) are missing from Manrope and
+   fall back per glyph to a system face with the same metrics class. */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--oph-ink);
+  font-family: var(--oph-font-serif);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  text-wrap: balance;
+  /* Long Russian and Kazakh words must never overflow or break mid-word
+     (Figma error: «Направле ния», «Оптичес кая»). */
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* Running text never pushes the page wide: an unbreakable string (URL,
+   e-mail, long compound word) wraps only when it cannot fit on a line. */
+p,
+li,
+dt,
+dd,
+td,
+th,
+figcaption,
+blockquote,
+label,
+summary {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* Images with width/height attributes keep their aspect ratio when the
+   max-width above narrows them (explicit CSS heights still win). */
+img,
+video {
+  height: auto;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--oph-line);
+  margin: 0;
+}
+
+::selection {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+/* ------------------------------------------------------------------- FOCUS */
+/* Never remove focus rings — WCAG 2.1 AA 2.4.7. */
+:focus-visible {
+  outline: 3px solid var(--oph-primary);
+  outline-offset: 3px;
+  border-radius: var(--oph-radius-xs);
+}
+
+.oph-skip-link {
+  position: absolute;
+  top: var(--oph-space-3);
+  left: var(--oph-space-3);
+  z-index: var(--oph-z-toast);
+  padding: var(--oph-space-3) var(--oph-space-5);
+  border-radius: var(--oph-radius-pill);
+  background: var(--oph-primary);
+  color: var(--oph-primary-contrast);
+  font-size: var(--oph-text-sm);
+  font-weight: var(--oph-weight-bold);
+  transform: translateY(-200%);
+  transition: transform var(--oph-duration-fast) var(--oph-ease-out);
+}
+
+.oph-skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+.oph-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------- SCROLLBAR */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: var(--oph-brand-300) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+.oph-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.oph-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================================================== LAYOUT */
+
+.oph-container {
+  width: 100%;
+  max-width: calc(var(--oph-container) + var(--oph-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--oph-gutter);
+}
+
+.oph-container--narrow {
+  max-width: calc(var(--oph-container-narrow) + var(--oph-gutter) * 2);
+}
+
+.oph-container--prose {
+  max-width: calc(var(--oph-container-prose) + var(--oph-gutter) * 2);
+}
+
+.oph-section {
+  position: relative;
+  padding-block: var(--oph-section-y);
+}
+
+.oph-section--tight {
+  padding-block: var(--oph-section-y-tight);
+}
+
+.oph-section--mist {
+  background: var(--oph-gradient-mist);
+}
+
+.oph-section--tint {
+  background: var(--oph-surface-2);
+}
+
+.oph-section--deep {
+  background: var(--oph-forest);
+  color: var(--oph-cream);
+}
+
+.oph-section--deep h1,
+.oph-section--deep h2,
+.oph-section--deep h3,
+.oph-section--deep h4 {
+  color: #ffffff;
+}
+
+/* 12-column grid. Children opt in with `--oph-col-span`. */
+.oph-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--oph-grid-columns), minmax(0, 1fr));
+  gap: var(--oph-grid-gap);
+}
+
+.oph-grid > [data-span] {
+  grid-column: span var(--oph-col-span, 12) / span var(--oph-col-span, 12);
+}
+
+/* Auto-fit card grids used across catalogue pages. */
+.oph-cards {
+  display: grid;
+  gap: var(--oph-grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--oph-card-min, 300px)), 1fr));
+}
+
+/* A grid cell stretches to the tallest card in its row, but nothing inside it
+   follows by default — a card sitting two wrappers deep (reveal → link → card)
+   sized itself to its own text, so a row of doctor cards came out ragged in
+   both width and height. Each level below is made to fill its parent. */
+.oph-cards > *,
+.oph-autorail__track > * {
+  min-width: 0;
+}
+
+.oph-cards > .oph-card,
+.oph-cards > * > .oph-card,
+.oph-autorail__track > .oph-card,
+.oph-autorail__track > * > .oph-card {
+  height: 100%;
+}
+
+/* Whole-card link wrapper. */
+.oph-card-link {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.oph-card-link > .oph-card {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Two-column split that collapses to a single column on narrow viewports.
+   Column ratios are set per instance with --oph-split-a / --oph-split-b. */
+.oph-split {
+  display: grid;
+  gap: var(--oph-grid-gap);
+  align-items: center;
+  grid-template-columns:
+    minmax(0, var(--oph-split-a, 1.6fr))
+    minmax(0, var(--oph-split-b, 1fr));
+}
+
+.oph-split--top {
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .oph-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.oph-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--oph-stack-gap, var(--oph-space-4));
+}
+
+.oph-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--oph-row-gap, var(--oph-space-3));
+}
+
+/* ============================================================== TYPOGRAPHY */
+
+.oph-display {
+  font-family: var(--oph-font-serif);
+  font-size: var(--oph-display-lg);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+.oph-display--xl {
+  font-size: var(--oph-display-xl);
+}
+.oph-display--md {
+  font-size: var(--oph-display-md);
+}
+.oph-display--sm {
+  font-size: var(--oph-display-sm);
+}
+
+.oph-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oph-space-3);
+  color: var(--oph-gold);
+  font-family: var(--oph-font-sans);
+  font-size: var(--oph-text-2xs);
+  font-weight: var(--oph-weight-bold);
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.oph-section--deep .oph-eyebrow,
+.oph-on-dark .oph-eyebrow {
+  color: var(--oph-gold-soft);
+}
+
+.oph-lead {
+  color: var(--oph-muted);
+  font-size: clamp(1rem, 0.94rem + 0.3vw, 1.1875rem);
+  font-weight: var(--oph-weight-regular);
+  line-height: 1.6;
+}
+
+.oph-section--deep .oph-lead,
+.oph-on-dark .oph-lead {
+  color: rgba(244, 242, 237, 0.74);
+}
+
+.oph-prose {
+  color: var(--oph-ink-soft);
+  font-size: var(--oph-text-md);
+  line-height: var(--oph-leading-relaxed);
+}
+
+.oph-prose > * + * {
+  margin-top: var(--oph-space-5);
+}
+
+.oph-prose h2 {
+  margin-top: var(--oph-space-12);
+  font-size: var(--oph-text-3xl);
+}
+
+.oph-prose h3 {
+  margin-top: var(--oph-space-8);
+  font-size: var(--oph-text-xl);
+}
+
+.oph-prose ul {
+  display: grid;
+  gap: var(--oph-space-3);
+}
+
+.oph-prose ul li {
+  position: relative;
+  padding-left: var(--oph-space-6);
+}
+
+.oph-prose ul li::before {
+  content: '';
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--oph-gold);
+}
+
+.oph-prose a {
+  color: var(--oph-link);
+  font-weight: var(--oph-weight-bold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Section heading block reused by every page. */
+.oph-heading {
+  display: grid;
+  gap: var(--oph-space-4);
+  max-width: 780px;
+}
+
+.oph-heading--center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.oph-heading h2 {
+  font-size: var(--oph-display-md);
+}

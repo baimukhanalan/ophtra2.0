@@ -1,0 +1,345 @@
+[
+  {
+    "id": "doc-akhmetova",
+    "slug": "aigul-akhmetova",
+    "name": {
+      "ru": "Айгуль Ахметова",
+      "kk": "Айгүл Ахметова",
+      "en": "Aigul Akhmetova"
+    },
+    "role": {
+      "ru": "Главный врач, офтальмохирург",
+      "kk": "Бас дәрігер, офтальмохирург",
+      "en": "Chief physician, ophthalmic surgeon"
+    },
+    "departmentIds": [
+      "cataract",
+      "diagnostics"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 22,
+    "category": {
+      "ru": "Высшая категория",
+      "kk": "Жоғары санат",
+      "en": "Highest category"
+    },
+    "bio": {
+      "ru": "Хирургия катаракты и комплексная диагностика. Отвечает за клинические стандарты отделения и сопровождает пациента от обследования до контроля после операции.",
+      "kk": "Катаракта хирургиясы және кешенді диагностика. Бөлімшенің клиникалық стандарттарына жауап береді және пациентті тексеруден операциядан кейінгі бақылауға дейін сүйемелдейді.",
+      "en": "Cataract surgery and comprehensive diagnostics. Responsible for the department’s clinical standards; follows each patient from the first exam to post-operative review."
+    },
+    "languages": [
+      "ru",
+      "kk",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, ординатура по офтальмологии",
+      "kk": "Медициналық университет, офтальмология бойынша резидентура",
+      "en": "Medical university, ophthalmology residency"
+    },
+    "isManagement": true,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-serikov",
+    "slug": "daniyar-serikov",
+    "name": {
+      "ru": "Данияр Сериков",
+      "kk": "Данияр Сериков",
+      "en": "Daniyar Serikov"
+    },
+    "role": {
+      "ru": "Рефракционный хирург",
+      "kk": "Рефракциялық хирург",
+      "en": "Refractive surgeon"
+    },
+    "departmentIds": [
+      "laser"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 15,
+    "category": {
+      "ru": "Высшая категория",
+      "kk": "Жоғары санат",
+      "en": "Highest category"
+    },
+    "bio": {
+      "ru": "Лазерная коррекция зрения: Femto-LASIK и SMILE. Подробно объясняет, кому подходит каждый метод и когда от операции лучше отказаться.",
+      "kk": "Көруді лазерлік түзету: Femto-LASIK және SMILE. Әр әдістің кімге сәйкес келетінін және операциядан қашан бас тартқан дұрыс екенін егжей-тегжейлі түсіндіреді.",
+      "en": "Laser vision correction: Femto-LASIK and SMILE. Explains in detail who each method suits and when surgery is better avoided."
+    },
+    "languages": [
+      "ru",
+      "kk",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, специализация по рефракционной хирургии",
+      "kk": "Медициналық университет, рефракциялық хирургия бойынша мамандану",
+      "en": "Medical university, refractive surgery training"
+    },
+    "isManagement": false,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-nurgalieva",
+    "slug": "saule-nurgalieva",
+    "name": {
+      "ru": "Сауле Нургалиева",
+      "kk": "Сәуле Нұрғалиева",
+      "en": "Saule Nurgalieva"
+    },
+    "role": {
+      "ru": "Детский офтальмолог",
+      "kk": "Балалар офтальмологы",
+      "en": "Pediatric ophthalmologist"
+    },
+    "departmentIds": [
+      "pediatric"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 18,
+    "category": {
+      "ru": "Первая категория",
+      "kk": "Бірінші санат",
+      "en": "First category"
+    },
+    "bio": {
+      "ru": "Ведёт детей с рождения: контроль близорукости, косоглазие и амблиопия. Объясняет родителям каждый шаг наблюдения.",
+      "kk": "Балаларды туғаннан бақылайды: жақыннан көруді бақылау, қылилық және амблиопия. Ата-аналарға бақылаудың әр қадамын түсіндіреді.",
+      "en": "Cares for children from birth: myopia control, strabismus and amblyopia. Explains every step of follow-up to parents."
+    },
+    "languages": [
+      "ru",
+      "kk"
+    ],
+    "education": {
+      "ru": "Медицинский университет, специализация по детской офтальмологии",
+      "kk": "Медициналық университет, балалар офтальмологиясы бойынша мамандану",
+      "en": "Medical university, paediatric ophthalmology training"
+    },
+    "isManagement": false,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-ibragimov",
+    "slug": "rustam-ibragimov",
+    "name": {
+      "ru": "Рустам Ибрагимов",
+      "kk": "Рүстем Ибрагимов",
+      "en": "Rustam Ibragimov"
+    },
+    "role": {
+      "ru": "Витреоретинальный хирург",
+      "kk": "Витреоретинальді хирург",
+      "en": "Vitreoretinal surgeon"
+    },
+    "departmentIds": [
+      "treatment"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 19,
+    "category": {
+      "ru": "Высшая категория",
+      "kk": "Жоғары санат",
+      "en": "Highest category"
+    },
+    "bio": {
+      "ru": "Занимается лечением отслойки сетчатки и диабетической ретинопатии, ведёт пациентов с заболеваниями глазного дна.",
+      "kk": "Тор қабықтың сылынуы мен диабеттік ретинопатияны емдейді, көз түбі аурулары бар пациенттерді жүргізеді.",
+      "en": "Treats retinal detachment and diabetic retinopathy and follows patients with diseases of the fundus."
+    },
+    "languages": [
+      "ru",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, ординатура по витреоретинальной хирургии",
+      "kk": "Медициналық университет, витреоретиналды хирургия бойынша резидентура",
+      "en": "Medical university, vitreoretinal surgery residency"
+    },
+    "isManagement": false,
+    "acceptsOnline": false
+  },
+  {
+    "id": "doc-omarova",
+    "slug": "dinara-omarova",
+    "name": {
+      "ru": "Динара Омарова",
+      "kk": "Динара Омарова",
+      "en": "Dinara Omarova"
+    },
+    "role": {
+      "ru": "Офтальмолог-диагност",
+      "kk": "Офтальмолог-диагност",
+      "en": "Diagnostic ophthalmologist"
+    },
+    "departmentIds": [
+      "diagnostics",
+      "treatment"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 11,
+    "category": {
+      "ru": "Первая категория",
+      "kk": "Бірінші санат",
+      "en": "First category"
+    },
+    "bio": {
+      "ru": "Проводит комплексные обследования и ведёт пациентов с глаукомой на ранних стадиях.",
+      "kk": "Кешенді тексерулер жүргізеді және глаукоманың ерте сатысындағы пациенттерді бақылайды.",
+      "en": "Performs comprehensive examinations and manages early-stage glaucoma patients."
+    },
+    "languages": [
+      "ru",
+      "kk"
+    ],
+    "education": {
+      "ru": "Медицинский университет, ординатура по офтальмологии",
+      "kk": "Медициналық университет, офтальмология бойынша резидентура",
+      "en": "Medical university, ophthalmology residency"
+    },
+    "isManagement": false,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-kim",
+    "slug": "viktor-kim",
+    "name": {
+      "ru": "Виктор Ким",
+      "kk": "Виктор Ким",
+      "en": "Viktor Kim"
+    },
+    "role": {
+      "ru": "Врач-оптометрист",
+      "kk": "Оптометрист дәрігер",
+      "en": "Optometrist"
+    },
+    "departmentIds": [
+      "optical"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 9,
+    "category": {
+      "ru": "Вторая категория",
+      "kk": "Екінші санат",
+      "en": "Second category"
+    },
+    "bio": {
+      "ru": "Подбирает сложные виды коррекции, включая склеральные и ортокератологические линзы.",
+      "kk": "Склеральды және ортокератологиялық линзаларды қоса, күрделі түзету түрлерін таңдайды.",
+      "en": "Fits complex corrections, including scleral and orthokeratology lenses."
+    },
+    "languages": [
+      "ru",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, курс контактной коррекции зрения",
+      "kk": "Медициналық университет, көруді контактілі түзету курсы",
+      "en": "Medical university, contact lens fitting course"
+    },
+    "isManagement": false,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-baitursyn",
+    "slug": "amina-baitursyn",
+    "name": {
+      "ru": "Амина Байтурсын",
+      "kk": "Әмина Байтұрсын",
+      "en": "Amina Baitursyn"
+    },
+    "role": {
+      "ru": "Офтальмолог, специалист по глаукоме",
+      "kk": "Офтальмолог, глаукома жөніндегі маман",
+      "en": "Ophthalmologist, glaucoma specialist"
+    },
+    "departmentIds": [
+      "treatment",
+      "diagnostics"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 14,
+    "category": {
+      "ru": "Высшая категория",
+      "kk": "Жоғары санат",
+      "en": "Highest category"
+    },
+    "bio": {
+      "ru": "Ведёт пациентов с глаукомой: регулярные поля зрения, ОКТ и понятный план наблюдения на годы вперёд.",
+      "kk": "Глаукомасы бар пациенттерді жүргізеді: тұрақты көру өрістері, ОКТ және жылдарға арналған түсінікті бақылау жоспары.",
+      "en": "Looks after patients with glaucoma: regular visual fields, OCT and a clear follow-up plan for the years ahead."
+    },
+    "languages": [
+      "ru",
+      "kk",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, специализация по глаукоме",
+      "kk": "Медициналық университет, глаукома бойынша мамандану",
+      "en": "Medical university, glaucoma training"
+    },
+    "isManagement": false,
+    "acceptsOnline": true
+  },
+  {
+    "id": "doc-tulegenov",
+    "slug": "askar-tulegenov",
+    "name": {
+      "ru": "Аскар Тулегенов",
+      "kk": "Асқар Төлегенов",
+      "en": "Askar Tulegenov"
+    },
+    "role": {
+      "ru": "Медицинский директор",
+      "kk": "Медициналық директор",
+      "en": "Medical director"
+    },
+    "departmentIds": [
+      "cataract"
+    ],
+    "clinicIds": [
+      "astana"
+    ],
+    "experience": 26,
+    "category": {
+      "ru": "Высшая категория",
+      "kk": "Жоғары санат",
+      "en": "Highest category"
+    },
+    "bio": {
+      "ru": "Отвечает за медицинские стандарты центра и подготовку хирургов: разборы случаев, протоколы и наставничество.",
+      "kk": "Орталықтың медициналық стандарттары мен хирургтарды даярлауға жауап береді: жағдайларды талдау, хаттамалар және тәлімгерлік.",
+      "en": "Responsible for the centre’s medical standards and surgical training: case reviews, protocols and mentoring."
+    },
+    "languages": [
+      "ru",
+      "kk",
+      "en"
+    ],
+    "education": {
+      "ru": "Медицинский университет, подготовка по офтальмологии",
+      "kk": "Медициналық университет, офтальмология бойынша даярлық",
+      "en": "Medical university, ophthalmology training"
+    },
+    "isManagement": true,
+    "acceptsOnline": false
+  }
+]

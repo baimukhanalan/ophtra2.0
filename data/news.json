@@ -1,0 +1,158 @@
+[
+  {
+    "id": "news-femto",
+    "slug": "new-femtosecond-platform",
+    "date": "2026-07-18",
+    "category": {
+      "ru": "Технологии",
+      "kk": "Технологиялар",
+      "en": "Technology"
+    },
+    "title": {
+      "ru": "В центре установлена новая фемтосекундная платформа",
+      "kk": "Орталықта жаңа фемтосекундтық платформа орнатылды",
+      "en": "A new femtosecond platform installed at the centre"
+    },
+    "excerpt": {
+      "ru": "Оборудование сокращает время лазерной коррекции до 15 минут на оба глаза.",
+      "kk": "Жабдық лазерлік түзету уақытын екі көзге 15 минутқа дейін қысқартады.",
+      "en": "The equipment cuts laser correction time to 15 minutes for both eyes."
+    },
+    "body": {
+      "ru": "Отделение лазерной коррекции Dr Kulmaganbetov завершило установку фемтосекундной платформы последнего поколения. Система формирует роговичный лоскут с точностью до микрона и работает бесконтактно.\n\nДля пациентов это означает более короткое вмешательство, меньший дискомфорт в первые часы после операции и предсказуемый результат при высоких степенях близорукости. Первые операции на новом оборудовании выполнены в июле.",
+      "kk": "Dr Kulmaganbetov лазерлік түзету бөлімшесі соңғы буын фемтосекундтық платформасын орнатуды аяқтады. Жүйе қасаң қабық жапырақшасын микронға дейінгі дәлдікпен қалыптастырады және байланыссыз жұмыс істейді.\n\nПациенттер үшін бұл қысқа араласуды, операциядан кейінгі алғашқы сағаттарда аз ыңғайсыздықты және миопияның жоғары дәрежелерінде болжамды нәтижені білдіреді. Жаңа жабдықтағы алғашқы операциялар шілдеде орындалды.",
+      "en": "The Dr Kulmaganbetov laser correction department has completed the installation of a latest-generation femtosecond platform. The system shapes the corneal flap with micron precision and works without contact.\n\nFor patients this means a shorter procedure, less discomfort in the first hours after surgery and a predictable outcome in high myopia. The first operations on the new equipment were performed in July."
+    },
+    "published": true
+  },
+  {
+    "id": "news-astana",
+    "slug": "astana-clinic-opening",
+    "date": "2026-06-02",
+    "category": {
+      "ru": "Центр",
+      "kk": "Орталық",
+      "en": "Centre"
+    },
+    "title": {
+      "ru": "Открыт главный центр Dr Kulmaganbetov в Астане",
+      "kk": "Астанада Dr Kulmaganbetov бас орталығы ашылды",
+      "en": "Dr Kulmaganbetov main centre opens in Astana"
+    },
+    "excerpt": {
+      "ru": "Диагностика, микрохирургия, детский приём и оптический салон — в одном здании.",
+      "kk": "Диагностика, микрохирургия, балалар қабылдауы және оптикалық салон — бір ғимаратта.",
+      "en": "Diagnostics, microsurgery, pediatric care and the optical store — all in one building."
+    },
+    "body": {
+      "ru": "Главный центр Dr Kulmaganbetov открылся на улице Кабанбай батыра. В здании работают отделения диагностики, лечения заболеваний глаз, лазерной коррекции, хирургии катаракты, детской офтальмологии и оптический салон.\n\nОперационный блок рассчитан на две операционные и амбулаторный формат: пациент уходит домой через 1,5–2 часа после вмешательства. Филиал в Алматы продолжает вести диагностику, терапию и детский приём; хирургию пациенты проходят в Астане.",
+      "kk": "Dr Kulmaganbetov бас орталығы Қабанбай батыр көшесінде ашылды. Ғимаратта диагностика, көз ауруларын емдеу, лазерлік түзету, катаракта хирургиясы, балалар офтальмологиясы бөлімшелері және оптикалық салон жұмыс істейді.\n\nОперациялық блок екі операциялыққа және амбулаториялық форматқа есептелген: пациент араласудан кейін 1,5–2 сағаттан соң үйіне қайтады. Алматыдағы филиал диагностиканы, терапияны және балалар қабылдауын жалғастырады; хирургиядан пациенттер Астанада өтеді.",
+      "en": "The Dr Kulmaganbetov main centre has opened on Kabanbay Batyr Street. The building houses the diagnostics, eye disease treatment, laser correction, cataract surgery and pediatric ophthalmology departments, plus the optical store.\n\nThe operating unit has two theatres and runs on an outpatient basis: patients go home 1.5–2 hours after the procedure. The Almaty branch continues diagnostics, therapy and pediatric care; surgery takes place in Astana."
+    },
+    "published": true
+  },
+  {
+    "id": "news-glaucoma-day",
+    "slug": "glaucoma-awareness-day",
+    "date": "2026-05-14",
+    "category": {
+      "ru": "События",
+      "kk": "Оқиғалар",
+      "en": "Events"
+    },
+    "title": {
+      "ru": "День борьбы с глаукомой: бесплатное измерение давления",
+      "kk": "Глаукомамен күрес күні: қысымды тегін өлшеу",
+      "en": "Glaucoma awareness day: free pressure screening"
+    },
+    "excerpt": {
+      "ru": "За день обследование прошли 214 человек, у 19 выявлено повышенное давление.",
+      "kk": "Бір күнде 214 адам тексеруден өтті, 19-ында қысымның жоғарылағаны анықталды.",
+      "en": "214 people were screened in one day; 19 showed elevated pressure."
+    },
+    "body": {
+      "ru": "В рамках дня борьбы с глаукомой центр провёл бесплатное измерение внутриглазного давления для всех желающих.\n\nУ 19 участников выявлены показатели выше нормы — им рекомендовано расширенное обследование. Глаукома долго протекает бессимптомно, поэтому регулярный контроль после 40 лет остаётся главным способом ранней диагностики.",
+      "kk": "Глаукомамен күрес күні аясында орталық барлық қалаушыларға көзішілік қысымды тегін өлшеуді өткізді.\n\n19 қатысушыда көрсеткіштер нормадан жоғары анықталды — оларға кеңейтілген тексеру ұсынылды. Глаукома ұзақ уақыт симптомсыз өтеді, сондықтан 40 жастан кейінгі тұрақты бақылау ерте диагностиканың басты тәсілі болып қала береді.",
+      "en": "As part of glaucoma awareness day, the centre offered free intraocular pressure measurement to everyone who came.\n\nNineteen participants showed above-normal readings and were referred for extended examination. Glaucoma stays symptom-free for a long time, so regular checks after the age of 40 remain the main route to early diagnosis."
+    },
+    "published": true
+  },
+  {
+    "id": "news-pediatric",
+    "slug": "pediatric-room-opened",
+    "date": "2026-04-08",
+    "category": {
+      "ru": "Центр",
+      "kk": "Орталық",
+      "en": "Centre"
+    },
+    "title": {
+      "ru": "Обновлён кабинет детской офтальмологии",
+      "kk": "Балалар офтальмологиясы кабинеті жаңартылды",
+      "en": "The pediatric ophthalmology room has been renovated"
+    },
+    "excerpt": {
+      "ru": "Приём проходит в игровом формате, добавлена зона ожидания для детей.",
+      "kk": "Қабылдау ойын форматында өтеді, балаларға арналған күту аймағы қосылды.",
+      "en": "Appointments run in a play format and a children's waiting area has been added."
+    },
+    "body": {
+      "ru": "Кабинет детской офтальмологии на Достык переоборудован: появились игровая зона ожидания, проекционные оптотипы и аппараты для тренировки аккомодации.\n\nФормат приёма изменён так, чтобы обследование воспринималось ребёнком как игра — это снижает тревожность и повышает достоверность результатов.",
+      "kk": "Достықтағы балалар офтальмологиясы кабинеті қайта жабдықталды: ойын күту аймағы, проекциялық оптотиптер және аккомодацияны жаттықтыруға арналған аппараттар пайда болды.\n\nҚабылдау форматы бала тексеруді ойын ретінде қабылдайтындай өзгертілді — бұл мазасыздықты азайтып, нәтижелердің дұрыстығын арттырады.",
+      "en": "The pediatric ophthalmology room at Dostyk has been re-equipped with a play waiting area, projection optotypes and accommodation training devices.\n\nThe appointment format has been redesigned so that the examination feels like a game to the child, which reduces anxiety and improves the reliability of results."
+    },
+    "published": true
+  },
+  {
+    "id": "news-conference",
+    "slug": "international-conference",
+    "date": "2026-03-21",
+    "category": {
+      "ru": "Наука",
+      "kk": "Ғылым",
+      "en": "Science"
+    },
+    "title": {
+      "ru": "Врачи центра выступили на международной конференции",
+      "kk": "Орталық дәрігерлері халықаралық конференцияда сөз сөйледі",
+      "en": "Centre doctors present at an international conference"
+    },
+    "excerpt": {
+      "ru": "Доклад о результатах программы контроля близоручести у детей.",
+      "kk": "Балалардағы миопияны бақылау бағдарламасының нәтижелері туралы баяндама.",
+      "en": "A report on the results of the pediatric myopia control program."
+    },
+    "body": {
+      "ru": "Команда детского отделения представила пятилетние результаты программы контроля близорукости на конференции по детской офтальмологии.\n\nВ выборке из 380 детей темп прогрессирования снизился в среднем на 42% по сравнению с контрольной группой. Материалы приняты к публикации.",
+      "kk": "Балалар бөлімшесінің тобы балалар офтальмологиясы конференциясында миопияны бақылау бағдарламасының бес жылдық нәтижелерін ұсынды.\n\n380 баладан тұратын іріктемеде үдеу қарқыны бақылау тобымен салыстырғанда орта есеппен 42%-ға төмендеді. Материалдар жариялауға қабылданды.",
+      "en": "The pediatric team presented five-year results of the myopia control program at a pediatric ophthalmology conference.\n\nIn a sample of 380 children, the rate of progression fell by an average of 42% compared with the control group. The materials have been accepted for publication."
+    },
+    "published": true
+  },
+  {
+    "id": "news-whatsapp",
+    "slug": "whatsapp-reminders",
+    "date": "2026-02-10",
+    "category": {
+      "ru": "Сервис",
+      "kk": "Сервис",
+      "en": "Service"
+    },
+    "title": {
+      "ru": "Напоминания о приёме теперь приходят в WhatsApp",
+      "kk": "Қабылдау туралы еске салулар енді WhatsApp-қа келеді",
+      "en": "Appointment reminders now arrive on WhatsApp"
+    },
+    "excerpt": {
+      "ru": "Подтверждение записи, напоминание и перенос — в одном канале.",
+      "kk": "Жазылуды растау, еске салу және ауыстыру — бір арнада.",
+      "en": "Confirmation, reminder and rescheduling in a single channel."
+    },
+    "body": {
+      "ru": "Центр подключил WhatsApp Business для сервисных сообщений. После онлайн-записи пациент получает подтверждение, за сутки и за два часа — напоминание.\n\nПеренести или отменить визит можно прямо в переписке. Маркетинговые сообщения отправляются только при отдельном согласии.",
+      "kk": "Орталық сервистік хабарламалар үшін WhatsApp Business-ті қосты. Онлайн жазылғаннан кейін пациент растауды, бір тәулік және екі сағат бұрын еске салуды алады.\n\nКелуді ауыстыру немесе болдырмау хат алмасуда бірден жасалады. Маркетингтік хабарламалар тек жеке келісім болғанда жіберіледі.",
+      "en": "The centre has connected WhatsApp Business for service messages. After booking online, the patient receives a confirmation, then reminders 24 hours and 2 hours before the visit.\n\nA visit can be rescheduled or cancelled directly in the chat. Marketing messages are sent only with separate consent."
+    },
+    "published": true
+  }
+]

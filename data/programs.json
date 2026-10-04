@@ -1,0 +1,212 @@
+[
+  {
+    "id": "prog-checkup",
+    "slug": "vision-checkup",
+    "name": { "ru": "Check-up зрения", "kk": "Көру Check-up", "en": "Vision check-up" },
+    "short": {
+      "ru": "Полное обследование за одно посещение с заключением врача.",
+      "kk": "Дәрігер қорытындысымен бір келуде толық тексеру.",
+      "en": "A full examination in one visit with a doctor's conclusion."
+    },
+    "price": 45000,
+    "duration": { "ru": "1 посещение, 90 минут", "kk": "1 келу, 90 минут", "en": "1 visit, 90 minutes" },
+    "includes": {
+      "ru": [
+        "Проверка остроты зрения и рефрактометрия",
+        "Измерение внутриглазного давления",
+        "Осмотр глазного дна с широким зрачком",
+        "Оптическая когерентная томография",
+        "Заключение офтальмолога и план наблюдения"
+      ],
+      "kk": [
+        "Көру өткірлігін тексеру және рефрактометрия",
+        "Көзішілік қысымды өлшеу",
+        "Қарашықты кеңейтіп көз түбін қарау",
+        "Оптикалық когерентті томография",
+        "Офтальмолог қорытындысы және бақылау жоспары"
+      ],
+      "en": [
+        "Visual acuity testing and refractometry",
+        "Intraocular pressure measurement",
+        "Dilated fundus examination",
+        "Optical coherence tomography",
+        "Ophthalmologist's conclusion and follow-up plan"
+      ]
+    }
+  },
+  {
+    "id": "prog-glaucoma",
+    "slug": "glaucoma-monitoring",
+    "name": { "ru": "Наблюдение при глаукоме", "kk": "Глаукома кезіндегі бақылау", "en": "Glaucoma monitoring" },
+    "short": {
+      "ru": "Годовая программа контроля давления и полей зрения.",
+      "kk": "Қысым мен көру өрістерін бақылаудың жылдық бағдарламасы.",
+      "en": "A yearly program of pressure and visual field control."
+    },
+    "price": 180000,
+    "duration": { "ru": "12 месяцев, 4 визита", "kk": "12 ай, 4 келу", "en": "12 months, 4 visits" },
+    "includes": {
+      "ru": [
+        "Четыре плановых осмотра офтальмолога",
+        "Компьютерная периметрия каждые 6 месяцев",
+        "ОКТ зрительного нерва",
+        "Коррекция терапии при необходимости",
+        "Приоритетная запись на приём"
+      ],
+      "kk": [
+        "Офтальмологтың төрт жоспарлы қарауы",
+        "Әр 6 ай сайын компьютерлік периметрия",
+        "Көру жүйкесінің ОКТ-сы",
+        "Қажет болса терапияны түзету",
+        "Қабылдауға басым жазылу"
+      ],
+      "en": [
+        "Four scheduled ophthalmologist visits",
+        "Computer perimetry every 6 months",
+        "Optic nerve OCT",
+        "Therapy adjustment when required",
+        "Priority appointment booking"
+      ]
+    }
+  },
+  {
+    "id": "prog-child",
+    "slug": "child-vision",
+    "name": { "ru": "Детское зрение", "kk": "Балалар көруі", "en": "Children's vision" },
+    "short": {
+      "ru": "Наблюдение школьника с контролем прогрессирования близорукости.",
+      "kk": "Миопияның үдеуін бақылаумен оқушыны қадағалау.",
+      "en": "School-age follow-up with myopia progression control."
+    },
+    "price": 160000,
+    "duration": { "ru": "12 месяцев, 4 визита", "kk": "12 ай, 4 келу", "en": "12 months, 4 visits" },
+    "includes": {
+      "ru": [
+        "Осмотр детского офтальмолога 4 раза в год",
+        "Измерение длины глаза",
+        "Подбор очковой коррекции",
+        "Курс аппаратного лечения",
+        "Рекомендации по зрительному режиму"
+      ],
+      "kk": [
+        "Жылына 4 рет балалар офтальмологының қарауы",
+        "Көз ұзындығын өлшеу",
+        "Көзілдірік түзетуін таңдау",
+        "Аппараттық емдеу курсы",
+        "Көру режимі бойынша ұсыныстар"
+      ],
+      "en": [
+        "Pediatric ophthalmologist visits four times a year",
+        "Axial length measurement",
+        "Spectacle correction fitting",
+        "A course of hardware therapy",
+        "Visual routine recommendations"
+      ]
+    }
+  },
+  {
+    "id": "prog-laser",
+    "slug": "laser-all-inclusive",
+    "name": { "ru": "Лазерная коррекция «под ключ»", "kk": "«Кілт тапсыру» лазерлік түзету", "en": "All-inclusive laser correction" },
+    "short": {
+      "ru": "Обследование, операция и полное сопровождение после неё.",
+      "kk": "Тексеру, операция және одан кейінгі толық сүйемелдеу.",
+      "en": "Examination, surgery and complete post-operative care."
+    },
+    "price": 340000,
+    "duration": { "ru": "3 месяца сопровождения", "kk": "3 ай сүйемелдеу", "en": "3 months of care" },
+    "includes": {
+      "ru": [
+        "Предоперационная диагностика",
+        "Операция Femto-LASIK на оба глаза",
+        "Набор послеоперационных препаратов",
+        "Пять контрольных осмотров",
+        "Круглосуточная линия поддержки"
+      ],
+      "kk": [
+        "Операция алдындағы диагностика",
+        "Екі көзге Femto-LASIK операциясы",
+        "Операциядан кейінгі препараттар жиынтығы",
+        "Бес бақылау қарауы",
+        "Тәулік бойы қолдау желісі"
+      ],
+      "en": [
+        "Pre-operative diagnostics",
+        "Femto-LASIK surgery on both eyes",
+        "A set of post-operative medications",
+        "Five follow-up examinations",
+        "A round-the-clock support line"
+      ]
+    }
+  },
+  {
+    "id": "prog-cataract",
+    "slug": "cataract-all-inclusive",
+    "name": { "ru": "Катаракта «под ключ»", "kk": "«Кілт тапсыру» катаракта", "en": "All-inclusive cataract care" },
+    "short": {
+      "ru": "Операция с имплантацией линзы и наблюдением 6 месяцев.",
+      "kk": "Линза имплантациясымен операция және 6 ай бақылау.",
+      "en": "Surgery with lens implantation and six months of follow-up."
+    },
+    "price": 520000,
+    "duration": { "ru": "6 месяцев сопровождения", "kk": "6 ай сүйемелдеу", "en": "6 months of care" },
+    "includes": {
+      "ru": [
+        "Расчёт интраокулярной линзы",
+        "Факоэмульсификация одного глаза",
+        "Монофокальная линза премиум-класса",
+        "Четыре контрольных осмотра",
+        "Рецепт на очковую коррекцию"
+      ],
+      "kk": [
+        "Интраокулярлық линзаны есептеу",
+        "Бір көздің факоэмульсификациясы",
+        "Премиум-класс монофокалды линза",
+        "Төрт бақылау қарауы",
+        "Көзілдірік түзетуіне рецепт"
+      ],
+      "en": [
+        "Intraocular lens calculation",
+        "Phacoemulsification of one eye",
+        "A premium monofocal lens",
+        "Four follow-up examinations",
+        "A spectacle correction prescription"
+      ]
+    }
+  },
+  {
+    "id": "prog-corporate",
+    "slug": "corporate-vision",
+    "name": { "ru": "Корпоративное зрение", "kk": "Корпоративтік көру", "en": "Corporate vision" },
+    "short": {
+      "ru": "Скрининг зрения для сотрудников компании на территории центра.",
+      "kk": "Компания қызметкерлеріне орталық аумағында көру скринингі.",
+      "en": "Vision screening for company employees at the centre."
+    },
+    "price": 22000,
+    "duration": { "ru": "1 визит на сотрудника", "kk": "Қызметкерге 1 келу", "en": "1 visit per employee" },
+    "includes": {
+      "ru": [
+        "Проверка остроты зрения",
+        "Измерение внутриглазного давления",
+        "Оценка синдрома сухого глаза",
+        "Индивидуальные рекомендации",
+        "Сводный отчёт для работодателя"
+      ],
+      "kk": [
+        "Көру өткірлігін тексеру",
+        "Көзішілік қысымды өлшеу",
+        "Құрғақ көз синдромын бағалау",
+        "Жеке ұсыныстар",
+        "Жұмыс берушіге жиынтық есеп"
+      ],
+      "en": [
+        "Visual acuity testing",
+        "Intraocular pressure measurement",
+        "Dry eye syndrome assessment",
+        "Individual recommendations",
+        "A summary report for the employer"
+      ]
+    }
+  }
+]

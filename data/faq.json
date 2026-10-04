@@ -1,0 +1,170 @@
+[
+  {
+    "id": "faq-1",
+    "topic": "booking",
+    "question": {
+      "ru": "Как записаться на приём?",
+      "kk": "Қабылдауға қалай жазылуға болады?",
+      "en": "How do I book an appointment?"
+    },
+    "answer": {
+      "ru": "Через форму онлайн-записи на сайте, по телефону контакт-центра или в WhatsApp. После записи подтверждение приходит автоматически, напоминание — за сутки и за два часа до визита.",
+      "kk": "Сайттағы онлайн жазылу нысаны арқылы, байланыс орталығының телефоны бойынша немесе WhatsApp-та. Жазылғаннан кейін растау автоматты түрде келеді, еске салу — келуге бір тәулік және екі сағат қалғанда.",
+      "en": "Through the online booking form on the site, by calling the contact centre, or via WhatsApp. Confirmation is sent automatically after booking, with reminders 24 hours and 2 hours before the visit."
+    }
+  },
+  {
+    "id": "faq-2",
+    "topic": "booking",
+    "question": {
+      "ru": "Можно ли перенести или отменить запись?",
+      "kk": "Жазылуды ауыстыруға немесе болдырмауға бола ма?",
+      "en": "Can I reschedule or cancel an appointment?"
+    },
+    "answer": {
+      "ru": "Да. Перенос и отмена доступны в личном кабинете, в диалоге с ассистентом или в WhatsApp. Просим сообщать об изменениях не позднее чем за 3 часа до приёма.",
+      "kk": "Иә. Ауыстыру мен болдырмау жеке кабинетте, ассистентпен диалогта немесе WhatsApp-та қолжетімді. Өзгерістер туралы қабылдауға 3 сағат қалғаннан кешіктірмей хабарлауыңызды сұраймыз.",
+      "en": "Yes. Rescheduling and cancellation are available in your patient account, in the assistant chat or via WhatsApp. Please tell us at least 3 hours before the appointment."
+    }
+  },
+  {
+    "id": "faq-3",
+    "topic": "diagnostics",
+    "question": {
+      "ru": "Сколько длится комплексная диагностика?",
+      "kk": "Кешенді диагностика қанша уақытқа созылады?",
+      "en": "How long does complete diagnostics take?"
+    },
+    "answer": {
+      "ru": "Около 90 минут. В обследование входит 12 исследований, часть из них проводится с расширенным зрачком, поэтому за руль в этот день садиться не рекомендуется.",
+      "kk": "Шамамен 90 минут. Тексеруге 12 зерттеу кіреді, олардың бір бөлігі қарашық кеңейтіліп жүргізіледі, сондықтан сол күні көлік жүргізу ұсынылмайды.",
+      "en": "About 90 minutes. The examination includes twelve tests, some performed with a dilated pupil, so driving that day is not recommended."
+    }
+  },
+  {
+    "id": "faq-4",
+    "topic": "diagnostics",
+    "question": {
+      "ru": "Нужно ли снимать контактные линзы перед обследованием?",
+      "kk": "Тексеру алдында контакт линзаларын шешу керек пе?",
+      "en": "Do I need to remove contact lenses before the examination?"
+    },
+    "answer": {
+      "ru": "Да. Мягкие линзы снимают за 7 дней, жёсткие — за 14 дней до обследования: они меняют форму роговицы и искажают результаты измерений.",
+      "kk": "Иә. Жұмсақ линзалар тексеруге 7 күн, қатты линзалар 14 күн бұрын шешіледі: олар қасаң қабық пішінін өзгертіп, өлшеу нәтижелерін бұрмалайды.",
+      "en": "Yes. Soft lenses should be removed 7 days and rigid lenses 14 days before the examination, as they change the corneal shape and distort measurements."
+    }
+  },
+  {
+    "id": "faq-5",
+    "topic": "laser",
+    "question": {
+      "ru": "Больно ли делать лазерную коррекцию?",
+      "kk": "Лазерлік түзету жасау ауыра ма?",
+      "en": "Is laser correction painful?"
+    },
+    "answer": {
+      "ru": "Нет. Операция проходит под капельной анестезией и занимает около 15 минут на оба глаза. В первые 3–4 часа возможны слезотечение и чувство инородного тела, затем дискомфорт уходит.",
+      "kk": "Жоқ. Операция тамшылы анестезиямен өтеді және екі көзге шамамен 15 минут алады. Алғашқы 3–4 сағатта жас ағу және бөгде дене сезімі болуы мүмкін, содан кейін ыңғайсыздық кетеді.",
+      "en": "No. The procedure is performed under drop anaesthesia and takes about 15 minutes for both eyes. Watering and a foreign-body sensation are possible in the first 3–4 hours, after which the discomfort passes."
+    }
+  },
+  {
+    "id": "faq-6",
+    "topic": "laser",
+    "question": {
+      "ru": "Есть ли ограничения по возрасту для лазерной коррекции?",
+      "kk": "Лазерлік түзетуге жас бойынша шектеу бар ма?",
+      "en": "Are there age limits for laser correction?"
+    },
+    "answer": {
+      "ru": "Коррекцию выполняют с 18 лет при условии стабильной рефракции в течение последнего года. Верхней возрастной границы нет — решение принимается по состоянию роговицы и хрусталика.",
+      "kk": "Түзету соңғы жыл ішінде рефракция тұрақты болған жағдайда 18 жастан орындалады. Жоғарғы жас шегі жоқ — шешім қасаң қабық пен бұршақ жағдайына қарай қабылданады.",
+      "en": "Correction is performed from the age of 18, provided refraction has been stable for the past year. There is no upper age limit — the decision depends on the condition of the cornea and lens."
+    }
+  },
+  {
+    "id": "faq-7",
+    "topic": "cataract",
+    "question": {
+      "ru": "Нужно ли ждать «созревания» катаракты?",
+      "kk": "Катарактаның «пісуін» күту керек пе?",
+      "en": "Do I need to wait for a cataract to \"ripen\"?"
+    },
+    "answer": {
+      "ru": "Нет, это устаревшее представление. Современная факоэмульсификация выполняется на любой стадии, а перезрелая катаракта делает операцию сложнее и удлиняет восстановление.",
+      "kk": "Жоқ, бұл ескірген түсінік. Заманауи факоэмульсификация кез келген сатыда орындалады, ал асқынған катаракта операцияны қиындатып, қалпына келуді ұзартады.",
+      "en": "No, that is an outdated idea. Modern phacoemulsification can be performed at any stage, and an overripe cataract makes surgery harder and recovery longer."
+    }
+  },
+  {
+    "id": "faq-8",
+    "topic": "cataract",
+    "question": {
+      "ru": "Требуется ли госпитализация после операции?",
+      "kk": "Операциядан кейін ауруханаға жату қажет пе?",
+      "en": "Is hospitalisation required after surgery?"
+    },
+    "answer": {
+      "ru": "Нет. Операция проводится амбулаторно, через 1,5–2 часа после вмешательства пациент уходит домой. Первый контрольный осмотр — на следующий день.",
+      "kk": "Жоқ. Операция амбулаториялық түрде жүргізіледі, араласудан кейін 1,5–2 сағаттан соң пациент үйіне қайтады. Алғашқы бақылау қарауы — келесі күні.",
+      "en": "No. Surgery is performed on an outpatient basis and the patient goes home 1.5–2 hours after the procedure. The first check-up is the next day."
+    }
+  },
+  {
+    "id": "faq-9",
+    "topic": "pediatric",
+    "question": {
+      "ru": "С какого возраста нужно показывать ребёнка офтальмологу?",
+      "kk": "Баланы офтальмологқа қай жастан көрсету керек?",
+      "en": "From what age should a child see an ophthalmologist?"
+    },
+    "answer": {
+      "ru": "Первый осмотр — в 1 месяц, затем в 1 год, в 3 года и перед школой. При наследственной близорукости или недоношенности график наблюдения составляется индивидуально.",
+      "kk": "Алғашқы қарау — 1 айда, содан кейін 1 жаста, 3 жаста және мектепке дейін. Тұқым қуалайтын миопия немесе шала туылу кезінде бақылау кестесі жеке жасалады.",
+      "en": "The first examination is at 1 month, then at 1 year, at 3 years and before school. With hereditary myopia or prematurity, the follow-up schedule is set individually."
+    }
+  },
+  {
+    "id": "faq-10",
+    "topic": "payments",
+    "question": {
+      "ru": "Какие способы оплаты доступны?",
+      "kk": "Қандай төлем тәсілдері қолжетімді?",
+      "en": "What payment methods are available?"
+    },
+    "answer": {
+      "ru": "Оплата банковской картой онлайн в личном кабинете, а также в кассе клиники. Для операций доступна предоплата с последующим полным расчётом. Электронный чек приходит на e-mail.",
+      "kk": "Жеке кабинетте банк картасымен онлайн төлеу, сондай-ақ клиника кассасында. Операциялар үшін алдын ала төлем және кейін толық есеп айырысу қолжетімді. Электрондық түбіртек e-mail-ға келеді.",
+      "en": "Card payment online in your patient account, and at the clinic's cash desk. Prepayment with later settlement in full is available for operations. The electronic receipt is emailed to you."
+    }
+  },
+  {
+    "id": "faq-11",
+    "topic": "payments",
+    "question": {
+      "ru": "Можно ли вернуть предоплату?",
+      "kk": "Алдын ала төлемді қайтаруға бола ма?",
+      "en": "Can a prepayment be refunded?"
+    },
+    "answer": {
+      "ru": "Да. Заявку на возврат можно оформить в личном кабинете. Средства возвращаются на карту, с которой был выполнен платёж, в течение 3–5 рабочих дней.",
+      "kk": "Иә. Қайтару өтінімін жеке кабинетте ресімдеуге болады. Қаражат төлем жасалған картаға 3–5 жұмыс күні ішінде қайтарылады.",
+      "en": "Yes. A refund request can be submitted in your patient account. Funds are returned to the card used for payment within 3–5 business days."
+    }
+  },
+  {
+    "id": "faq-12",
+    "topic": "general",
+    "question": {
+      "ru": "На каких языках ведётся приём?",
+      "kk": "Қабылдау қандай тілдерде жүргізіледі?",
+      "en": "In which languages are appointments conducted?"
+    },
+    "answer": {
+      "ru": "На казахском, русском и английском языках. Язык приёма можно указать при записи — мы подберём врача, владеющего нужным языком.",
+      "kk": "Қазақ, орыс және ағылшын тілдерінде. Қабылдау тілін жазылу кезінде көрсетуге болады — қажетті тілді меңгерген дәрігерді таңдаймыз.",
+      "en": "In Kazakh, Russian and English. You can specify the language when booking and we will match you with a doctor who speaks it."
+    }
+  }
+]
